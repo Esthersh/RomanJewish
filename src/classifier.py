@@ -164,7 +164,8 @@ class Classifier:
             text=text,
             source_name=metadata.get('source_name', 'Unknown'),
             group=metadata.get('group', 'Unknown'),
-            name=metadata.get('name', 'Unknown')
+            name=metadata.get('name', 'Unknown'),
+            Language=metadata.get('language', 'Hebrew')
         )
         
         if self.debug:
@@ -190,7 +191,9 @@ class Classifier:
         
         # Prepare subset of keywords for Step 2
         matched_kws_sub = [k for k in keywords if str(k.id) in matched_ids]
-        matched_str = self.format_keywords(matched_kws_sub)
+        # matched_str = self.format_keywords(matched_kws_sub) # Old bullet format
+        # User wants list of tuples format: (id, 'name'), (id, 'name')
+        matched_str = ", ".join([f"({k.id}, '{k.name}')" for k in matched_kws_sub])
         
         # Step 2: New Keyword Suggestion
         prompt_2 = self.prompts.get("suggestion_prompt", "").format(

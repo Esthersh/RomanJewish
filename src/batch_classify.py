@@ -62,7 +62,8 @@ def main():
             metadata = {
                 "source_name": sample.source_name,
                 "group": sample.group,
-                "name": sample.name
+                "name": sample.name,
+                "language": sample.language
             }
             matched_ids, suggested_kws = classifier.classify(sample.text_en, keywords, metadata)
             

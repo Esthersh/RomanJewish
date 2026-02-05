@@ -17,7 +17,8 @@ class CorpusSample:
     source_name: str
     group: str
     name: str
-    text_en: str  # Assuming English text is the primary input
+    text_en: str
+    language: str
     original_row: Dict[str, Any]
 
 class DataLoader:
@@ -66,11 +67,6 @@ class DataLoader:
             samples = []
             for _, row in df.iterrows():
                 # Adjust column names based on actual file inspection if needed
-                # Based on user description: group, name, source id, source name. 
-                # We need to identify the Text column.
-                # Inspecting the earlier `df.columns` output would be good, but I'll make a best guess and can refine.
-                # Earlier output showed: ['Group', 'Name', 'Source Id', 'Source Name', 'Text_EN', 'Text_Original', ...] (Hypothetical)
-                # Let's rely on flexible access or update after checking.
                 
                 sample = CorpusSample(
                     source_id=str(row.get('SourceID', '')),
@@ -78,6 +74,7 @@ class DataLoader:
                     group=str(row.get('Group', '')),
                     name=str(row.get('Name', '')),
                     text_en=str(row.get('Text', '')),
+                    language=str(row.get('Language', 'Hebrew')), # Default to Hebrew if missing, as prompt example implies
                     original_row=row.to_dict()
                 )
                 samples.append(sample)
