@@ -1,0 +1,19 @@
+venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints
+*.json
+*.xlsx
+*.csv
+# Keep the initial input files if they are considered part of the repo seed, but usually data is ignored. 
+# However, user code relies on specific filenames. 
+# For now, I'll ignore generated results but maybe keep the source data if it's small? 
+# The user prompted "commit and push current files". 
+# I will start by ignoring generated results and venv.
+
+batch_results.json
+batch_results_gpt4.json
+test_metadata.json
+annotated_results.xlsx
+debug_output.txt
+.DS_Store
