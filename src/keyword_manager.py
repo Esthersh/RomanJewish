@@ -1,5 +1,6 @@
 from typing import List
 
+
 class KeywordManager:
     def __init__(self):
         self.new_keywords: List[str] = []
