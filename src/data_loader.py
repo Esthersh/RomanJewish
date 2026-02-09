@@ -17,7 +17,7 @@ class CorpusSample:
     source_name: str
     group: str
     name: str
-    text_en: str
+    text: str
     language: str
     original_row: Dict[str, Any]
 
@@ -73,7 +73,7 @@ class DataLoader:
                     source_name=str(row.get('Refference', '')), # Using Refference as source name fallback/equivalent
                     group=str(row.get('Group', '')),
                     name=str(row.get('Name', '')),
-                    text_en=str(row.get('Text', '')),
+                    text=str(row.get('Text', '')),
                     language=str(row.get('Language', 'Hebrew')), # Default to Hebrew if missing, as prompt example implies
                     original_row=row.to_dict()
                 )
