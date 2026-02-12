@@ -6,10 +6,8 @@ import json
 
 from streamlit_gsheets import GSheetsConnection
 
-from src.data_loader import DataLoader
-from src.keyword_manager import KeywordManager
-
-COLUMN_NUMBER = 12
+from data_loader import DataLoader
+from keyword_manager import KeywordManager
 
 
 # Function to parse arguments
@@ -25,12 +23,13 @@ def get_config(results_dir):
     # Default to first file if available, otherwise None
     default_input = json_files[0] if json_files else None
 
-    keywords_file = "/home/esther/antigravity/RomanJewish/Keywords_05022026.csv"
+    # Default keywords file
+    keywords_file = "keywords.csv" 
+    if os.path.exists("/home/esther/antigravity/RomanJewish/Keywords_05022026.csv"):
+        keywords_file = "/home/esther/antigravity/RomanJewish/Keywords_05022026.csv"
 
     for i, arg in enumerate(sys.argv):
         if arg == "--input_file" and i + 1 < len(sys.argv):
-            # If passed via CLI, it might be a full path or just filename
-            # We'll assume user knows what they are doing if they pass CLI arg
             default_input = sys.argv[i + 1]
         if arg == "--keywords_file" and i + 1 < len(sys.argv):
             keywords_file = sys.argv[i + 1]
@@ -38,16 +37,24 @@ def get_config(results_dir):
     return default_input, keywords_file, json_files
 
 
-def add_anno(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws):
-    annotation = {
+def create_annotation(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws):
+    """Creates the annotation dictionary."""
+    return {
         "source_id": result.get('source_id'),
         "text": result.get("text_en"),
+        "group": result.get("group"),
+        "name": result.get("name"),
         "original_matched": matched_names,
         "kept_ids": kept_ids,
         "added_existing_ids": [k.split("(ID: ")[1].strip(")") for k in added_kws],
         "original_suggested": suggested_kws,
         "accepted_new_keywords": final_new_kws
     }
+
+
+def add_anno(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws):
+    """Adds the annotation to the session state."""
+    annotation = create_annotation(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws)
 
     # Add to the session buffer
     st.session_state.annotations.append(annotation)
@@ -83,13 +90,39 @@ def load_data(input_file):
                 st.session_state.input_file = input_file
                 st.session_state.data_loaded = True
                 st.success(f"Loaded {len(st.session_state.results)} samples.")
-                st.rerun() # Refresh to update the UI with new data
+                st.rerun()  # Refresh to update the UI with new data
             except Exception as e:
                 st.error(f"Error loading files: {e}")
 
 
+def display_rtl_text(text_content):
+    st.markdown(
+        f"""
+        <div style="
+            direction: rtl; 
+            text-align: right; 
+            border: 1px solid #ccc; 
+            padding: 10px; 
+            border-radius: 5px; 
+            height: auto; 
+            min-height: fit-content;
+            width: fit-content; 
+            max-width: 100%;    
+        ">
+            {text_content}
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+
 def main():
-    results_dir = "../results"
+    # Fix: Resolve results_dir relative to the script location
+    # This ensures it works whether running from root or src/
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    results_dir = os.path.join(project_root, "results")
+
     st.set_page_config(layout="centered",
                        page_title="RomanJewish Legal Classifier - Review")
 
@@ -116,7 +149,6 @@ def main():
             index=None
         )
 
-        # FIX: Check if a file is actually selected before joining paths
         if selected_file:
             input_file = os.path.join(results_dir, selected_file)
         else:
@@ -153,26 +185,8 @@ def main():
     col1, col2 = st.columns([0.8, 1])
     with col1:
         st.info(f"Group: {result.get('group')} | Name: {result.get('name')}")
-    # st.text_area("Text", result.get('text_en', ''), height=400, disabled=True)
-    text_content = result.get('text_en', '')
-    st.markdown(
-        f"""
-        <div style="
-            direction: rtl; 
-            text-align: right; 
-            border: 1px solid #ccc; 
-            padding: 10px; 
-            border-radius: 5px; 
-            height: auto; 
-            min-height: fit-content;
-            width: fit-content; /* Optional: Makes the width match the text length too */
-            max-width: 100%;    /* Ensures it doesn't overflow the screen */
-        ">
-            {text_content}
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
+    
+    display_rtl_text(result.get('text_en', ''))
 
     st.subheader("Classification Review")
 
@@ -190,18 +204,18 @@ def main():
     kept_ids = []
     for mid in matched_ids:
         kw_obj = kw_map.get(str(mid))
-        if st.checkbox(kw_obj.full_path, value=True, key=f"cb_{current_id}_{mid}"):
+        # Handle case where keyword ID might not be in the loaded keywords file
+        label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+        if st.checkbox(label, value=True, key=f"cb_{current_id}_{mid}"):
             kept_ids.append(mid)
 
     # 2. Add Missed (FN Check)
     st.write("**Are there any missed keywords from the thesaurus?**")
     all_kw_names = [f"{k.name} (ID: {k.id})" for k in st.session_state.keywords]
-    # Pre-select? No, user adds.
     added_kws = st.multiselect("Select existing keywords:",
                                all_kw_names,
                                key=f"ms_{current_id}",
                                label_visibility="collapsed")
-
 
     final_new_kws = []
     if suggested_kws:
@@ -209,9 +223,8 @@ def main():
         st.write("**Suggested Keywords (not from the original list), Edit for correction as needed**")
 
         for i, skw in enumerate(suggested_kws):
-            col_a, col_b = st.columns([0.7, 1])  # Adjusted ratio for better fit
+            col_a, col_b = st.columns([0.7, 1])
             with col_a:
-                # Added label_visibility="collapsed" to remove top padding
                 edited_kw = st.text_input(
                     "Edit keyword",
                     value=skw,
@@ -219,16 +232,12 @@ def main():
                     label_visibility="collapsed"
                 )
             with col_b:
-                # Checkbox often sits lower than text_input,
-                # so we sometimes add a blank line or spacer to align them,
-                # but simpler is better here.
                 if st.checkbox("Accept", value=True, key=f"accept_{current_id}_{i}"):
                     final_new_kws.append(edited_kw)
     else:
         st.write("No new keywords suggested by model.")
 
     # Add manual new keyword?
-    # Do the keywords cover all the legal concepts in the text?
     st.write("**Define any missing keywords, separated by commas (optional)**")
     manual_new = st.text_input("-",
                                key=f"manual_{current_id}",
@@ -287,7 +296,7 @@ def save_results(filename):
     except Exception as e:
         st.error(f"Failed to save local CSV: {e}")
 
-    # --- FIX 3: Google Sheets Read -> Append -> Update ---
+    # --- Google Sheets Read -> Append -> Update ---
     with st.spinner('Syncing with Google Sheets...'):
         try:
             if 'conn' not in st.session_state:
@@ -295,7 +304,8 @@ def save_results(filename):
 
             # 1. Read existing data to prevent overwriting
             try:
-                existing_df = st.session_state.conn.read(worksheet="Sheet1")
+                # ttl=0 ensures we don't get a cached version of the sheet
+                existing_df = st.session_state.conn.read(worksheet="Sheet1", ttl=0)
                 # Ensure we are working with a DataFrame
                 if existing_df is None:
                     existing_df = pd.DataFrame()
