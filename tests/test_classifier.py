@@ -35,7 +35,7 @@ class TestClassifier(unittest.TestCase):
 
     def test_format_keywords(self):
         classifier = Classifier(provider="openai", api_key="fake")
-        formatted = classifier.format_keywords(self.mock_keywords)
+        formatted = format_keywords(self.mock_keywords)
         self.assertIn("- Root (ID: 1)", formatted)
         self.assertIn("  - Leaf (ID: 2)", formatted)
 

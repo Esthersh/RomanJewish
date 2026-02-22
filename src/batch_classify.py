@@ -3,10 +3,9 @@ import json
 import os
 import sys
 from tqdm import tqdm
-from src.data_loader import DataLoader
-from src.classifier import Classifier
-from src.keyword_manager import KeywordManager
-from src.data_loader import Keyword
+from data_loader import DataLoader
+from classifier import Classifier
+from data_loader import Keyword
 import pandas as pd
 
 
@@ -35,16 +34,17 @@ openai
     parser = argparse.ArgumentParser(description="Run RomanJewish Classification Batch")
     parser.add_argument("--provider", required=True, choices=["gemini", "openai", "qwen"], help="LLM Provider")
     parser.add_argument("--api_key", required=True, help="API Key for the provider")
-    parser.add_argument("--prompt_file", default="prompts/default.py", help="Path to prompt file")
+    parser.add_argument("--prompt_file", default="/home/esther/PycharmProjects/RomanJewish/prompts/default.py", help="Path to prompt file")
     parser.add_argument("--prompt_k", default="CLASSIFICATION_PROMPT", help="Name of the prompt variable to use")
     parser.add_argument("--keywords_csv", default="Keywords_05022026.csv", help="Path to keywords CSV")
-    parser.add_argument("--corpus_xlsx", default="LUR sample corpus.xlsx", help="Path to corpus Excel")
+    parser.add_argument("--corpus_csv", default="LUR sample corpus.csv", help="Path to corpus CSV")
     parser.add_argument("--output_file", default="batch_results.json", help="Output JSON file for results")
     parser.add_argument("--limit", type=int, help="Limit number of samples for testing")
     # Model config args
     parser.add_argument("--model", type=str, help="Model signature/name (e.g. gpt-4-turbo)")
     parser.add_argument("--temperature", type=float, default=0.7, help="Temperature for generation")
     parser.add_argument("--top_p", type=float, default=0.95, help="Top-P for generation")
+    parser.add_argument("--thinking_level", type=str, default="high", help="thinking_level for generation")
     parser.add_argument("--debug", action="store_true", help="Enable verbose debug logging")
 
     args = parser.parse_args()
@@ -53,7 +53,7 @@ openai
     print("Loading data...")
     loader = DataLoader()
     keywords = loader.load_keywords(args.keywords_csv)
-    corpus = loader.load_corpus(args.corpus_xlsx)
+    corpus = loader.load_corpus(args.corpus_csv)
 
     if args.limit:
         corpus = corpus[:args.limit]
@@ -71,7 +71,8 @@ openai
             model_name=args.model,
             temperature=args.temperature,
             top_p=args.top_p,
-            debug=args.debug
+            debug=args.debug,
+            thinking_level=args.thinking_level
         )
     except Exception as e:
         print(f"Error initializing classifier: {e}")
@@ -109,7 +110,7 @@ openai
                 "name": sample.name,
                 "language": sample.language
             }
-            matched_ids, suggested_kws, full_res = classifier.classify(sample.text_en, keywords, metadata)
+            matched_ids, suggested_kws, full_res = classifier.classify(sample.text, keywords, metadata)
 
             # Resolve IDs to Names
             # specific helper to find name by id
@@ -120,7 +121,7 @@ openai
                 "source_id": sample.source_id,
                 "group": sample.group,
                 "name": sample.name,
-                "text_en": sample.text_en,
+                "text": sample.text,
                 "original_row": sample.original_row,  # Keep original metadata
                 "matched_ids": matched_ids,
                 "matched_keywords": matched_names,
@@ -193,10 +194,11 @@ openai
         except Exception as e:
             print(f"Error processing sample {sample.source_id}: {e}")
             # Continue to next sample? Or break? Let's continue and log error.
-            results.append({
-                "source_id": sample.source_id,
-                "error": str(e)
-            })
+            # results.append({
+            #     "source_id": sample.source_id,
+            #     "error": str(e)
+            # })
+            continue
 
     # Final Save (redundant but safe)
     print(f"Saving results to {args.output_file}...")

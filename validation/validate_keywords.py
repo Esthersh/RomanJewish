@@ -28,6 +28,61 @@ def parse_list_string(s):
                item.strip())
 
 
+def eval_col(pred_col, gt_col, merged):
+    precisions = []
+    recalls = []
+    f1s = []
+    jaccard_indices = []
+    if pred_col not in merged.columns:
+        print(f"Warning: '{pred_col}' not found. Using 'matched_ids' if available.")
+
+    for index, row in merged.iterrows():
+        gt_ids = parse_list_string(row[gt_col])
+        pred_ids = parse_list_string(row[pred_col])
+
+        # Filter out NaN/None/'nan' strings
+        gt_ids = {x for x in gt_ids if x and x.lower() != 'nan'}
+        pred_ids = {x for x in pred_ids if x and x.lower() != 'nan'}
+
+        intersection = gt_ids.intersection(pred_ids)
+        union = gt_ids.union(pred_ids)
+
+        tp = len(intersection)
+        fp = len(pred_ids - gt_ids)
+        fn = len(gt_ids - pred_ids)
+
+        # Sample micro-metrics
+        p = tp / (tp + fp) if (tp + fp) > 0 else 0.0
+        r = tp / (tp + fn) if (tp + fn) > 0 else 0.0
+        f1 = 2 * (p * r) / (p + r) if (p + r) > 0 else 0.0
+
+        # Jaccard
+        jaccard = len(intersection) / len(union) if len(union) > 0 else 0.0
+
+        precisions.append(p)
+        recalls.append(r)
+        f1s.append(f1)
+        jaccard_indices.append(jaccard)
+
+    # Add metrics to dataframe
+    merged['precision'] = precisions
+    merged['recall'] = recalls
+    merged['f1_score'] = f1s
+    merged['jaccard_index'] = jaccard_indices
+
+    # Macro Average
+    macro_p = np.mean(precisions) if precisions else 0
+    macro_r = np.mean(recalls) if recalls else 0
+    macro_f1 = np.mean(f1s) if f1s else 0
+    mean_jaccard = np.mean(jaccard_indices) if jaccard_indices else 0
+
+    print(f"Total Samples: {len(merged)}")
+    print(f"Macro Precision: {macro_p:.4f}")
+    print(f"Macro Recall:    {macro_r:.4f}")
+    print(f"Macro F1:        {macro_f1:.4f}")
+    print(f"Mean Jaccard:    {mean_jaccard:.4f}")
+
+
 def evaluate_keywords(results_path, gold_path):
     print(f"Loading results from: {results_path}")
     print(f"Loading gold standard from: {gold_path}")
@@ -82,64 +137,17 @@ def evaluate_keywords(results_path, gold_path):
         print("No matches found. Check ID formatting.")
         return
 
-    precisions = []
-    recalls = []
-    f1s = []
-    jaccard_indices = []
-
     print("\n--- Evaluation (IDs) ---")
 
     pred_col = 'matched_ids'
     gt_col = 'KW Ids'
 
-    if pred_col not in merged.columns:
-        print(f"Warning: '{pred_col}' not found. Using 'matched_ids' if available.")
+    eval_col(pred_col, gt_col, merged)
 
-    for index, row in merged.iterrows():
-        gt_ids = parse_list_string(row[gt_col])
-        pred_ids = parse_list_string(row[pred_col])
-
-        # Filter out NaN/None/'nan' strings
-        gt_ids = {x for x in gt_ids if x and x.lower() != 'nan'}
-        pred_ids = {x for x in pred_ids if x and x.lower() != 'nan'}
-
-        intersection = gt_ids.intersection(pred_ids)
-        union = gt_ids.union(pred_ids)
-
-        tp = len(intersection)
-        fp = len(pred_ids - gt_ids)
-        fn = len(gt_ids - pred_ids)
-
-        # Sample micro-metrics
-        p = tp / (tp + fp) if (tp + fp) > 0 else 0.0
-        r = tp / (tp + fn) if (tp + fn) > 0 else 0.0
-        f1 = 2 * (p * r) / (p + r) if (p + r) > 0 else 0.0
-
-        # Jaccard
-        jaccard = len(intersection) / len(union) if len(union) > 0 else 0.0
-
-        precisions.append(p)
-        recalls.append(r)
-        f1s.append(f1)
-        jaccard_indices.append(jaccard)
-
-    # Add metrics to dataframe
-    merged['precision'] = precisions
-    merged['recall'] = recalls
-    merged['f1_score'] = f1s
-    merged['jaccard_index'] = jaccard_indices
-
-    # Macro Average
-    macro_p = np.mean(precisions) if precisions else 0
-    macro_r = np.mean(recalls) if recalls else 0
-    macro_f1 = np.mean(f1s) if f1s else 0
-    mean_jaccard = np.mean(jaccard_indices) if jaccard_indices else 0
-
-    print(f"Total Samples: {len(merged)}")
-    print(f"Macro Precision: {macro_p:.4f}")
-    print(f"Macro Recall:    {macro_r:.4f}")
-    print(f"Macro F1:        {macro_f1:.4f}")
-    print(f"Mean Jaccard:    {mean_jaccard:.4f}")
+    print("\n--- Evaluation (names) ---")
+    pred_col = 'matched_keywords'
+    gt_col = 'Keywords'
+    eval_col(pred_col, gt_col, merged)
 
     # Save to CSV
     output_filename = os.path.basename(results_path).replace('.csv', '_validated.csv')
@@ -160,13 +168,21 @@ def evaluate_keywords(results_path, gold_path):
                        }
         merged.rename(columns=cols_rename, inplace=True)
         merged = merged[cols]
-        merged.to_csv(output_path, index=False)
+        merged.to_csv(output_path)
         print(f"\nSaved validated results to: {output_path}")
     except Exception as e:
         print(f"Error saving output CSV: {e}")
 
 
 if __name__ == "__main__":
+    """
+    --results_file
+    "/home/esther/PycharmProjects/RomanJewish/results/results_min_classify_5_shot_gpt4_1.csv"
+        --results_file
+    "/home/esther/PycharmProjects/RomanJewish/results/batch_results_gpt4_5shot.csv"
+    --gold_file
+    "/home/esther/PycharmProjects/RomanJewish/data/LUR_annotations.csv"
+    """
     parser = argparse.ArgumentParser(description="Validate Keyword Classification Results")
     parser.add_argument("--results_file", required=True, help="Path to the results CSV file")
     parser.add_argument("--gold_file", required=True, help="Path to the gold standard CSV file")

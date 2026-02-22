@@ -12,7 +12,7 @@ __pycache__/
 # I will start by ignoring generated results and venv.
 
 batch_results.json
-batch_results_gpt4.json
+results/batch_results_gpt4.json
 test_metadata.json
 annotated_results.xlsx
 debug_output.txt

@@ -3,7 +3,7 @@ import streamlit as st
 import pandas as pd
 import sys
 import json
-
+from classifier import format_keywords
 from streamlit_gsheets import GSheetsConnection
 
 from data_loader import DataLoader
@@ -24,7 +24,6 @@ def get_config(results_dir):
     default_input = json_files[0] if json_files else None
 
     # Default keywords file
-    keywords_file = "keywords.csv" 
     if os.path.exists("/home/esther/antigravity/RomanJewish/Keywords_05022026.csv"):
         keywords_file = "/home/esther/antigravity/RomanJewish/Keywords_05022026.csv"
 
@@ -37,11 +36,14 @@ def get_config(results_dir):
     return default_input, keywords_file, json_files
 
 
-def create_annotation(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws):
+def create_annotation(result, matched_names, kept_ids, added_kws,
+                      suggested_kws, final_new_kws, filename):
     """Creates the annotation dictionary."""
     return {
+        "results_filename": filename,
+        "ref_id": result.get('original_row').get("Refference"),
         "source_id": result.get('source_id'),
-        "text": result.get("text_en"),
+        "text": result.get("text"),
         "group": result.get("group"),
         "name": result.get("name"),
         "original_matched": matched_names,
@@ -54,7 +56,10 @@ def create_annotation(result, matched_names, kept_ids, added_kws, suggested_kws,
 
 def add_anno(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws):
     """Adds the annotation to the session state."""
-    annotation = create_annotation(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws)
+    if 'input_file' in st.session_state and st.session_state.input_file:
+        current_file = os.path.basename(st.session_state.input_file)
+    annotation = create_annotation(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws,
+                                   current_file)
 
     # Add to the session buffer
     st.session_state.annotations.append(annotation)
@@ -140,6 +145,7 @@ def main():
     # Sidebar
     st.sidebar.title("Review Config")
     cli_input_file, cli_keywords_file, available_files = get_config(results_dir)
+    st.session_state.keywords_file = cli_keywords_file
 
     # Select menu for results file
     if available_files:
@@ -157,14 +163,71 @@ def main():
         # Fallback text input if no files found or custom path needed
         input_file = st.sidebar.text_input("Results JSON File Path", value=cli_input_file if cli_input_file else "")
 
-    st.session_state.keywords_file = st.sidebar.text_input("Keywords CSV File", value=cli_keywords_file)
+    # st.session_state.keywords_file = st.sidebar.text_input("Keywords CSV File", value=cli_keywords_file)
+
     output_file = st.sidebar.text_input("Output CSV File", value="annotated_results.csv")
+
+    if os.path.exists(output_file):
+        with open(output_file, "rb") as file:
+            st.sidebar.download_button(
+                label="📥 Download Annotated CSV",
+                data=file,
+                file_name=output_file,
+                mime="text/csv"
+            )
+    # else:
+        # st.sidebar.info("Annotated CSV will be available to download after your first save.")
 
     # Load Data
     load_data(input_file)
 
+    # ... inside main(), after load_data(input_file) ...
+
+    st.sidebar.markdown("---")
+    st.sidebar.subheader("Keyword Taxonomy")
+
+    # Acts as a clickable button that reveals the search and list below it
+    with st.sidebar.expander("Search & View All Keywords", expanded=False):
+        if st.session_state.keywords:
+            # 1. Add the search text input
+            search_query = st.text_input("Search keywords...", key="kw_search").lower()
+
+            # 2. Handle the search logic
+            if search_query:
+                # Filter keywords where the name contains the search string (case-insensitive)
+                filtered_kws = [
+                    kw for kw in st.session_state.keywords
+                    if search_query in getattr(kw, 'name', '').lower()
+                ]
+
+                if filtered_kws:
+                    st.markdown(f"**Found {len(filtered_kws)} matches:**")
+                    # Display matches as a flat list for easy reading
+                    for kw in filtered_kws:
+                        name = getattr(kw, 'name', 'Unknown')
+                        kw_id = getattr(kw, 'id', 'N/A')
+                        st.markdown(f"- {name} (ID: {kw_id})")
+                else:
+                    st.write("No keywords found matching your search.")
+            else:
+                # 3. If the search box is empty, show the full formatted tree
+                formatted_kws = format_keywords(st.session_state.keywords)
+                # Using a container with a set height gives it a nice scrollbar
+                with st.container(height=400):
+                    st.markdown(formatted_kws)
+        else:
+            st.warning("No keywords loaded yet.")
+
+    # Initialize toggle state if it doesn't exist
+    if 'show_keywords' not in st.session_state:
+        st.session_state.show_keywords = False
+
     # Main UI
     st.title("Review Classification Results")
+
+    if not st.session_state.results:
+        st.info("Please select a results JSON file from the sidebar to begin.")
+        return
 
     if st.session_state.current_index >= len(st.session_state.results):
         st.success("All samples reviewed!")
@@ -185,8 +248,8 @@ def main():
     col1, col2 = st.columns([0.8, 1])
     with col1:
         st.info(f"Group: {result.get('group')} | Name: {result.get('name')}")
-    
-    display_rtl_text(result.get('text_en', ''))
+
+    display_rtl_text(result.get('text', ''))
 
     st.subheader("Classification Review")
 

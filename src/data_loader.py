@@ -51,12 +51,12 @@ class DataLoader:
             print(f"Error loading keywords: {e}")
             return []
 
-    def load_corpus(self, excel_path: str) -> List[CorpusSample]:
+    def load_corpus(self, csv_path: str) -> List[CorpusSample]:
         """
-        Loads corpus samples from Excel.
+        Loads corpus samples from CSV.
         """
         try:
-            df = pd.read_excel(excel_path)
+            df = pd.read_csv(csv_path)
             
             # Forward fill Group and Name columns
             if 'Group' in df.columns:
