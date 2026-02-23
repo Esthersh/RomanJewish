@@ -57,6 +57,8 @@ class DataLoader:
         """
         try:
             df = pd.read_csv(csv_path)
+            # filter annotated rows
+            df.dropna(subset="Keywords", inplace=True)
             
             # Forward fill Group and Name columns
             if 'Group' in df.columns:

@@ -177,9 +177,11 @@ def evaluate_keywords(results_path, gold_path):
 if __name__ == "__main__":
     """
     --results_file
-    "/home/esther/PycharmProjects/RomanJewish/results/results_min_classify_5_shot_gpt4_1.csv"
+    "/home/esther/PycharmProjects/RomanJewish/batch_results_gpt4.csv"
         --results_file
     "/home/esther/PycharmProjects/RomanJewish/results/batch_results_gpt4_5shot.csv"
+    
+    --results_file "/home/esther/PycharmProjects/RomanJewish/results/annotated_5shot_gpt_keywords_stable.csv"  
     --gold_file
     "/home/esther/PycharmProjects/RomanJewish/data/LUR_annotations.csv"
     """

@@ -19,6 +19,7 @@ python3 src/batch_classify.py \
   --top_p 1 \
   --thinking_level "HIGH" \
   --corpus_csv "/home/esther/PycharmProjects/RomanJewish/data/LUR_annotations.csv" \
-  --keywords_csv "/home/esther/antigravity/RomanJewish/Keywords_05022026.csv" \
+  --keywords_csv "/home/esther/antigravity/RomanJewish/Keywords_05022026_original.csv" \
+  --output_keywords_csv "/home/esther/antigravity/RomanJewish/Keywords_generated_22062026.csv" \
   --output_file "batch_results_gemini3.json" && \
   echo "Batch classification complete. Results saved to batch_results_gemini3.json."

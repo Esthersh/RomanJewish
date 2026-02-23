@@ -17,8 +17,9 @@ python3 src/batch_classify.py \
   --model "gpt-4.1-2025-04-14" \
   --temperature 0 \
   --top_p 1 \
-  --output_file "batch_results_gpt4.json" \
+  --output_file "annotated_5shot_gpt_keywords_stable.json" \
   --corpus_csv "/home/esther/PycharmProjects/RomanJewish/data/LUR_annotations.csv" \
-  --keywords_csv "/home/esther/antigravity/RomanJewish/Keywords_05022026.csv" \
+  --keywords_csv "/home/esther/antigravity/RomanJewish/Keywords_05022026_original.csv" \
+  --output_keywords_csv "/home/esther/antigravity/RomanJewish/Keywords_generated_22062026.csv" \
   --prompt_k "MINIMAL_CLASSIFY_5_SHOT" && \
 echo "Batch classification complete. Results saved to batch_results_gpt4.json."

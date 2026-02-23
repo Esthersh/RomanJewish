@@ -7,6 +7,7 @@ from data_loader import DataLoader
 from classifier import Classifier
 from data_loader import Keyword
 import pandas as pd
+import shutil  # Added for copying the file
 
 
 def main():
@@ -34,8 +35,11 @@ openai
     parser = argparse.ArgumentParser(description="Run RomanJewish Classification Batch")
     parser.add_argument("--provider", required=True, choices=["gemini", "openai", "qwen"], help="LLM Provider")
     parser.add_argument("--api_key", required=True, help="API Key for the provider")
-    parser.add_argument("--prompt_file", default="/home/esther/PycharmProjects/RomanJewish/prompts/default.py", help="Path to prompt file")
+    parser.add_argument("--prompt_file", default="/home/esther/PycharmProjects/RomanJewish/prompts/default.py",
+                        help="Path to prompt file")
     parser.add_argument("--prompt_k", default="CLASSIFICATION_PROMPT", help="Name of the prompt variable to use")
+    parser.add_argument("--output_keywords_csv", default="updated_keywords.csv",
+                        help="Path to save the updated keywords CSV")  # NEW ARGUMENT
     parser.add_argument("--keywords_csv", default="Keywords_05022026.csv", help="Path to keywords CSV")
     parser.add_argument("--corpus_csv", default="LUR sample corpus.csv", help="Path to corpus CSV")
     parser.add_argument("--output_file", default="batch_results.json", help="Output JSON file for results")
@@ -46,6 +50,7 @@ openai
     parser.add_argument("--top_p", type=float, default=0.95, help="Top-P for generation")
     parser.add_argument("--thinking_level", type=str, default="high", help="thinking_level for generation")
     parser.add_argument("--debug", action="store_true", help="Enable verbose debug logging")
+    parser.add_argument("--expand_kwords", action="store_true", help="Enable verbose debug logging")
 
     args = parser.parse_args()
 
@@ -54,6 +59,7 @@ openai
     loader = DataLoader()
     keywords = loader.load_keywords(args.keywords_csv)
     corpus = loader.load_corpus(args.corpus_csv)
+
 
     if args.limit:
         corpus = corpus[:args.limit]
@@ -92,11 +98,21 @@ openai
                 if isinstance(existing_results, list):
                     results = existing_results
                     processed_ids = {str(item.get("source_id")) for item in results if "source_id" in item}
-                    print(f"Loaded {len(results)} existing results. Skipping {len(processed_ids)} already processed samples.")
+                    print(
+                        f"Loaded {len(results)} existing results. Skipping {len(processed_ids)} already processed samples.")
         except json.JSONDecodeError:
             print(f"Warning: Could not decode {args.output_file}. Starting fresh.")
         except Exception as e:
             print(f"Warning: Error reading {args.output_file}: {e}. Starting fresh.")
+
+        # Create a copy of the original keywords CSV so we don't overwrite it
+        if not os.path.exists(args.output_keywords_csv):
+            try:
+                shutil.copy2(args.keywords_csv, args.output_keywords_csv)
+                print(f"Created a copy of the keyword list at {args.output_keywords_csv}")
+            except Exception as e:
+                print(f"Error copying keywords CSV: {e}")
+                sys.exit(1)
 
     print("Starting classification...")
     for sample in tqdm(corpus):
@@ -135,7 +151,7 @@ openai
                 json.dump(results, f, indent=2)
 
             # update the prompt to include the suggested keywords
-            if suggested_kws:
+            if suggested_kws and args.expand_kwords:
                 # Find max ID to assign new IDs
                 max_id = max([k.id for k in keywords]) if keywords else 0
                 new_keywords_added = []
@@ -153,7 +169,7 @@ openai
                     )
                     keywords.append(additional_root)
                     new_keywords_added.append(additional_root)
-                
+
                 # Add new keywords under "Additional Keywords"
                 for new_kw_name in suggested_kws:
                     # Check if already exists to avoid duplicates
@@ -184,10 +200,10 @@ openai
                             'Full Path': kw.full_path,
                             'Level': kw.level
                         })
-                    
+
                     df_new = pd.DataFrame(new_rows)
                     try:
-                        df_new.to_csv(args.keywords_csv, mode='a', header=False, index=False)
+                        df_new.to_csv(args.output_keywords_csv, mode='a', header=False, index=False)
                     except Exception as e:
                         print(f"Error saving new keywords to CSV: {e}")
 
