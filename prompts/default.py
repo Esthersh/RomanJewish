@@ -1,3 +1,73 @@
+MATCH_KEYWORDS_W_EN = """## Context
+We are focusing on parallels in local law and legal practices and traditions under the Roman Empire. Each legal source text must be matched to a subset of keywords covering ideas, terms, and objects. The keyword hierarchy is organized by overarching categories.
+
+## Instructions
+1. Analyze the provided {Language} legal text and its English translation.
+2. Review the provided Keyword hierarchy.
+3. Identify and return the keywords from the hierarchy that best match the ideas, terms, and objects in the text.
+4. If the hierarchy does not adequately cover the source text, you may suggest alternative keywords. 
+    * All suggested keywords MUST be in English.
+    * Do not suggest more than 3 new keywords.
+    * Assign any suggested keyword to the existing category that matches it best. If no existing category fits, use "other" for the category field.
+    * For suggested keywords, set the keyword_id to -1. Set the category_id to the ID of the matched category, or -1 if the category is "other".
+
+## Keyword Hierarchy 
+{hierarchy}
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the following schema:
+
+[
+  {{
+    "category": "Name of the category",
+    "keyword": "Matched or suggested word",
+    "suggested": true/false, 
+    "category_id": "ID of the category (or -1)",
+    "keyword_id": "ID of the keyword (or -1)"
+  }}
+]
+
+## Input Data
+Source Text ({Language}): 
+{text}
+
+English Translation: 
+{translation}"""
+
+
+MATCH_KEYWORDS = """## Context
+We are focusing on parallels in local law and legal practices and traditions under the Roman Empire. Each legal source text must be matched to a subset of keywords covering ideas, terms, and objects. The keyword hierarchy is organized by overarching categories.
+
+## Instructions
+1. Analyze the provided {Language} legal text.
+2. Review the provided Keyword hierarchy.
+3. Identify and return the keywords from the hierarchy that best match the ideas, terms, and objects in the text.
+4. If the hierarchy does not adequately cover the source text, you may suggest alternative keywords. 
+    * All suggested keywords MUST be in English.
+    * Do not suggest more than 3 new keywords.
+    * Assign any suggested keyword to the existing category that matches it best. If no existing category fits, use "other" for the category field.
+    * For suggested keywords, set the keyword_id to -1. Set the category_id to the ID of the matched category, or -1 if the category is "other".
+
+## Keyword Hierarchy 
+{hierarchy}
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the following schema:
+
+[
+  {{
+    "category": "Name of the category",
+    "keyword": "Matched or suggested word",
+    "suggested": true/false, 
+    "category_id": "ID of the category (or -1)",
+    "keyword_id": "ID of the keyword (or -1)"
+  }}
+]
+
+## Input Data
+Source Text ({Language}): 
+{text}"""
+
 MINIMAL_CLASSIFY_5_SHOT = """You are an expert in comparative legal history, specializing in the intersection of Jewish Law (Halakha) sources and Roman legal traditions.
 
 Classify the provided {Language} legal text using the supplied keyword hierarchy.

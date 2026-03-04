@@ -5,30 +5,27 @@ import sys
 from tqdm import tqdm
 from data_loader import DataLoader
 from classifier import Classifier
-from data_loader import Keyword
-import pandas as pd
-import shutil  # Added for copying the file
 
 
 def main():
     """
---prompt_file
-"/home/esther/PycharmProjects/RomanJewish/prompts/default.py"
---prompt_k
-"CLASSIFICATION_PROMPT"
---keywords_csv
-"/home/esther/antigravity/RomanJewish/Keywords_05022026.csv"
---corpus_xlsx "/home/esther/antigravity/RomanJewish/LUR sample corpus.xlsx"
---provider
-openai
---api_key
-"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"
---model
-"gpt-4.1-2025-04-14"
---temperature
-0
---output_file
-"batch_results_gpt4.json"
+    --prompt_file
+    "/home/esther/PycharmProjects/RomanJewish/prompts/default.py"
+    --prompt_k
+    "CLASSIFICATION_PROMPT"
+    --keywords_csv
+    "/home/esther/antigravity/RomanJewish/Keywords_05022026.csv"
+    --corpus_xlsx "/home/esther/antigravity/RomanJewish/LUR sample corpus.xlsx"
+    --provider
+    openai
+    --api_key
+    "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"
+    --model
+    "gpt-4.1-2025-04-14"
+    --temperature
+    0
+    --output_file
+    "batch_results_gpt4.json"
 
  :return:
     """
@@ -38,17 +35,15 @@ openai
     parser.add_argument("--prompt_file", default="/home/esther/PycharmProjects/RomanJewish/prompts/default.py",
                         help="Path to prompt file")
     parser.add_argument("--prompt_k", default="CLASSIFICATION_PROMPT", help="Name of the prompt variable to use")
-    parser.add_argument("--output_keywords_csv", default="updated_keywords.csv",
-                        help="Path to save the updated keywords CSV")  # NEW ARGUMENT
     parser.add_argument("--keywords_csv", default="Keywords_05022026.csv", help="Path to keywords CSV")
     parser.add_argument("--corpus_csv", default="LUR sample corpus.csv", help="Path to corpus CSV")
     parser.add_argument("--output_file", default="batch_results.json", help="Output JSON file for results")
     parser.add_argument("--limit", type=int, help="Limit number of samples for testing")
     # Model config args
     parser.add_argument("--model", type=str, help="Model signature/name (e.g. gpt-4-turbo)")
-    parser.add_argument("--temperature", type=float, default=0.7, help="Temperature for generation")
-    parser.add_argument("--top_p", type=float, default=0.95, help="Top-P for generation")
-    parser.add_argument("--thinking_level", type=str, default="high", help="thinking_level for generation")
+    parser.add_argument("--temperature", type=float, help="Temperature for generation")
+    parser.add_argument("--top_p", type=float, help="Top-P for generation")
+    parser.add_argument("--thinking_level", type=str, help="thinking_level for generation")
     parser.add_argument("--debug", action="store_true", help="Enable verbose debug logging")
     parser.add_argument("--expand_kwords", action="store_true", help="Enable verbose debug logging")
 
@@ -59,7 +54,6 @@ openai
     loader = DataLoader()
     keywords = loader.load_keywords(args.keywords_csv)
     corpus = loader.load_corpus(args.corpus_csv)
-
 
     if args.limit:
         corpus = corpus[:args.limit]
@@ -105,15 +99,6 @@ openai
         except Exception as e:
             print(f"Warning: Error reading {args.output_file}: {e}. Starting fresh.")
 
-        # Create a copy of the original keywords CSV so we don't overwrite it
-        if not os.path.exists(args.output_keywords_csv):
-            try:
-                shutil.copy2(args.keywords_csv, args.output_keywords_csv)
-                print(f"Created a copy of the keyword list at {args.output_keywords_csv}")
-            except Exception as e:
-                print(f"Error copying keywords CSV: {e}")
-                sys.exit(1)
-
     print("Starting classification...")
     for sample in tqdm(corpus):
         if str(sample.source_id) in processed_ids:
@@ -123,8 +108,9 @@ openai
             metadata = {
                 "source_name": sample.source_name,
                 "group": sample.group,
-                "name": sample.name,
-                "language": sample.language
+                "ref_id": sample.ref_id,
+                "language": sample.language,
+                "translation": sample.original_row.get('translation', '')
             }
             matched_ids, suggested_kws, full_res = classifier.classify(sample.text, keywords, metadata)
 
@@ -134,9 +120,10 @@ openai
             matched_names = [kw_map.get(str(mid), f"Unknown ID {mid}") for mid in matched_ids]
 
             result_entry = {
+                "ref_id": sample.ref_id,
                 "source_id": sample.source_id,
                 "group": sample.group,
-                "name": sample.name,
+                "name": sample.source_name,
                 "text": sample.text,
                 "original_row": sample.original_row,  # Keep original metadata
                 "matched_ids": matched_ids,
@@ -150,65 +137,8 @@ openai
             with open(args.output_file, 'w') as f:
                 json.dump(results, f, indent=2)
 
-            # update the prompt to include the suggested keywords
-            if suggested_kws and args.expand_kwords:
-                # Find max ID to assign new IDs
-                max_id = max([k.id for k in keywords]) if keywords else 0
-                new_keywords_added = []
-                # Find or create "Additional Keywords" root category
-                additional_root = next((k for k in keywords if k.name == "Additional Keywords" and k.level == 0), None)
-                if not additional_root:
-                    max_id += 1
-                    additional_root = Keyword(
-                        id=max_id,
-                        name="Additional Keywords",
-                        level=0,
-                        parent_id=None,
-                        full_path="Additional Keywords",
-                        indented_name="Additional Keywords"
-                    )
-                    keywords.append(additional_root)
-                    new_keywords_added.append(additional_root)
-
-                # Add new keywords under "Additional Keywords"
-                for new_kw_name in suggested_kws:
-                    # Check if already exists to avoid duplicates
-                    if not any(k.name.lower() == new_kw_name.lower() for k in keywords):
-                        max_id += 1
-                        new_keyword = Keyword(
-                            id=max_id,
-                            name=new_kw_name,
-                            level=1,
-                            parent_id=additional_root.id,
-                            full_path=f"Additional Keywords > {new_kw_name}",
-                            indented_name=f"  {new_kw_name}"
-                        )
-                        keywords.append(new_keyword)
-                        new_keywords_added.append(new_keyword)
-                        if args.debug:
-                            print(f"[DEBUG] Added new keyword: {new_kw_name} (ID: {max_id})")
-
-                # save the additional keywords in the CSV files with the original list
-                if new_keywords_added:
-                    new_rows = []
-                    for kw in new_keywords_added:
-                        new_rows.append({
-                            'Id': kw.id,
-                            'Keyword': kw.name,
-                            'Parent KW Id': kw.parent_id,
-                            'Indented Keywords': kw.indented_name,
-                            'Full Path': kw.full_path,
-                            'Level': kw.level
-                        })
-
-                    df_new = pd.DataFrame(new_rows)
-                    try:
-                        df_new.to_csv(args.output_keywords_csv, mode='a', header=False, index=False)
-                    except Exception as e:
-                        print(f"Error saving new keywords to CSV: {e}")
-
         except Exception as e:
-            print(f"Error processing sample {sample.source_id}: {e}")
+            print(f"Error processing sample {sample.ref_id}: {e}")
             # Continue to next sample? Or break? Let's continue and log error.
             # results.append({
             #     "source_id": sample.source_id,

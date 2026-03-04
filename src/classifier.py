@@ -1,8 +1,10 @@
 import ast
+import json
 import importlib.util
 from typing import List, Dict, Tuple
 from openai import OpenAI
 from data_loader import Keyword
+from models import *
 from google import genai
 from time import sleep
 
@@ -41,22 +43,37 @@ class GeminiProvider(LLMProvider):
 class OpenAIProvider(LLMProvider):
     def __init__(self,
                  api_key: str,
-                 model_name: str = "gpt-4o",
-                 temperature: float = 0.7,
-                 top_p: float = 1.0):
+                 model_name: str,
+                 temperature: float = None,
+                 top_p: float = None,
+                 reasoning_effort: str = "high"):
+        self.thinking_level = None
         self.client = OpenAI(api_key=api_key)
         self.model_name = model_name
         self.temperature = temperature
         self.top_p = top_p
 
+        # reasoning_effort can be "low", "medium", or "high"
+        self.reasoning_effort = reasoning_effort
+
     def generate(self, prompt: str) -> str:
         try:
-            response = self.client.chat.completions.create(
-                messages=[{"role": "user", "content": prompt}],
-                model=self.model_name,
-                temperature=self.temperature,
-                top_p=self.top_p
-            )
+            # Build base arguments
+            kwargs = {
+                "model": self.model_name,
+                "messages": [{"role": "user", "content": prompt}],
+            }
+            if self.reasoning_effort is not None:
+                kwargs["reasoning_effort"] = self.reasoning_effort.lower()
+            # if temperature not null - add
+            if self.temperature is not None:
+                kwargs["temperature"] = self.temperature
+            # if top_p not null - add
+            if self.top_p is not None:
+                kwargs["top_p"] = self.top_p
+
+            response = self.client.chat.completions.create(**kwargs)
+            sleep(0.1)
             return response.choices[0].message.content
         except Exception as e:
             print(f"OpenAI Error: {e}")
@@ -89,11 +106,14 @@ class QwenProvider(LLMProvider):
 
 
 def format_keywords(keywords: List[Keyword]) -> str:
-    # Organize by hierarchy for display
-    # A simple indented list or path-based list
-    # optimizing for token usage and clarity
-    # Group by level 0
-
+    """
+    Organize by hierarchy for display
+    A simple indented list or path-based list
+    optimizing for token usage and clarity
+    Group by level 0
+    :param keywords:
+    :return:
+    """
     # Let's map parent IDs to children
     tree = {}  # parent_id -> list of keywords
     roots = []
@@ -115,6 +135,33 @@ def format_keywords(keywords: List[Keyword]) -> str:
     return "\n".join(output)
 
 
+def format_keywords_by_category(keywords: List[Keyword]) -> str:
+    """
+    Create a string of all keywords and their IDs organized by categories.
+    Categories are level 0 keywords, keywords are level 1.
+    Format:
+        Category {category_name}, id: {category_id}
+          - {keyword_name} (id: {keyword_id})
+    """
+    # Separate categories (level 0) and keywords (level 1)
+    categories = [kw for kw in keywords if kw.level == 0]
+    # Build mapping: parent_id -> list of level-1 children
+    children_map: Dict[int, List[Keyword]] = {}
+    for kw in keywords:
+        if kw.level == 1 and kw.parent_id is not None:
+            children_map.setdefault(kw.parent_id, []).append(kw)
+
+    output = []
+    for cat in categories:
+        output.append(f"Category {cat.name}, id: {cat.id}")
+        children = children_map.get(cat.id, [])
+        for child in children:
+            output.append(f"  - {child.name} (id: {child.id})")
+        output.append("")  # blank line between categories
+
+    return "\n".join(output).rstrip()
+
+
 class Classifier:
     def __init__(
             self,
@@ -125,7 +172,7 @@ class Classifier:
             model_name: str = None,
             temperature: float = 0.0,
             top_p: float = 1.,
-            thinking_level: str = "HIGH",
+            thinking_level: str = None,
             debug: bool = False
     ):
         self.provider_name = provider.lower()
@@ -165,7 +212,71 @@ class Classifier:
     def classify(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) -> Tuple[
         List[str], List[str], str]:
         """
-        Returns: (matched_keyword_ids_or_names, new_suggested_keywords)
+        Returns: (matched_keyword_ids_or_names, new_suggested_keywords, raw_response)
+        """
+        if self.prompt_name == "MATCH_KEYWORDS":
+            return self._classify_match_keywords(text, keywords, metadata)
+        else:
+            return self._classify_default(text, keywords, metadata)
+
+    def _classify_match_keywords(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) -> Tuple[
+        List[str], List[str], str]:
+        """
+        Classification using the MATCH_KEYWORDS prompt.
+        Single-step: classification + suggestions in one LLM call.
+        Output validated with Pydantic.
+        """
+        hierarchy = format_keywords_by_category(keywords)
+
+        prompt = self.prompts.get("classification_prompt", "").format(
+            hierarchy=hierarchy,
+            text=text,
+            translation=metadata.get('translation', ''),
+            Language=metadata.get('language', 'Hebrew')
+        )
+
+        if self.debug:
+            print(f"\n[DEBUG] --- MATCH_KEYWORDS Prompt ---\n{prompt}\n-----------------------------------")
+
+        response = self.llm.generate(prompt)
+
+        if self.debug:
+            print(f"\n[DEBUG] --- LLM Response ---\n{response}\n------------------------------")
+
+        # Parse JSON response and validate with Pydantic
+        matched_ids = []
+        suggested_kws = []
+        try:
+            # Strip potential markdown code fences
+            cleaned = response.strip()
+            if cleaned.startswith("```"):
+                cleaned = cleaned.split("\n", 1)[1] if "\n" in cleaned else cleaned
+                if cleaned.endswith("```"):
+                    cleaned = cleaned[:-3]
+                cleaned = cleaned.strip()
+            if cleaned.startswith("json"):
+                cleaned = cleaned[4:].strip()
+
+            raw_json = json.loads(cleaned)
+            entries = validate_match_keywords_response(raw_json)
+
+            for entry in entries:
+                if entry.suggested:
+                    suggested_kws.append(entry.keyword)
+                else:
+                    matched_ids.append(str(entry.keyword_id))
+
+        except json.JSONDecodeError as e:
+            print(f"Error parsing JSON from MATCH_KEYWORDS response: {e}")
+        except Exception as e:
+            print(f"Error validating MATCH_KEYWORDS response: {e}")
+
+        return matched_ids, suggested_kws, response
+
+    def _classify_default(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) -> Tuple[
+        List[str], List[str], str]:
+        """
+        Original classification flow: step 1 (classify) + step 2 (suggest).
         """
         hierarchy_str = format_keywords(keywords)
 
@@ -188,23 +299,13 @@ class Classifier:
         if self.debug:
             print(f"\n[DEBUG] --- LLM Response 1 ---\n{response_1}\n------------------------------")
 
-        # Regex to find the first number in a tuple-like structure (id, word)
-        # Matches patterns like (123, "Word") or (123, 'Word')
-        # We capture the digits inside the parenthesis before the comma
         matched_ids = re.findall(r'\((\d+)\s*,', response_1)
 
-        # Fallback: if regex yields nothing, maybe it reverted to old CSV or just numbers?
-        # But user explicitly asked for tuples. If the model fails to follow format, this might identify nothing.
-        # Let's add a robust fallback to just finding IDs if the tuple parse fails, 
-        # BUT strictly speaking we should follow the tuple structure to avoid false positives from the text part.
         if not matched_ids:
-            # Try simple CSV backup just in case model ignores instruction
             matched_ids = [s.strip() for s in response_1.split(',') if s.strip().isdigit()]
 
         # Prepare subset of keywords for Step 2
         matched_kws_sub = [k for k in keywords if str(k.id) in matched_ids]
-        # matched_str = self.format_keywords(matched_kws_sub) # Old bullet format
-        # User wants list of tuples format: (id, 'name'), (id, 'name')
         matched_str = ", ".join([k.name for k in matched_kws_sub])
 
         # Step 2: New Keyword Suggestion

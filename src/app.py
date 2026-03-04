@@ -3,6 +3,10 @@ import streamlit as st
 import pandas as pd
 import sys
 import json
+import yaml
+from datetime import date
+from yaml.loader import SafeLoader
+import streamlit_authenticator as stauth
 from classifier import format_keywords
 from streamlit_gsheets import GSheetsConnection
 
@@ -24,8 +28,8 @@ def get_config(results_dir):
     default_input = json_files[0] if json_files else None
 
     # Default keywords file
-    if os.path.exists("/home/esther/antigravity/RomanJewish/Keywords_05022026.csv"):
-        keywords_file = "/home/esther/antigravity/RomanJewish/Keywords_05022026.csv"
+    if os.path.exists("/home/esther/PycharmProjects/RomanJewish/data/Keywords.csv"):
+        keywords_file = "/home/esther/PycharmProjects/RomanJewish/data/Keywords.csv"
 
     for i, arg in enumerate(sys.argv):
         if arg == "--input_file" and i + 1 < len(sys.argv):
@@ -41,6 +45,8 @@ def create_annotation(result, matched_names, kept_ids, added_kws,
     """Creates the annotation dictionary."""
     return {
         "results_filename": filename,
+        "annotator": st.session_state.get('name', ''),
+        "date": date.today().isoformat(),
         "ref_id": result.get('original_row').get("Refference"),
         "source_id": result.get('source_id'),
         "text": result.get("text"),
@@ -121,6 +127,62 @@ def display_rtl_text(text_content):
     )
 
 
+def compute_sample_metrics(gold_ids, pred_ids):
+    """Compute precision, recall, and Jaccard index for a single sample."""
+    gold = set(str(g).strip() for g in gold_ids if str(g).strip())
+    pred = set(str(p).strip() for p in pred_ids if str(p).strip())
+    tp = len(gold & pred)
+    precision = tp / len(pred) if pred else 0.0
+    recall = tp / len(gold) if gold else 0.0
+    union = gold | pred
+    jaccard = len(gold & pred) / len(union) if union else 0.0
+    return precision, recall, jaccard
+
+
+def display_instructions():
+    """Renders the instructions / help page."""
+    st.title("📖 Annotation Task Instructions")
+
+    st.markdown("""
+## Task Overview
+
+You are reviewing LLM-generated keyword classifications for ancient legal texts.
+Each sample shows a source text alongside the keywords a model assigned to it.
+Your goal is to **correct** the classification by:
+
+1. **Reviewing matched keywords** — uncheck any keyword that is **irrelevant**
+   to the source text (false positives).
+2. **Adding missed keywords** — select existing keywords from the thesaurus that
+   the model failed to identify (false negatives).
+3. **Evaluating suggested keywords** — the model may propose new keywords not yet
+   in the thesaurus. Accept, edit, or reject each suggestion.
+4. **Defining new keywords** — you may type in entirely new keywords if needed.
+
+The **Gold Annotated Keywords** column (right) shows the human-annotated ground
+truth so you can compare against the model's predictions (left).
+
+---
+
+## Metric Definitions
+
+The metrics below are computed **per sample** by comparing the model's predicted
+keyword IDs against the gold-standard annotation IDs.
+
+| Metric | Formula | Meaning |
+|---|---|---|
+| **Precision** | TP / (TP + FP) | Of the keywords the model predicted, how many are correct? |
+| **Recall** | TP / (TP + FN) | Of the gold keywords, how many did the model find? |
+| **Jaccard Index** | \\|Gold ∩ Pred\\| / \\|Gold ∪ Pred\\| | Overall overlap between the two sets (1 = perfect match, 0 = no overlap). |
+
+Where **TP** = true positives (correctly predicted), **FP** = false positives
+(predicted but not in gold), **FN** = false negatives (in gold but not predicted).
+    """)
+
+    if st.button("▶ Begin Annotation", type="primary"):
+        st.session_state.show_instructions = False
+        st.rerun()
+
+
 def main():
     # Fix: Resolve results_dir relative to the script location
     # This ensures it works whether running from root or src/
@@ -131,6 +193,32 @@ def main():
     st.set_page_config(layout="centered",
                        page_title="RomanJewish Legal Classifier - Review")
 
+    # --- AUTHENTICATION ---
+    config_path = os.path.join(project_root, "config.yaml")
+    with open(config_path) as f:
+        config = yaml.load(f, Loader=SafeLoader)
+
+    authenticator = stauth.Authenticate(
+        config['credentials'],
+        config['cookie']['name'],
+        config['cookie']['key'],
+        config['cookie']['expiry_days']
+    )
+
+    try:
+        authenticator.login()
+    except Exception as e:
+        st.error(e)
+
+    if st.session_state.get('authentication_status') is False:
+        st.error('Username/password is incorrect')
+        return
+    elif st.session_state.get('authentication_status') is None:
+        st.warning('Please enter your username and password')
+        return
+
+    # --- User is authenticated from here ---
+
     # --- INITIALIZE SESSION STATE KEYS ---
     if 'current_index' not in st.session_state:
         st.session_state.current_index = 0
@@ -140,10 +228,21 @@ def main():
         st.session_state.annotations = []
     if 'keywords' not in st.session_state:
         st.session_state.keywords = []
+    if 'show_instructions' not in st.session_state:
+        st.session_state.show_instructions = True
     # -------------------------------------
 
     # Sidebar
     st.sidebar.title("Review Config")
+    st.sidebar.write(f"Logged in as: **{st.session_state.get('name')}**")
+    authenticator.logout('Logout', 'sidebar')
+
+    if st.sidebar.button("📖 Instructions"):
+        st.session_state.show_instructions = True
+        st.rerun()
+
+    st.sidebar.markdown("---")
+
     cli_input_file, cli_keywords_file, available_files = get_config(results_dir)
     st.session_state.keywords_file = cli_keywords_file
 
@@ -222,8 +321,13 @@ def main():
     if 'show_keywords' not in st.session_state:
         st.session_state.show_keywords = False
 
+    # --- Show instructions page if flagged ---
+    if st.session_state.show_instructions:
+        display_instructions()
+        return
+
     # Main UI
-    st.title("Review Classification Results")
+    st.title("Local Law Under Rome")
 
     if not st.session_state.results:
         st.info("Please select a results JSON file from the sidebar to begin.")
@@ -251,26 +355,67 @@ def main():
 
     display_rtl_text(result.get('text', ''))
 
-    st.subheader("Classification Review")
-
-    # Original Matches
+    # --- Prepare keyword data ---
     matched_ids = result.get('matched_ids', [])
     matched_names = result.get('matched_keywords', [])
     suggested_kws = result.get('suggested_kws', [])
     current_id = f"sample_{st.session_state.current_index}"
-
-    # Keywords Managment
     kw_map = {str(k.id): k for k in st.session_state.keywords}
 
-    # 1. Review Matched (FP Check)
-    st.write("**Matched Keywords**: Uncheck if irrelevant")
-    kept_ids = []
-    for mid in matched_ids:
-        kw_obj = kw_map.get(str(mid))
-        # Handle case where keyword ID might not be in the loaded keywords file
-        label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-        if st.checkbox(label, value=True, key=f"cb_{current_id}_{mid}"):
-            kept_ids.append(mid)
+    original_row = result.get('original_row', {})
+    gold_kw_ids_raw = original_row.get('KW Ids', '')
+    gold_kw_names_raw = original_row.get('Keywords', '')
+    has_gold = (gold_kw_ids_raw
+                and str(gold_kw_ids_raw).strip()
+                and str(gold_kw_ids_raw).lower() != 'nan')
+    gold_ids_list = []
+    gold_names_list = []
+    if has_gold:
+        gold_ids_list = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
+        gold_names_list = [n.strip() for n in str(gold_kw_names_raw).split(',') if n.strip()]
+
+    # --- Two-Column Layout: Matched vs Gold Keywords ---
+    st.subheader("Classification Review")
+    col_left, col_right = st.columns(2)
+
+    # Sort helper: alphabetical by full_path, unknowns last
+    def _sort_key(kid):
+        kw_obj = kw_map.get(str(kid))
+        return kw_obj.full_path if kw_obj else f"\uffff{kid}"
+
+    sorted_matched = sorted(matched_ids, key=_sort_key)
+
+    with col_left:
+        st.write("**Matched Keywords** — Uncheck if irrelevant")
+        kept_ids = []
+        for mid in sorted_matched:
+            kw_obj = kw_map.get(str(mid))
+            label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+            if st.checkbox(label, value=True, key=f"cb_{current_id}_{mid}"):
+                kept_ids.append(mid)
+
+    with col_right:
+        st.write("**Gold Annotated Keywords**")
+        if has_gold:
+            sorted_gold = sorted(
+                zip(gold_ids_list, gold_names_list), key=lambda g: _sort_key(g[0])
+            )
+            for gid, gname in sorted_gold:
+                kw_obj = kw_map.get(gid)
+                label = kw_obj.full_path if kw_obj else gname
+                st.markdown(f"- {label}")
+        else:
+            st.caption("No gold annotations available.")
+
+    # --- Per-sample Metrics ---
+    if has_gold:
+        precision, recall, jaccard = compute_sample_metrics(gold_ids_list, matched_ids)
+        st.info(
+            f"**Original Metrics** — "
+            f"Precision: {precision:.2f} · "
+            f"Recall: {recall:.2f} · "
+            f"Jaccard: {jaccard:.2f}"
+        )
 
     # 2. Add Missed (FN Check)
     st.write("**Are there any missed keywords from the thesaurus?**")
@@ -360,6 +505,10 @@ def save_results(filename):
         st.error(f"Failed to save local CSV: {e}")
 
     # --- Google Sheets Read -> Append -> Update ---
+    # Use the results filename (without .json) as the worksheet name
+    sheet_name = st.session_state.annotations[0]['results_filename'].replace('.json', '') \
+        if st.session_state.annotations else new_df.iloc[0]['results_filename'].replace('.json', '')
+
     with st.spinner('Syncing with Google Sheets...'):
         try:
             if 'conn' not in st.session_state:
@@ -368,7 +517,7 @@ def save_results(filename):
             # 1. Read existing data to prevent overwriting
             try:
                 # ttl=0 ensures we don't get a cached version of the sheet
-                existing_df = st.session_state.conn.read(worksheet="Sheet1", ttl=0)
+                existing_df = st.session_state.conn.read(worksheet=sheet_name, ttl=0)
                 # Ensure we are working with a DataFrame
                 if existing_df is None:
                     existing_df = pd.DataFrame()
@@ -380,7 +529,7 @@ def save_results(filename):
             combined_df = pd.concat([existing_df, new_df], ignore_index=True)
 
             # 3. Write back the FULL dataset
-            st.session_state.conn.update(worksheet="Sheet1", data=combined_df)
+            st.session_state.conn.update(worksheet=sheet_name, data=combined_df)
 
             st.success("Google Sheet updated successfully!")
 
