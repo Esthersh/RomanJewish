@@ -194,15 +194,27 @@ def main():
                        page_title="RomanJewish Legal Classifier - Review")
 
     # --- AUTHENTICATION ---
-    config_path = os.path.join(project_root, "config.yaml")
-    with open(config_path) as f:
-        config = yaml.load(f, Loader=SafeLoader)
+    # Read credentials from Streamlit secrets (cloud) or config.yaml (local dev)
+    try:
+        credentials = dict(st.secrets["auth_credentials"])
+        # Convert nested AttrDict to plain dicts for streamlit-authenticator
+        credentials["usernames"] = {
+            user: dict(data) for user, data in st.secrets["auth_credentials"]["usernames"].items()
+        }
+        cookie_config = dict(st.secrets["auth_cookie"])
+    except (KeyError, FileNotFoundError):
+        # Fallback to local config.yaml
+        config_path = os.path.join(project_root, "config.yaml")
+        with open(config_path) as f:
+            config = yaml.load(f, Loader=SafeLoader)
+        credentials = config['credentials']
+        cookie_config = config['cookie']
 
     authenticator = stauth.Authenticate(
-        config['credentials'],
-        config['cookie']['name'],
-        config['cookie']['key'],
-        config['cookie']['expiry_days']
+        credentials,
+        cookie_config['name'],
+        cookie_config['key'],
+        cookie_config['expiry_days']
     )
 
     try:
