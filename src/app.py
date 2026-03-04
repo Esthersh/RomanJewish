@@ -28,8 +28,11 @@ def get_config(results_dir):
     default_input = json_files[0] if json_files else None
 
     # Default keywords file
-    if os.path.exists("data/Keywords.csv"):
-        keywords_file = "data/Keywords.csv"
+    keywords_file = None
+    project_root = os.path.dirname(results_dir)
+    kw_path = os.path.join(project_root, "data", "Keywords.csv")
+    if os.path.exists(kw_path):
+        keywords_file = kw_path
 
     for i, arg in enumerate(sys.argv):
         if arg == "--input_file" and i + 1 < len(sys.argv):
