@@ -15,7 +15,6 @@ from keyword_manager import KeywordManager
 
 
 # Function to parse arguments
-@st.cache_resource
 def get_config(results_dir):
     # Ensure results directory exists
     if not os.path.exists(results_dir):
