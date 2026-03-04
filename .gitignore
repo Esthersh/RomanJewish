@@ -17,3 +17,4 @@ test_metadata.json
 annotated_results.xlsx
 debug_output.txt
 .DS_Store
+config.yaml
