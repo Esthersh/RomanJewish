@@ -45,6 +45,13 @@ def get_config(results_dir):
 def create_annotation(result, matched_names, kept_ids, added_kws,
                       suggested_kws, final_new_kws, filename):
     """Creates the annotation dictionary."""
+    # Extract gold IDs for metric computation
+    original_row = result.get('original_row', {})
+    gold_kw_ids_raw = original_row.get('KW Ids', '')
+    gold_ids = []
+    if gold_kw_ids_raw and str(gold_kw_ids_raw).strip() and str(gold_kw_ids_raw).lower() != 'nan':
+        gold_ids = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
+
     return {
         "results_filename": filename,
         "annotator": st.session_state.get('name', ''),
@@ -55,8 +62,10 @@ def create_annotation(result, matched_names, kept_ids, added_kws,
         "group": result.get("group"),
         "name": result.get("name"),
         "original_matched": matched_names,
+        "original_matched_ids": result.get('matched_ids', []),
         "kept_ids": kept_ids,
         "added_existing_ids": [k.split("(ID: ")[1].strip(")") for k in added_kws],
+        "gold_ids": gold_ids,
         "original_suggested": suggested_kws,
         "accepted_new_keywords": final_new_kws
     }
@@ -508,6 +517,21 @@ def save_results(filename):
         row['kept_keywords'] = ", ".join(kept_names) if isinstance(kept_names, list) else kept_names
         row['added_keywords'] = ", ".join(added_names) if isinstance(added_names, list) else added_names
         row['accepted_new_keywords'] = ", ".join(ann['accepted_new_keywords'])
+
+        # Compute original and modified metrics vs gold
+        gold_ids = ann.get('gold_ids', [])
+        original_ids = [str(mid) for mid in ann.get('original_matched_ids', [])]
+        modified_ids = [str(mid) for mid in ann['kept_ids']] + [str(mid) for mid in ann['added_existing_ids']]
+
+        orig_p, orig_r, orig_j = compute_sample_metrics(gold_ids, original_ids)
+        mod_p, mod_r, mod_j = compute_sample_metrics(gold_ids, modified_ids)
+
+        row['orig_precision'] = round(orig_p, 4)
+        row['orig_recall'] = round(orig_r, 4)
+        row['orig_jaccard'] = round(orig_j, 4)
+        row['mod_precision'] = round(mod_p, 4)
+        row['mod_recall'] = round(mod_r, 4)
+        row['mod_jaccard'] = round(mod_j, 4)
 
         export_data.append(row)
 
