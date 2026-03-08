@@ -181,7 +181,7 @@ def display_metrics(output_file):
 
             # Truncate text for the display table (first 5 words)
             results_df['text'] = results_df['text'].apply(
-                lambda x: " ".join(str(x).split()[:5]) + "..." if len(str(x).split()) > 5 else str(x)
+                lambda x: " ".join(str(x).split()[:3]) + "..." if len(str(x).split()) > 3 else str(x)
             )
 
             st.markdown("### Dataset Level Averages")
