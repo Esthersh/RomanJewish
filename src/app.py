@@ -13,6 +13,8 @@ from streamlit_gsheets import GSheetsConnection
 from data_loader import DataLoader
 from keyword_manager import KeywordManager
 
+DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1cb4Pmc7SFCZ3C5kJD8kkDFQsuJXdk16a1afoRElJ3L0/edit?gid=0#gid=0"
+
 
 # Function to parse arguments
 def get_config(results_dir):
@@ -265,6 +267,7 @@ def main():
         st.rerun()
 
     st.sidebar.markdown("---")
+    st.sidebar.link_button("📊 Open Google Sheet", DEFAULT_SHEET_URL)
 
     cli_input_file, cli_keywords_file, available_files = get_config(results_dir)
     st.session_state.keywords_file = cli_keywords_file
@@ -297,6 +300,30 @@ def main():
                 file_name=output_file,
                 mime="text/csv"
             )
+
+    st.sidebar.markdown("---")
+    st.sidebar.header("Metrics Dashboard")
+    if st.sidebar.button("Show Aggregated Scores"):
+        try:
+            results_df = pd.read_csv(output_file)
+            if not results_df.empty:
+                # Hierarchical Averaging
+                thread_level = results_df.groupby('results_filename')[['mod_jaccard', 'mod_precision', 'mod_recall']].mean().reset_index()
+                dataset_level = thread_level[['mod_jaccard', 'mod_precision', 'mod_recall']].mean()
+
+                st.markdown("## Aggregated Metrics")
+                st.markdown("### Dataset Level")
+                col1, col2, col3 = st.columns(3)
+                col1.metric("Jaccard", f"{dataset_level['mod_jaccard']:.3f}")
+                col2.metric("Precision", f"{dataset_level['mod_precision']:.3f}")
+                col3.metric("Recall", f"{dataset_level['mod_recall']:.3f}")
+
+                st.markdown("### Thread Level Averages")
+                st.dataframe(thread_level)
+            else:
+                st.sidebar.warning("No results to aggregate yet.")
+        except FileNotFoundError:
+            st.sidebar.warning("No results file found.")
     # else:
         # st.sidebar.info("Annotated CSV will be available to download after your first save.")
 
