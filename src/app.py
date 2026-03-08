@@ -319,9 +319,9 @@ def main():
         st.rerun()
 
     # Metrics and Sheet in two columns
-    col1, col2 = st.sidebar.columns(2)
+    col1, col2 = st.sidebar.columns([1, 2])
     with col1:
-        if st.button("📊 Metrics Dashboard", use_container_width=True):
+        if st.button("📊 Metrics", use_container_width=True):
             st.session_state.show_metrics = True
             st.session_state.show_instructions = False
             st.rerun()
