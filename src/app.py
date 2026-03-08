@@ -163,22 +163,15 @@ def display_metrics(output_file):
     try:
         results_df = pd.read_csv(output_file)
         if not results_df.empty:
-            # Aggregate metrics by filename
-            # Include both original and modified metrics to show improvement
+            # Metrics columns to track
             metrics_cols = [
                 'orig_jaccard', 'mod_jaccard', 
                 'orig_precision', 'mod_precision', 
                 'orig_recall', 'mod_recall'
             ]
             
-            # Group by filename and calculate mean for metrics, and count for samples
-            thread_level = results_df.groupby('results_filename').agg({
-                **{col: 'mean' for col in metrics_cols},
-                'results_filename': 'count'
-            }).rename(columns={'results_filename': 'sample_count'}).reset_index()
-            
-            # Dataset Level Averages
-            dataset_level = thread_level[metrics_cols].mean()
+            # Dataset Level Averages (calculated across all samples)
+            dataset_level = results_df[metrics_cols].mean()
 
             st.markdown("### Dataset Level Averages")
             c1, c2, c3 = st.columns(3)
@@ -186,15 +179,15 @@ def display_metrics(output_file):
             c2.metric("Precision (Orig → Mod)", f"{dataset_level['orig_precision']:.3f} → {dataset_level['mod_precision']:.3f}")
             c3.metric("Recall (Orig → Mod)", f"{dataset_level['orig_recall']:.3f} → {dataset_level['mod_recall']:.3f}")
 
-            st.markdown("### Thread Level Details")
-            # Reorder columns for better readability
-            thread_level = thread_level[[
-                'results_filename', 'sample_count',
+            st.markdown("### Sample Level Details")
+            # Show individual samples with identifiers
+            sample_details = results_df[[
+                'results_filename', 'group', 'name',
                 'orig_jaccard', 'mod_jaccard',
                 'orig_precision', 'mod_precision',
                 'orig_recall', 'mod_recall'
             ]]
-            st.dataframe(thread_level.style.format(precision=3), hide_index=True)
+            st.dataframe(sample_details.style.format(precision=3), hide_index=True)
         else:
             st.warning("No results to aggregate yet.")
     except FileNotFoundError:
