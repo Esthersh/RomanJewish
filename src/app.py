@@ -311,19 +311,23 @@ def main():
     # Sidebar
     st.sidebar.title("Review Config")
     st.sidebar.write(f"Logged in as: **{st.session_state.get('name')}**")
-    authenticator.logout('Logout', 'sidebar')
 
-    if st.sidebar.button("📖 Instructions"):
+    # Navigation Buttons
+    sb_col1, sb_col2 = st.sidebar.columns(2)
+    with sb_col1:
+        if st.button("� Metrics", use_container_width=True):
+            st.session_state.show_metrics = True
+            st.session_state.show_instructions = False
+            st.rerun()
+
+    with sb_col2:
+        st.link_button("📈 Sheet", DEFAULT_SHEET_URL, use_container_width=True)
+
+    if st.sidebar.button("� Instructions", use_container_width=True):
         st.session_state.show_instructions = True
         st.session_state.show_metrics = False
         st.rerun()
 
-    if st.sidebar.button("📊 Metrics Dashboard"):
-        st.session_state.show_metrics = True
-        st.session_state.show_instructions = False
-        st.rerun()
-
-    st.sidebar.link_button("📈 Open Google Sheet", DEFAULT_SHEET_URL)
     st.sidebar.markdown("---")
 
     cli_input_file, cli_keywords_file, available_files = get_config(results_dir)
