@@ -152,6 +152,55 @@ def compute_sample_metrics(gold_ids, pred_ids):
     return precision, recall, jaccard
 
 
+def display_metrics(output_file):
+    """Renders the aggregated metrics dashboard page."""
+    st.title("📊 Aggregated Metrics Dashboard")
+    
+    if st.button("⬅ Back to Annotation"):
+        st.session_state.show_metrics = False
+        st.rerun()
+
+    try:
+        results_df = pd.read_csv(output_file)
+        if not results_df.empty:
+            # Aggregate metrics by filename
+            # Include both original and modified metrics to show improvement
+            metrics_cols = [
+                'orig_jaccard', 'mod_jaccard', 
+                'orig_precision', 'mod_precision', 
+                'orig_recall', 'mod_recall'
+            ]
+            
+            # Group by filename and calculate mean for metrics, and count for samples
+            thread_level = results_df.groupby('results_filename').agg({
+                **{col: 'mean' for col in metrics_cols},
+                'results_filename': 'count'
+            }).rename(columns={'results_filename': 'sample_count'}).reset_index()
+            
+            # Dataset Level Averages
+            dataset_level = thread_level[metrics_cols].mean()
+
+            st.markdown("### Dataset Level Averages")
+            c1, c2, c3 = st.columns(3)
+            c1.metric("Jaccard (Orig → Mod)", f"{dataset_level['orig_jaccard']:.3f} → {dataset_level['mod_jaccard']:.3f}")
+            c2.metric("Precision (Orig → Mod)", f"{dataset_level['orig_precision']:.3f} → {dataset_level['mod_precision']:.3f}")
+            c3.metric("Recall (Orig → Mod)", f"{dataset_level['orig_recall']:.3f} → {dataset_level['mod_recall']:.3f}")
+
+            st.markdown("### Thread Level Details")
+            # Reorder columns for better readability
+            thread_level = thread_level[[
+                'results_filename', 'sample_count',
+                'orig_jaccard', 'mod_jaccard',
+                'orig_precision', 'mod_precision',
+                'orig_recall', 'mod_recall'
+            ]]
+            st.dataframe(thread_level.style.format(precision=3), hide_index=True)
+        else:
+            st.warning("No results to aggregate yet.")
+    except FileNotFoundError:
+        st.warning("No results file found.")
+
+
 def display_instructions():
     """Renders the instructions / help page."""
     st.title("📖 Annotation Task Instructions")
@@ -255,6 +304,8 @@ def main():
         st.session_state.keywords = []
     if 'show_instructions' not in st.session_state:
         st.session_state.show_instructions = True
+    if 'show_metrics' not in st.session_state:
+        st.session_state.show_metrics = False
     # -------------------------------------
 
     # Sidebar
@@ -264,10 +315,16 @@ def main():
 
     if st.sidebar.button("📖 Instructions"):
         st.session_state.show_instructions = True
+        st.session_state.show_metrics = False
         st.rerun()
 
-    st.sidebar.markdown("---")
+    if st.sidebar.button("📊 Metrics Dashboard"):
+        st.session_state.show_metrics = True
+        st.session_state.show_instructions = False
+        st.rerun()
+
     st.sidebar.link_button("📊 Open Google Sheet", DEFAULT_SHEET_URL)
+    st.sidebar.markdown("---")
 
     cli_input_file, cli_keywords_file, available_files = get_config(results_dir)
     st.session_state.keywords_file = cli_keywords_file
@@ -300,30 +357,6 @@ def main():
                 file_name=output_file,
                 mime="text/csv"
             )
-
-    st.sidebar.markdown("---")
-    st.sidebar.header("Metrics Dashboard")
-    if st.sidebar.button("Show Aggregated Scores"):
-        try:
-            results_df = pd.read_csv(output_file)
-            if not results_df.empty:
-                # Hierarchical Averaging
-                thread_level = results_df.groupby('results_filename')[['mod_jaccard', 'mod_precision', 'mod_recall']].mean().reset_index()
-                dataset_level = thread_level[['mod_jaccard', 'mod_precision', 'mod_recall']].mean()
-
-                st.markdown("## Aggregated Metrics")
-                st.markdown("### Dataset Level")
-                col1, col2, col3 = st.columns(3)
-                col1.metric("Jaccard", f"{dataset_level['mod_jaccard']:.3f}")
-                col2.metric("Precision", f"{dataset_level['mod_precision']:.3f}")
-                col3.metric("Recall", f"{dataset_level['mod_recall']:.3f}")
-
-                st.markdown("### Thread Level Averages")
-                st.dataframe(thread_level)
-            else:
-                st.sidebar.warning("No results to aggregate yet.")
-        except FileNotFoundError:
-            st.sidebar.warning("No results file found.")
     # else:
         # st.sidebar.info("Annotated CSV will be available to download after your first save.")
 
@@ -371,9 +404,13 @@ def main():
     if 'show_keywords' not in st.session_state:
         st.session_state.show_keywords = False
 
-    # --- Show instructions page if flagged ---
+    # --- Show pages if flagged ---
     if st.session_state.show_instructions:
         display_instructions()
+        return
+
+    if st.session_state.show_metrics:
+        display_metrics(output_file)
         return
 
     # Main UI
