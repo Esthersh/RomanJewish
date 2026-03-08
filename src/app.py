@@ -323,7 +323,40 @@ def main():
         st.session_state.show_instructions = False
         st.rerun()
 
-    st.sidebar.link_button("📊 Open Google Sheet", DEFAULT_SHEET_URL)
+    # Google Sheets Link with Brand Icon
+    icon_b64 = (
+        "iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAE1ElEQVR4nLVWS4hcRRQ9p963Z7ozkw+a"
+        "ie7UmKBgYpKtQqIEFTEbcSGoqARdunMlcefOpSJBiWBWIoKoiRpFXMZgEsGFmJ2QEZ0kM92Tft86Lqre"
+        "e909E12IRdOvX9ete+vec+6H1lr8n8ts+i//7RhvLTKzEW44x/9oQxB0CwMEx2U+rnJnQCIhkGoOgn6n"
+        "O6FGFACYhnEvTrz8jAGS3/524cS5k8vDFZJOhF6Uon8nJvVL8iYJSto52H7iyEuH7z6oRoYOZJLjMjv6"
+        "/msXr/6ahLFTolYdp67c6IM46Qso5FWxb2n3mRffnotSSJr0IKvKq8OVOIqNob8e5DUZouWa8eoAQDTB"
+        "BgAkYbw8XMnLYi5KXSynMTAABRJCaUtD409aWMiwQ9VakQawICTUVpEJYSALkm1kHQZCxxwCgAXEZ+57"
+        "5K7td5a2cvGYj3rrZSZZEIZmLkzWy0wSiMhEV1Z+//iX7yHBRXDCQjhJSAESa2gxnX/2gaOvf/POtZur"
+        "hkyD6PihY6d//mEtHwFYSOef3/f4qYtfZFUhYGu65a1HX/36yvkb2UgbuDudB94tBTSAltf+uj5eJZhG"
+        "yfXx6I/Ryo1sCGBc5jfGw+XRyrgsBJuVBYHAONydjoZbmyWao4YEkDQgSNC5TUMKMKSLNAmIhpSnWUvk"
+        "jszTBtQ9CSZhFEcxxTSIwyBIwjCpI4BJGIc0SRgLkJSEEeUygjN6Zg2w8U3QIJk7fvCp9WIMMAqCQ3fs"
+        "NWBW5S5dH9y15xWptLWgftQbpPM+Oi4zuryZDZFIH5RRcfPUxS89BmEcBdGHl86sZUOBC+kcyQ9++tyD"
+        "3BscuGMPSZd6/+SB3xQJWNnVbHQjGxJMozSr8rVstJqN3Nm8ylfz0bjMBRjCSi35OxoR0HS5lihRlNry"
+        "1UIMTxAfQ05EgR2k06WYm3rgV2C4kPStZMAkjNMwWUj77uCWZL4XxItJPwtjAItJPyAptZdoY7HRgABRE"
+        "Ox83Htu32PrxRhEZML9O++xDxwdlwWIXpjsX9r9wv4nKlsLmo97/WTONponCqA28aCJixnmN9/78dNr4"
+        "zVDpmFsyJMXPlvNRwAW036tJ989/0lWFYK2plsOLN1rPP+7XrB5ojUxpaC8LouqdCBUskVdFFUBIK/KSl"
+        "Vel3lVCMjrUp1KqtHjHJkCmWp6lHwDcf3PgQ7JQu5Pin7Hdxz6xuearrrbTnmghi8W1tDs6m9PwsgASR"
+        "Rv7Q1uG2xLogTQQjrY2hvc3t+W1YWg7b0FY4yV7a49UfHCmXcIpFkrbp6+fPbY3ocLW4EimNflU3secv"
+        "XAkHldPn3/EReZyIQfXTq7lq8bOjOaAMIZaKuIGh+tTl/+KnANhxBg1TScZgIwxrimCKi2NgrCiZlkxo"
+        "P29q5gUQCiIFTHPAauYpKgF6JzDXDFivQTgFWTozMgJ2G0NNiRlWVtVUtWkvu2stY9/ccBXTu4BQnWqr"
+        "bWSllVLfV3pEHcEcePjgTB765ceOPcyeXhn64RdFHzfjUOEW1x9qEVAUnaOdjx5pGXD991wHVTqDXgT3"
+        "Jc5uMyJyi2o8ksOyYgI111lJ9xkjCZixK1U9GkBx3C/2112jeOLd1c2bYeP2dNyDRX6RiAKY0zqwF5Zk"
+        "O3+N2+blB0K8m/AWw0ssUN8ssQAAAAAElFTkSuQmCC"
+    )
+    st.sidebar.markdown(
+        f"""
+        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <img src="data:image/png;base64,{icon_b64}" width="26" style="margin-right: 12px;">
+            <a href="{DEFAULT_SHEET_URL}" target="_blank" style="text-decoration: none; color: white; font-weight: bold; font-size: 15px;">Open Google Sheet</a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     st.sidebar.markdown("---")
 
     cli_input_file, cli_keywords_file, available_files = get_config(results_dir)
