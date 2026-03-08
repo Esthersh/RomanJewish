@@ -179,6 +179,11 @@ def display_metrics(output_file):
             # Dataset Level Averages (calculated across all samples)
             dataset_level = results_df[metrics_cols].mean()
 
+            # Truncate text for the display table (first 5 words)
+            results_df['text'] = results_df['text'].apply(
+                lambda x: " ".join(str(x).split()[:5]) + "..." if len(str(x).split()) > 5 else str(x)
+            )
+
             st.markdown("### Dataset Level Averages")
             c1, c2, c3 = st.columns(3)
             c1.metric("Jaccard (Orig → Mod)", f"{dataset_level['orig_jaccard']:.3f} → {dataset_level['mod_jaccard']:.3f}")
