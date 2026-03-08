@@ -186,9 +186,9 @@ def display_metrics(output_file):
             c3.metric("Recall (Orig → Mod)", f"{dataset_level['orig_recall']:.3f} → {dataset_level['mod_recall']:.3f}")
 
             st.markdown("### Sample Level Details")
-            # Show individual samples with identifiers
+            # Show individual samples with identifiers and the actual text
             sample_details = results_df[[
-                'results_filename', 'group', 'name',
+                'results_filename', 'group', 'name', 'text',
                 'orig_jaccard', 'mod_jaccard',
                 'orig_precision', 'mod_precision',
                 'orig_recall', 'mod_recall'
