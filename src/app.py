@@ -321,12 +321,12 @@ def main():
     # Metrics and Sheet in two columns
     col1, col2 = st.sidebar.columns(2)
     with col1:
-        if st.button("📊 Metrics", use_container_width=True):
+        if st.button("📊 Metrics Dashboard", use_container_width=True):
             st.session_state.show_metrics = True
             st.session_state.show_instructions = False
             st.rerun()
     with col2:
-        st.link_button("📈 Sheet", DEFAULT_SHEET_URL, use_container_width=True)
+        st.link_button("📈 Go to Annotations", DEFAULT_SHEET_URL, use_container_width=True)
     st.sidebar.markdown("---")
 
     cli_input_file, cli_keywords_file, available_files = get_config(results_dir)
