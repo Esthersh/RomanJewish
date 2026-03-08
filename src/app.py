@@ -161,7 +161,13 @@ def display_metrics(output_file):
         st.rerun()
 
     try:
-        results_df = pd.read_csv(output_file)
+        if not os.path.exists(output_file):
+            st.warning("No results file found.")
+            return
+            
+        # Use on_bad_lines='warn' to be more tolerant of past format inconsistencies
+        results_df = pd.read_csv(output_file, on_bad_lines='warn')
+        
         if not results_df.empty:
             # Metrics columns to track
             metrics_cols = [
@@ -190,8 +196,9 @@ def display_metrics(output_file):
             st.dataframe(sample_details.style.format(precision=3), hide_index=True)
         else:
             st.warning("No results to aggregate yet.")
-    except FileNotFoundError:
-        st.warning("No results file found.")
+    except Exception as e:
+        st.error(f"Error loading metrics: {e}")
+        st.info("The annotated results file may have inconsistent columns. You might need to run a fix script or delete the file to start fresh.")
 
 
 def display_instructions():
@@ -593,8 +600,30 @@ def save_results(filename):
         export_data.append(row)
 
     new_df = pd.DataFrame(export_data)
+    
     try:
-        new_df.to_csv(filename, mode='a', header=not os.path.exists(filename), index=False)
+        if os.path.exists(filename):
+            try:
+                # Read existing data and combine with new
+                existing_df = pd.read_csv(filename, on_bad_lines='warn')
+                # Concatenate and handle missing columns with NA
+                combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+                # Fill metrics as 0.0 if missing, others as empty string
+                metrics_cols = ['orig_precision', 'orig_recall', 'orig_jaccard', 'mod_precision', 'mod_recall', 'mod_jaccard']
+                for col in combined_df.columns:
+                    if col in metrics_cols:
+                        combined_df[col] = combined_df[col].fillna(0.0)
+                    else:
+                        combined_df[col] = combined_df[col].fillna('')
+                # Overwrite to ensure header is consistent with the latest schema
+                combined_df.to_csv(filename, index=False)
+            except Exception as e:
+                # Fallback to append if reading fails for some reason
+                st.error(f"Error reading existing CSV: {e}. Appending instead.")
+                new_df.to_csv(filename, mode='a', header=False, index=False)
+        else:
+            new_df.to_csv(filename, index=False)
+            
         st.toast(f"Saved locally to {filename}")
     except Exception as e:
         st.error(f"Failed to save local CSV: {e}")
