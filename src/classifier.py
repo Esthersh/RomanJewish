@@ -46,7 +46,7 @@ class OpenAIProvider(LLMProvider):
                  model_name: str,
                  temperature: float = None,
                  top_p: float = None,
-                 reasoning_effort: str = "high"):
+                 reasoning_effort: str = None):
         self.thinking_level = None
         self.client = OpenAI(api_key=api_key)
         self.model_name = model_name
@@ -97,7 +97,7 @@ class QwenProvider(LLMProvider):
                 messages=[{"role": "user", "content": prompt}],
                 model=self.model_name,
                 temperature=self.temperature,
-                top_p=self.top_p
+                top_p=self.top_p,
             )
             return response.choices[0].message.content
         except Exception as e:
@@ -182,8 +182,8 @@ class Classifier:
         if self.provider_name == 'gemini':
             self.llm = GeminiProvider(api_key, model_name, temperature, top_p, thinking_level)
         elif self.provider_name == 'openai':
-            self.llm = OpenAIProvider(api_key, model_name, temperature, top_p)
-        elif self.provider_name == 'qwen':
+            self.llm = OpenAIProvider(api_key, model_name, temperature, top_p, reasoning_effort=thinking_level)
+        elif self.provider_name == 'together':
             self.llm = QwenProvider(api_key, model_name, temperature, top_p)
         else:
             raise ValueError(f"Unsupported provider: {provider}")

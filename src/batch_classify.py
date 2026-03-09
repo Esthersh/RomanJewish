@@ -91,7 +91,7 @@ def main():
                 existing_results = json.load(f)
                 if isinstance(existing_results, list):
                     results = existing_results
-                    processed_ids = {str(item.get("source_id")) for item in results if "source_id" in item}
+                    processed_ids = {str(item.get("ref_id")) for item in results if "ref_id" in item}
                     print(
                         f"Loaded {len(results)} existing results. Skipping {len(processed_ids)} already processed samples.")
         except json.JSONDecodeError:
@@ -101,7 +101,7 @@ def main():
 
     print("Starting classification...")
     for sample in tqdm(corpus):
-        if str(sample.source_id) in processed_ids:
+        if str(sample.ref_id) in processed_ids:
             continue
 
         try:
