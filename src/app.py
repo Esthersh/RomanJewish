@@ -161,7 +161,7 @@ def display_metrics(output_file, results_dir=None):
         st.rerun()
 
     # --- Section: LLM Performance Summary (Per File) ---
-    st.markdown("## 🤖 LLM Performance Summary (Original Predictions)")
+    st.markdown("### LLM Performance Summary (Original Predictions)")
     st.caption("This table summarizes the performance of the models *before* human review, across all result files.")
 
     if results_dir and os.path.exists(results_dir):
@@ -219,7 +219,7 @@ def display_metrics(output_file, results_dir=None):
             st.info("No valid gold standard data found in result files to compute summary.")
     
     st.markdown("---")
-    st.markdown("## ✍️ Annotation-Based Metrics (Progress Tracker)")
+    st.markdown("### ✍️ Annotation-Based Metrics (Progress Tracker)")
 
     try:
         if not os.path.exists(output_file):
