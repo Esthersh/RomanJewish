@@ -81,27 +81,80 @@ class OpenAIProvider(LLMProvider):
 
 
 class QwenProvider(LLMProvider):
-    def __init__(self, api_key: str, model_name: str = "Qwen/Qwen2.5-72B-Instruct-Turbo", temperature: float = 0.7,
-                 top_p: float = 0.7):
-        self.client = OpenAI(
-            api_key=api_key,
-            base_url="https://api.together.xyz/v1"
-        )
+    def __init__(self, api_key: str, model_name: str = "Qwen/Qwen3.5-397B-A17B",
+                 temperature: float = 0.7,
+                 top_p: float = 0.7,
+                 reasoning_effort: str = None):
+        from together import Together
+        self.client = Together(api_key=api_key)
         self.model_name = model_name
         self.temperature = temperature
         self.top_p = top_p
+        self.reasoning_effort = reasoning_effort
 
     def generate(self, prompt: str) -> str:
         try:
-            response = self.client.chat.completions.create(
-                messages=[{"role": "user", "content": prompt}],
-                model=self.model_name,
-                temperature=self.temperature,
-                top_p=self.top_p,
-            )
+            kwargs = {
+                "model": self.model_name,
+                "messages": [{"role": "user", "content": prompt}],
+                "temperature": self.temperature,
+                "top_p": self.top_p,
+            }
+            if self.reasoning_effort:
+                kwargs["reasoning_effort"] = self.reasoning_effort.lower()
+                kwargs["reasoning"] = {"enabled": True}
+
+            response = self.client.chat.completions.create(**kwargs)
             return response.choices[0].message.content
         except Exception as e:
             print(f"Qwen/TogetherAI Error: {e}")
+            return ""
+
+
+class ClaudeProvider(LLMProvider):
+    def __init__(self, api_key: str, model_name: str = "claude-3-7-sonnet-20250219",
+                 temperature: float = 0.7, top_p: float = 1.0, thinking_level: str = None):
+        from anthropic import Anthropic
+        self.client = Anthropic(api_key=api_key)
+        self.model_name = model_name
+        self.temperature = temperature
+        self.top_p = top_p
+        self.thinking_level = thinking_level
+
+    def generate(self, prompt: str) -> str:
+        try:
+            kwargs = {
+                "model": self.model_name,
+                "messages": [{"role": "user", "content": prompt}]
+            }
+
+            # Map thinking_level to budget_tokens
+            thinking_budgets = {
+                "low": 2048,
+                "medium": 8192,
+                "high": 16384
+            }
+
+            if self.thinking_level and self.thinking_level.lower() in thinking_budgets:
+                budget = thinking_budgets[self.thinking_level.lower()]
+                kwargs["thinking"] = {
+                    "type": "enabled",
+                    "budget_tokens": budget
+                }
+                # When thinking is enabled, max_tokens must be > budget, and temperature must be 1
+                kwargs["max_tokens"] = budget + 4096
+            else:
+                kwargs["max_tokens"] = 4096
+                # Anthropic doesn't allow both temperature and top_p
+                if self.temperature is not None:
+                    kwargs["temperature"] = self.temperature
+                elif self.top_p is not None:
+                    kwargs["top_p"] = self.top_p
+
+            response = self.client.messages.create(**kwargs)
+            return response.content[0].text
+        except Exception as e:
+            print(f"Claude Error: {e}")
             return ""
 
 
@@ -183,8 +236,10 @@ class Classifier:
             self.llm = GeminiProvider(api_key, model_name, temperature, top_p, thinking_level)
         elif self.provider_name == 'openai':
             self.llm = OpenAIProvider(api_key, model_name, temperature, top_p, reasoning_effort=thinking_level)
-        elif self.provider_name == 'together':
-            self.llm = QwenProvider(api_key, model_name, temperature, top_p)
+        elif self.provider_name in ['together', 'qwen']:
+            self.llm = QwenProvider(api_key, model_name, temperature, top_p, reasoning_effort=thinking_level)
+        elif self.provider_name in ['anthropic', 'claude']:
+            self.llm = ClaudeProvider(api_key, model_name, temperature, top_p, thinking_level=thinking_level)
         else:
             raise ValueError(f"Unsupported provider: {provider}")
 
@@ -247,16 +302,13 @@ class Classifier:
         matched_ids = []
         suggested_kws = []
         try:
-            # Strip potential markdown code fences
             cleaned = response.strip()
-            if cleaned.startswith("```"):
-                cleaned = cleaned.split("\n", 1)[1] if "\n" in cleaned else cleaned
-                if cleaned.endswith("```"):
-                    cleaned = cleaned[:-3]
-                cleaned = cleaned.strip()
-            if cleaned.startswith("json"):
-                cleaned = cleaned[4:].strip()
-
+            # More robust JSON extraction: find the first '[' and last ']'
+            import re
+            json_match = re.search(r'\[.*\]', cleaned, re.DOTALL)
+            if json_match:
+                cleaned = json_match.group(0)
+            
             raw_json = json.loads(cleaned)
             entries = validate_match_keywords_response(raw_json)
 
