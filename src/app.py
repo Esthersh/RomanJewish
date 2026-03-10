@@ -152,13 +152,74 @@ def compute_sample_metrics(gold_ids, pred_ids):
     return precision, recall, jaccard
 
 
-def display_metrics(output_file):
+def display_metrics(output_file, results_dir=None):
     """Renders the aggregated metrics dashboard page."""
     st.title("📊 Aggregated Metrics Dashboard")
     
     if st.button("⬅ Back to Annotation"):
         st.session_state.show_metrics = False
         st.rerun()
+
+    # --- Section: LLM Performance Summary (Per File) ---
+    st.markdown("## 🤖 LLM Performance Summary (Original Predictions)")
+    st.caption("This table summarizes the performance of the models *before* human review, across all result files.")
+
+    if results_dir and os.path.exists(results_dir):
+        json_files = [f for f in os.listdir(results_dir) if f.endswith('.json')]
+        summary_rows = []
+        
+        for jf in json_files:
+            try:
+                with open(os.path.join(results_dir, jf), 'r') as f:
+                    data = json.load(f)
+                
+                file_precisions = []
+                file_recalls = []
+                file_jaccards = []
+                
+                for item in data:
+                    if "error" in item:
+                        continue
+                        
+                    original_row = item.get('original_row', {})
+                    gold_kw_ids_raw = original_row.get('KW Ids', '')
+                    if not gold_kw_ids_raw or str(gold_kw_ids_raw).lower() == 'nan':
+                        continue # Skip samples without gold standard
+                    
+                    gold_ids = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
+                    pred_ids = item.get('matched_ids', [])
+                    
+                    p, r, j = compute_sample_metrics(gold_ids, pred_ids)
+                    file_precisions.append(p)
+                    file_recalls.append(r)
+                    file_jaccards.append(j)
+                
+                if file_precisions:
+                    df_file = pd.DataFrame({
+                        'p': file_precisions,
+                        'r': file_recalls,
+                        'j': file_jaccards
+                    })
+                    summary_rows.append({
+                        "results_filename": jf,
+                        "avg precision": df_file['p'].mean(),
+                        "std precision": df_file['p'].std(),
+                        "avg recall": df_file['r'].mean(),
+                        "std recall": df_file['r'].std(),
+                        "avg jaccard": df_file['j'].mean(),
+                        "std jaccard": df_file['j'].std()
+                    })
+            except Exception as e:
+                st.error(f"Error processing {jf}: {e}")
+
+        if summary_rows:
+            summary_df = pd.DataFrame(summary_rows)
+            st.dataframe(summary_df.style.format(precision=3), hide_index=True)
+        else:
+            st.info("No valid gold standard data found in result files to compute summary.")
+    
+    st.markdown("---")
+    st.markdown("## ✍️ Annotation-Based Metrics (Progress Tracker)")
 
     try:
         if not os.path.exists(output_file):
@@ -418,7 +479,7 @@ def main():
         return
 
     if st.session_state.show_metrics:
-        display_metrics(output_file)
+        display_metrics(output_file, results_dir=results_dir)
         return
 
     # Main UI

@@ -215,6 +215,42 @@ def format_keywords_by_category(keywords: List[Keyword]) -> str:
     return "\n".join(output).rstrip()
 
 
+class QwenDashScopeProvider(LLMProvider):
+    """Official Qwen API via DashScope (OpenAI-compatible mode)."""
+    def __init__(self, api_key: str, model_name: str = "qwen3-max-2026-01-23",
+                 temperature: float = 0.7, top_p: float = 1.0, reasoning_effort: str = "medium"):
+        from openai import OpenAI
+        self.client = OpenAI(
+            api_key=api_key,
+            base_url="https://dashscope.aliyuncs.com/compatible-mode/v1"
+        )
+        self.model_name = model_name
+        self.temperature = temperature
+        self.top_p = top_p
+        self.reasoning_effort = reasoning_effort
+
+    def generate(self, prompt: str) -> str:
+        try:
+            kwargs = {
+                "model": self.model_name,
+                "messages": [{"role": "user", "content": prompt}]
+            }
+            # Handle thinking/reasoning if supported by the specific model
+            # For qwen3-max, thinking is often default or enabled via extra params if using non-compatible mode
+            # but in compatible mode, it behaves like a standard chat model.
+            
+            if self.temperature is not None:
+                kwargs["temperature"] = self.temperature
+            if self.top_p is not None:
+                kwargs["top_p"] = self.top_p
+
+            response = self.client.chat.completions.create(**kwargs)
+            return response.choices[0].message.content
+        except Exception as e:
+            print(f"Qwen DashScope Error: {e}")
+            return ""
+
+
 class Classifier:
     def __init__(
             self,
@@ -236,8 +272,10 @@ class Classifier:
             self.llm = GeminiProvider(api_key, model_name, temperature, top_p, thinking_level)
         elif self.provider_name == 'openai':
             self.llm = OpenAIProvider(api_key, model_name, temperature, top_p, reasoning_effort=thinking_level)
-        elif self.provider_name in ['together', 'qwen']:
+        elif self.provider_name in ['together', 'together_qwen']:
             self.llm = QwenProvider(api_key, model_name, temperature, top_p, reasoning_effort=thinking_level)
+        elif self.provider_name in ['qwen', 'dashscope']:
+            self.llm = QwenDashScopeProvider(api_key, model_name, temperature, top_p, reasoning_effort=thinking_level)
         elif self.provider_name in ['anthropic', 'claude']:
             self.llm = ClaudeProvider(api_key, model_name, temperature, top_p, thinking_level=thinking_level)
         else:

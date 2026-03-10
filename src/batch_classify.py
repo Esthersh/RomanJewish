@@ -30,7 +30,9 @@ def main():
  :return:
     """
     parser = argparse.ArgumentParser(description="Run RomanJewish Classification Batch")
-    parser.add_argument("--provider", required=True, choices=["gemini", "openai", "qwen", "together", "anthropic", "claude"], help="LLM Provider")
+    parser.add_argument("--provider", type=str, required=True,
+                        choices=['openai', 'google', 'gemini', 'anthropic', 'claude', 'together', 'qwen', 'dashscope'],
+                        help="LLM provider name")
     parser.add_argument("--api_key", required=True, help="API Key for the provider")
     parser.add_argument("--prompt_file", default="/home/esther/PycharmProjects/RomanJewish/prompts/default.py",
                         help="Path to prompt file")
