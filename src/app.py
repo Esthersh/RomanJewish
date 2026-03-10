@@ -245,13 +245,13 @@ def display_metrics(output_file, results_dir=None):
                 lambda x: " ".join(str(x).split()[:3]) + "..." if len(str(x).split()) > 3 else str(x)
             )
 
-            st.markdown("### Dataset Level Averages")
+            st.markdown("#### Dataset Level Averages")
             c1, c2, c3 = st.columns(3)
             c1.metric("Jaccard (Orig → Mod)", f"{dataset_level['orig_jaccard']:.3f} → {dataset_level['mod_jaccard']:.3f}")
             c2.metric("Precision (Orig → Mod)", f"{dataset_level['orig_precision']:.3f} → {dataset_level['mod_precision']:.3f}")
             c3.metric("Recall (Orig → Mod)", f"{dataset_level['orig_recall']:.3f} → {dataset_level['mod_recall']:.3f}")
 
-            st.markdown("### Sample Level Details")
+            st.markdown("#### Sample Level Details")
             # Show individual samples with identifiers and the actual text
             sample_details = results_df[[
                 'results_filename', 'group', 'name', 'text',
