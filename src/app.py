@@ -219,7 +219,7 @@ def display_metrics(output_file, results_dir=None):
             st.info("No valid gold standard data found in result files to compute summary.")
     
     st.markdown("---")
-    st.markdown("### ✍️ Annotation-Based Metrics (Progress Tracker)")
+    st.markdown("### ✍️ Annotation-Based Metrics")
 
     try:
         if not os.path.exists(output_file):
