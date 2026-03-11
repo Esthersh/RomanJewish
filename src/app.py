@@ -214,6 +214,8 @@ def display_metrics(output_file, results_dir=None):
 
         if summary_rows:
             summary_df = pd.DataFrame(summary_rows)
+            # Sort by recall descending
+            summary_df = summary_df.sort_values(by="avg recall", ascending=False)
             st.dataframe(summary_df.style.format(precision=3), hide_index=True)
         else:
             st.info("No valid gold standard data found in result files to compute summary.")
