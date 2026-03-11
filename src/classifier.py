@@ -5,9 +5,7 @@ from typing import  Dict, Tuple
 from openai import OpenAI
 from data_loader import Keyword
 from models import *
-from google import genai
 from time import sleep
-from together import Together
 
 
 class LLMProvider:
@@ -19,6 +17,7 @@ class GeminiProvider(LLMProvider):
     def __init__(self, api_key: str, model_name: str = "gemini-3-flash", temperature: float = 0.7,
                  top_p: float = 1.,
                  thinking_level: str = "HIGH"):
+        from google import genai
         self.client = genai.Client(api_key=api_key)
         config_kwargs = {
             "temperature": temperature,
@@ -86,6 +85,7 @@ class QwenProvider(LLMProvider):
                  temperature: float = 0.0,
                  top_p: float = 1.,
                  reasoning_effort: str = None):
+        from together import Together
         self.client = Together(api_key=api_key, timeout=300)
         self.model_name = model_name
         self.temperature = temperature
