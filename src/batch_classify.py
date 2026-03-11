@@ -19,7 +19,7 @@ def main():
     --provider
     openai
     --api_key
-    "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"
+    "YOUR_API_KEY"
     --model
     "gpt-4.1-2025-04-14"
     --temperature
@@ -115,6 +115,10 @@ def main():
                 "translation": sample.original_row.get('translation', '')
             }
             matched_ids, suggested_kws, full_res = classifier.classify(sample.text, keywords, metadata)
+
+            if not full_res or not full_res.strip():
+                print(f"Skipping sample {sample.ref_id} due to empty LLM response.")
+                continue
 
             # Resolve IDs to Names
             # specific helper to find name by id

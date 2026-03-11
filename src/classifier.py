@@ -1,12 +1,13 @@
 import ast
 import json
 import importlib.util
-from typing import List, Dict, Tuple
+from typing import  Dict, Tuple
 from openai import OpenAI
 from data_loader import Keyword
 from models import *
 from google import genai
 from time import sleep
+from together import Together
 
 
 class LLMProvider:
@@ -22,7 +23,7 @@ class GeminiProvider(LLMProvider):
         config_kwargs = {
             "temperature": temperature,
             "top_p": top_p,
-            "thinking_config": {"thinking_level": thinking_level.upper()}
+            "thinking_config": {"thinking_level": thinking_level.upper() if thinking_level else None}
         }
         self.generation_config = genai.types.GenerateContentConfig(**config_kwargs)
         self.model_name = model_name
@@ -82,40 +83,50 @@ class OpenAIProvider(LLMProvider):
 
 class QwenProvider(LLMProvider):
     def __init__(self, api_key: str, model_name: str = "Qwen/Qwen3.5-397B-A17B",
-                 temperature: float = 0.7,
-                 top_p: float = 0.7,
+                 temperature: float = 0.0,
+                 top_p: float = 1.,
                  reasoning_effort: str = None):
-        from together import Together
-        self.client = Together(api_key=api_key)
+        self.client = Together(api_key=api_key, timeout=300)
         self.model_name = model_name
         self.temperature = temperature
         self.top_p = top_p
         self.reasoning_effort = reasoning_effort
 
     def generate(self, prompt: str) -> str:
-        try:
-            kwargs = {
-                "model": self.model_name,
-                "messages": [{"role": "user", "content": prompt}],
-                "temperature": self.temperature,
-                "top_p": self.top_p,
-            }
-            if self.reasoning_effort:
-                kwargs["reasoning_effort"] = self.reasoning_effort.lower()
-                kwargs["reasoning"] = {"enabled": True}
+        kwargs = {
+            "model": self.model_name,
+            "messages": [{"role": "user", "content": prompt}],
+            "temperature": self.temperature,
+            "top_p": self.top_p,
+            "max_tokens": 32000 if self.reasoning_effort else 4096
+        }
+        if self.reasoning_effort:
+            kwargs["reasoning_effort"] = self.reasoning_effort.lower()
+            kwargs["reasoning"] = {"enabled": True}
+        else:
+            kwargs["reasoning"] = {"enabled": False}
 
+        try:
             response = self.client.chat.completions.create(**kwargs)
-            return response.choices[0].message.content
+            message = response.choices[0].message
+            content = message.content or ""
+            
+            # Fallback for Qwen 3.5 reasoning models on Together AI
+            # Sometimes the entire output is in the 'reasoning' field while 'content' is empty
+            if not content.strip() and hasattr(message, 'reasoning') and message.reasoning:
+                content = message.reasoning
+                
+            return content
         except Exception as e:
             print(f"Qwen/TogetherAI Error: {e}")
-            return ""
+            raise e
 
 
 class ClaudeProvider(LLMProvider):
     def __init__(self, api_key: str, model_name: str = "claude-3-7-sonnet-20250219",
                  temperature: float = 0.7, top_p: float = 1.0, thinking_level: str = None):
         from anthropic import Anthropic
-        self.client = Anthropic(api_key=api_key)
+        self.client = Anthropic(api_key=api_key, timeout=600)
         self.model_name = model_name
         self.temperature = temperature
         self.top_p = top_p
@@ -130,9 +141,9 @@ class ClaudeProvider(LLMProvider):
 
             # Map thinking_level to budget_tokens
             thinking_budgets = {
-                "low": 2048,
-                "medium": 8192,
-                "high": 16384
+                "low": 8192,
+                "medium": 16384,
+                "high": 32768
             }
 
             if self.thinking_level and self.thinking_level.lower() in thinking_budgets:
@@ -142,17 +153,24 @@ class ClaudeProvider(LLMProvider):
                     "budget_tokens": budget
                 }
                 # When thinking is enabled, max_tokens must be > budget, and temperature must be 1
-                kwargs["max_tokens"] = budget + 4096
+                kwargs["max_tokens"] = budget + 8192
+                kwargs["temperature"] = 1.0
             else:
-                kwargs["max_tokens"] = 4096
+                kwargs["max_tokens"] = 8192
                 # Anthropic doesn't allow both temperature and top_p
                 if self.temperature is not None:
                     kwargs["temperature"] = self.temperature
-                elif self.top_p is not None:
-                    kwargs["top_p"] = self.top_p
 
             response = self.client.messages.create(**kwargs)
-            return response.content[0].text
+            
+            # For thinking-enabled models, the first block might be a ThinkingBlock
+            # We need to find the TextBlock and return its text
+            content_text = ""
+            for block in response.content:
+                if hasattr(block, 'text'):
+                    content_text += block.text
+            
+            return content_text
         except Exception as e:
             print(f"Claude Error: {e}")
             return ""
