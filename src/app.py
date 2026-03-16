@@ -1,7 +1,13 @@
 import os
+import sys
+
+# Add the project root to sys.path
+root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if root_dir not in sys.path:
+    sys.path.append(root_dir)
+
 import streamlit as st
 import pandas as pd
-import sys
 import json
 import yaml
 from datetime import date
