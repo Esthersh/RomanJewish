@@ -582,5 +582,50 @@
     ],
     "suggested_kws": [],
     "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"heir\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 178\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"generational rights\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 239\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"estate enhancement\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 177\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"shared inheritance\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 314\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"property\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 60\n  }\n]"
+  },
+  {
+    "ref_id": 2.003300090004e+20,
+    "source_id": "2",
+    "group": "Rabbinic",
+    "name": "Mishnah Bava batra 9:4",
+    "text": "\u05d4\u05d0\u05d7\u05d9\u05df \u05d4\u05e9\u05ea\u05e4\u05d9\u05df \u05e9\u05e0\u05e4\u05dc \u05d0\u05d7\u05d3 \u05de\u05d4\u05df \u05dc\u05d0\u05de\u05e0\u05d5\u05ea, \u05e0\u05e4\u05dc \u05dc\u05d0\u05de\u05e6\u05e2. \u05d7\u05dc\u05d4 \u05d5\u05e0\u05ea\u05e8\u05e4\u05d0, \u05e0\u05ea\u05e8\u05e4\u05d0 \u05de\u05e9\u05dc \u05e2\u05e6\u05de\u05d5. \u05d4\u05d0\u05d7\u05d9\u05df \u05e9\u05e2\u05e9\u05d5 \u05de\u05e7\u05e6\u05ea\u05df \u05e9\u05d5\u05e9\u05d1\u05d9\u05e0\u05d5\u05ea \u05d1\u05d7\u05d9\u05d9 \u05d4\u05d0\u05d1, \u05d7\u05d6\u05e8\u05d4 \u05e9\u05d5\u05e9\u05d1\u05d9\u05e0\u05d5\u05ea, \u05d7\u05d6\u05e8\u05d4 \u05dc\u05d0\u05de\u05e6\u05e2, \u05e9\u05d4\u05e9\u05d5\u05e9\u05d1\u05d9\u05e0\u05d5\u05ea \u05e0\u05d2\u05d1\u05d9\u05ea \u05d1\u05d1\u05d9\u05ea \u05d3\u05d9\u05df. \u05d0\u05d1\u05dc \u05d4\u05e9\u05d5\u05dc\u05d7 \u05dc\u05d7\u05d1\u05e8\u05d5 \u05db\u05d3\u05d9 \u05d9\u05d9\u05df \u05d5\u05db\u05d3\u05d9 \u05e9\u05de\u05df, \u05d0\u05d9\u05e0\u05df \u05e0\u05d2\u05d1\u05d9\u05df \u05d1\u05d1\u05d9\u05ea \u05d3\u05d9\u05df, \u05de\u05e4\u05e0\u05d9 \u05e9\u05d4\u05df \u05d2\u05de\u05d9\u05dc\u05d5\u05ea \u05d7\u05e1\u05d3\u05d9\u05dd:",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Mishnah, \u0392\u0392",
+      "Language": "Hebrew",
+      "SourceID": 2,
+      "Level1 Id": "33",
+      "Level2 Id": 9.0,
+      "Level3 Id": 4.0,
+      "Level4 Id": NaN,
+      "Analyzed [y/n]": "y",
+      "Text": "\u05d4\u05d0\u05d7\u05d9\u05df \u05d4\u05e9\u05ea\u05e4\u05d9\u05df \u05e9\u05e0\u05e4\u05dc \u05d0\u05d7\u05d3 \u05de\u05d4\u05df \u05dc\u05d0\u05de\u05e0\u05d5\u05ea, \u05e0\u05e4\u05dc \u05dc\u05d0\u05de\u05e6\u05e2. \u05d7\u05dc\u05d4 \u05d5\u05e0\u05ea\u05e8\u05e4\u05d0, \u05e0\u05ea\u05e8\u05e4\u05d0 \u05de\u05e9\u05dc \u05e2\u05e6\u05de\u05d5. \u05d4\u05d0\u05d7\u05d9\u05df \u05e9\u05e2\u05e9\u05d5 \u05de\u05e7\u05e6\u05ea\u05df \u05e9\u05d5\u05e9\u05d1\u05d9\u05e0\u05d5\u05ea \u05d1\u05d7\u05d9\u05d9 \u05d4\u05d0\u05d1, \u05d7\u05d6\u05e8\u05d4 \u05e9\u05d5\u05e9\u05d1\u05d9\u05e0\u05d5\u05ea, \u05d7\u05d6\u05e8\u05d4 \u05dc\u05d0\u05de\u05e6\u05e2, \u05e9\u05d4\u05e9\u05d5\u05e9\u05d1\u05d9\u05e0\u05d5\u05ea \u05e0\u05d2\u05d1\u05d9\u05ea \u05d1\u05d1\u05d9\u05ea \u05d3\u05d9\u05df. \u05d0\u05d1\u05dc \u05d4\u05e9\u05d5\u05dc\u05d7 \u05dc\u05d7\u05d1\u05e8\u05d5 \u05db\u05d3\u05d9 \u05d9\u05d9\u05df \u05d5\u05db\u05d3\u05d9 \u05e9\u05de\u05df, \u05d0\u05d9\u05e0\u05df \u05e0\u05d2\u05d1\u05d9\u05df \u05d1\u05d1\u05d9\u05ea \u05d3\u05d9\u05df, \u05de\u05e4\u05e0\u05d9 \u05e9\u05d4\u05df \u05d2\u05de\u05d9\u05dc\u05d5\u05ea \u05d7\u05e1\u05d3\u05d9\u05dd:",
+      "ref Code": "000200330009000400000000",
+      "KW Ids": "66, 73, 182, 183, 184",
+      "Keywords": "brother, gift, public service, gifts of groomsmen, partner",
+      "Judicial Topic Ids": "5, 6, 76",
+      "Juditial Topics": "Family, Inheritance, Partnership",
+      "Index Ids": "73, 74, 446",
+      "Index Terms": "\u05d0\u05d7\u05d9\u05dd \u05e9\u05d5\u05ea\u05e4\u05d9\u05dd, \u05e9\u05d5\u05e9\u05d1\u05d9\u05e0\u05d5\u05ea, \u05d2\u05de\u05d9\u05dc\u05d5\u05ea \u05d7\u05e1\u05d3\u05d9\u05dd",
+      "Refference": "Mishnah Bava batra 9:4",
+      "Calculated refCode": "000200330009000400000000",
+      "Unnamed: 19": NaN,
+      "English": "Brothers who were partners of whom one fell into imperial service99\n\u2014\nhis liability is from the common holding;100\nif he became ill, and received medical treatment, the medical treatment is from his own. The brothers some of whom made groomsmen\u2019s gifts during the life of the father\u2014\nif the groomsmen\u2019s gifts were returned, they have returned to the common holding,101\nfor groomsmen\u2019s gifts are claimed in court.102\nBut one who sends to his fellow jars of wine or jars of oil,\nthey are not collected in court,\nbecause they are the granting of favors.103",
+      "translation": "Brothers who were partners of whom one fell into imperial service99\n\u2014\nhis liability is from the common holding;100\nif he became ill, and received medical treatment, the medical treatment is from his own. The brothers some of whom made groomsmen\u2019s gifts during the life of the father\u2014\nif the groomsmen\u2019s gifts were returned, they have returned to the common holding,101\nfor groomsmen\u2019s gifts are claimed in court.102\nBut one who sends to his fellow jars of wine or jars of oil,\nthey are not collected in court,\nbecause they are the granting of favors.103"
+    },
+    "matched_ids": [
+      "66",
+      "183",
+      "65"
+    ],
+    "matched_keywords": [
+      "brother",
+      "gifts of groomsmen",
+      "material law"
+    ],
+    "suggested_kws": [
+      "societas"
+    ],
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"societas\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"brother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 66\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"gifts of groomsmen\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 183\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"material law\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 65\n  }\n]"
   }
 ]

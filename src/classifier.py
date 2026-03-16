@@ -1,11 +1,12 @@
 import ast
 import json
 import importlib.util
-from typing import  Dict, Tuple
+from typing import Dict, Tuple
 from openai import OpenAI
 from data_loader import Keyword
 from models import *
 from time import sleep
+from prompts.default import CLASSIFICATION_PROMPTS
 
 
 class LLMProvider:
@@ -14,15 +15,30 @@ class LLMProvider:
 
 
 class GeminiProvider(LLMProvider):
-    def __init__(self, api_key: str, model_name: str = "gemini-3-flash", temperature: float = 0.7,
+    def __init__(self, api_key: str, model_name: str = "gemini-3-flash", temperature: float = 0.0,
                  top_p: float = 1.,
-                 thinking_level: str = "HIGH"):
+                 thinking_level: str = "HIGH",
+                 seed: int = 111):
+        """
+
+        :param api_key:
+        :param model_name:
+        :param temperature: Gemini models support a temperature value between 0.0 and 2.0 the default is 1.
+                            For all Gemini 3 models, the recommendation is to leave the temperature at 1.
+        :param top_p: For selecting the token outputs, lower value --> less random responses example: if
+        tokens A, B, and C have a probability of 0.3, 0.2, and 0.1 and the top-P value is 0.5,
+        then the model will select either A or B as the next token by using temperature and excludes C as a
+        candidate.
+        Gemini also has a top_k parameter --> ignored for now.
+        :param thinking_level: default: high, Gemini3.1 doesn't support minimal thinking
+        """
         from google import genai
         self.client = genai.Client(api_key=api_key)
         config_kwargs = {
             "temperature": temperature,
             "top_p": top_p,
-            "thinking_config": {"thinking_level": thinking_level.upper() if thinking_level else None}
+            "thinking_config": {"thinking_level": thinking_level.upper() if thinking_level else None},
+            "seed": seed
         }
         self.generation_config = genai.types.GenerateContentConfig(**config_kwargs)
         self.model_name = model_name
@@ -110,12 +126,12 @@ class QwenProvider(LLMProvider):
             response = self.client.chat.completions.create(**kwargs)
             message = response.choices[0].message
             content = message.content or ""
-            
+
             # Fallback for Qwen 3.5 reasoning models on Together AI
             # Sometimes the entire output is in the 'reasoning' field while 'content' is empty
             if not content.strip() and hasattr(message, 'reasoning') and message.reasoning:
                 content = message.reasoning
-                
+
             return content
         except Exception as e:
             print(f"Qwen/TogetherAI Error: {e}")
@@ -123,7 +139,7 @@ class QwenProvider(LLMProvider):
 
 
 class ClaudeProvider(LLMProvider):
-    def __init__(self, api_key: str, model_name: str = "claude-3-7-sonnet-20250219",
+    def __init__(self, api_key: str, model_name: str = "claude-4-6-sonnet-20250219",
                  temperature: float = 0.7, top_p: float = 1.0, thinking_level: str = None):
         from anthropic import Anthropic
         self.client = Anthropic(api_key=api_key, timeout=600)
@@ -162,14 +178,14 @@ class ClaudeProvider(LLMProvider):
                     kwargs["temperature"] = self.temperature
 
             response = self.client.messages.create(**kwargs)
-            
+
             # For thinking-enabled models, the first block might be a ThinkingBlock
             # We need to find the TextBlock and return its text
             content_text = ""
             for block in response.content:
                 if hasattr(block, 'text'):
                     content_text += block.text
-            
+
             return content_text
         except Exception as e:
             print(f"Claude Error: {e}")
@@ -235,6 +251,7 @@ def format_keywords_by_category(keywords: List[Keyword]) -> str:
 
 class QwenDashScopeProvider(LLMProvider):
     """Official Qwen API via DashScope (OpenAI-compatible mode)."""
+
     def __init__(self, api_key: str, model_name: str = "qwen3-max-2026-01-23",
                  temperature: float = 0.7, top_p: float = 1.0, reasoning_effort: str = "medium"):
         from openai import OpenAI
@@ -256,7 +273,7 @@ class QwenDashScopeProvider(LLMProvider):
             # Handle thinking/reasoning if supported by the specific model
             # For qwen3-max, thinking is often default or enabled via extra params if using non-compatible mode
             # but in compatible mode, it behaves like a standard chat model.
-            
+
             if self.temperature is not None:
                 kwargs["temperature"] = self.temperature
             if self.top_p is not None:
@@ -282,12 +299,13 @@ class Classifier:
             thinking_level: str = None,
             debug: bool = False
     ):
+        self.prompts = None
         self.provider_name = provider.lower()
         self.debug = debug
         self.prompt_name = prompt_name
 
         if self.provider_name == 'gemini':
-            self.llm = GeminiProvider(api_key, model_name, temperature, top_p, thinking_level)
+            self.llm = GeminiProvider(api_key, model_name, temperature, top_p, thinking_level=thinking_level)
         elif self.provider_name == 'openai':
             self.llm = OpenAIProvider(api_key, model_name, temperature, top_p, reasoning_effort=thinking_level)
         elif self.provider_name in ['together', 'together_qwen']:
@@ -311,7 +329,7 @@ class Classifier:
 
                 self.prompts = {
                     "classification_prompt": getattr(prompts_module, self.prompt_name, ""),
-                    "suggestion_prompt": getattr(prompts_module, "SUGGESTION_PROMPT", "")
+                    # "suggestion_prompt": getattr(prompts_module, "SUGGESTION_PROMPT", "")
                 }
             else:
                 raise FileNotFoundError(f"Could not load prompts from {prompt_path}")
@@ -320,17 +338,18 @@ class Classifier:
             print(f"Error loading prompts from {prompt_path}: {e}")
             raise e
 
-    def classify(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) -> Tuple[
-        List[str], List[str], str]:
+    def classify(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) \
+            -> Tuple[List[str], List[str], str]:
         """
         Returns: (matched_keyword_ids_or_names, new_suggested_keywords, raw_response)
         """
-        if self.prompt_name == "MATCH_KEYWORDS":
-            return self._classify_match_keywords(text, keywords, metadata)
+        # TODO modify to be compatible with multiple prompts
+        if self.prompt_name in CLASSIFICATION_PROMPTS.keys():
+            return self._classify_keywords(text, keywords, metadata)
         else:
             return self._classify_default(text, keywords, metadata)
 
-    def _classify_match_keywords(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) -> Tuple[
+    def _classify_keywords(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) -> Tuple[
         List[str], List[str], str]:
         """
         Classification using the MATCH_KEYWORDS prompt.
@@ -342,7 +361,7 @@ class Classifier:
         prompt = self.prompts.get("classification_prompt", "").format(
             hierarchy=hierarchy,
             text=text,
-            translation=metadata.get('translation', ''),
+            translation=metadata.get('translation', ''),  # TODO ensure stays empty if no translation
             Language=metadata.get('language', 'Hebrew')
         )
 
@@ -364,7 +383,7 @@ class Classifier:
             json_match = re.search(r'\[.*\]', cleaned, re.DOTALL)
             if json_match:
                 cleaned = json_match.group(0)
-            
+
             raw_json = json.loads(cleaned)
             entries = validate_match_keywords_response(raw_json)
 

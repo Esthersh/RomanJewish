@@ -180,3 +180,6 @@ Text: "{text}"
 Current Keywords: [{hierarchy_str}]
 
 New Keywords:"""
+
+CLASSIFICATION_PROMPTS = {"MATCH_KEYWORDS": MATCH_KEYWORDS,
+                          "MATCH_KEYWORDS_W_EN": MATCH_KEYWORDS_W_EN}
