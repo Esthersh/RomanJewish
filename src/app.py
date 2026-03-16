@@ -194,7 +194,7 @@ def display_metrics(output_file, results_dir=None):
                     file_recalls.append(r)
                     file_jaccards.append(j)
                 
-                if file_precisions:
+                if file_precisions or data:  # Include even if no gold records found
                     df_file = pd.DataFrame({
                         'p': file_precisions,
                         'r': file_recalls,
@@ -202,12 +202,14 @@ def display_metrics(output_file, results_dir=None):
                     })
                     summary_rows.append({
                         "results_filename": jf,
-                        "avg precision": df_file['p'].mean(),
-                        "std precision": df_file['p'].std(),
-                        "avg recall": df_file['r'].mean(),
-                        "std recall": df_file['r'].std(),
-                        "avg jaccard": df_file['j'].mean(),
-                        "std jaccard": df_file['j'].std()
+                        "Count": len(data),
+                        "Gold Count": len(file_precisions),
+                        "avg precision": df_file['p'].mean() if not df_file.empty else 0.0,
+                        "std precision": df_file['p'].std() if not df_file.empty else 0.0,
+                        "avg recall": df_file['r'].mean() if not df_file.empty else 0.0,
+                        "std recall": df_file['r'].std() if not df_file.empty else 0.0,
+                        "avg jaccard": df_file['j'].mean() if not df_file.empty else 0.0,
+                        "std jaccard": df_file['j'].std() if not df_file.empty else 0.0
                     })
             except Exception as e:
                 st.error(f"Error processing {jf}: {e}")
