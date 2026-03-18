@@ -240,7 +240,7 @@ def format_keywords_by_category(keywords: List[Keyword]) -> str:
 
     output = []
     for cat in categories:
-        output.append(f"Category {cat.name}, id: {cat.id}")
+        output.append(f"Category: {cat.name} (id: {cat.id})")
         children = children_map.get(cat.id, [])
         for child in children:
             output.append(f"  - {child.name} (id: {child.id})")
