@@ -58,7 +58,7 @@ def get_config(results_dir):
 
 
 def create_annotation(result, filename, 
-                      kw_kept_ids, kw_man_ids, kw_new_accepted,
+                      kw_kept_ids, kw_new_accepted,
                       field_kept_ids, field_miss_ids, 
                       index_kept_terms, index_miss_terms):
     """Creates the annotation dictionary for 3-Vector Review."""
@@ -108,7 +108,6 @@ def create_annotation(result, filename,
 
 def add_anno(result, filename, 
              kw_kept_ids,
-            #  kw_man_ids,
              kw_new_accepted,
              field_kept_ids, field_miss_ids, 
              index_kept_terms, index_miss_terms):
@@ -116,7 +115,6 @@ def add_anno(result, filename,
     annotation = create_annotation(
         result, filename, 
         kw_kept_ids,
-        # kw_man_ids,
         kw_new_accepted,
         field_kept_ids, field_miss_ids, 
         index_kept_terms, index_miss_terms
@@ -764,7 +762,6 @@ def main():
     with col_b1:
         if st.button("Next Sample"):
             add_anno(result, filename,
-                    # kw_manually_added_ids,
                      kw_final_kept, final_new_kws,
                      field_kept_ids + f_intersection, field_miss_agreed_ids,
                      index_kept_terms + i_intersection, index_miss_agreed_terms)
@@ -773,7 +770,6 @@ def main():
     with col_b2:
         if st.button("Save Annotated Results", type="primary"):
             add_anno(result, filename,
-                    #  kw_manually_added_ids,
                      kw_final_kept, final_new_kws,
                      field_kept_ids + f_intersection, field_miss_agreed_ids,
                      index_kept_terms + i_intersection, index_miss_agreed_terms)
