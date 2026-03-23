@@ -142,10 +142,13 @@ def load_data(input_file):
 
     # Only attempt to load if we have a valid path and it's a new file
     if input_file and os.path.exists(input_file):
-        if st.session_state.get('input_file') != input_file:
+        if st.session_state.get('input_file') != input_file or not st.session_state.get('keywords') or not st.session_state.get('fields'):
             try:
                 loader = DataLoader()
+                # Always ensure keywords are loaded
                 st.session_state.keywords = loader.load_keywords(st.session_state.keywords_file)
+                
+                # Ensure fields are loaded if path exists
                 if hasattr(st.session_state, 'fields_file') and st.session_state.fields_file:
                     st.session_state.fields = loader.load_judicial_fields(st.session_state.fields_file)
                 else:
@@ -449,9 +452,6 @@ def main():
                 file_name=output_file,
                 mime="text/csv"
             )
-    # else:
-        # st.sidebar.info("Annotated CSV will be available to download after your first save.")
-
     # Load Data
     load_data(input_file)
 
