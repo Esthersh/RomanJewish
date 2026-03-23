@@ -563,7 +563,7 @@ def main():
     st.markdown("""
         <style>
             .block-container {
-                max-width: 1000px;
+                max-width: 1200px;
                 padding-left: 2rem;
                 padding-right: 2rem;
             }
@@ -592,9 +592,9 @@ def main():
             for mid in suggestion_ids:
                 kw_obj = kw_map.get(str(mid).strip().lower())
                 label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-                c_label, c_acc = st.columns([0.8, 0.2])
+                c_label, c_acc = st.columns([0.9, 0.1])
                 with c_label:
-                    st.text_input("Label", value=label, key=f"kw_sug_lbl_{current_id}_{mid}", label_visibility="collapsed", read_only=True)
+                    st.text_input("Label", value=label, key=f"kw_sug_lbl_{current_id}_{mid}", label_visibility="collapsed", read_only=True, help=label)
                 with c_acc:
                     if st.checkbox("", value=False, key=f"kw_sug_{current_id}_{mid}"):
                         kept_suggestion_ids.append(mid)
@@ -606,9 +606,9 @@ def main():
         final_new_kws = []
         if suggested_kws:
             for i, skw in enumerate(suggested_kws):
-                c_edit, c_acc = st.columns([0.8, 0.2])
+                c_edit, c_acc = st.columns([0.9, 0.1])
                 with c_edit:
-                    edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}", label_visibility="collapsed")
+                    edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}", label_visibility="collapsed", help=skw)
                 with c_acc:
                     if st.checkbox("", value=False, key=f"kw_new_acc_{current_id}_{i}"):
                         final_new_kws.append(edited_kw)
@@ -674,9 +674,9 @@ def main():
             for fid in f_suggestions:
                 f_obj = field_map.get(str(fid).strip().lower())
                 label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-                c_label, c_acc = st.columns([0.8, 0.2])
+                c_label, c_acc = st.columns([0.9, 0.1])
                 with c_label:
-                    st.text_input("Label", value=label, key=f"f_sug_lbl_{current_id}_{fid}", label_visibility="collapsed", read_only=True)
+                    st.text_input("Label", value=label, key=f"f_sug_lbl_{current_id}_{fid}", label_visibility="collapsed", read_only=True, help=label)
                 with c_acc:
                     if st.checkbox("", value=False, key=f"f_sug_{current_id}_{fid}"):
                         field_kept_ids.append(fid)
@@ -726,9 +726,9 @@ def main():
         index_kept_terms = []
         if i_suggestions:
             for term in i_suggestions:
-                c_label, c_acc = st.columns([0.8, 0.2])
+                c_label, c_acc = st.columns([0.9, 0.1])
                 with c_label:
-                    st.text_input("Label", value=term, key=f"i_sug_lbl_{current_id}_{term}", label_visibility="collapsed", read_only=True)
+                    st.text_input("Label", value=term, key=f"i_sug_lbl_{current_id}_{term}", label_visibility="collapsed", read_only=True, help=term)
                 with c_acc:
                     if st.checkbox("", value=False, key=f"i_sug_{current_id}_{term}"):
                         index_kept_terms.append(term)
