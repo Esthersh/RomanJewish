@@ -592,8 +592,12 @@ def main():
             for mid in suggestion_ids:
                 kw_obj = kw_map.get(str(mid).strip().lower())
                 label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-                if st.checkbox(label, value=False, key=f"kw_sug_{current_id}_{mid}"):
-                    kept_suggestion_ids.append(mid)
+                c_label, c_acc = st.columns([0.8, 0.2])
+                with c_label:
+                    st.text_input("Label", value=label, key=f"kw_sug_lbl_{current_id}_{mid}", label_visibility="collapsed", disabled=True)
+                with c_acc:
+                    if st.checkbox("", value=False, key=f"kw_sug_{current_id}_{mid}"):
+                        kept_suggestion_ids.append(mid)
         else:
             st.caption("No suggestions.")
 
@@ -670,8 +674,12 @@ def main():
             for fid in f_suggestions:
                 f_obj = field_map.get(str(fid).strip().lower())
                 label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-                if st.checkbox(label, value=False, key=f"f_sug_{current_id}_{fid}"):
-                    field_kept_ids.append(fid)
+                c_label, c_acc = st.columns([0.8, 0.2])
+                with c_label:
+                    st.text_input("Label", value=label, key=f"f_sug_lbl_{current_id}_{fid}", label_visibility="collapsed", disabled=True)
+                with c_acc:
+                    if st.checkbox("", value=False, key=f"f_sug_{current_id}_{fid}"):
+                        field_kept_ids.append(fid)
         else:
             field_kept_ids = []
             st.caption("No suggestions.")
@@ -718,8 +726,12 @@ def main():
         index_kept_terms = []
         if i_suggestions:
             for term in i_suggestions:
-                if st.checkbox(term, value=False, key=f"i_sug_{current_id}_{term}"):
-                    index_kept_terms.append(term)
+                c_label, c_acc = st.columns([0.8, 0.2])
+                with c_label:
+                    st.text_input("Label", value=term, key=f"i_sug_lbl_{current_id}_{term}", label_visibility="collapsed", disabled=True)
+                with c_acc:
+                    if st.checkbox("", value=False, key=f"i_sug_{current_id}_{term}"):
+                        index_kept_terms.append(term)
         else:
             index_kept_terms = []
             st.caption("No suggestions.")
