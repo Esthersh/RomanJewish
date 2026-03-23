@@ -1,0 +1,122 @@
+"Id","Topic","Parent Topic Id","Indented Topics","Full Path","Level"
+4,"Courts and Procedure",0,"Courts and Procedure","Courts and Procedure",0
+20,"Appeal",4,"    Appeal","Courts and Procedure > Appeal",1
+16,"Courts",4,"    Courts","Courts and Procedure > Courts",1
+100,"Arbitration",16,"        Arbitration","Courts and Procedure > Courts > Arbitration",2
+99,"Choice of Judges",16,"        Choice of Judges","Courts and Procedure > Courts > Choice of Judges",2
+17,"Evidence",4,"    Evidence","Courts and Procedure > Evidence",1
+109,"Archiving",17,"        Archiving","Courts and Procedure > Evidence > Archiving",2
+102,"Documentary Evidence",17,"        Documentary Evidence","Courts and Procedure > Evidence > Documentary Evidence",2
+101,"Witnesses",17,"        Witnesses","Courts and Procedure > Evidence > Witnesses",2
+19,"Execution",4,"    Execution","Courts and Procedure > Execution",1
+18,"Oaths",4,"    Oaths","Courts and Procedure > Oaths",1
+121,"Procedure",4,"    Procedure","Courts and Procedure > Procedure",1
+122,"Confession",121,"        Confession","Courts and Procedure > Procedure > Confession",2
+3,"Obligations",0,"Obligations","Obligations",0
+14,"Consensual Contract",3,"    Consensual Contract","Obligations > Consensual Contract",1
+79,"Deposit",14,"        Deposit","Obligations > Consensual Contract > Deposit",2
+90,"Responsibility of depositee",79,"            Responsibility of depositee","Obligations > Consensual Contract > Deposit > Responsibility of depositee",3
+78,"Letting and Hiring",14,"        Letting and Hiring","Obligations > Consensual Contract > Letting and Hiring",2
+88,"Emphyteusis",78,"            Emphyteusis","Obligations > Consensual Contract > Letting and Hiring > Emphyteusis",3
+85,"Labour",78,"            Labour","Obligations > Consensual Contract > Letting and Hiring > Labour",3
+86,"Land Tenancy",78,"            Land Tenancy","Obligations > Consensual Contract > Letting and Hiring > Land Tenancy",3
+89,"Misthosis",78,"            Misthosis","Obligations > Consensual Contract > Letting and Hiring > Misthosis",3
+74,"Loan and Pledge",14,"        Loan and Pledge","Obligations > Consensual Contract > Loan and Pledge",2
+80,"Interest",74,"            Interest","Obligations > Consensual Contract > Loan and Pledge > Interest",3
+81,"Real security",74,"            Real security","Obligations > Consensual Contract > Loan and Pledge > Real security",3
+82,"Transfer of Debt",74,"            Transfer of Debt","Obligations > Consensual Contract > Loan and Pledge > Transfer of Debt",3
+77,"Mandate",14,"        Mandate","Obligations > Consensual Contract > Mandate",2
+76,"Partnership",14,"        Partnership","Obligations > Consensual Contract > Partnership",2
+75,"Sale",14,"        Sale","Obligations > Consensual Contract > Sale",2
+84,"Fraud",75,"            Fraud","Obligations > Consensual Contract > Sale > Fraud",3
+83,"Warrenty",75,"            Warrenty","Obligations > Consensual Contract > Sale > Warrenty",3
+15,"Delicts",3,"    Delicts","Obligations > Delicts",1
+93,"Damage",15,"        Damage","Obligations > Delicts > Damage",2
+98,"Indirect cause",93,"            Indirect cause","Obligations > Delicts > Damage > Indirect cause",3
+97,"wild Animals",93,"            wild Animals","Obligations > Delicts > Damage > wild Animals",3
+91,"Theft",15,"        Theft","Obligations > Delicts > Theft",2
+96,"In deposit",91,"            In deposit","Obligations > Delicts > Theft > In deposit",3
+95,"Intention",91,"            Intention","Obligations > Delicts > Theft > Intention",3
+94,"Return of Object",91,"            Return of Object","Obligations > Delicts > Theft > Return of Object",3
+92,"Wild Animals",15,"        Wild Animals","Obligations > Delicts > Wild Animals",2
+107,"Verbal Contracts",3,"    Verbal Contracts","Obligations > Verbal Contracts",1
+108,"Stipulation",107,"        Stipulation","Obligations > Verbal Contracts > Stipulation",2
+2,"Property",0,"Property","Property",0
+10,"Acquisition",2,"    Acquisition","Property > Acquisition",1
+55,"Conveyance",10,"        Conveyance","Property > Acquisition > Conveyance",2
+60,"Classification of Things",55,"            Classification of Things","Property > Acquisition > Conveyance > Classification of Things",3
+62,"Delivery",55,"            Delivery","Property > Acquisition > Conveyance > Delivery",3
+61,"Formal act",55,"            Formal act","Property > Acquisition > Conveyance > Formal act",3
+63,"Payment",55,"            Payment","Property > Acquisition > Conveyance > Payment",3
+64,"Usucapio",55,"            Usucapio","Property > Acquisition > Conveyance > Usucapio",3
+56,"Occupation",10,"        Occupation","Property > Acquisition > Occupation",2
+68,"Abandoned Property",56,"            Abandoned Property","Property > Acquisition > Occupation > Abandoned Property",3
+69,"Accession",56,"            Accession","Property > Acquisition > Occupation > Accession",3
+65,"From Natural state",56,"            From Natural state","Property > Acquisition > Occupation > From Natural state",3
+67,"Specification",56,"            Specification","Property > Acquisition > Occupation > Specification",3
+66,"Superficies",56,"            Superficies","Property > Acquisition > Occupation > Superficies",3
+57,"Usufruct",10,"        Usufruct","Property > Acquisition > Usufruct",2
+13,"Neighbors",2,"    Neighbors","Property > Neighbors",1
+11,"Possession",2,"    Possession","Property > Possession",1
+12,"Servitudes",2,"    Servitudes","Property > Servitudes",1
+59,"Personal",12,"        Personal","Property > Servitudes > Personal",2
+73,"Usufruct",59,"            Usufruct","Property > Servitudes > Personal > Usufruct",3
+58,"Praedial",12,"        Praedial","Property > Servitudes > Praedial",2
+72,"Rights of Light",58,"            Rights of Light","Property > Servitudes > Praedial > Rights of Light",3
+71,"Rights of Water",58,"            Rights of Water","Property > Servitudes > Praedial > Rights of Water",3
+70,"Rights of Way",58,"            Rights of Way","Property > Servitudes > Praedial > Rights of Way",3
+110,"Public Law",0,"Public Law","Public Law",0
+112,"Administrative Law",110,"    Administrative Law","Public Law > Administrative Law",1
+114,"Archive",112,"        Archive","Public Law > Administrative Law > Archive",2
+113,"Judiciary",112,"        Judiciary","Public Law > Administrative Law > Judiciary",2
+115,"Municipal Government ",112,"        Municipal Government ","Public Law > Administrative Law > Municipal Government ",2
+123,"Provincial Government ",112,"        Provincial Government ","Public Law > Administrative Law > Provincial Government ",2
+111,"Taxation",110,"    Taxation","Public Law > Taxation",1
+1,"Status",0,"Status","Status",0
+7,"Citizenship",1,"    Citizenship","Status > Citizenship",1
+41,"Captivity",7,"        Captivity","Status > Citizenship > Captivity",2
+105,"Freed Persons",7,"        Freed Persons","Status > Citizenship > Freed Persons",2
+40,"Naturalization",7,"        Naturalization","Status > Citizenship > Naturalization",2
+5,"Family",1,"    Family","Status > Family",1
+22,"Divorce",5,"        Divorce","Status > Family > Divorce",2
+23,"Marital Arrangements",5,"        Marital Arrangements","Status > Family > Marital Arrangements",2
+24,"Dowry",23,"            Dowry","Status > Family > Marital Arrangements > Dowry",3
+27,"Property of Women",23,"            Property of Women","Status > Family > Marital Arrangements > Property of Women",3
+25,"Provision for Wife",23,"            Provision for Wife","Status > Family > Marital Arrangements > Provision for Wife",3
+26,"Provisions for Children",23,"            Provisions for Children","Status > Family > Marital Arrangements > Provisions for Children",3
+21,"Marriage",5,"        Marriage","Status > Family > Marriage",2
+117,"Acts of Marriage",21,"            Acts of Marriage","Status > Family > Marriage > Acts of Marriage",3
+118,"Legitimate Children",21,"            Legitimate Children","Status > Family > Marriage > Legitimate Children",3
+6,"Inheritance",1,"    Inheritance","Status > Inheritance",1
+119,"Debts and Obligations",6,"        Debts and Obligations","Status > Inheritance > Debts and Obligations",2
+28,"Intestacy",6,"        Intestacy","Status > Inheritance > Intestacy",2
+30,"Classes of Heirs",28,"            Classes of Heirs","Status > Inheritance > Intestacy > Classes of Heirs",3
+103,"Father Inheritance Rights ",28,"            Father Inheritance Rights ","Status > Inheritance > Intestacy > Father Inheritance Rights ",3
+104,"Firstborn Inheritance Rights",28,"            Firstborn Inheritance Rights","Status > Inheritance > Intestacy > Firstborn Inheritance Rights",3
+31,"Women Inheritance Rights",28,"            Women Inheritance Rights","Status > Inheritance > Intestacy > Women Inheritance Rights",3
+29,"Testaments",6,"        Testaments","Status > Inheritance > Testaments",2
+35,"Acceptance of will",29,"            Acceptance of will","Status > Inheritance > Testaments > Acceptance of will",3
+34,"Capacity",29,"            Capacity","Status > Inheritance > Testaments > Capacity",3
+32,"Causa Mortis",29,"            Causa Mortis","Status > Inheritance > Testaments > Causa Mortis",3
+37,"Deeds of Gift as Wills",29,"            Deeds of Gift as Wills","Status > Inheritance > Testaments > Deeds of Gift as Wills",3
+33,"Disinheritance",29,"            Disinheritance","Status > Inheritance > Testaments > Disinheritance",3
+36,"Forms of Will",29,"            Forms of Will","Status > Inheritance > Testaments > Forms of Will",3
+38,"Legacies",29,"            Legacies","Status > Inheritance > Testaments > Legacies",3
+39,"Trust",29,"            Trust","Status > Inheritance > Testaments > Trust",3
+9,"Legal Capacity",1,"    Legal Capacity","Status > Legal Capacity",1
+47,"Adoption",9,"        Adoption","Status > Legal Capacity > Adoption",2
+48,"Guardianship",9,"        Guardianship","Status > Legal Capacity > Guardianship",2
+53,"Guardianship over Minors",48,"            Guardianship over Minors","Status > Legal Capacity > Guardianship > Guardianship over Minors",3
+54,"Guardianship over Women",48,"            Guardianship over Women","Status > Legal Capacity > Guardianship > Guardianship over Women",3
+51,"Infamy",9,"        Infamy","Status > Legal Capacity > Infamy",2
+120,"Legal Capacity of Women",9,"        Legal Capacity of Women","Status > Legal Capacity > Legal Capacity of Women",2
+50,"Mental Disability",9,"        Mental Disability","Status > Legal Capacity > Mental Disability",2
+49,"Minors",9,"        Minors","Status > Legal Capacity > Minors",2
+46,"Paternal Power",9,"        Paternal Power","Status > Legal Capacity > Paternal Power",2
+52,"Emanciaption",46,"            Emanciaption","Status > Legal Capacity > Paternal Power > Emanciaption",3
+8,"Slavery",1,"    Slavery","Status > Slavery",1
+43,"Manumission",8,"        Manumission","Status > Slavery > Manumission",2
+45,"Paramone",43,"            Paramone","Status > Slavery > Manumission > Paramone",3
+44,"Pseudo Manumissions",43,"            Pseudo Manumissions","Status > Slavery > Manumission > Pseudo Manumissions",3
+42,"Obligations of Slaves",8,"        Obligations of Slaves","Status > Slavery > Obligations of Slaves",2
+106,"Patronage/Clientela",8,"        Patronage/Clientela","Status > Slavery > Patronage/Clientela",2

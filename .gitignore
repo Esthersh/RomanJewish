@@ -2,20 +2,24 @@ venv/
 __pycache__/
 *.pyc
 .ipynb_checkpoints
-*.json
+# Keep crucial data and results
+!data/*.csv
+!results/*.json
+!results/merged_*.json
+# Still ignore other temporary csv/json
 *.xlsx
-*.csv
-# Keep the initial input files if they are considered part of the repo seed, but usually data is ignored. 
-# However, user code relies on specific filenames. 
-# For now, I'll ignore generated results but maybe keep the source data if it's small? 
-# The user prompted "commit and push current files". 
-# I will start by ignoring generated results and venv.
-
+# Ignore specific files
 batch_results.json
 results/batch_results_gpt4.json
 test_metadata.json
 annotated_results.xlsx
 debug_output.txt
 .DS_Store
-config.yaml
-scripts/
+# Keep config for secrets fallback? No, usually secrets are better.
+# config.yaml
+scripts/MATCH_KEYWORDS_W_EN/
+scripts/MATCH_FIELDS_W_EN/
+scripts/MATCH_INDEX_W_EN/
+# Exclude raw results if needed, but for now we need merged ones
+# results/kw_*.json etc are also needed for the review
+
