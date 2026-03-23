@@ -618,7 +618,7 @@ def main():
         for mid in missed_ids:
             kw_obj = kw_map.get(str(mid))
             label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-            if st.checkbox(f"Add missed: {label}?", value=False, key=f"kw_miss_{current_id}_{mid}"):
+            if st.checkbox(label, value=True, key=f"kw_miss_{current_id}_{mid}"):
                 agreed_missed_ids.append(mid)
     else:
         st.caption("No missed gold keywords.")
@@ -682,7 +682,7 @@ def main():
         for fid in f_missed:
             f_obj = field_map.get(str(fid))
             label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-            if st.checkbox(f"Add missed field: {label}?", value=False, key=f"f_miss_{current_id}_{fid}"):
+            if st.checkbox(label, value=True, key=f"f_miss_{current_id}_{fid}"):
                 field_miss_agreed_ids.append(fid)
     else:
         st.caption("No missed gold fields.")
@@ -728,7 +728,7 @@ def main():
     index_miss_agreed_terms = []
     if i_missed:
         for term in i_missed:
-            if st.checkbox(f"Add missed index: {term}?", value=False, key=f"i_miss_{current_id}_{term}"):
+            if st.checkbox(term, value=True, key=f"i_miss_{current_id}_{term}"):
                 index_miss_agreed_terms.append(term)
     else:
         st.caption("No missed gold index terms.")
