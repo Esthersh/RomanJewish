@@ -343,6 +343,22 @@ def main():
     st.set_page_config(layout="centered",
                        page_title="RomanJewish Legal Classifier - Review")
 
+    # Widen the centered content area for better annotation columns
+    st.markdown("""
+        <style>
+            .block-container {
+                max-width: 1000px;
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            /* Make disabled text inputs look normal (black text) */
+            input:disabled {
+                color: black !important;
+                -webkit-text-fill-color: black !important;
+            }
+        </style>
+    """, unsafe_allow_html=True)
+
 
     # --- AUTHENTICATION ---
     # Read credentials from Streamlit secrets (cloud) or config.yaml (local dev)
@@ -557,23 +573,6 @@ def main():
     intersection_ids = sorted(list(pred_set & gold_set))
     suggestion_ids = sorted(list(pred_set - gold_set))
     missed_ids = sorted(list(gold_set - pred_set))
-
-    
-    # Widen the centered content area for better annotation columns
-    st.markdown("""
-        <style>
-            .block-container {
-                max-width: 1000px;
-                padding-left: 2rem;
-                padding-right: 2rem;
-            }
-            /* Make disabled text inputs look normal (black text) */
-            input:disabled {
-                color: black !important;
-                -webkit-text-fill-color: black !important;
-            }
-        </style>
-    """, unsafe_allow_html=True)
 
     
     # --- KEYWORDS SECTION ---
