@@ -18,3 +18,19 @@ def validate_match_keywords_response(raw_json: list) -> List[MatchKeywordEntry]:
     Raises ValidationError if any entry is malformed.
     """
     return [MatchKeywordEntry(**entry) for entry in raw_json]
+
+
+class MatchFieldEntry(BaseModel):
+    """Validates a single field match from the FIELDS prompt response."""
+    field: str
+    field_id: int
+
+
+def validate_match_fields_response(raw_json: list) -> List[MatchFieldEntry]:
+    """
+    Validate and parse the raw JSON list from the FIELDS LLM response.
+    Returns a list of validated MatchFieldEntry objects.
+    Raises ValidationError if any entry is malformed.
+    """
+    return [MatchFieldEntry(**entry) for entry in raw_json]
+

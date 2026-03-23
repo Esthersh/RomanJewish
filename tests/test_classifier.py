@@ -19,8 +19,12 @@ class TestClassifier(unittest.TestCase):
             Keyword(id=4, name="SubItem", level=1, parent_id=3, full_path="Category2 > SubItem", indented_name="  SubItem")
         ]
 
+    @patch('src.classifier.DataLoader.load_keywords')
     @patch('src.classifier.OpenAI')
-    def test_openai_classify(self, mock_openai):
+    def test_openai_classify(self, mock_openai, mock_load_kw):
+        # Setup mock keyword loading
+        mock_load_kw.return_value = self.mock_keywords
+
         # Setup mock response
         mock_client = MagicMock()
         mock_openai.return_value = mock_client
@@ -32,9 +36,9 @@ class TestClassifier(unittest.TestCase):
         mock_response_2.choices[0].message.content = "NONE"
         mock_client.chat.completions.create.side_effect = [mock_response_1, mock_response_2]
 
-        classifier = Classifier(provider="openai", api_key="fake")
+        classifier = Classifier(provider="openai", api_key="fake", keywords_csv="fake.csv")
 
-        matched, new_kws, raw = classifier.classify("Some text about Leaf", self.mock_keywords)
+        matched, new_kws, raw = classifier.classify("Some text about Leaf")
         
         self.assertEqual(matched, ["2"])
         self.assertEqual(new_kws, [])
@@ -51,9 +55,12 @@ class TestClassifier(unittest.TestCase):
         self.assertIn("Category Category2, id: 3", formatted)
         self.assertIn("  - SubItem (id: 4)", formatted)
 
+    @patch('src.classifier.DataLoader.load_keywords')
     @patch('src.classifier.OpenAI')
-    def test_classify_match_keywords(self, mock_openai):
+    def test_classify_match_keywords(self, mock_openai, mock_load_kw):
         """Test MATCH_KEYWORDS prompt path with JSON response."""
+        mock_load_kw.return_value = self.mock_keywords
+
         mock_client = MagicMock()
         mock_response = MagicMock()
         llm_json = json.dumps([
@@ -66,11 +73,12 @@ class TestClassifier(unittest.TestCase):
 
         classifier = Classifier(
             provider="openai", api_key="fake",
-            prompt_name="MATCH_KEYWORDS"
+            prompt_name="MATCH_KEYWORDS",
+            keywords_csv="fake.csv"
         )
 
         matched_ids, suggested, raw = classifier.classify(
-            "Some text", self.mock_keywords,
+            "Some text",
             {"language": "Hebrew", "translation": "Some translation"}
         )
         self.assertEqual(matched_ids, ["2"])

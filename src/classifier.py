@@ -1,12 +1,14 @@
 import ast
 import json
+import re
 import importlib.util
-from typing import Dict, Tuple
+from typing import Dict, Optional, Tuple
 from openai import OpenAI
-from data_loader import Keyword
+from data_loader import DataLoader, Keyword
 from models import *
 from time import sleep
 from prompts.default import CLASSIFICATION_PROMPTS
+from topics import load_topics, format_judicial_fields
 
 
 class LLMProvider:
@@ -297,12 +299,16 @@ class Classifier:
             temperature: float = 0.0,
             top_p: float = 1.,
             thinking_level: str = None,
-            debug: bool = False
+            debug: bool = False,
+            topics_csv: str = None,
+            keywords_csv: str = None
     ):
         self.prompts = None
         self.provider_name = provider.lower()
         self.debug = debug
         self.prompt_name = prompt_name
+        self.topics_csv = topics_csv
+        self.keywords_csv = keywords_csv
 
         if self.provider_name == 'gemini':
             self.llm = GeminiProvider(api_key, model_name, temperature, top_p, thinking_level=thinking_level)
@@ -338,35 +344,46 @@ class Classifier:
             print(f"Error loading prompts from {prompt_path}: {e}")
             raise e
 
-    def classify(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) \
+    def classify(self, text: str, metadata: Dict[str, str] = {}) \
             -> Tuple[List[str], List[str], str]:
         """
-        Returns: (matched_keyword_ids_or_names, new_suggested_keywords, raw_response)
+        Returns: (matched_ids_or_terms, new_suggested_keywords, raw_response)
+        Routes to the appropriate handler based on prompt_name prefix.
         """
-        # TODO modify to be compatible with multiple prompts
-        if self.prompt_name in CLASSIFICATION_PROMPTS.keys():
-            return self._classify_keywords(text, keywords, metadata)
+        if self.prompt_name.startswith("FIELDS"):
+            return self._classify_fields(text, metadata)
+        elif self.prompt_name.startswith("INDEX"):
+            return self._classify_index(text, metadata)
+        elif self.prompt_name in CLASSIFICATION_PROMPTS.keys():
+            return self._classify_keywords(text, metadata)
         else:
-            return self._classify_default(text, keywords, metadata)
+            return self._classify_default(text, metadata)
 
-    def _classify_keywords(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) -> Tuple[
+    def _classify_keywords(self, text: str, metadata: Dict[str, str] = {}) -> Tuple[
         List[str], List[str], str]:
         """
-        Classification using the MATCH_KEYWORDS prompt.
+        Classification using the MATCH_KEYWORDS / KEYWORDS prompt.
+        Loads keyword hierarchy from keywords CSV.
         Single-step: classification + suggestions in one LLM call.
         Output validated with Pydantic.
         """
+        if not self.keywords_csv:
+            raise ValueError("keywords_csv path is required for KEYWORDS/MATCH_KEYWORDS prompts")
+
+        keywords = DataLoader.load_keywords(self.keywords_csv)
         hierarchy = format_keywords_by_category(keywords)
 
         prompt = self.prompts.get("classification_prompt", "").format(
             hierarchy=hierarchy,
             text=text,
-            translation=metadata.get('translation', ''),  # TODO ensure stays empty if no translation
-            Language=metadata.get('language', 'Hebrew')
+            translation=metadata.get('translation', ''),
+            language=metadata.get('language', 'Hebrew'),
+            Language=metadata.get('language', 'Hebrew'),
+            source_name=metadata.get('source_name', ''),
         )
 
         if self.debug:
-            print(f"\n[DEBUG] --- MATCH_KEYWORDS Prompt ---\n{prompt}\n-----------------------------------")
+            print(f"\n[DEBUG] --- KEYWORDS Prompt ---\n{prompt}\n-----------------------------------")
 
         response = self.llm.generate(prompt)
 
@@ -378,8 +395,6 @@ class Classifier:
         suggested_kws = []
         try:
             cleaned = response.strip()
-            # More robust JSON extraction: find the first '[' and last ']'
-            import re
             json_match = re.search(r'\[.*\]', cleaned, re.DOTALL)
             if json_match:
                 cleaned = json_match.group(0)
@@ -394,17 +409,110 @@ class Classifier:
                     matched_ids.append(str(entry.keyword_id))
 
         except json.JSONDecodeError as e:
-            print(f"Error parsing JSON from MATCH_KEYWORDS response: {e}")
+            print(f"Error parsing JSON from KEYWORDS response: {e}")
         except Exception as e:
-            print(f"Error validating MATCH_KEYWORDS response: {e}")
+            print(f"Error validating KEYWORDS response: {e}")
 
         return matched_ids, suggested_kws, response
 
-    def _classify_default(self, text: str, keywords: List[Keyword], metadata: Dict[str, str] = {}) -> Tuple[
+    def _classify_fields(self, text: str, metadata: Dict[str, str] = {}) -> Tuple[
+        List[str], List[str], str]:
+        """
+        Classification using the FIELDS / FIELDS_W_EN prompt.
+        Loads judicial field hierarchy from Topics.csv via format_judicial_fields.
+        """
+        if not self.topics_csv:
+            raise ValueError("topics_csv path is required for FIELDS prompts")
+
+        topics = load_topics(self.topics_csv)
+        hierarchy = format_judicial_fields(topics)
+
+        prompt = self.prompts.get("classification_prompt", "").format(
+            hierarchy=hierarchy,
+            text=text,
+            translation=metadata.get('translation', ''),
+            language=metadata.get('language', ''),
+            source_name=metadata.get('source_name', ''),
+        )
+
+        if self.debug:
+            print(f"\n[DEBUG] --- FIELDS Prompt ---\n{prompt}\n-----------------------------------")
+
+        response = self.llm.generate(prompt)
+
+        if self.debug:
+            print(f"\n[DEBUG] --- LLM Response ---\n{response}\n------------------------------")
+
+        matched_ids = []
+        try:
+            cleaned = response.strip()
+            json_match = re.search(r'\[.*\]', cleaned, re.DOTALL)
+            if json_match:
+                cleaned = json_match.group(0)
+
+            raw_json = json.loads(cleaned)
+            entries = validate_match_fields_response(raw_json)
+
+            for entry in entries:
+                matched_ids.append(str(entry.field_id))
+
+        except json.JSONDecodeError as e:
+            print(f"Error parsing JSON from FIELDS response: {e}")
+        except Exception as e:
+            print(f"Error validating FIELDS response: {e}")
+
+        return matched_ids, [], response
+
+    def _classify_index(self, text: str, metadata: Dict[str, str] = {}) -> Tuple[
+        List[str], List[str], str]:
+        """
+        Classification using the INDEX / INDEX_W_EN prompt.
+        Returns index terms extracted from the text.
+        """
+        prompt = self.prompts.get("classification_prompt", "").format(
+            text=text,
+            translation=metadata.get('translation', ''),
+            language=metadata.get('language', 'Hebrew'),
+            source_name=metadata.get('source_name', ''),
+        )
+
+        if self.debug:
+            print(f"\n[DEBUG] --- INDEX Prompt ---\n{prompt}\n-----------------------------------")
+
+        response = self.llm.generate(prompt)
+
+        if self.debug:
+            print(f"\n[DEBUG] --- LLM Response ---\n{response}\n------------------------------")
+
+        index_terms = []
+        try:
+            cleaned = response.strip()
+            json_match = re.search(r'\[.*\]', cleaned, re.DOTALL)
+            if json_match:
+                cleaned = json_match.group(0)
+
+            index_terms = json.loads(cleaned)
+            if not isinstance(index_terms, list):
+                print(f"Expected list from INDEX response, got {type(index_terms)}")
+                index_terms = []
+
+        except json.JSONDecodeError as e:
+            print(f"Error parsing JSON from INDEX response: {e}")
+        except Exception as e:
+            print(f"Error parsing INDEX response: {e}")
+
+        return index_terms, [], response
+
+    def _classify_default(self, text: str, metadata: Dict[str, str] = {}) -> Tuple[
         List[str], List[str], str]:
         """
         Original classification flow: step 1 (classify) + step 2 (suggest).
+        Loads keyword hierarchy from keywords CSV.
         """
+        if not self.keywords_csv:
+            raise ValueError("keywords_csv path is required for default classification prompts")
+
+        keywords = DataLoader.load_keywords(self.keywords_csv)
         hierarchy_str = format_keywords(keywords)
 
         import re
@@ -412,10 +520,10 @@ class Classifier:
         prompt_1 = self.prompts.get("classification_prompt", "").format(
             hierarchy_str=hierarchy_str,
             text=text,
-            source_name=metadata.get('source_name', 'Unknown'),
-            group=metadata.get('group', 'Unknown'),
-            name=metadata.get('name', 'Unknown'),
-            Language=metadata.get('language', 'Hebrew')
+            source_name=metadata.get('source_name', '-'),
+            group=metadata.get('group', '-'),
+            name=metadata.get('name', '-'),
+            Language=metadata.get('language', '-')
         )
 
         if self.debug:
@@ -439,9 +547,9 @@ class Classifier:
         prompt_2 = self.prompts.get("suggestion_prompt", "").format(
             hierarchy_str=matched_str,
             text=text,
-            source_name=metadata.get('source_name', 'Unknown'),
-            group=metadata.get('group', 'Unknown'),
-            name=metadata.get('name', 'Unknown')
+            source_name=metadata.get('source_name', '-'),
+            group=metadata.get('group', '-'),
+            name=metadata.get('name', '-')
         )
 
         if self.debug:

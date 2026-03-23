@@ -16,6 +16,16 @@ class Keyword:
 
 
 @dataclass
+class JudicialField:
+    id: int
+    name: str
+    level: int
+    parent_id: Optional[int]
+    full_path: str
+    indented_name: str
+
+
+@dataclass
 class CorpusSample:
     source_id: str
     source_name: str
@@ -56,6 +66,33 @@ class DataLoader:
             return keywords
         except Exception as e:
             print(f"Error loading keywords: {e}")
+            sys.exit(1)
+
+    @staticmethod
+    def load_judicial_fields(csv_path: str) -> List[JudicialField]:
+        """
+        Loads judicial fields from Topics.csv.
+        Expected columns: Id, Topic, Parent Topic Id, Indented Topics, Full Path, Level
+        """
+        try:
+            df = pd.read_csv(csv_path)
+            fields = []
+            for _, row in df.iterrows():
+                parent_id = int(row['Parent Topic Id']) if (pd.notna(row['Parent Topic Id'])
+                                                            and row['Parent Topic Id'] != 0) else None
+
+                field = JudicialField(
+                    id=int(row['Id']),
+                    name=str(row['Topic']).strip(),
+                    level=int(row['Level']),
+                    parent_id=parent_id,
+                    full_path=str(row['Full Path']).strip(),
+                    indented_name=str(row['Indented Topics'])
+                )
+                fields.append(field)
+            return fields
+        except Exception as e:
+            print(f"Error loading judicial fields: {e}")
             sys.exit(1)
 
     @staticmethod

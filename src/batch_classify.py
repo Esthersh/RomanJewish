@@ -3,7 +3,6 @@ import json
 import os
 import sys
 from argparse import Namespace
-
 from tqdm import tqdm
 from data_loader import DataLoader
 from classifier import Classifier
@@ -15,17 +14,29 @@ def main():
     """
     args = parse_run_args()
 
+    # Determine which prompt type we're running
+    prompt_type = args.prompt_k
+    needs_keywords = not (prompt_type.startswith("FIELDS") or prompt_type.startswith("INDEX"))
+
     # Load Data
     print("Loading data...")
     loader = DataLoader()
-    keywords = loader.load_keywords(args.keywords_csv)
+    keywords = []
+    if needs_keywords:
+        if not args.keywords_csv:
+            print("Error: --keywords_csv is required for KEYWORDS/MATCH_KEYWORDS prompts.")
+            sys.exit(1)
+        keywords = loader.load_keywords(args.keywords_csv)
     corpus = loader.load_corpus(args.corpus_csv)
 
     if args.limit:
         corpus = corpus[:args.limit]
         print(f"Limiting to {args.limit} samples.")
 
-    print(f"Loaded {len(keywords)} keywords and {len(corpus)} samples.")
+    if needs_keywords:
+        print(f"Loaded {len(keywords)} keywords and {len(corpus)} samples.")
+    else:
+        print(f"Loaded {len(corpus)} samples.")
 
     # Init Classifier
     try:
@@ -38,7 +49,9 @@ def main():
             temperature=args.temperature,
             top_p=args.top_p,
             debug=args.debug,
-            thinking_level=args.thinking_level
+            thinking_level=args.thinking_level,
+            topics_csv=args.topics_csv,
+            keywords_csv=args.keywords_csv
         )
     except Exception as e:
         print(f"Error initializing classifier: {e}")
@@ -78,16 +91,11 @@ def main():
                 "language": sample.language,
                 "translation": sample.original_row.get('translation', '')
             }
-            matched_ids, suggested_kws, full_res = classifier.classify(sample.text, keywords, metadata)
+            matched_ids, suggested_kws, full_res = classifier.classify(sample.text, metadata)
 
             if not full_res or not full_res.strip():
                 print(f"Skipping sample {sample.ref_id} due to empty LLM response.")
                 continue
-
-            # Resolve IDs to Names
-            # specific helper to find name by id
-            kw_map = {str(k.id): k.name for k in keywords}
-            matched_names = [kw_map.get(str(mid), f"Unknown ID {mid}") for mid in matched_ids]
 
             result_entry = {
                 "ref_id": sample.ref_id,
@@ -95,12 +103,22 @@ def main():
                 "group": sample.group,
                 "name": sample.source_name,
                 "text": sample.text,
-                "original_row": sample.original_row,  # Keep original metadata
-                "matched_ids": matched_ids,
-                "matched_keywords": matched_names,
-                "suggested_kws": suggested_kws,
+                "original_row": sample.original_row,
                 "original_res": full_res,
             }
+
+            if prompt_type.startswith("INDEX"):
+                result_entry["index_terms"] = matched_ids  # list of strings for INDEX
+            elif prompt_type.startswith("FIELDS"):
+                result_entry["matched_field_ids"] = matched_ids
+            else:
+                # KEYWORDS / MATCH_KEYWORDS
+                kw_map = {str(k.id): k.name for k in keywords}
+                matched_names = [kw_map.get(str(mid), f"Unknown ID {mid}") for mid in matched_ids]
+                result_entry["matched_ids"] = matched_ids
+                result_entry["matched_keywords"] = matched_names
+                result_entry["suggested_kws"] = suggested_kws
+
             results.append(result_entry)
 
             # Save results iteratively
@@ -136,8 +154,10 @@ def parse_run_args() -> Namespace:
                         help="Path to prompt file")
     parser.add_argument("--prompt_k", default="CLASSIFICATION_PROMPT",
                         help="Name of the prompt variable to use")
-    parser.add_argument("--keywords_csv", default="Keywords_05022026.csv",
-                        help="Path to keywords CSV")
+    parser.add_argument("--keywords_csv", default=None,
+                        help="Path to keywords CSV (required for KEYWORDS/MATCH_KEYWORDS prompts)")
+    parser.add_argument("--topics_csv", default=None,
+                        help="Path to topics CSV (required for FIELDS prompts)")
     parser.add_argument("--corpus_csv", default="LUR sample corpus.csv",
                         help="Path to corpus CSV")
     parser.add_argument("--output_file", default="batch_results.json",

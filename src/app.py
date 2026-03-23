@@ -28,70 +28,106 @@ def get_config(results_dir):
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
 
-    # List JSON files in results directory
-    json_files = [f for f in os.listdir(results_dir) if f.endswith('.json')]
+    # List only merged JSON files in results directory
+    json_files = sorted([f for f in os.listdir(results_dir) if f.startswith('merged_') and f.endswith('.json')])
 
     # Default to first file if available, otherwise None
     default_input = json_files[0] if json_files else None
 
     # Default keywords file
     keywords_file = None
+    fields_file = None
     project_root = os.path.dirname(results_dir)
     kw_path = os.path.join(project_root, "data", "Keywords.csv")
     if os.path.exists(kw_path):
         keywords_file = kw_path
+
+    tp_path = os.path.join(project_root, "data", "Topics.csv")
+    if os.path.exists(tp_path):
+        fields_file = tp_path
 
     for i, arg in enumerate(sys.argv):
         if arg == "--input_file" and i + 1 < len(sys.argv):
             default_input = sys.argv[i + 1]
         if arg == "--keywords_file" and i + 1 < len(sys.argv):
             keywords_file = sys.argv[i + 1]
+        if arg == "--fields_file" and i + 1 < len(sys.argv):
+            fields_file = sys.argv[i + 1]
 
-    return default_input, keywords_file, json_files
+    return default_input, keywords_file, fields_file, json_files
 
 
-def create_annotation(result, matched_names, kept_ids, added_kws,
-                      suggested_kws, final_new_kws, filename):
-    """Creates the annotation dictionary."""
-    # Extract gold IDs for metric computation
+def create_annotation(result, filename, 
+                      kw_kept_ids, kw_man_ids, kw_new_accepted,
+                      field_kept_ids, field_miss_ids, 
+                      index_kept_terms, index_miss_terms):
+    """Creates the annotation dictionary for 3-Vector Review."""
     original_row = result.get('original_row', {})
-    gold_kw_ids_raw = original_row.get('KW Ids', '')
-    gold_ids = []
-    if gold_kw_ids_raw and str(gold_kw_ids_raw).strip() and str(gold_kw_ids_raw).lower() != 'nan':
-        gold_ids = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
+    
+    # Gold reference for meta-data and metrics
+    def get_gold_list(key):
+        val = original_row.get(key, '')
+        if val and str(val).strip() and str(val).lower() != 'nan':
+            return [v.strip() for v in str(val).split(',') if v.strip()]
+        return []
+
+    gold_kw_ids = get_gold_list('KW Ids')
+    gold_field_ids = get_gold_list('Judicial Topic Ids')
+    gold_index_terms = get_gold_list('Index Terms')
 
     return {
         "results_filename": filename,
         "annotator": st.session_state.get('name', ''),
         "date": date.today().isoformat(),
-        "ref_id": result.get('original_row').get("Refference"),
+        "ref_id": original_row.get("Refference") or original_row.get("ref Code"),
         "source_id": result.get('source_id'),
-        "text": result.get("text"),
         "group": result.get("group"),
         "name": result.get("name"),
-        "original_matched": matched_names,
-        "original_matched_ids": result.get('matched_ids', []),
-        "kept_ids": kept_ids,
-        "added_existing_ids": [k.split("(ID: ")[1].strip(")") for k in added_kws],
-        "gold_ids": gold_ids,
-        "original_suggested": suggested_kws,
-        "accepted_new_keywords": final_new_kws
+        "text": result.get("text"),
+        
+        # Keywords
+        "orig_kw_ids": result.get('matched_ids', []),
+        "kw_kept_ids": kw_kept_ids,
+        # "kw_manually_added_ids": kw_man_ids,
+        "kw_accepted_new": kw_new_accepted,
+        "gold_kw_ids": gold_kw_ids,
+        
+        # Judicial Fields
+        "orig_field_ids": result.get('matched_field_ids', []),
+        "field_kept_ids": field_kept_ids,
+        "field_miss_agreed_ids": field_miss_ids,
+        "gold_field_ids": gold_field_ids,
+        
+        # Index Terms (Lists of strings)
+        "orig_index_terms": result.get('index_terms', []),
+        "index_kept_terms": index_kept_terms,
+        "index_miss_agreed_terms": index_miss_terms,
+        "gold_index_terms": gold_index_terms
     }
 
 
-def add_anno(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws):
-    """Adds the annotation to the session state."""
-    if 'input_file' in st.session_state and st.session_state.input_file:
-        current_file = os.path.basename(st.session_state.input_file)
-    annotation = create_annotation(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws,
-                                   current_file)
+def add_anno(result, filename, 
+             kw_kept_ids,
+            #  kw_man_ids,
+             kw_new_accepted,
+             field_kept_ids, field_miss_ids, 
+             index_kept_terms, index_miss_terms):
+    """Adds the 3-vector annotation to the session state."""
+    annotation = create_annotation(
+        result, filename, 
+        kw_kept_ids,
+        # kw_man_ids,
+        kw_new_accepted,
+        field_kept_ids, field_miss_ids, 
+        index_kept_terms, index_miss_terms
+    )
 
     # Add to the session buffer
     st.session_state.annotations.append(annotation)
 
-    # Update global list (in-memory)
-    if len(final_new_kws) > 0:
-        st.session_state.keyword_manager.update_keywords(final_new_kws)
+    # Update keyword manager (for new suggested keywords that were accepted)
+    if kw_new_accepted:
+        st.session_state.keyword_manager.update_keywords(kw_new_accepted)
 
     # Increment index
     st.session_state.current_index += 1
@@ -110,6 +146,10 @@ def load_data(input_file):
             try:
                 loader = DataLoader()
                 st.session_state.keywords = loader.load_keywords(st.session_state.keywords_file)
+                if hasattr(st.session_state, 'fields_file') and st.session_state.fields_file:
+                    st.session_state.fields = loader.load_judicial_fields(st.session_state.fields_file)
+                else:
+                    st.session_state.fields = []
 
                 with open(input_file, 'r') as f:
                     st.session_state.results = json.load(f)
@@ -166,12 +206,16 @@ def display_metrics(output_file, results_dir=None):
         st.session_state.show_metrics = False
         st.rerun()
 
-    # --- Section: LLM Performance Summary (Per File) ---
+    # --- Section: LLM Performance Summary (Original Predictions) ---
     st.markdown("### LLM Performance Summary (Original Predictions)")
-    st.caption("This table summarizes the performance of the models *before* human review, across all result files.")
+    
+    vector = st.radio("Select Vector for Metrics:", ["Keywords", "Judicial Fields", "Index Terms"], horizontal=True)
+    v_prefix = {"Keywords": "kw", "Judicial Fields": "field", "Index Terms": "index"}[vector]
+    gold_key = {"Keywords": "KW Ids", "Judicial Fields": "Judicial Topic Ids", "Index Terms": "Index Terms"}[vector]
+    pred_key = {"Keywords": "matched_ids", "Judicial Fields": "matched_field_ids", "Index Terms": "index_terms"}[vector]
 
     if results_dir and os.path.exists(results_dir):
-        json_files = [f for f in os.listdir(results_dir) if f.endswith('.json')]
+        json_files = sorted([f for f in os.listdir(results_dir) if f.endswith('.json')])
         summary_rows = []
         
         for jf in json_files:
@@ -179,102 +223,67 @@ def display_metrics(output_file, results_dir=None):
                 with open(os.path.join(results_dir, jf), 'r') as f:
                     data = json.load(f)
                 
-                file_precisions = []
-                file_recalls = []
-                file_jaccards = []
+                precisions, recalls, jaccards = [], [], []
                 
                 for item in data:
-                    if "error" in item:
-                        continue
-                        
-                    original_row = item.get('original_row', {})
-                    gold_kw_ids_raw = original_row.get('KW Ids', '')
-                    if not gold_kw_ids_raw or str(gold_kw_ids_raw).lower() == 'nan':
-                        continue # Skip samples without gold standard
+                    if "error" in item: continue
+                    gold_raw = item.get('original_row', {}).get(gold_key, '')
+                    if not gold_raw or str(gold_raw).lower() == 'nan': continue
                     
-                    gold_ids = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
-                    pred_ids = item.get('matched_ids', [])
+                    gold = [g.strip() for g in str(gold_raw).split(',') if g.strip()]
+                    pred = item.get(pred_key, [])
                     
-                    p, r, j = compute_sample_metrics(gold_ids, pred_ids)
-                    file_precisions.append(p)
-                    file_recalls.append(r)
-                    file_jaccards.append(j)
+                    p, r, j = compute_sample_metrics(gold, pred)
+                    precisions.append(p)
+                    recalls.append(r)
+                    jaccards.append(j)
                 
-                if file_precisions or data:  # Include even if no gold records found
-                    df_file = pd.DataFrame({
-                        'p': file_precisions,
-                        'r': file_recalls,
-                        'j': file_jaccards
-                    })
+                if precisions:
+                    df = pd.DataFrame({'p': precisions, 'r': recalls, 'j': jaccards})
                     summary_rows.append({
-                        "results_filename": jf,
-                        "Count": len(data),
-                        "Gold Count": len(file_precisions),
-                        "avg precision": df_file['p'].mean() if not df_file.empty else 0.0,
-                        "std precision": df_file['p'].std() if not df_file.empty else 0.0,
-                        "avg recall": df_file['r'].mean() if not df_file.empty else 0.0,
-                        "std recall": df_file['r'].std() if not df_file.empty else 0.0,
-                        "avg jaccard": df_file['j'].mean() if not df_file.empty else 0.0,
-                        "std jaccard": df_file['j'].std() if not df_file.empty else 0.0
+                        "File": jf,
+                        "Samples": len(data),
+                        "Gold Count": len(precisions),
+                        "Avg Prec": df['p'].mean(),
+                        "Avg Rec": df['r'].mean(),
+                        "Avg Jac": df['j'].mean()
                     })
             except Exception as e:
                 st.error(f"Error processing {jf}: {e}")
 
         if summary_rows:
-            summary_df = pd.DataFrame(summary_rows)
-            # Sort by recall descending
-            summary_df = summary_df.sort_values(by="avg recall", ascending=False)
-            st.dataframe(summary_df.style.format(precision=3), hide_index=True)
+            st.dataframe(pd.DataFrame(summary_rows).style.format(precision=3), hide_index=True)
         else:
-            st.info("No valid gold standard data found in result files to compute summary.")
+            st.info(f"No gold standard data found for {vector} in result files.")
     
     st.markdown("---")
     st.markdown("### ✍️ Annotation-Based Metrics")
 
-    try:
-        if not os.path.exists(output_file):
-            st.warning("No results file found.")
-            return
-            
-        # Use on_bad_lines='warn' to be more tolerant of past format inconsistencies
-        results_df = pd.read_csv(output_file, on_bad_lines='warn')
+    if not os.path.exists(output_file):
+        st.warning("No annotated results file found yet.")
+        return
         
+    try:
+        results_df = pd.read_csv(output_file)
         if not results_df.empty:
-            # Metrics columns to track
-            metrics_cols = [
-                'orig_jaccard', 'mod_jaccard', 
-                'orig_precision', 'mod_precision', 
-                'orig_recall', 'mod_recall'
-            ]
+            st.markdown(f"#### Dataset Level Averages ({vector})")
+            m_cols = [f'{v_prefix}_orig_j', f'{v_prefix}_mod_j', f'{v_prefix}_orig_p', f'{v_prefix}_mod_p', f'{v_prefix}_orig_r', f'{v_prefix}_mod_r']
+            existing_m = [c for c in m_cols if c in results_df.columns]
             
-            # Dataset Level Averages (calculated across all samples)
-            dataset_level = results_df[metrics_cols].mean()
-
-            # Truncate text for the display table (first 5 words)
-            results_df['text'] = results_df['text'].apply(
-                lambda x: " ".join(str(x).split()[:3]) + "..." if len(str(x).split()) > 3 else str(x)
-            )
-
-            st.markdown("#### Dataset Level Averages")
-            c1, c2, c3 = st.columns(3)
-            c1.metric("Jaccard (Orig → Mod)", f"{dataset_level['orig_jaccard']:.3f} → {dataset_level['mod_jaccard']:.3f}")
-            c2.metric("Precision (Orig → Mod)", f"{dataset_level['orig_precision']:.3f} → {dataset_level['mod_precision']:.3f}")
-            c3.metric("Recall (Orig → Mod)", f"{dataset_level['orig_recall']:.3f} → {dataset_level['mod_recall']:.3f}")
+            if existing_m:
+                dataset_level = results_df[existing_m].mean()
+                c1, c2, c3 = st.columns(3)
+                c1.metric("Jaccard (Orig → Mod)", f"{dataset_level.get(f'{v_prefix}_orig_j', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_j', 0):.3f}")
+                c2.metric("Precision (Orig → Mod)", f"{dataset_level.get(f'{v_prefix}_orig_p', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_p', 0):.3f}")
+                c3.metric("Recall (Orig → Mod)", f"{dataset_level.get(f'{v_prefix}_orig_r', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_r', 0):.3f}")
 
             st.markdown("#### Sample Level Details")
-            # Show individual samples with identifiers and the actual text
-            sample_details = results_df[[
-                'results_filename', 'group', 'name', 'text',
-                'orig_jaccard', 'mod_jaccard',
-                'orig_precision', 'mod_precision',
-                'orig_recall', 'mod_recall'
-            ]]
-            st.dataframe(sample_details.style.format(precision=3), hide_index=True)
-        else:
-            st.warning("No results to aggregate yet.")
+            display_cols = ['ref_id', 'group', 'name'] + existing_m
+            avail_cols = [c for c in display_cols if c in results_df.columns]
+            st.dataframe(results_df[avail_cols].tail(20), hide_index=True)
     except Exception as e:
-        st.error(f"Error loading metrics: {e}")
-        st.info("The annotated results file may have inconsistent columns. You might need to run a fix script or delete the file to start fresh.")
+        st.error(f"Error loading metrics from {output_file}: {e}")
+
 
 
 def display_instructions():
@@ -331,6 +340,7 @@ def main():
     st.set_page_config(layout="centered",
                        page_title="RomanJewish Legal Classifier - Review")
 
+
     # --- AUTHENTICATION ---
     # Read credentials from Streamlit secrets (cloud) or config.yaml (local dev)
     try:
@@ -378,6 +388,8 @@ def main():
         st.session_state.annotations = []
     if 'keywords' not in st.session_state:
         st.session_state.keywords = []
+    if 'fields' not in st.session_state:
+        st.session_state.fields = []
     if 'show_instructions' not in st.session_state:
         st.session_state.show_instructions = True
     if 'show_metrics' not in st.session_state:
@@ -405,8 +417,9 @@ def main():
         st.link_button("📈 Go to Annotations", DEFAULT_SHEET_URL, use_container_width=True)
     st.sidebar.markdown("---")
 
-    cli_input_file, cli_keywords_file, available_files = get_config(results_dir)
+    cli_input_file, cli_keywords_file, cli_fields_file, available_files = get_config(results_dir)
     st.session_state.keywords_file = cli_keywords_file
+    st.session_state.fields_file = cli_fields_file
 
     # Select menu for results file
     if available_files:
@@ -515,7 +528,7 @@ def main():
 
     st.write("#### Source Text")
     # Create two columns: The first is 1 part wide, the second is 2 parts wide
-    col1, col2 = st.columns([0.8, 1])
+    col1, col2 = st.columns([1.5, 1])
     with col1:
         st.info(f"Group: {result.get('group')} | Name: {result.get('name')}")
 
@@ -531,114 +544,224 @@ def main():
     original_row = result.get('original_row', {})
     gold_kw_ids_raw = original_row.get('KW Ids', '')
     gold_kw_names_raw = original_row.get('Keywords', '')
-    has_gold = (gold_kw_ids_raw
-                and str(gold_kw_ids_raw).strip()
-                and str(gold_kw_ids_raw).lower() != 'nan')
+    has_gold_kw = (gold_kw_ids_raw
+                   and str(gold_kw_ids_raw).strip()
+                   and str(gold_kw_ids_raw).lower() != 'nan')
     gold_ids_list = []
-    gold_names_list = []
-    if has_gold:
+    if has_gold_kw:
         gold_ids_list = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
-        gold_names_list = [n.strip() for n in str(gold_kw_names_raw).split(',') if n.strip()]
 
-    # --- Two-Column Layout: Matched vs Gold Keywords ---
-    st.subheader("Classification Review")
-    col_left, col_right = st.columns(2)
+    # Split matched into Intersection and Suggestions
+    pred_set = set(str(mid) for mid in matched_ids)
+    gold_set = set(str(gid) for gid in gold_ids_list)
+    intersection_ids = sorted(list(pred_set & gold_set))
+    suggestion_ids = sorted(list(pred_set - gold_set))
+    missed_ids = sorted(list(gold_set - pred_set))
 
-    # Sort helper: alphabetical by full_path, unknowns last
-    def _sort_key(kid):
-        kw_obj = kw_map.get(str(kid))
-        return kw_obj.full_path if kw_obj else f"\uffff{kid}"
+    
+    # Widen the centered content area for better annotation columns
+    st.markdown("""
+        <style>
+            .block-container {
+                max-width: 1000px;
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        </style>
+    """, unsafe_allow_html=True)
 
-    sorted_matched = sorted(matched_ids, key=_sort_key)
+    
+    # --- KEYWORDS SECTION ---
+    st.subheader("Keywords Review")
+    col1, col2, col3 = st.columns(3)
 
-    with col_left:
-        st.write("**Matched Keywords** — Uncheck if irrelevant")
-        kept_ids = []
-        for mid in sorted_matched:
+    with col1:
+        st.write("**Intersection** (Read-only)")
+        if intersection_ids:
+            for mid in intersection_ids:
+                kw_obj = kw_map.get(str(mid))
+                label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+                st.info(f"✅ {label}")
+        else:
+            st.caption("No intersection found.")
+
+    with col2:
+        st.write("**Suggestions** (Accept/Reject)")
+        kept_suggestion_ids = []
+        if suggestion_ids:
+            for mid in suggestion_ids:
+                kw_obj = kw_map.get(str(mid))
+                label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+                if st.checkbox(label, value=True, key=f"kw_sug_{current_id}_{mid}"):
+                    kept_suggestion_ids.append(mid)
+        else:
+            st.caption("No suggestions.")
+
+    with col3:
+        st.write("**New Suggestions** (Accept/Edit)")
+        final_new_kws = []
+        if suggested_kws:
+            for i, skw in enumerate(suggested_kws):
+                c_edit, c_acc = st.columns([0.8, 0.2])
+                with c_edit:
+                    edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}", label_visibility="collapsed")
+                with c_acc:
+                    if st.checkbox("", value=True, key=f"kw_new_acc_{current_id}_{i}"):
+                        final_new_kws.append(edited_kw)
+        else:
+            st.caption("No new suggestions.")
+
+    # Missed Keywords section
+    st.write("**Missed Gold Keywords** (Agree/Disagree)")
+    agreed_missed_ids = []
+    if missed_ids:
+        for mid in missed_ids:
             kw_obj = kw_map.get(str(mid))
             label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-            if st.checkbox(label, value=True, key=f"cb_{current_id}_{mid}"):
-                kept_ids.append(mid)
-
-    with col_right:
-        st.write("**Gold Annotated Keywords**")
-        if has_gold:
-            sorted_gold = sorted(
-                zip(gold_ids_list, gold_names_list), key=lambda g: _sort_key(g[0])
-            )
-            for gid, gname in sorted_gold:
-                kw_obj = kw_map.get(gid)
-                label = kw_obj.full_path if kw_obj else gname
-                st.markdown(f"- {label}")
-        else:
-            st.caption("No gold annotations available.")
-
-    # --- Per-sample Metrics ---
-    if has_gold:
-        precision, recall, jaccard = compute_sample_metrics(gold_ids_list, matched_ids)
-        st.info(
-            f"**Original Metrics** — "
-            f"Precision: {precision:.2f} · "
-            f"Recall: {recall:.2f} · "
-            f"Jaccard: {jaccard:.2f}"
-        )
-
-    # 2. Add Missed (FN Check)
-    st.write("**Are there any missed keywords from the thesaurus?**")
-    all_kw_names = [f"{k.name} (ID: {k.id})" for k in st.session_state.keywords]
-    added_kws = st.multiselect("Select existing keywords:",
-                               all_kw_names,
-                               key=f"ms_{current_id}",
-                               label_visibility="collapsed")
-
-    final_new_kws = []
-    if suggested_kws:
-        # 3. New Keyword Suggestions
-        st.write("**Suggested Keywords (not from the original list), Edit for correction as needed**")
-
-        for i, skw in enumerate(suggested_kws):
-            col_a, col_b = st.columns([0.7, 1])
-            with col_a:
-                edited_kw = st.text_input(
-                    "Edit keyword",
-                    value=skw,
-                    key=f"new_{current_id}_{i}",
-                    label_visibility="collapsed"
-                )
-            with col_b:
-                if st.checkbox("Accept", value=True, key=f"accept_{current_id}_{i}"):
-                    final_new_kws.append(edited_kw)
+            if st.checkbox(f"Add missed: {label}?", value=True, key=f"kw_miss_{current_id}_{mid}"):
+                agreed_missed_ids.append(mid)
     else:
-        st.write("No new keywords suggested by model.")
+        st.caption("No missed gold keywords.")
+
+    # Manual Add (Thesaurus)
+    # st.write("**Add other keywords from thesaurus?**")
+    # all_kw_names = [f"{k.name} (ID: {k.id})" for k in st.session_state.keywords]
+    # manually_added_kws = st.multiselect("Select keywords:", all_kw_names, key=f"kw_man_{current_id}", label_visibility="collapsed")
+
+    # st.markdown("---")
 
     # Add manual new keyword?
-    st.write("**Define any missing keywords, separated by commas (optional)**")
-    manual_new = st.text_input("-",
-                               key=f"manual_{current_id}",
-                               label_visibility="collapsed")
-    if manual_new:
-        final_new_kws += [e.strip() for e in manual_new.split(",")]
+    # st.write("**Define any missing keywords, separated by commas (optional)**")
+    # manual_new = st.text_input("-", key=f"manual_{current_id}", label_visibility="collapsed")
+    # manual_new_list = [m.strip() for m in manual_new.split(",") if m.strip()]
+    # final_new_kws += manual_new_list
 
-    # Navigation
+    # st.markdown("---")
+
+    # --- JUDICIAL FIELDS SECTION ---
+    st.subheader("Judicial Fields Review")
+
+    field_map = {str(f.id): f for f in st.session_state.get('fields', [])}
+    matched_field_ids = result.get('matched_field_ids', [])
+    gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
+    has_gold_f = (gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
+    gold_f_set = set([g.strip() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
+    pred_f_set = set(str(fid) for fid in matched_field_ids)
+
+    f_intersection = sorted(list(pred_f_set & gold_f_set))
+    f_suggestions = sorted(list(pred_f_set - gold_f_set))
+    f_missed = sorted(list(gold_f_set - pred_f_set))
+
+    col_f1, col_f2 = st.columns(2)
+    with col_f1:
+        st.write("**Intersection** (Read-only)")
+        if f_intersection:
+            for fid in f_intersection:
+                f_obj = field_map.get(str(fid))
+                label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
+                st.info(f"✅ {label}")
+        else:
+            st.caption("No intersection.")
+
+    with col_f2:
+        st.write("**Suggestions** (Accept/Reject)")
+        field_kept_ids = []
+        if f_suggestions:
+            for fid in f_suggestions:
+                f_obj = field_map.get(str(fid))
+                label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
+                if st.checkbox(label, value=True, key=f"f_sug_{current_id}_{fid}"):
+                    field_kept_ids.append(fid)
+        else:
+            field_kept_ids = []
+            st.caption("No suggestions.")
+
+    st.write("**Missed Gold Fields** (Agree/Disagree)")
+    field_miss_agreed_ids = []
+    if f_missed:
+        for fid in f_missed:
+            f_obj = field_map.get(str(fid))
+            label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
+            if st.checkbox(f"Add missed field: {label}?", value=True, key=f"f_miss_{current_id}_{fid}"):
+                field_miss_agreed_ids.append(fid)
+    else:
+        st.caption("No missed gold fields.")
+
     st.markdown("---")
+
+    # --- INDEX TERMS SECTION ---
+    st.subheader("Index Terms Review")
+
+    pred_index = result.get('index_terms', [])
+    gold_index_raw = original_row.get('Index Terms', '')
+    has_gold_i = (gold_index_raw and str(gold_index_raw).strip() and str(gold_index_raw).lower() != 'nan')
+    gold_i_list = [g.strip() for g in str(gold_index_raw).split(',') if g.strip()] if has_gold_i else []
+
+    pred_i_set = set(pred_index)
+    gold_i_set = set(gold_i_list)
+
+    i_intersection = sorted(list(pred_i_set & gold_i_set))
+    i_suggestions = sorted(list(pred_i_set - gold_i_set))
+    i_missed = sorted(list(gold_i_set - pred_i_set))
+
+    col_i1, col_i2 = st.columns(2)
+    with col_i1:
+        st.write("**Intersection** (Read-only)")
+        if i_intersection:
+            for term in i_intersection:
+                st.info(f"✅ {term}")
+        else:
+            st.caption("No intersection.")
+
+    with col_i2:
+        st.write("**Suggestions** (Accept/Reject)")
+        index_kept_terms = []
+        if i_suggestions:
+            for term in i_suggestions:
+                if st.checkbox(term, value=True, key=f"i_sug_{current_id}_{term}"):
+                    index_kept_terms.append(term)
+        else:
+            index_kept_terms = []
+            st.caption("No suggestions.")
+
+    st.write("**Missed Gold Index Terms** (Agree/Disagree)")
+    index_miss_agreed_terms = []
+    if i_missed:
+        for term in i_missed:
+            if st.checkbox(f"Add missed index: {term}?", value=True, key=f"i_miss_{current_id}_{term}"):
+                index_miss_agreed_terms.append(term)
+    else:
+        st.caption("No missed gold index terms.")
+
+    st.markdown("---")
+
     # Display progress
     st.write(f"Progress: {st.session_state.current_index + 1} / {len(st.session_state.results)}")
 
-    col1, col2 = st.columns([0.25, 1.], )
-    with col1:
+    # Combine all annotation vectors
+    # kw_manually_added_ids = [k.split("(ID: ")[1].strip(")") for k in manually_added_kws]
+    kw_final_kept = intersection_ids + kept_suggestion_ids + agreed_missed_ids
+
+    filename = os.path.basename(st.session_state.input_file) if st.session_state.get('input_file') else "unknown.json"
+
+    col_b1, col_b2 = st.columns([0.25, 1.])
+    with col_b1:
         if st.button("Next Sample"):
-            # Update state
-            add_anno(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws)
-            # Rerun to load next sample
+            add_anno(result, filename,
+                    # kw_manually_added_ids,
+                     kw_final_kept, final_new_kws,
+                     field_kept_ids + f_intersection, field_miss_agreed_ids,
+                     index_kept_terms + i_intersection, index_miss_agreed_terms)
             st.rerun()
 
-    with col2:
+    with col_b2:
         if st.button("Save Annotated Results", type="primary"):
-            # 1. Add current work to memory
-            add_anno(result, matched_names, kept_ids, added_kws, suggested_kws, final_new_kws)
-            # 2. Save memory to disk/cloud
+            add_anno(result, filename,
+                    #  kw_manually_added_ids,
+                     kw_final_kept, final_new_kws,
+                     field_kept_ids + f_intersection, field_miss_agreed_ids,
+                     index_kept_terms + i_intersection, index_miss_agreed_terms)
             save_results(output_file)
-            # 3. Rerun to show next sample
             st.rerun()
 
 
@@ -649,32 +772,40 @@ def save_results(filename):
 
     # --- Prepare Data ---
     export_data = []
-    kw_map = {str(k.id): k.name for k in st.session_state.keywords}
+    kw_map = {str(k.id): k.full_path for k in st.session_state.keywords}
+    field_map = {str(f.id): f.full_path for f in st.session_state.get('fields', [])}
 
     for ann in st.session_state.annotations:
-        kept_names = [kw_map.get(str(mid), f"Unknown ID {mid}") for mid in ann['kept_ids']]
-        added_names = [kw_map.get(str(mid), f"Unknown ID {mid}") for mid in ann['added_existing_ids']]
-
         row = ann.copy()
-        # Convert lists to strings for CSV safety
-        row['kept_keywords'] = ", ".join(kept_names) if isinstance(kept_names, list) else kept_names
-        row['added_keywords'] = ", ".join(added_names) if isinstance(added_names, list) else added_names
-        row['accepted_new_keywords'] = ", ".join(ann['accepted_new_keywords'])
+        
+        # Helper to compute and add metrics
+        def add_vector_metrics(row, gold, original, modified, prefix):
+            op, or_, oj = compute_sample_metrics(gold, original)
+            mp, mr, mj = compute_sample_metrics(gold, modified)
+            row[f'{prefix}_orig_p'] = round(op, 4)
+            row[f'{prefix}_orig_r'] = round(or_, 4)
+            row[f'{prefix}_orig_j'] = round(oj, 4)
+            row[f'{prefix}_mod_p'] = round(mp, 4)
+            row[f'{prefix}_mod_r'] = round(mr, 4)
+            row[f'{prefix}_mod_j'] = round(mj, 4)
 
-        # Compute original and modified metrics vs gold
-        gold_ids = ann.get('gold_ids', [])
-        original_ids = [str(mid) for mid in ann.get('original_matched_ids', [])]
-        modified_ids = [str(mid) for mid in ann['kept_ids']] + [str(mid) for mid in ann['added_existing_ids']]
+        # Keywords Metrics
+        # kw_mod = ann['kw_kept_ids'] + ann['kw_manually_added_ids']
+        kw_mod = ann['kw_kept_ids']
+        add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], kw_mod, 'kw')
+        
+        # Fields Metrics
+        f_mod = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
+        add_vector_metrics(row, ann['gold_field_ids'], ann['orig_field_ids'], f_mod, 'field')
+        
+        # Index Metrics
+        i_mod = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
+        add_vector_metrics(row, ann['gold_index_terms'], ann['orig_index_terms'], i_mod, 'index')
 
-        orig_p, orig_r, orig_j = compute_sample_metrics(gold_ids, original_ids)
-        mod_p, mod_r, mod_j = compute_sample_metrics(gold_ids, modified_ids)
-
-        row['orig_precision'] = round(orig_p, 4)
-        row['orig_recall'] = round(orig_r, 4)
-        row['orig_jaccard'] = round(orig_j, 4)
-        row['mod_precision'] = round(mod_p, 4)
-        row['mod_recall'] = round(mod_r, 4)
-        row['mod_jaccard'] = round(mod_j, 4)
+        # Convert lists to strings for CSV
+        for key, val in row.items():
+            if isinstance(val, list):
+                row[key] = ", ".join([str(v) for v in val])
 
         export_data.append(row)
 
@@ -683,21 +814,11 @@ def save_results(filename):
     try:
         if os.path.exists(filename):
             try:
-                # Read existing data and combine with new
                 existing_df = pd.read_csv(filename, on_bad_lines='warn')
-                # Concatenate and handle missing columns with NA
                 combined_df = pd.concat([existing_df, new_df], ignore_index=True)
-                # Fill metrics as 0.0 if missing, others as empty string
-                metrics_cols = ['orig_precision', 'orig_recall', 'orig_jaccard', 'mod_precision', 'mod_recall', 'mod_jaccard']
-                for col in combined_df.columns:
-                    if col in metrics_cols:
-                        combined_df[col] = combined_df[col].fillna(0.0)
-                    else:
-                        combined_df[col] = combined_df[col].fillna('')
-                # Overwrite to ensure header is consistent with the latest schema
+                combined_df = combined_df.fillna('')
                 combined_df.to_csv(filename, index=False)
             except Exception as e:
-                # Fallback to append if reading fails for some reason
                 st.error(f"Error reading existing CSV: {e}. Appending instead.")
                 new_df.to_csv(filename, mode='a', header=False, index=False)
         else:

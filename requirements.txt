@@ -10,3 +10,4 @@ together
 anthropic
 
 protobuf
+tqdm
