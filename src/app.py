@@ -539,7 +539,7 @@ def main():
     matched_names = result.get('matched_keywords', [])
     suggested_kws = result.get('suggested_kws', [])
     current_id = f"sample_{st.session_state.current_index}"
-    kw_map = {str(k.id): k for k in st.session_state.keywords}
+    kw_map = {str(k.id).strip().lower(): k for k in st.session_state.keywords}
 
     original_row = result.get('original_row', {})
     gold_kw_ids_raw = original_row.get('KW Ids', '')
@@ -552,8 +552,8 @@ def main():
         gold_ids_list = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
 
     # Split matched into Intersection and Suggestions
-    pred_set = set(str(mid) for mid in matched_ids)
-    gold_set = set(str(gid) for gid in gold_ids_list)
+    pred_set = set(str(mid).strip().lower() for mid in matched_ids)
+    gold_set = set(str(gid).strip().lower() for gid in gold_ids_list)
     intersection_ids = sorted(list(pred_set & gold_set))
     suggestion_ids = sorted(list(pred_set - gold_set))
     missed_ids = sorted(list(gold_set - pred_set))
@@ -579,7 +579,7 @@ def main():
         st.write("**Intersection** (Read-only)")
         if intersection_ids:
             for mid in intersection_ids:
-                kw_obj = kw_map.get(str(mid))
+                kw_obj = kw_map.get(str(mid).strip().lower())
                 label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
                 st.info(f"✅ {label}")
         else:
@@ -590,7 +590,7 @@ def main():
         kept_suggestion_ids = []
         if suggestion_ids:
             for mid in suggestion_ids:
-                kw_obj = kw_map.get(str(mid))
+                kw_obj = kw_map.get(str(mid).strip().lower())
                 label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
                 if st.checkbox(label, value=False, key=f"kw_sug_{current_id}_{mid}"):
                     kept_suggestion_ids.append(mid)
@@ -616,7 +616,7 @@ def main():
     agreed_missed_ids = []
     if missed_ids:
         for mid in missed_ids:
-            kw_obj = kw_map.get(str(mid))
+            kw_obj = kw_map.get(str(mid).strip().lower())
             label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
             if st.checkbox(label, value=True, key=f"kw_miss_{current_id}_{mid}"):
                 agreed_missed_ids.append(mid)
@@ -641,12 +641,12 @@ def main():
     # --- JUDICIAL FIELDS SECTION ---
     st.subheader("Judicial Fields Review")
 
-    field_map = {str(f.id): f for f in st.session_state.get('fields', [])}
+    field_map = {str(f.id).strip().lower(): f for f in st.session_state.get('fields', [])}
     matched_field_ids = result.get('matched_field_ids', [])
     gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
     has_gold_f = (gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
-    gold_f_set = set([g.strip() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
-    pred_f_set = set(str(fid) for fid in matched_field_ids)
+    gold_f_set = set([g.strip().lower() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
+    pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
 
     f_intersection = sorted(list(pred_f_set & gold_f_set))
     f_suggestions = sorted(list(pred_f_set - gold_f_set))
@@ -657,7 +657,7 @@ def main():
         st.write("**Intersection** (Read-only)")
         if f_intersection:
             for fid in f_intersection:
-                f_obj = field_map.get(str(fid))
+                f_obj = field_map.get(str(fid).strip().lower())
                 label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
                 st.info(f"✅ {label}")
         else:
@@ -668,7 +668,7 @@ def main():
         field_kept_ids = []
         if f_suggestions:
             for fid in f_suggestions:
-                f_obj = field_map.get(str(fid))
+                f_obj = field_map.get(str(fid).strip().lower())
                 label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
                 if st.checkbox(label, value=False, key=f"f_sug_{current_id}_{fid}"):
                     field_kept_ids.append(fid)
@@ -680,7 +680,7 @@ def main():
     field_miss_agreed_ids = []
     if f_missed:
         for fid in f_missed:
-            f_obj = field_map.get(str(fid))
+            f_obj = field_map.get(str(fid).strip().lower())
             label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
             if st.checkbox(label, value=True, key=f"f_miss_{current_id}_{fid}"):
                 field_miss_agreed_ids.append(fid)
@@ -697,8 +697,8 @@ def main():
     has_gold_i = (gold_index_raw and str(gold_index_raw).strip() and str(gold_index_raw).lower() != 'nan')
     gold_i_list = [g.strip() for g in str(gold_index_raw).split(',') if g.strip()] if has_gold_i else []
 
-    pred_i_set = set(pred_index)
-    gold_i_set = set(gold_i_list)
+    pred_i_set = set(str(p).strip().lower() for p in pred_index)
+    gold_i_set = set(str(g).strip().lower() for g in gold_i_list)
 
     i_intersection = sorted(list(pred_i_set & gold_i_set))
     i_suggestions = sorted(list(pred_i_set - gold_i_set))
