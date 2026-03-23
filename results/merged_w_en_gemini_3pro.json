@@ -3706,11 +3706,37 @@
       "English": " One who is dumb, deaf, or insane, as well as a spendthrift interdicted by law from the control of his property, cannot make a will; a dumb person for the reason that he cannot speak the words of the declaration; one who is deaf, because he cannot hear the words uttered by the purchaser of the estate; an insane person, as he has not sufficient intelligence to permit him to make the declaration with reference to the property; the spendthrift, because he is forbidden to engage in commercial transactions, and hence cannot sell his estate.",
       "translation": " One who is dumb, deaf, or insane, as well as a spendthrift interdicted by law from the control of his property, cannot make a will; a dumb person for the reason that he cannot speak the words of the declaration; one who is deaf, because he cannot hear the words uttered by the purchaser of the estate; an insane person, as he has not sufficient intelligence to permit him to make the declaration with reference to the property; the spendthrift, because he is forbidden to engage in commercial transactions, and hence cannot sell his estate."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Mental Disability\",\n    \"field_id\": 50\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mute\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 164\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"deaf\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 152\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mentally impaired\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 153\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal disability\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 154\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"nuncupation\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 157\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"spendthrift\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"commercium\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "164",
+      "152",
+      "153",
+      "217",
+      "154",
+      "157",
+      "75",
+      "260"
+    ],
+    "matched_keywords": [
+      "mute",
+      "deaf",
+      "mentally impaired",
+      "testamenti factio activa",
+      "legal disability",
+      "nuncupation",
+      "mancipatio",
+      "testamentum per aes et libram"
+    ],
+    "suggested_kws": [
+      "spendthrift",
+      "familiae emptor",
+      "commercium"
+    ],
     "matched_field_ids": [
       "34",
       "50"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "mutus",
@@ -3756,11 +3782,28 @@
       "English": "Likewise, a Junian Latin and one included among the dediticii cannot make a will. A Junian Latin is incapable as he is expressly forbidden by the Junian Law, nor can one of the dediticii, because he is unable to make a testamentary declaration as a Roman citizen, for the reason that he is an alien; and he is prevented from doing so, as an alien, since he is a citizen of no certain country, and cannot dispose of his property by will in accordance with its laws.",
       "translation": "Likewise, a Junian Latin and one included among the dediticii cannot make a will. A Junian Latin is incapable as he is expressly forbidden by the Junian Law, nor can one of the dediticii, because he is unable to make a testamentary declaration as a Roman citizen, for the reason that he is an alien; and he is prevented from doing so, as an alien, since he is a citizen of no certain country, and cannot dispose of his property by will in accordance with its laws."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship > Freed Persons\",\n    \"field_id\": 105\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Junian Latin\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 156\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"peregrine\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 166\n  },\n  {\n    \"category\": \"Explicit legal frameworks\",\n    \"keyword\": \"laws of another country\",\n    \"suggested\": false,\n    \"category_id\": 6,\n    \"keyword_id\": 167\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Explicit legal frameworks\",\n    \"keyword\": \"Lex Junia\",\n    \"suggested\": true,\n    \"category_id\": 6,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"dediticii\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "156",
+      "166",
+      "167",
+      "217"
+    ],
+    "matched_keywords": [
+      "Junian Latin",
+      "peregrine",
+      "laws of another country",
+      "testamenti factio activa"
+    ],
+    "suggested_kws": [
+      "Lex Junia",
+      "dediticii"
+    ],
     "matched_field_ids": [
       "105",
       "34"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "Latinus Iunianus",
@@ -3803,11 +3846,31 @@
       "English": "Women who are over twelve years of age can make a will with the authority of their guardians, as long as they remain under guardianship.",
       "translation": "Women who are over twelve years of age can make a will with the authority of their guardians, as long as they remain under guardianship."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Guardianship > Guardianship over Women\",\n    \"field_id\": 54\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"tutor\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 169\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"guardian\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 242\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"age of legal capacity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 170\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Women's Status\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 324\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"tutela\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "151",
+      "169",
+      "242",
+      "170",
+      "217",
+      "324"
+    ],
+    "matched_keywords": [
+      "woman",
+      "tutor",
+      "guardian",
+      "age of legal capacity",
+      "testamenti factio activa",
+      "Women's Status"
+    ],
+    "suggested_kws": [
+      "tutela"
+    ],
     "matched_field_ids": [
       "34",
       "54"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "femina",
@@ -3849,11 +3912,27 @@
       "English": "A public slave of the Roman people has the right to make a will disposing of half of his peculium.\n",
       "translation": "A public slave of the Roman people has the right to make a will disposing of half of his peculium.\n"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Slavery\",\n    \"field_id\": 8\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"slaves status\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 339\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"peculium\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 161\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"slave\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 202\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"public slave\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "217",
+      "339",
+      "161",
+      "202"
+    ],
+    "matched_keywords": [
+      "testamenti factio activa",
+      "slaves status",
+      "peculium",
+      "slave"
+    ],
+    "suggested_kws": [
+      "public slave"
+    ],
     "matched_field_ids": [
       "8",
       "34"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "servus publicus",
