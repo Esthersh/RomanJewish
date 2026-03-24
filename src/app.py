@@ -331,6 +331,52 @@ Where **TP** = true positives (correctly predicted), **FP** = false positives
         st.rerun()
 
 
+def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None):
+    """
+    Renders an expandable suggestion list with checkboxes.
+    Returns a list of accepted items.
+    """
+    st.write("**Suggestions** (Accept/Reject)")
+    kept_items = []
+
+    if suggestions:
+        for item in suggestions:
+            # Resolve the label: Use map if provided, otherwise use the item itself
+            if item_map is not None:
+                obj = item_map.get(str(item).strip().lower())
+                label = obj.full_path if obj else f"Unknown ID: {item}"
+            else:
+                label = str(item)
+
+            c_label, c_acc = st.columns([0.9, 0.1])
+            with c_label:
+                html_box = f"""
+                <div style="
+                    padding: 10px;
+                    margin-bottom: 12px;
+                    border: 1px solid rgba(128, 128, 128, 0.3);
+                    border-radius: 8px;
+                    background-color: rgba(128, 128, 128, 0.1);
+                    color: inherit;
+                    word-wrap: break-word;
+                    font-size: 14px;
+                ">
+                    {label}
+                </div>
+                """
+                st.markdown(html_box, unsafe_allow_html=True)
+
+            with c_acc:
+                st.markdown("<div style='margin-top: 5px;'></div>", unsafe_allow_html=True)
+                # Create a unique key using the prefix
+                if st.checkbox("", value=False, key=f"{key_prefix}_{current_id}_{item}"):
+                    kept_items.append(item)
+    else:
+        st.caption("No suggestions.")
+
+    return kept_items
+
+
 def main():
     # Fix: Resolve results_dir relative to the script location
     # This ensures it works whether running from root or src/
@@ -588,20 +634,14 @@ def main():
             st.caption("No intersection found.")
 
     with col2:
-        st.write("**Suggestions** (Accept/Reject)")
-        kept_suggestion_ids = []
-        if suggestion_ids:
-            for mid in suggestion_ids:
-                kw_obj = kw_map.get(str(mid).strip().lower())
-                label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-                c_label, c_acc = st.columns([0.9, 0.1])
-                with c_label:
-                    st.text_input("Label", value=label, key=f"kw_sug_lbl_{current_id}_{mid}", label_visibility="collapsed", disabled=True, help=label)
-                with c_acc:
-                    if st.checkbox("", value=False, key=f"kw_sug_{current_id}_{mid}"):
-                        kept_suggestion_ids.append(mid)
-        else:
-            st.caption("No suggestions.")
+        # 1. Keyword Suggestions (Uses kw_map)
+        kept_suggestion_ids = render_suggestion_list(
+            suggestions=suggestion_ids,
+            current_id=current_id,
+            key_prefix="kw_sug",
+            item_map=kw_map
+        )
+
 
     with col3:
         st.write("**New Suggestions** (Accept/Edit)")
@@ -670,21 +710,13 @@ def main():
             st.caption("No intersection.")
 
     with col_f2:
-        st.write("**Suggestions** (Accept/Reject)")
-        field_kept_ids = []
-        if f_suggestions:
-            for fid in f_suggestions:
-                f_obj = field_map.get(str(fid).strip().lower())
-                label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-                c_label, c_acc = st.columns([0.9, 0.1])
-                with c_label:
-                    st.text_input("Label", value=label, key=f"f_sug_lbl_{current_id}_{fid}", label_visibility="collapsed", disabled=True, help=label)
-                with c_acc:
-                    if st.checkbox("", value=False, key=f"f_sug_{current_id}_{fid}"):
-                        field_kept_ids.append(fid)
-        else:
-            field_kept_ids = []
-            st.caption("No suggestions.")
+        # 2. Field Suggestions (Uses field_map)
+        field_kept_ids = render_suggestion_list(
+            suggestions=f_suggestions,
+            current_id=current_id,
+            key_prefix="f_sug",
+            item_map=field_map
+        )
 
     st.write("**Missed Gold Fields** (Agree/Disagree)")
     field_miss_agreed_ids = []
@@ -724,19 +756,12 @@ def main():
             st.caption("No intersection.")
 
     with col_i2:
-        st.write("**Suggestions** (Accept/Reject)")
-        index_kept_terms = []
-        if i_suggestions:
-            for term in i_suggestions:
-                c_label, c_acc = st.columns([0.9, 0.1])
-                with c_label:
-                    st.text_input("Label", value=term, key=f"i_sug_lbl_{current_id}_{term}", label_visibility="collapsed", disabled=True, help=term)
-                with c_acc:
-                    if st.checkbox("", value=False, key=f"i_sug_{current_id}_{term}"):
-                        index_kept_terms.append(term)
-        else:
-            index_kept_terms = []
-            st.caption("No suggestions.")
+        # 3. Index Terms (No map, uses the term directly)
+        index_kept_terms = render_suggestion_list(
+            suggestions=i_suggestions,
+            current_id=current_id,
+            key_prefix="i_sug"
+        )
 
     st.write("**Missed Gold Index Terms** (Agree/Disagree)")
     index_miss_agreed_terms = []
