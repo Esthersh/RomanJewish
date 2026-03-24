@@ -348,7 +348,7 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None):
             else:
                 label = str(item)
 
-            c_label, c_acc = st.columns([0.9, 0.1])
+            c_acc, c_label = st.columns([0.1, 0.9], vertical_alignment="center")
             with c_label:
                 html_box = f"""
                 <div style="
@@ -367,8 +367,7 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None):
                 st.markdown(html_box, unsafe_allow_html=True)
 
             with c_acc:
-                st.markdown("<div style='margin-top: 5px;'></div>", unsafe_allow_html=True)
-                # Create a unique key using the prefix
+                # st.markdown("<div style='margin-top: 5px;'></div>", unsafe_allow_html=True)                # Create a unique key using the prefix
                 if st.checkbox("", value=False, key=f"{key_prefix}_{current_id}_{item}"):
                     kept_items.append(item)
     else:
@@ -648,7 +647,7 @@ def main():
         final_new_kws = []
         if suggested_kws:
             for i, skw in enumerate(suggested_kws):
-                c_edit, c_acc = st.columns([0.9, 0.1])
+                c_acc, c_edit = st.columns([0.1, 0.9])
                 with c_edit:
                     edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}", label_visibility="collapsed", help=skw)
                 with c_acc:
