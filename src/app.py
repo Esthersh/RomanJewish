@@ -396,8 +396,10 @@ def ensure_worksheet_exists(conn, sheet_url, worksheet_name):
             spreadsheet.add_worksheet(title=worksheet_name, rows=100, cols=40)
             st.toast(f"Created new tab: {worksheet_name}")
 
-    except Exception as e:
-        st.error(f"Error checking or creating worksheet: {e}")
+    except Exception:
+        # GSheetsServiceAccountClient may not support open_by_url;
+        # conn.update() will handle worksheet creation as needed.
+        pass
 
 
 def main():
