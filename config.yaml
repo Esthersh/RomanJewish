@@ -29,6 +29,48 @@ credentials:
       email: gil@example.com
       failed_login_attempts: 0
       first_name: Gil
-      last_name: Gil
+      last_name:
       logged_in: false
       password: lig
+    antonio:
+      email: antonio@example.com
+      failed_login_attempts: 0
+      first_name: Antonio
+      last_name:
+      logged_in: false
+      password: antonio
+    jan:
+      email: jan@example.com
+      failed_login_attempts: 0
+      first_name: Jan
+      last_name:
+      logged_in: false
+      password: jan
+    sonya:
+      email: sonya@example.com
+      failed_login_attempts: 0
+      first_name: Sonya
+      last_name:
+      logged_in: false
+      password: sonya
+    noemie:
+      email: noemie@example.com
+      failed_login_attempts: 0
+      first_name: Noemie
+      last_name:
+      logged_in: false
+      password: noemie
+    daniel:
+      email: daniel@example.com
+      failed_login_attempts: 0
+      first_name: Daniel
+      last_name:
+      logged_in: false
+      password: daniel
+    hillel:
+      email: hillel@example.com
+      failed_login_attempts: 0
+      first_name: Hillel
+      last_name: 
+      logged_in: false
+      password: hillel

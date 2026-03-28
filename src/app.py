@@ -157,6 +157,7 @@ def load_data(input_file):
 
                 st.session_state.keyword_manager = KeywordManager()
                 st.session_state.annotations = []
+                st.session_state.skipped_indices = set()
                 st.session_state.current_index = 0
                 st.session_state.input_file = input_file
                 st.session_state.data_loaded = True
@@ -376,6 +377,29 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None):
     return kept_items
 
 
+def ensure_worksheet_exists(conn, sheet_url, worksheet_name):
+    """
+    Checks if a worksheet exists in the Google Sheet.
+    If it doesn't, it creates a new one.
+    """
+    try:
+        # Access the underlying gspread client and open the spreadsheet
+        client = conn.client
+        spreadsheet = client.open_by_url(sheet_url)
+
+        # Try to access the worksheet
+        try:
+            spreadsheet.worksheet(worksheet_name)
+        except Exception:
+            # If it fails, the worksheet likely doesn't exist, so we create it.
+            # 100 rows and 40 columns is a safe starting size.
+            spreadsheet.add_worksheet(title=worksheet_name, rows=100, cols=40)
+            st.toast(f"Created new tab: {worksheet_name}")
+
+    except Exception as e:
+        st.error(f"Error checking or creating worksheet: {e}")
+
+
 def main():
     # Fix: Resolve results_dir relative to the script location
     # This ensures it works whether running from root or src/
@@ -448,6 +472,8 @@ def main():
         st.session_state.results = []
     if 'annotations' not in st.session_state:
         st.session_state.annotations = []
+    if 'skipped_indices' not in st.session_state:
+        st.session_state.skipped_indices = set()
     if 'keywords' not in st.session_state:
         st.session_state.keywords = []
     if 'fields' not in st.session_state:
@@ -593,14 +619,64 @@ def main():
 
     display_rtl_text(result.get('text', ''))
 
-    # --- Prepare keyword data ---
+    # --- Prepare common data ---
+    current_id = f"sample_{st.session_state.current_index}"
+    original_row = result.get('original_row', {})
+
+    # --- JUDICIAL FIELDS SECTION ---
+    st.subheader("Judicial Fields Review")
+
+    field_map = {str(f.id).strip().lower(): f for f in st.session_state.get('fields', [])}
+    matched_field_ids = result.get('matched_field_ids', [])
+    gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
+    has_gold_f = (gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
+    gold_f_set = set([g.strip().lower() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
+    pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
+
+    f_intersection = sorted(list(pred_f_set & gold_f_set))
+    f_suggestions = sorted(list(pred_f_set - gold_f_set))
+    f_missed = sorted(list(gold_f_set - pred_f_set))
+
+    col_f1, col_f2 = st.columns(2)
+    with col_f1:
+        st.write("**Intersection** (Read-only)")
+        if f_intersection:
+            for fid in f_intersection:
+                f_obj = field_map.get(str(fid).strip().lower())
+                label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
+                st.info(f"✅ {label}")
+        else:
+            st.caption("No intersection.")
+
+    with col_f2:
+        field_kept_ids = render_suggestion_list(
+            suggestions=f_suggestions,
+            current_id=current_id,
+            key_prefix="f_sug",
+            item_map=field_map
+        )
+
+    st.write("**Missed Gold Fields** (Agree/Disagree)")
+    field_miss_agreed_ids = []
+    if f_missed:
+        for fid in f_missed:
+            f_obj = field_map.get(str(fid).strip().lower())
+            label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
+            if st.checkbox(label, value=True, key=f"f_miss_{current_id}_{fid}"):
+                field_miss_agreed_ids.append(fid)
+    else:
+        st.caption("No missed gold fields.")
+
+    st.markdown("---")
+
+    # --- KEYWORDS SECTION ---
+    st.subheader("Keywords Review")
+
     matched_ids = result.get('matched_ids', [])
     matched_names = result.get('matched_keywords', [])
     suggested_kws = result.get('suggested_kws', [])
-    current_id = f"sample_{st.session_state.current_index}"
     kw_map = {str(k.id).strip().lower(): k for k in st.session_state.keywords}
 
-    original_row = result.get('original_row', {})
     gold_kw_ids_raw = original_row.get('KW Ids', '')
     gold_kw_names_raw = original_row.get('Keywords', '')
     has_gold_kw = (gold_kw_ids_raw
@@ -617,9 +693,6 @@ def main():
     suggestion_ids = sorted(list(pred_set - gold_set))
     missed_ids = sorted(list(gold_set - pred_set))
 
-    
-    # --- KEYWORDS SECTION ---
-    st.subheader("Keywords Review")
     col1, col2, col3 = st.columns(3)
 
     with col1:
@@ -667,66 +740,6 @@ def main():
                 agreed_missed_ids.append(mid)
     else:
         st.caption("No missed gold keywords.")
-
-    # Manual Add (Thesaurus)
-    # st.write("**Add other keywords from thesaurus?**")
-    # all_kw_names = [f"{k.name} (ID: {k.id})" for k in st.session_state.keywords]
-    # manually_added_kws = st.multiselect("Select keywords:", all_kw_names, key=f"kw_man_{current_id}", label_visibility="collapsed")
-
-    # st.markdown("---")
-
-    # Add manual new keyword?
-    # st.write("**Define any missing keywords, separated by commas (optional)**")
-    # manual_new = st.text_input("-", key=f"manual_{current_id}", label_visibility="collapsed")
-    # manual_new_list = [m.strip() for m in manual_new.split(",") if m.strip()]
-    # final_new_kws += manual_new_list
-
-    # st.markdown("---")
-
-    # --- JUDICIAL FIELDS SECTION ---
-    st.subheader("Judicial Fields Review")
-
-    field_map = {str(f.id).strip().lower(): f for f in st.session_state.get('fields', [])}
-    matched_field_ids = result.get('matched_field_ids', [])
-    gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
-    has_gold_f = (gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
-    gold_f_set = set([g.strip().lower() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
-    pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
-
-    f_intersection = sorted(list(pred_f_set & gold_f_set))
-    f_suggestions = sorted(list(pred_f_set - gold_f_set))
-    f_missed = sorted(list(gold_f_set - pred_f_set))
-
-    col_f1, col_f2 = st.columns(2)
-    with col_f1:
-        st.write("**Intersection** (Read-only)")
-        if f_intersection:
-            for fid in f_intersection:
-                f_obj = field_map.get(str(fid).strip().lower())
-                label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-                st.info(f"✅ {label}")
-        else:
-            st.caption("No intersection.")
-
-    with col_f2:
-        # 2. Field Suggestions (Uses field_map)
-        field_kept_ids = render_suggestion_list(
-            suggestions=f_suggestions,
-            current_id=current_id,
-            key_prefix="f_sug",
-            item_map=field_map
-        )
-
-    st.write("**Missed Gold Fields** (Agree/Disagree)")
-    field_miss_agreed_ids = []
-    if f_missed:
-        for fid in f_missed:
-            f_obj = field_map.get(str(fid).strip().lower())
-            label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-            if st.checkbox(label, value=True, key=f"f_miss_{current_id}_{fid}"):
-                field_miss_agreed_ids.append(fid)
-    else:
-        st.caption("No missed gold fields.")
 
     st.markdown("---")
 
@@ -782,8 +795,23 @@ def main():
 
     filename = os.path.basename(st.session_state.input_file) if st.session_state.get('input_file') else "unknown.json"
 
-    col_b1, col_b2 = st.columns([0.25, 1.])
-    with col_b1:
+    col_prev, col_skip, col_next, col_save = st.columns([0.2, 0.2, 0.25, 1.])
+    with col_prev:
+        if st.button("⬅ Previous", disabled=(st.session_state.current_index == 0)):
+            # If the sample we're leaving was annotated (not skipped), pop the annotation
+            if (st.session_state.annotations
+                    and st.session_state.current_index - 1 not in st.session_state.skipped_indices):
+                st.session_state.annotations.pop()
+            st.session_state.current_index -= 1
+            st.rerun()
+
+    with col_skip:
+        if st.button("⏭ Skip"):
+            st.session_state.skipped_indices.add(st.session_state.current_index)
+            st.session_state.current_index += 1
+            st.rerun()
+
+    with col_next:
         if st.button("Next Sample"):
             add_anno(result, filename,
                      kw_final_kept, final_new_kws,
@@ -791,7 +819,7 @@ def main():
                      index_kept_terms + i_intersection, index_miss_agreed_terms)
             st.rerun()
 
-    with col_b2:
+    with col_save:
         if st.button("Save Annotated Results", type="primary"):
             add_anno(result, filename,
                      kw_final_kept, final_new_kws,
@@ -873,6 +901,8 @@ def save_results(filename):
         try:
             if 'conn' not in st.session_state:
                 st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
+
+            ensure_worksheet_exists(st.session_state.conn, DEFAULT_SHEET_URL, sheet_name)
 
             # 1. Read existing data to prevent overwriting
             try:
