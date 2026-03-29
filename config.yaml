@@ -71,6 +71,13 @@ credentials:
       email: hillel@example.com
       failed_login_attempts: 0
       first_name: Hillel
-      last_name: 
+      last_name:
       logged_in: false
       password: hillel
+    shlomi:
+      email: hillel@example.com
+      failed_login_attempts: 0
+      first_name: Shlomi
+      last_name:
+      logged_in: false
+      password: shlomi
