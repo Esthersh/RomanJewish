@@ -60,8 +60,12 @@ def get_config(results_dir):
 def create_annotation(result, filename, 
                       kw_kept_ids, kw_new_accepted,
                       field_kept_ids, field_miss_ids, 
-                      index_kept_terms, index_miss_terms):
+                      index_kept_terms, index_miss_terms,
+                      annotator_comments="",
+                      dup_keywords=None):
     """Creates the annotation dictionary for 3-Vector Review."""
+    if dup_keywords is None:
+        dup_keywords = []
     original_row = result.get('original_row', {})
     
     # Gold reference for meta-data and metrics
@@ -102,7 +106,9 @@ def create_annotation(result, filename,
         "orig_index_terms": result.get('index_terms', []),
         "index_kept_terms": index_kept_terms,
         "index_miss_agreed_terms": index_miss_terms,
-        "gold_index_terms": gold_index_terms
+        "gold_index_terms": gold_index_terms,
+        "annotator_comments": annotator_comments,
+        "dup_keywords": dup_keywords
     }
 
 
@@ -110,14 +116,18 @@ def add_anno(result, filename,
              kw_kept_ids,
              kw_new_accepted,
              field_kept_ids, field_miss_ids, 
-             index_kept_terms, index_miss_terms):
+             index_kept_terms, index_miss_terms,
+             annotator_comments="",
+             dup_keywords=None):
     """Adds the 3-vector annotation to the session state."""
     annotation = create_annotation(
         result, filename, 
         kw_kept_ids,
         kw_new_accepted,
         field_kept_ids, field_miss_ids, 
-        index_kept_terms, index_miss_terms
+        index_kept_terms, index_miss_terms,
+        annotator_comments,
+        dup_keywords
     )
 
     # Add to the session buffer
@@ -332,13 +342,14 @@ Where **TP** = true positives (correctly predicted), **FP** = false positives
         st.rerun()
 
 
-def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None):
+def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, show_dup=False):
     """
     Renders an expandable suggestion list with checkboxes.
     Returns a list of accepted items.
     """
     st.write("**Suggestions** (Accept/Reject)")
     kept_items = []
+    dup_items = []
 
     if suggestions:
         for item in suggestions:
@@ -349,7 +360,11 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None):
             else:
                 label = str(item)
 
-            c_acc, c_label = st.columns([0.1, 0.9], vertical_alignment="center")
+            if show_dup:
+                c_dup, c_acc, c_label = st.columns([0.27, 0.1, 0.63], vertical_alignment="center")
+            else:
+                c_acc, c_label = st.columns([0.1, 0.9], vertical_alignment="center")
+
             with c_label:
                 html_box = f"""
                 <div style="
@@ -367,6 +382,11 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None):
                 """
                 st.markdown(html_box, unsafe_allow_html=True)
 
+            if show_dup:
+                with c_dup:
+                    # if st.toggle("dup", value=False, key=f"{key_prefix}_dup_{current_id}_{item}", help="Flag as duplicate"):
+                    if st.toggle("dup", value=False, key=f"{key_prefix}_dup_{current_id}_{item}", help=None):
+                        dup_items.append(item)
             with c_acc:
                 # st.markdown("<div style='margin-top: 5px;'></div>", unsafe_allow_html=True)                # Create a unique key using the prefix
                 if st.checkbox("", value=False, key=f"{key_prefix}_{current_id}_{item}"):
@@ -374,6 +394,8 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None):
     else:
         st.caption("No suggestions.")
 
+    if show_dup:
+        return kept_items, dup_items
     return kept_items
 
 
@@ -621,172 +643,246 @@ def main():
 
     display_rtl_text(result.get('text', ''))
 
+    st.markdown("<br>", unsafe_allow_html=True)
+
     # --- Prepare common data ---
     current_id = f"sample_{st.session_state.current_index}"
     original_row = result.get('original_row', {})
 
     # --- JUDICIAL FIELDS SECTION ---
-    st.subheader("Judicial Fields Review")
+    with st.expander("**Judicial Fields Review**", expanded=False):
 
-    field_map = {str(f.id).strip().lower(): f for f in st.session_state.get('fields', [])}
-    matched_field_ids = result.get('matched_field_ids', [])
-    gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
-    has_gold_f = (gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
-    gold_f_set = set([g.strip().lower() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
-    pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
+        field_map = {str(f.id).strip().lower(): f for f in st.session_state.get('fields', [])}
+        matched_field_ids = result.get('matched_field_ids', [])
+        gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
+        has_gold_f = (gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
+        gold_f_set = set([g.strip().lower() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
+        pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
 
-    f_intersection = sorted(list(pred_f_set & gold_f_set))
-    f_suggestions = sorted(list(pred_f_set - gold_f_set))
-    f_missed = sorted(list(gold_f_set - pred_f_set))
+        f_intersection = sorted(list(pred_f_set & gold_f_set))
+        f_suggestions = sorted(list(pred_f_set - gold_f_set))
+        f_missed = sorted(list(gold_f_set - pred_f_set))
 
-    col_f1, col_f2 = st.columns(2)
-    with col_f1:
-        st.write("**Intersection** (Read-only)")
-        if f_intersection:
-            for fid in f_intersection:
+        col_f1, col_f2 = st.columns(2)
+        with col_f1:
+            st.write("**Intersection** (Read-only)")
+            if f_intersection:
+                for fid in f_intersection:
+                    f_obj = field_map.get(str(fid).strip().lower())
+                    label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
+                    st.info(f"✅ {label}")
+            else:
+                st.caption("No intersection.")
+
+        with col_f2:
+            field_kept_ids = render_suggestion_list(
+                suggestions=f_suggestions,
+                current_id=current_id,
+                key_prefix="f_sug",
+                item_map=field_map
+            )
+
+        st.write("**Missed Gold Fields** (Agree/Disagree)")
+        field_miss_agreed_ids = []
+        if f_missed:
+            for fid in f_missed:
                 f_obj = field_map.get(str(fid).strip().lower())
                 label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-                st.info(f"✅ {label}")
+                c_acc, c_label = st.columns([0.03, 0.97], vertical_alignment="center")
+                with c_label:
+                    html_box = f"""
+                    <div style="
+                        padding: 10px;
+                        margin-bottom: 12px;
+                        border: 1px solid rgba(128, 128, 128, 0.3);
+                        border-radius: 8px;
+                        background-color: rgba(128, 128, 128, 0.1);
+                        color: inherit;
+                        word-wrap: break-word;
+                        font-size: 14px;
+                        width: fit-content;
+                    ">
+                        {label}
+                    </div>
+                    """
+                    st.markdown(html_box, unsafe_allow_html=True)
+                with c_acc:
+                    if st.checkbox("", value=True, key=f"f_miss_{current_id}_{fid}"):
+                        field_miss_agreed_ids.append(fid)
         else:
-            st.caption("No intersection.")
+            st.caption("No missed gold fields.")
 
-    with col_f2:
-        field_kept_ids = render_suggestion_list(
-            suggestions=f_suggestions,
-            current_id=current_id,
-            key_prefix="f_sug",
-            item_map=field_map
-        )
-
-    st.write("**Missed Gold Fields** (Agree/Disagree)")
-    field_miss_agreed_ids = []
-    if f_missed:
-        for fid in f_missed:
-            f_obj = field_map.get(str(fid).strip().lower())
-            label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-            if st.checkbox(label, value=True, key=f"f_miss_{current_id}_{fid}"):
-                field_miss_agreed_ids.append(fid)
-    else:
-        st.caption("No missed gold fields.")
-
-    st.markdown("---")
+    # st.markdown("---")
 
     # --- KEYWORDS SECTION ---
-    st.subheader("Keywords Review")
+    with st.expander("**Keywords Review**", expanded=False):
 
-    matched_ids = result.get('matched_ids', [])
-    matched_names = result.get('matched_keywords', [])
-    suggested_kws = result.get('suggested_kws', [])
-    kw_map = {str(k.id).strip().lower(): k for k in st.session_state.keywords}
+        matched_ids = result.get('matched_ids', [])
+        matched_names = result.get('matched_keywords', [])
+        suggested_kws = result.get('suggested_kws', [])
+        kw_map = {str(k.id).strip().lower(): k for k in st.session_state.keywords}
 
-    gold_kw_ids_raw = original_row.get('KW Ids', '')
-    gold_kw_names_raw = original_row.get('Keywords', '')
-    has_gold_kw = (gold_kw_ids_raw
-                   and str(gold_kw_ids_raw).strip()
-                   and str(gold_kw_ids_raw).lower() != 'nan')
-    gold_ids_list = []
-    if has_gold_kw:
-        gold_ids_list = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
+        gold_kw_ids_raw = original_row.get('KW Ids', '')
+        gold_kw_names_raw = original_row.get('Keywords', '')
+        has_gold_kw = (gold_kw_ids_raw
+                       and str(gold_kw_ids_raw).strip()
+                       and str(gold_kw_ids_raw).lower() != 'nan')
+        gold_ids_list = []
+        if has_gold_kw:
+            gold_ids_list = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
 
-    # Split matched into Intersection and Suggestions
-    pred_set = set(str(mid).strip().lower() for mid in matched_ids)
-    gold_set = set(str(gid).strip().lower() for gid in gold_ids_list)
-    intersection_ids = sorted(list(pred_set & gold_set))
-    suggestion_ids = sorted(list(pred_set - gold_set))
-    missed_ids = sorted(list(gold_set - pred_set))
+        # Split matched into Intersection and Suggestions
+        pred_set = set(str(mid).strip().lower() for mid in matched_ids)
+        gold_set = set(str(gid).strip().lower() for gid in gold_ids_list)
+        intersection_ids = sorted(list(pred_set & gold_set))
+        suggestion_ids = sorted(list(pred_set - gold_set))
+        missed_ids = sorted(list(gold_set - pred_set))
 
-    col1, col2, col3 = st.columns(3)
+        dup_keywords = []
+        col1, col2, col3 = st.columns(3)
 
-    with col1:
-        st.write("**Intersection** (Read-only)")
-        if intersection_ids:
-            for mid in intersection_ids:
+        with col1:
+            st.write("**Intersection** (Read-only)")
+            if intersection_ids:
+                for mid in intersection_ids:
+                    kw_obj = kw_map.get(str(mid).strip().lower())
+                    label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+                    c_dup, c_label = st.columns([0.26, 0.74], vertical_alignment="center")
+                    with c_dup:
+                        # if st.toggle("dup", key=f"kw_int_dup_{current_id}_{mid}", help="Flag as duplicate"):
+                        if st.toggle("dup", key=f"kw_int_dup_{current_id}_{mid}", help=None):
+                            dup_keywords.append(mid)
+                    with c_label:
+                        st.info(f"✅ {label}")
+            else:
+                st.caption("No intersection found.")
+
+        with col2:
+            # 1. Keyword Suggestions (Uses kw_map)
+            kept_suggestion_ids, dup_sug_ids = render_suggestion_list(
+                suggestions=suggestion_ids,
+                current_id=current_id,
+                key_prefix="kw_sug",
+                item_map=kw_map,
+                show_dup=True
+            )
+            dup_keywords.extend(dup_sug_ids)
+
+
+        with col3:
+            st.write("**New Suggestions** (Accept/Edit)")
+            final_new_kws = []
+            if suggested_kws:
+                for i, skw in enumerate(suggested_kws):
+                    c_acc, c_edit = st.columns([0.1, 0.9])
+                    with c_edit:
+                        edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}", label_visibility="collapsed", help=skw)
+                    with c_acc:
+                        if st.checkbox("", value=False, key=f"kw_new_acc_{current_id}_{i}"):
+                            final_new_kws.append(edited_kw)
+            else:
+                st.caption("No new suggestions.")
+
+        # Missed Keywords section
+        st.write("**Missed Gold Keywords** (Agree/Disagree)")
+        agreed_missed_ids = []
+        if missed_ids:
+            for mid in missed_ids:
                 kw_obj = kw_map.get(str(mid).strip().lower())
                 label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-                st.info(f"✅ {label}")
-        else:
-            st.caption("No intersection found.")
-
-    with col2:
-        # 1. Keyword Suggestions (Uses kw_map)
-        kept_suggestion_ids = render_suggestion_list(
-            suggestions=suggestion_ids,
-            current_id=current_id,
-            key_prefix="kw_sug",
-            item_map=kw_map
-        )
-
-
-    with col3:
-        st.write("**New Suggestions** (Accept/Edit)")
-        final_new_kws = []
-        if suggested_kws:
-            for i, skw in enumerate(suggested_kws):
-                c_acc, c_edit = st.columns([0.1, 0.9])
-                with c_edit:
-                    edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}", label_visibility="collapsed", help=skw)
+                c_dup, c_acc, c_label = st.columns([0.12, 0.05, 0.83], vertical_alignment="center")
+                with c_label:
+                    html_box = f"""
+                    <div style="
+                        padding: 10px;
+                        margin-bottom: 12px;
+                        border: 1px solid rgba(128, 128, 128, 0.3);
+                        border-radius: 8px;
+                        background-color: rgba(128, 128, 128, 0.1);
+                        color: inherit;
+                        word-wrap: break-word;
+                        font-size: 14px;
+                        width: fit-content;
+                    ">
+                        {label}
+                    </div>
+                    """
+                    st.markdown(html_box, unsafe_allow_html=True)
+                with c_dup:
+                    # if st.toggle("dup", value=False, key=f"kw_miss_dup_{current_id}_{mid}", help="Flag as duplicate"):
+                    if st.toggle("dup", value=False, key=f"kw_miss_dup_{current_id}_{mid}", help=None):
+                        dup_keywords.append(mid)
                 with c_acc:
-                    if st.checkbox("", value=False, key=f"kw_new_acc_{current_id}_{i}"):
-                        final_new_kws.append(edited_kw)
+                    if st.checkbox("", value=True, key=f"kw_miss_{current_id}_{mid}"):
+                        agreed_missed_ids.append(mid)
         else:
-            st.caption("No new suggestions.")
+            st.caption("No missed gold keywords.")
 
-    # Missed Keywords section
-    st.write("**Missed Gold Keywords** (Agree/Disagree)")
-    agreed_missed_ids = []
-    if missed_ids:
-        for mid in missed_ids:
-            kw_obj = kw_map.get(str(mid).strip().lower())
-            label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-            if st.checkbox(label, value=True, key=f"kw_miss_{current_id}_{mid}"):
-                agreed_missed_ids.append(mid)
-    else:
-        st.caption("No missed gold keywords.")
-
-    st.markdown("---")
+    # st.markdown("---")
 
     # --- INDEX TERMS SECTION ---
-    st.subheader("Index Terms Review")
+    with st.expander("**Index Terms Review**", expanded=False):
 
-    pred_index = result.get('index_terms', [])
-    gold_index_raw = original_row.get('Index Terms', '')
-    has_gold_i = (gold_index_raw and str(gold_index_raw).strip() and str(gold_index_raw).lower() != 'nan')
-    gold_i_list = [g.strip() for g in str(gold_index_raw).split(',') if g.strip()] if has_gold_i else []
+        pred_index = result.get('index_terms', [])
+        gold_index_raw = original_row.get('Index Terms', '')
+        has_gold_i = (gold_index_raw and str(gold_index_raw).strip() and str(gold_index_raw).lower() != 'nan')
+        gold_i_list = [g.strip() for g in str(gold_index_raw).split(',') if g.strip()] if has_gold_i else []
 
-    pred_i_set = set(str(p).strip().lower() for p in pred_index)
-    gold_i_set = set(str(g).strip().lower() for g in gold_i_list)
+        pred_i_set = set(str(p).strip().lower() for p in pred_index)
+        gold_i_set = set(str(g).strip().lower() for g in gold_i_list)
 
-    i_intersection = sorted(list(pred_i_set & gold_i_set))
-    i_suggestions = sorted(list(pred_i_set - gold_i_set))
-    i_missed = sorted(list(gold_i_set - pred_i_set))
+        i_intersection = sorted(list(pred_i_set & gold_i_set))
+        i_suggestions = sorted(list(pred_i_set - gold_i_set))
+        i_missed = sorted(list(gold_i_set - pred_i_set))
 
-    col_i1, col_i2 = st.columns(2)
-    with col_i1:
-        st.write("**Intersection** (Read-only)")
-        if i_intersection:
-            for term in i_intersection:
-                st.info(f"✅ {term}")
+        col_i1, col_i2 = st.columns(2)
+        with col_i1:
+            st.write("**Intersection** (Read-only)")
+            if i_intersection:
+                for term in i_intersection:
+                    st.info(f"✅ {term}")
+            else:
+                st.caption("No intersection.")
+
+        with col_i2:
+            # 3. Index Terms (No map, uses the term directly)
+            index_kept_terms = render_suggestion_list(
+                suggestions=i_suggestions,
+                current_id=current_id,
+                key_prefix="i_sug"
+            )
+
+        st.write("**Missed Gold Index Terms** (Agree/Disagree)")
+        index_miss_agreed_terms = []
+        if i_missed:
+            for term in i_missed:
+                c_acc, c_label = st.columns([0.03, 0.97], vertical_alignment="center")
+                with c_label:
+                    html_box = f"""
+                    <div style="
+                        padding: 10px;
+                        margin-bottom: 12px;
+                        border: 1px solid rgba(128, 128, 128, 0.3);
+                        border-radius: 8px;
+                        background-color: rgba(128, 128, 128, 0.1);
+                        color: inherit;
+                        word-wrap: break-word;
+                        font-size: 14px;
+                        width: fit-content;
+                    ">
+                        {term}
+                    </div>
+                    """
+                    st.markdown(html_box, unsafe_allow_html=True)
+                with c_acc:
+                    if st.checkbox("", value=True, key=f"i_miss_{current_id}_{term}"):
+                        index_miss_agreed_terms.append(term)
         else:
-            st.caption("No intersection.")
-
-    with col_i2:
-        # 3. Index Terms (No map, uses the term directly)
-        index_kept_terms = render_suggestion_list(
-            suggestions=i_suggestions,
-            current_id=current_id,
-            key_prefix="i_sug"
-        )
-
-    st.write("**Missed Gold Index Terms** (Agree/Disagree)")
-    index_miss_agreed_terms = []
-    if i_missed:
-        for term in i_missed:
-            if st.checkbox(term, value=True, key=f"i_miss_{current_id}_{term}"):
-                index_miss_agreed_terms.append(term)
-    else:
-        st.caption("No missed gold index terms.")
+            st.caption("No missed gold index terms.")
 
     st.markdown("---")
+    st.markdown("<p style='font-size: 16px; margin-bottom: 0px;'>Comments</p>", unsafe_allow_html=True)
+    annotator_comments = st.text_area("Comments:", value="", key=f"comments_{current_id}", label_visibility="collapsed")
 
     # Display progress
     st.write(f"Progress: {st.session_state.current_index + 1} / {len(st.session_state.results)}")
@@ -818,7 +914,8 @@ def main():
             add_anno(result, filename,
                      kw_final_kept, final_new_kws,
                      field_kept_ids + f_intersection, field_miss_agreed_ids,
-                     index_kept_terms + i_intersection, index_miss_agreed_terms)
+                     index_kept_terms + i_intersection, index_miss_agreed_terms,
+                     annotator_comments, dup_keywords)
             st.rerun()
 
     with col_save:
@@ -826,7 +923,8 @@ def main():
             add_anno(result, filename,
                      kw_final_kept, final_new_kws,
                      field_kept_ids + f_intersection, field_miss_agreed_ids,
-                     index_kept_terms + i_intersection, index_miss_agreed_terms)
+                     index_kept_terms + i_intersection, index_miss_agreed_terms,
+                     annotator_comments, dup_keywords)
             save_results(output_file)
             st.rerun()
 
@@ -845,7 +943,13 @@ def save_results(filename):
         row = ann.copy()
         
         # Helper to compute and add metrics
-        def add_vector_metrics(row, gold, original, modified, prefix):
+        def add_vector_metrics(row, gold, original, modified, prefix, ignore_list=None):
+            if ignore_list is None: ignore_list = []
+            
+            gold = [g for g in gold if str(g).strip().lower() not in ignore_list]
+            original = [g for g in original if str(g).strip().lower() not in ignore_list]
+            modified = [g for g in modified if str(g).strip().lower() not in ignore_list]
+
             op, or_, oj = compute_sample_metrics(gold, original)
             mp, mr, mj = compute_sample_metrics(gold, modified)
             row[f'{prefix}_orig_p'] = round(op, 4)
@@ -858,7 +962,8 @@ def save_results(filename):
         # Keywords Metrics
         # kw_mod = ann['kw_kept_ids'] + ann['kw_manually_added_ids']
         kw_mod = ann['kw_kept_ids']
-        add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], kw_mod, 'kw')
+        ignore_kws = [str(k).strip().lower() for k in ann.get('dup_keywords', [])]
+        add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], kw_mod, 'kw', ignore_list=ignore_kws)
         
         # Fields Metrics
         f_mod = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
