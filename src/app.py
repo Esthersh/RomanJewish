@@ -774,9 +774,13 @@ def main():
             final_new_kws = []
             if suggested_kws:
                 for i, skw in enumerate(suggested_kws):
-                    c_acc, c_edit = st.columns([0.1, 0.9])
+                    c_acc, c_edit, c_reset = st.columns([0.1, 0.8, 0.1], vertical_alignment="center")
                     with c_edit:
                         edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}", label_visibility="collapsed", help=skw)
+                    with c_reset:
+                        if st.button("", icon=":material/refresh:", key=f"kw_new_reset_{current_id}_{i}", help="Reset to original suggestion", use_container_width=True):
+                            st.session_state[f"kw_new_edit_{current_id}_{i}"] = skw
+                            st.rerun()
                     with c_acc:
                         if st.checkbox("", value=False, key=f"kw_new_acc_{current_id}_{i}"):
                             final_new_kws.append(edited_kw)
@@ -893,7 +897,7 @@ def main():
 
     filename = os.path.basename(st.session_state.input_file) if st.session_state.get('input_file') else "unknown.json"
 
-    col_prev, col_skip, col_next, col_save = st.columns([0.2, 0.2, 0.25, 1.])
+    col_prev, col_skip, col_next, col_save = st.columns([0.15, 0.12, 0.15, 0.58])
     with col_prev:
         if st.button("⬅ Previous", disabled=(st.session_state.current_index == 0)):
             # If the sample we're leaving was annotated (not skipped), pop the annotation
@@ -919,7 +923,7 @@ def main():
             st.rerun()
 
     with col_save:
-        if st.button("Save Annotated Results", type="primary"):
+        if st.button("Save & Next", type="primary"):
             add_anno(result, filename,
                      kw_final_kept, final_new_kws,
                      field_kept_ids + f_intersection, field_miss_agreed_ids,
@@ -936,8 +940,8 @@ def save_results(filename):
 
     # --- Prepare Data ---
     export_data = []
-    kw_map = {str(k.id): k.full_path for k in st.session_state.keywords}
-    field_map = {str(f.id): f.full_path for f in st.session_state.get('fields', [])}
+    kw_map = {str(k.id).strip().lower(): k.full_path for k in st.session_state.keywords}
+    field_map = {str(f.id).strip().lower(): f.full_path for f in st.session_state.get('fields', [])}
 
     for ann in st.session_state.annotations:
         row = ann.copy()
@@ -976,7 +980,11 @@ def save_results(filename):
         # Convert lists to strings for CSV
         for key, val in row.items():
             if isinstance(val, list):
-                row[key] = ", ".join([str(v) for v in val])
+                if key == 'dup_keywords':
+                    vals = [kw_map.get(str(v).strip().lower(), str(v)) for v in val]
+                    row[key] = ", ".join(vals)
+                else:
+                    row[key] = ", ".join([str(v) for v in val])
 
         export_data.append(row)
 
