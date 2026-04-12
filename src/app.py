@@ -342,7 +342,7 @@ Where **TP** = true positives (correctly predicted), **FP** = false positives
         st.rerun()
 
 
-def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, show_dup=False):
+def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, show_dup=False, group_by_category=False):
     """
     Renders an expandable suggestion list with checkboxes.
     Returns a list of accepted items.
@@ -351,46 +351,72 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, s
     kept_items = []
     dup_items = []
 
+    def render_item(item, header_cat=None):
+        if item_map is not None:
+            obj = item_map.get(str(item).strip().lower())
+            label = obj.full_path if obj else f"Unknown ID: {item}"
+        else:
+            label = str(item)
+
+        if header_cat and label.startswith(header_cat):
+            label = label[len(header_cat):].strip()
+            if label.startswith(">"):
+                label = label[1:].strip()
+            if not label:
+                label = header_cat
+
+        if show_dup:
+            c_dup, c_acc, c_label = st.columns([0.27, 0.1, 0.63], vertical_alignment="center")
+        else:
+            c_acc, c_label = st.columns([0.1, 0.9], vertical_alignment="center")
+
+        with c_label:
+            html_box = f"""
+            <div style="
+                padding: 10px;
+                margin-bottom: 12px;
+                border: 1px solid rgba(128, 128, 128, 0.3);
+                border-radius: 8px;
+                background-color: rgba(128, 128, 128, 0.1);
+                color: inherit;
+                word-wrap: break-word;
+                font-size: 14px;
+            ">
+                {label}
+            </div>
+            """
+            st.markdown(html_box, unsafe_allow_html=True)
+
+        if show_dup:
+            with c_dup:
+                if st.toggle("dup", value=False, key=f"{key_prefix}_dup_{current_id}_{item}", help=None):
+                    dup_items.append(item)
+        with c_acc:
+            if st.checkbox("", value=False, key=f"{key_prefix}_{current_id}_{item}"):
+                kept_items.append(item)
+
     if suggestions:
-        for item in suggestions:
-            # Resolve the label: Use map if provided, otherwise use the item itself
-            if item_map is not None:
+        if group_by_category and item_map is not None:
+            groups = {}
+            for item in suggestions:
                 obj = item_map.get(str(item).strip().lower())
-                label = obj.full_path if obj else f"Unknown ID: {item}"
-            else:
-                label = str(item)
-
-            if show_dup:
-                c_dup, c_acc, c_label = st.columns([0.27, 0.1, 0.63], vertical_alignment="center")
-            else:
-                c_acc, c_label = st.columns([0.1, 0.9], vertical_alignment="center")
-
-            with c_label:
-                html_box = f"""
-                <div style="
-                    padding: 10px;
-                    margin-bottom: 12px;
-                    border: 1px solid rgba(128, 128, 128, 0.3);
-                    border-radius: 8px;
-                    background-color: rgba(128, 128, 128, 0.1);
-                    color: inherit;
-                    word-wrap: break-word;
-                    font-size: 14px;
-                ">
-                    {label}
-                </div>
-                """
-                st.markdown(html_box, unsafe_allow_html=True)
-
-            if show_dup:
-                with c_dup:
-                    # if st.toggle("dup", value=False, key=f"{key_prefix}_dup_{current_id}_{item}", help="Flag as duplicate"):
-                    if st.toggle("dup", value=False, key=f"{key_prefix}_dup_{current_id}_{item}", help=None):
-                        dup_items.append(item)
-            with c_acc:
-                # st.markdown("<div style='margin-top: 5px;'></div>", unsafe_allow_html=True)                # Create a unique key using the prefix
-                if st.checkbox("", value=False, key=f"{key_prefix}_{current_id}_{item}"):
-                    kept_items.append(item)
+                cat = obj.full_path.split(">")[0].strip() if hasattr(obj, 'full_path') else "Uncategorized"
+                groups.setdefault(cat, []).append(item)
+                
+            for cat in sorted(groups.keys()):
+                if show_dup:
+                    _, _, c_header = st.columns([0.27, 0.1, 0.63], vertical_alignment="center")
+                else:
+                    _, c_header = st.columns([0.1, 0.9], vertical_alignment="center")
+                with c_header:
+                    # st.markdown(f"###### {cat}")
+                    st.markdown(f"**{cat}**")
+                    
+                for item in groups[cat]:
+                    render_item(item, header_cat=cat)
+        else:
+            for item in suggestions:
+                render_item(item)
     else:
         st.caption("No suggestions.")
 
@@ -744,16 +770,33 @@ def main():
         with col1:
             st.write("**Intersection** (Read-only)")
             if intersection_ids:
+                groups = {}
                 for mid in intersection_ids:
                     kw_obj = kw_map.get(str(mid).strip().lower())
-                    label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-                    c_dup, c_label = st.columns([0.26, 0.74], vertical_alignment="center")
-                    with c_dup:
-                        # if st.toggle("dup", key=f"kw_int_dup_{current_id}_{mid}", help="Flag as duplicate"):
-                        if st.toggle("dup", key=f"kw_int_dup_{current_id}_{mid}", help=None):
-                            dup_keywords.append(mid)
-                    with c_label:
-                        st.info(f"✅ {label}")
+                    cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj, 'full_path') else "Uncategorized"
+                    groups.setdefault(cat, []).append(mid)
+
+                for cat in sorted(groups.keys()):
+                    _, c_header = st.columns([0.26, 0.74], vertical_alignment="center")
+                    with c_header:
+                        # st.markdown(f"###### {cat}")
+                        st.markdown(f"**{cat}**")
+                        
+                    for mid in groups[cat]:
+                        kw_obj = kw_map.get(str(mid).strip().lower())
+                        label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+                        
+                        if label.startswith(cat):
+                            label = label[len(cat):].strip()
+                            if label.startswith(">"): label = label[1:].strip()
+                            if not label: label = cat
+                            
+                        c_dup, c_label = st.columns([0.26, 0.74], vertical_alignment="center")
+                        with c_dup:
+                            if st.toggle("dup", key=f"kw_int_dup_{current_id}_{mid}", help=None):
+                                dup_keywords.append(mid)
+                        with c_label:
+                            st.info(f"✅ {label}")
             else:
                 st.caption("No intersection found.")
 
@@ -764,7 +807,8 @@ def main():
                 current_id=current_id,
                 key_prefix="kw_sug",
                 item_map=kw_map,
-                show_dup=True
+                show_dup=True,
+                group_by_category=True
             )
             dup_keywords.extend(dup_sug_ids)
 
@@ -791,34 +835,51 @@ def main():
         st.write("**Missed Gold Keywords** (Agree/Disagree)")
         agreed_missed_ids = []
         if missed_ids:
+            groups = {}
             for mid in missed_ids:
                 kw_obj = kw_map.get(str(mid).strip().lower())
-                label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-                c_dup, c_acc, c_label = st.columns([0.12, 0.05, 0.83], vertical_alignment="center")
-                with c_label:
-                    html_box = f"""
-                    <div style="
-                        padding: 10px;
-                        margin-bottom: 12px;
-                        border: 1px solid rgba(128, 128, 128, 0.3);
-                        border-radius: 8px;
-                        background-color: rgba(128, 128, 128, 0.1);
-                        color: inherit;
-                        word-wrap: break-word;
-                        font-size: 14px;
-                        width: fit-content;
-                    ">
-                        {label}
-                    </div>
-                    """
-                    st.markdown(html_box, unsafe_allow_html=True)
-                with c_dup:
-                    # if st.toggle("dup", value=False, key=f"kw_miss_dup_{current_id}_{mid}", help="Flag as duplicate"):
-                    if st.toggle("dup", value=False, key=f"kw_miss_dup_{current_id}_{mid}", help=None):
-                        dup_keywords.append(mid)
-                with c_acc:
-                    if st.checkbox("", value=True, key=f"kw_miss_{current_id}_{mid}"):
-                        agreed_missed_ids.append(mid)
+                cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj, 'full_path') else "Uncategorized"
+                groups.setdefault(cat, []).append(mid)
+
+            for cat in sorted(groups.keys()):
+                _, _, c_header = st.columns([0.12, 0.05, 0.83], vertical_alignment="center")
+                with c_header:
+                    # st.markdown(f"###### {cat}")
+                    st.markdown(f"**{cat}**")
+                    
+                for mid in groups[cat]:
+                    kw_obj = kw_map.get(str(mid).strip().lower())
+                    label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+                    
+                    if label.startswith(cat):
+                        label = label[len(cat):].strip()
+                        if label.startswith(">"): label = label[1:].strip()
+                        if not label: label = cat
+                        
+                    c_dup, c_acc, c_label = st.columns([0.12, 0.05, 0.83], vertical_alignment="center")
+                    with c_label:
+                        html_box = f"""
+                        <div style="
+                            padding: 10px;
+                            margin-bottom: 12px;
+                            border: 1px solid rgba(128, 128, 128, 0.3);
+                            border-radius: 8px;
+                            background-color: rgba(128, 128, 128, 0.1);
+                            color: inherit;
+                            word-wrap: break-word;
+                            font-size: 14px;
+                            width: fit-content;
+                        ">
+                            {label}
+                        </div>
+                        """
+                        st.markdown(html_box, unsafe_allow_html=True)
+                    with c_dup:
+                        if st.toggle("dup", value=False, key=f"kw_miss_dup_{current_id}_{mid}", help=None):
+                            dup_keywords.append(mid)
+                    with c_acc:
+                        if st.checkbox("", value=True, key=f"kw_miss_{current_id}_{mid}"):
+                            agreed_missed_ids.append(mid)
         else:
             st.caption("No missed gold keywords.")
 
