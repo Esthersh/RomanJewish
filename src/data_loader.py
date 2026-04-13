@@ -96,19 +96,23 @@ class DataLoader:
             sys.exit(1)
 
     @staticmethod
-    def load_corpus(csv_path: str) -> List[CorpusSample]:
+    def load_corpus(csv_path: str, use_all_samples: bool = False, include_unannotated: bool = False) -> List[CorpusSample]:
         """
         Loads corpus samples from CSV.
         """
         try:
             df = pd.read_csv(csv_path)
             # filter rows that have an English translation and non-empty Keywords
-            df = df.dropna(subset=["Keywords", "English"])
-            # Also ensure they are not just blank strings if they are object type
-            if df['Keywords'].dtype == object:
-                df = df[df['Keywords'].str.strip() != '']
-            if df['English'].dtype == object:
-                df = df[df['English'].str.strip() != '']
+            if not use_all_samples:
+                df = df.dropna(subset=["English"])
+                if df['English'].dtype == object:
+                    df = df[df['English'].str.strip() != '']
+                    
+            if not include_unannotated:
+                df = df.dropna(subset=["Keywords"])
+                # Also ensure they are not just blank strings if they are object type
+                if df['Keywords'].dtype == object:
+                    df = df[df['Keywords'].str.strip() != '']
 
             # Forward fill Group and Name columns
             if 'Group' in df.columns:

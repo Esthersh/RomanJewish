@@ -27,7 +27,7 @@ def main():
             print("Error: --keywords_csv is required for KEYWORDS/MATCH_KEYWORDS prompts.")
             sys.exit(1)
         keywords = loader.load_keywords(args.keywords_csv)
-    corpus = loader.load_corpus(args.corpus_csv)
+    corpus = loader.load_corpus(args.corpus_csv, use_all_samples=args.use_all_samples, include_unannotated=args.include_unannotated)
 
     if args.limit:
         corpus = corpus[:args.limit]
@@ -171,6 +171,8 @@ def parse_run_args() -> Namespace:
     parser.add_argument("--debug", action="store_true", help="Enable verbose debug logging")
     # only relevant if we decide the keyword could grow on the fly
     parser.add_argument("--expand_kwords", action="store_true")
+    parser.add_argument("--use_all_samples", action="store_true", help="Use all annotated samples, including those without English translations")
+    parser.add_argument("--include_unannotated", action="store_true", help="Include samples without keyword annotations")
 
     args = parser.parse_args()
     return args

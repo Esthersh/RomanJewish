@@ -190,3 +190,48 @@ Source Text, {source_name} ({language}):
 English Translation: 
 {translation}
 """
+
+INDEX_V1 = """## Context
+We are building an index for our corpus of legal sources.
+
+## Instructions
+1. Analyze the provided source.
+2. Select terms or short phrases that are distinctive to the specific legal issues discussed in the text. 
+3. Exclude very common, high-frequency words and general vocabulary (for instance: "son", "daughter", "man", "day", "house") 
+4. Return the dictionary form (lemma) of the selected terms or phrases.
+
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Source Text, {source_name} ({language}): 
+{text}
+"""
+
+INDEX_W_EN_V1 = """## Context
+We are building an index for our corpus of legal sources.
+
+## Instructions
+1. Analyze the provided source and its English translation.
+2. Select terms or short phrases that are distinctive to the specific legal issues discussed in the text. 
+3. Exclude very common, high-frequency words and general vocabulary (for instance: "son", "daughter", "man", "day", "house") 
+4. Return the dictionary form (lemma) of the selected terms or phrases.
+
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Source Text, {source_name} ({language}): 
+{text}
+
+English Translation: 
+{translation}
+"""

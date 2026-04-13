@@ -177,12 +177,16 @@ def load_data(input_file):
                 st.error(f"Error loading files: {e}")
 
 
-def display_rtl_text(text_content):
+def display_source_text(text_content, language=""):
+    is_ltr = language.strip().lower() in ["latin", "greek", "english"]
+    direction = "ltr" if is_ltr else "rtl"
+    text_align = "left" if is_ltr else "right"
+
     st.markdown(
         f"""
         <div style="
-            direction: rtl; 
-            text-align: right; 
+            direction: {direction}; 
+            text-align: {text_align}; 
             border: 1px solid #ccc; 
             padding: 10px; 
             border-radius: 5px; 
@@ -590,7 +594,22 @@ def main():
     # Load Data
     load_data(input_file)
 
-    # ... inside main(), after load_data(input_file) ...
+    if st.session_state.get('results'):
+        st.sidebar.markdown("---")
+        st.sidebar.subheader("Navigation")
+        options = [f"{i + 1} | {res.get('name', 'Unknown')}" for i, res in enumerate(st.session_state.results)]
+        
+        selected_source = st.sidebar.selectbox(
+            "Skip to source according to name, number:",
+            options=options,
+            index=st.session_state.current_index if st.session_state.current_index < len(options) else 0
+        )
+        
+        if selected_source:
+            selected_idx = int(selected_source.split(" | ")[0]) - 1
+            if selected_idx != st.session_state.current_index:
+                st.session_state.current_index = selected_idx
+                st.rerun()
 
     st.sidebar.markdown("---")
     st.sidebar.subheader("Keyword Taxonomy")
@@ -667,7 +686,8 @@ def main():
     with col1:
         st.info(f"Group: {result.get('group')} | Name: {result.get('name')}")
 
-    display_rtl_text(result.get('text', ''))
+    language_val = result.get('original_row', {}).get('Language', '')
+    display_source_text(result.get('text', ''), language_val)
 
     st.markdown("<br>", unsafe_allow_html=True)
 
