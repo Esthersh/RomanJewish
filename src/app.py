@@ -151,6 +151,12 @@ def load_data(input_file):
     # Only attempt to load if we have a valid path and it's a new file
     if input_file and os.path.exists(input_file):
         if st.session_state.get('input_file') != input_file or not st.session_state.get('keywords') or not st.session_state.get('fields'):
+            
+            current_source_id = None
+            if st.session_state.get('results') and st.session_state.get('current_index') is not None:
+                if st.session_state.current_index < len(st.session_state.results):
+                    current_source_id = st.session_state.results[st.session_state.current_index].get('source_id')
+                    
             try:
                 loader = DataLoader()
                 # Always ensure keywords are loaded
@@ -165,10 +171,18 @@ def load_data(input_file):
                 with open(input_file, 'r') as f:
                     st.session_state.results = json.load(f)
 
+                new_index = 0
+                if current_source_id:
+                    for i, res in enumerate(st.session_state.results):
+                        # Ensure we check for presence and string cast if needed, though they should match
+                        if res.get('source_id') == current_source_id:
+                            new_index = i
+                            break
+
                 st.session_state.keyword_manager = KeywordManager()
                 st.session_state.annotations = []
                 st.session_state.skipped_indices = set()
-                st.session_state.current_index = 0
+                st.session_state.current_index = new_index
                 st.session_state.input_file = input_file
                 st.session_state.data_loaded = True
                 st.success(f"Loaded {len(st.session_state.results)} samples.")
@@ -565,10 +579,18 @@ def main():
 
     # Select menu for results file
     if available_files:
+        current_file_basename = os.path.basename(st.session_state.input_file) if st.session_state.get('input_file') else None
+        try:
+            default_index = available_files.index(current_file_basename) if current_file_basename in available_files else None
+        except ValueError:
+            default_index = None
+
+        st.sidebar.subheader("Switch Model")
         selected_file = st.sidebar.selectbox(
-            "Select Results JSON File",
+            "Switch Model",
             options=available_files,
-            index=None
+            index=default_index,
+            label_visibility="collapsed"
         )
 
         if selected_file:
@@ -581,7 +603,8 @@ def main():
 
     # st.session_state.keywords_file = st.sidebar.text_input("Keywords CSV File", value=cli_keywords_file)
 
-    output_file = st.sidebar.text_input("Output CSV File", value="annotated_results.csv")
+    st.sidebar.subheader("Output CSV File")
+    output_file = st.sidebar.text_input("Output CSV File", value="annotated_results.csv", label_visibility="collapsed")
 
     if os.path.exists(output_file):
         with open(output_file, "rb") as file:
