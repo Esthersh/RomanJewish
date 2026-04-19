@@ -141,54 +141,80 @@ def add_anno(result, filename,
     st.session_state.current_index += 1
 
 
-def load_data(input_file):
-    # Initialize keys if they don't exist yet
-    if 'results' not in st.session_state:
-        st.session_state.results = []
-    if 'current_index' not in st.session_state:
-        st.session_state.current_index = 0
-
-    # Only attempt to load if we have a valid path and it's a new file
-    if input_file and os.path.exists(input_file):
-        if st.session_state.get('input_file') != input_file or not st.session_state.get('keywords') or not st.session_state.get('fields'):
-            
-            current_source_id = None
-            if st.session_state.get('results') and st.session_state.get('current_index') is not None:
-                if st.session_state.current_index < len(st.session_state.results):
-                    current_source_id = st.session_state.results[st.session_state.current_index].get('source_id')
-                    
+def load_all_models(results_dir):
+    """Load all merged JSON model files once and cache in session state."""
+    if 'all_models_data' not in st.session_state:
+        all_models_data = {}
+        models_by_ref = {}  # ref_id -> set of filenames that contain it
+        json_files = sorted([f for f in os.listdir(results_dir)
+                             if f.startswith('merged_') and f.endswith('.json')])
+        for fn in json_files:
             try:
-                loader = DataLoader()
-                # Always ensure keywords are loaded
-                st.session_state.keywords = loader.load_keywords(st.session_state.keywords_file)
-                
-                # Ensure fields are loaded if path exists
-                if hasattr(st.session_state, 'fields_file') and st.session_state.fields_file:
-                    st.session_state.fields = loader.load_judicial_fields(st.session_state.fields_file)
-                else:
-                    st.session_state.fields = []
-
-                with open(input_file, 'r') as f:
-                    st.session_state.results = json.load(f)
-
-                new_index = 0
-                if current_source_id:
-                    for i, res in enumerate(st.session_state.results):
-                        # Ensure we check for presence and string cast if needed, though they should match
-                        if res.get('source_id') == current_source_id:
-                            new_index = i
-                            break
-
-                st.session_state.keyword_manager = KeywordManager()
-                st.session_state.annotations = []
-                st.session_state.skipped_indices = set()
-                st.session_state.current_index = new_index
-                st.session_state.input_file = input_file
-                st.session_state.data_loaded = True
-                st.success(f"Loaded {len(st.session_state.results)} samples.")
-                st.rerun()  # Refresh to update the UI with new data
+                with open(os.path.join(results_dir, fn), 'r') as f:
+                    data = json.load(f)
+                all_models_data[fn] = data
+                for item in data:
+                    rid = item.get('ref_id')
+                    if rid is not None:
+                        rid_key = str(rid)
+                        models_by_ref.setdefault(rid_key, set()).add(fn)
             except Exception as e:
-                st.error(f"Error loading files: {e}")
+                st.error(f"Error loading {fn}: {e}")
+        st.session_state.all_models_data = all_models_data
+        st.session_state.models_by_ref = models_by_ref
+
+    # Ensure keywords & fields are loaded once
+    if not st.session_state.get('keywords'):
+        try:
+            loader = DataLoader()
+            st.session_state.keywords = loader.load_keywords(st.session_state.keywords_file)
+        except Exception as e:
+            st.error(f"Error loading keywords: {e}")
+            st.session_state.keywords = []
+    if not st.session_state.get('fields'):
+        try:
+            if hasattr(st.session_state, 'fields_file') and st.session_state.fields_file:
+                loader = DataLoader()
+                st.session_state.fields = loader.load_judicial_fields(st.session_state.fields_file)
+            else:
+                st.session_state.fields = []
+        except Exception as e:
+            st.error(f"Error loading fields: {e}")
+            st.session_state.fields = []
+
+
+def switch_model(selected_file):
+    """Switch to a different model, preserving the current ref_id position."""
+    if not selected_file:
+        return
+    if st.session_state.get('input_file_basename') == selected_file:
+        return  # Already on this model
+
+    new_results = st.session_state.all_models_data.get(selected_file, [])
+    if not new_results:
+        return
+
+    # Find the current ref_id to preserve position
+    current_ref_id = None
+    old_results = st.session_state.get('results', [])
+    current_index = st.session_state.get('current_index', 0)
+    if old_results and current_index < len(old_results):
+        current_ref_id = str(old_results[current_index].get('ref_id', ''))
+
+    # Set the new results
+    st.session_state.results = new_results
+    st.session_state.input_file_basename = selected_file
+
+    # Find matching ref_id in the new model's results
+    new_index = 0
+    if current_ref_id:
+        for i, res in enumerate(new_results):
+            if str(res.get('ref_id', '')) == current_ref_id:
+                new_index = i
+                break
+
+    st.session_state.current_index = new_index
+    st.session_state.data_loaded = True
 
 
 def display_source_text(text_content, language=""):
@@ -542,6 +568,8 @@ def main():
         st.session_state.annotations = []
     if 'skipped_indices' not in st.session_state:
         st.session_state.skipped_indices = set()
+    if 'keyword_manager' not in st.session_state:
+        st.session_state.keyword_manager = KeywordManager()
     if 'keywords' not in st.session_state:
         st.session_state.keywords = []
     if 'fields' not in st.session_state:
@@ -577,31 +605,44 @@ def main():
     st.session_state.keywords_file = cli_keywords_file
     st.session_state.fields_file = cli_fields_file
 
-    # Select menu for results file
-    if available_files:
-        current_file_basename = os.path.basename(st.session_state.input_file) if st.session_state.get('input_file') else None
+    # Load all models data once (cached in session state)
+    load_all_models(results_dir)
+
+    # Initialize with first available model if none selected yet
+    if not st.session_state.get('input_file_basename') and available_files:
+        first_file = available_files[0]
+        st.session_state.results = st.session_state.all_models_data.get(first_file, [])
+        st.session_state.input_file_basename = first_file
+        st.session_state.data_loaded = True
+
+    # Determine which models have results for the current ref_id
+    current_ref_id = None
+    if st.session_state.get('results') and st.session_state.get('current_index', 0) < len(st.session_state.results):
+        current_ref_id = str(st.session_state.results[st.session_state.current_index].get('ref_id', ''))
+
+    if current_ref_id and st.session_state.get('models_by_ref'):
+        models_for_source = sorted(st.session_state.models_by_ref.get(current_ref_id, set()))
+    else:
+        models_for_source = available_files
+
+    if models_for_source:
+        current_basename = st.session_state.get('input_file_basename')
         try:
-            default_index = available_files.index(current_file_basename) if current_file_basename in available_files else None
+            default_index = models_for_source.index(current_basename) if current_basename in models_for_source else 0
         except ValueError:
-            default_index = None
+            default_index = 0
 
         st.sidebar.subheader("Switch Model")
         selected_file = st.sidebar.selectbox(
             "Switch Model",
-            options=available_files,
+            options=models_for_source,
             index=default_index,
             label_visibility="collapsed"
         )
 
-        if selected_file:
-            input_file = os.path.join(results_dir, selected_file)
-        else:
-            input_file = None
-    else:
-        # Fallback text input if no files found or custom path needed
-        input_file = st.sidebar.text_input("Results JSON File Path", value=cli_input_file if cli_input_file else "")
-
-    # st.session_state.keywords_file = st.sidebar.text_input("Keywords CSV File", value=cli_keywords_file)
+        if selected_file and selected_file != st.session_state.get('input_file_basename'):
+            switch_model(selected_file)
+            st.rerun()
 
     st.sidebar.subheader("Output CSV File")
     output_file = st.sidebar.text_input("Output CSV File", value="annotated_results.csv", label_visibility="collapsed")
@@ -614,8 +655,6 @@ def main():
                 file_name=output_file,
                 mime="text/csv"
             )
-    # Load Data
-    load_data(input_file)
 
     if st.session_state.get('results'):
         st.sidebar.markdown("---")
@@ -999,7 +1038,7 @@ def main():
     # kw_manually_added_ids = [k.split("(ID: ")[1].strip(")") for k in manually_added_kws]
     kw_final_kept = intersection_ids + kept_suggestion_ids + agreed_missed_ids
 
-    filename = os.path.basename(st.session_state.input_file) if st.session_state.get('input_file') else "unknown.json"
+    filename = st.session_state.get('input_file_basename', 'unknown.json')
 
     col_prev, col_skip, col_next, col_save = st.columns([0.15, 0.12, 0.15, 0.58])
     with col_prev:
