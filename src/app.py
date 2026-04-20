@@ -532,13 +532,25 @@ def ensure_worksheet_exists(conn, sheet_url, worksheet_name):
         pass
 
 
-@st.cache_data
 def get_cached_models_data(results_dir):
-    """Loads and caches all JSON model data cleanly."""
+    """Reads the directory live, then passes the exact file list to the cached loader."""
+    # Find files live so we know exactly what is in the folder right now
+    json_files = tuple(sorted([
+        f for f in os.listdir(results_dir)
+        if f.startswith('merged_') and f.endswith('.json')
+    ]))
+
+    # Pass the tuple of filenames to the cached function.
+    # If the file list changes, the cache automatically invalidates!
+    return _load_models_data_cached(results_dir, json_files)
+
+
+@st.cache_data
+def _load_models_data_cached(results_dir, json_files):
+    """The actual heavy lifting, cached strictly based on the list of filenames."""
     all_models_data = {}
     models_by_ref = {}
-    json_files = sorted([f for f in os.listdir(results_dir) if f.startswith('merged_') and f.endswith('.json')])
-    
+
     for fn in json_files:
         try:
             with open(os.path.join(results_dir, fn), 'r') as f:
@@ -551,7 +563,7 @@ def get_cached_models_data(results_dir):
                     models_by_ref.setdefault(rid_key, set()).add(fn)
         except Exception as e:
             st.error(f"Error loading {fn}: {e}")
-            
+
     return all_models_data, models_by_ref
 
 

@@ -46,16 +46,22 @@ class GeminiProvider(LLMProvider):
         self.model_name = model_name
 
     def generate(self, prompt: str) -> str:
-        try:
-            response = self.client.models.generate_content(model=self.model_name,
-                                                           contents=prompt,
-                                                           config=self.generation_config,
-                                                           )
-            sleep(0.15)
-            return response.text
-        except Exception as e:
-            print(f"Gemini Error: {e}")
-            return ""
+        for attempt in range(5):
+            try:
+                response = self.client.models.generate_content(model=self.model_name,
+                                                               contents=prompt,
+                                                               config=self.generation_config,
+                                                               )
+                sleep(0.15)
+                return response.text
+            except Exception as e:
+                print(f"Gemini Error (Attempt {attempt+1}): {e}")
+                if attempt == 4:
+                    return ""
+                sleep_time = (2 ** attempt) * 5
+                print(f"Sleeping for {sleep_time} seconds before retrying...")
+                sleep(sleep_time)
+        return ""
 
 
 class OpenAIProvider(LLMProvider):
@@ -124,20 +130,26 @@ class QwenProvider(LLMProvider):
         else:
             kwargs["reasoning"] = {"enabled": False}
 
-        try:
-            response = self.client.chat.completions.create(**kwargs)
-            message = response.choices[0].message
-            content = message.content or ""
+        for attempt in range(5):
+            try:
+                response = self.client.chat.completions.create(**kwargs)
+                message = response.choices[0].message
+                content = message.content or ""
 
-            # Fallback for Qwen 3.5 reasoning models on Together AI
-            # Sometimes the entire output is in the 'reasoning' field while 'content' is empty
-            if not content.strip() and hasattr(message, 'reasoning') and message.reasoning:
-                content = message.reasoning
+                # Fallback for Qwen 3.5 reasoning models on Together AI
+                # Sometimes the entire output is in the 'reasoning' field while 'content' is empty
+                if not content.strip() and hasattr(message, 'reasoning') and message.reasoning:
+                    content = message.reasoning
 
-            return content
-        except Exception as e:
-            print(f"Qwen/TogetherAI Error: {e}")
-            raise e
+                return content
+            except Exception as e:
+                print(f"Qwen/TogetherAI Error (Attempt {attempt+1}): {e}")
+                if attempt == 4:
+                    raise e
+                sleep_time = (2 ** attempt) * 5
+                print(f"Sleeping for {sleep_time} seconds before retrying...")
+                from time import sleep
+                sleep(sleep_time)
 
 
 class ClaudeProvider(LLMProvider):
