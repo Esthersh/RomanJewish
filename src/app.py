@@ -556,11 +556,16 @@ def get_cached_models_data(results_dir):
 
 
 def main():
-    # Fix: Resolve results_dir relative to the script location
-    # This ensures it works whether running from root or src/
+    # Fix: Safely resolve results_dir whether script is in root/ or src/
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(script_dir)
-    results_dir = os.path.join(project_root, "results")
+
+    # Check if the results directory is sitting right next to the script (server/flat structure)
+    if os.path.exists(os.path.join(script_dir, "results")):
+        results_dir = os.path.join(script_dir, "results")
+    else:
+        # Assume the script is inside a subfolder (like src/), so go up one level (local structure)
+        project_root = os.path.dirname(script_dir)
+        results_dir = os.path.join(project_root, "results")
 
     st.set_page_config(layout="centered",
                        page_title="RomanJewish Legal Classifier - Review")
@@ -792,9 +797,9 @@ def main():
     # Main UI
     st.title("Local Law Under Rome")
 
-    if not current_results:
-        st.info("Please select a results JSON file from the sidebar to begin.")
-        return
+    # if not current_results:
+    #     st.info("Please select a results JSON file from the sidebar to begin.")
+    #     return
 
     if st.session_state.current_index >= len(current_results):
         st.success("All samples reviewed!")
