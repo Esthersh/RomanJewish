@@ -372,7 +372,7 @@ def display_metrics(output_file, results_dir=None):
 
 
 
-def display_instructions():
+def display_instructions(available_models):
     """Renders the instructions / help page."""
     st.title("📖 Annotation Task Instructions")
 
@@ -411,7 +411,15 @@ Where **TP** = true positives (correctly predicted), **FP** = false positives
 (predicted but not in gold), **FN** = false negatives (in gold but not predicted).
     """)
 
-    if st.button("▶ Begin Annotation", type="primary"):
+    st.markdown("### Choose a Model to Begin")
+    selected_model = st.selectbox(
+        "Select Model",
+        options=[""] + available_models,
+        help="You must select a model before starting annotation."
+    )
+
+    if st.button("▶ Begin Annotation", type="primary", disabled=not selected_model):
+        st.session_state.input_file_basename = selected_model
         st.session_state.show_instructions = False
         st.rerun()
 
@@ -664,9 +672,9 @@ def main():
     st.session_state.models_by_ref = models_by_ref
 
     # Initialize with first available model if none selected yet
-    if not st.session_state.get('input_file_basename') and available_files:
-        st.session_state.input_file_basename = available_files[0]
-        st.session_state.data_loaded = True
+    # if not st.session_state.get('input_file_basename') and available_files:
+    #     st.session_state.input_file_basename = available_files[0]
+    #     st.session_state.data_loaded = True
 
     # Get the current results directly from our cached data
     current_basename = st.session_state.get('input_file_basename')
@@ -674,15 +682,15 @@ def main():
 
     # Determine which models have results for the current ref_id
     current_ref_id = None
-    if st.session_state.get('results') and st.session_state.get('current_index', 0) < len(st.session_state.results):
-        current_ref_id = str(st.session_state.results[st.session_state.current_index].get('ref_id', ''))
+    if current_results and st.session_state.get('current_index', 0) < len(current_results):
+        current_ref_id = str(current_results[st.session_state.current_index].get('ref_id', ''))
 
     if current_ref_id and st.session_state.get('models_by_ref'):
         models_for_source = sorted(st.session_state.models_by_ref.get(current_ref_id, set()))
     else:
         models_for_source = available_files
 
-    if models_for_source:
+    if models_for_source and not st.session_state.show_instructions and st.session_state.get('input_file_basename'):
         current_basename = st.session_state.get('input_file_basename')
         try:
             default_index = models_for_source.index(current_basename) if current_basename in models_for_source else 0
@@ -698,7 +706,7 @@ def main():
         )
 
         if selected_file and selected_file != st.session_state.get('input_file_basename'):
-            switch_model(selected_file)
+            switch_model(selected_file, all_models_data)
             st.rerun()
 
     # st.sidebar.subheader("Output CSV File")
@@ -713,10 +721,10 @@ def main():
     #             mime="text/csv"
     #         )
 
-    if st.session_state.get('results'):
+    if current_results:
         st.sidebar.markdown("---")
         st.sidebar.subheader("Navigation")
-        options = [f"{i + 1} | {res.get('name', 'Unknown')}" for i, res in enumerate(st.session_state.results)]
+        options = [f"{i + 1} | {res.get('name', 'Unknown')}" for i, res in enumerate(current_results)]
         
         selected_source = st.sidebar.selectbox(
             "Skip to source according to name, number:",
@@ -773,21 +781,22 @@ def main():
 
     # --- Show pages if flagged ---
     if st.session_state.show_instructions:
-        display_instructions()
+        display_instructions(available_files)
         return
 
     if st.session_state.show_metrics:
+        output_file = "annotated_results.csv"  ## TODO If this is part of the side bar then it should be dynamic based on the input
         display_metrics(output_file, results_dir=results_dir)
         return
 
     # Main UI
     st.title("Local Law Under Rome")
 
-    if not st.session_state.results:
+    if not current_results:
         st.info("Please select a results JSON file from the sidebar to begin.")
         return
 
-    if st.session_state.current_index >= len(st.session_state.results):
+    if st.session_state.current_index >= len(current_results):
         st.success("All samples reviewed!")
         return
 
@@ -1093,7 +1102,7 @@ def main():
     annotator_comments = st.text_area("Comments:", value="", key=f"comments_{current_id}", label_visibility="collapsed")
 
     # Display progress
-    st.write(f"Progress: {st.session_state.current_index + 1} / {len(st.session_state.results)}")
+    st.write(f"Progress: {st.session_state.current_index + 1} / {len(current_results)}")
 
     # Combine all annotation vectors
     # kw_manually_added_ids = [k.split("(ID: ")[1].strip(")") for k in manually_added_kws]
@@ -1133,11 +1142,11 @@ def main():
                      field_kept_ids + f_intersection, field_miss_agreed_ids,
                      index_kept_terms + i_intersection, index_miss_agreed_terms,
                      annotator_comments, dup_keywords)
-            save_results(output_file)
+            save_results()
             st.rerun()
 
 
-def save_results(filename):
+def save_results():
     if not st.session_state.annotations:
         st.warning("No new annotations to save.")
         return
@@ -1194,22 +1203,22 @@ def save_results(filename):
 
     new_df = pd.DataFrame(export_data)
     
-    try:
-        if os.path.exists(filename):
-            try:
-                existing_df = pd.read_csv(filename, on_bad_lines='warn')
-                combined_df = pd.concat([existing_df, new_df], ignore_index=True)
-                combined_df = combined_df.fillna('')
-                combined_df.to_csv(filename, index=False)
-            except Exception as e:
-                st.error(f"Error reading existing CSV: {e}. Appending instead.")
-                new_df.to_csv(filename, mode='a', header=False, index=False)
-        else:
-            new_df.to_csv(filename, index=False)
-            
-        st.toast(f"Saved locally to {filename}")
-    except Exception as e:
-        st.error(f"Failed to save local CSV: {e}")
+    # try:
+    #     if os.path.exists(filename):
+    #         try:
+    #             existing_df = pd.read_csv(filename, on_bad_lines='warn')
+    #             combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+    #             combined_df = combined_df.fillna('')
+    #             combined_df.to_csv(filename, index=False)
+    #         except Exception as e:
+    #             st.error(f"Error reading existing CSV: {e}. Appending instead.")
+    #             new_df.to_csv(filename, mode='a', header=False, index=False)
+    #     else:
+    #         new_df.to_csv(filename, index=False)
+    #
+    #     st.toast(f"Saved locally to {filename}")
+    # except Exception as e:
+    #     st.error(f"Failed to save local CSV: {e}")
 
     # --- Google Sheets Read -> Append -> Update ---
     # Use the results filename (without .json) as the worksheet name
