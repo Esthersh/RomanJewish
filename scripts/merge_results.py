@@ -1,10 +1,20 @@
 import json
 import os
 import argparse
+import pandas as pd
 from typing import List
 
+def get_corpus_order(csv_path: str):
+    try:
+        df = pd.read_csv(csv_path, dtype=str)
+        return {str(row['ref Code']).strip(): idx for idx, row in df.iterrows() if pd.notna(row.get('ref Code'))}
+    except Exception as e:
+        print(f"Error reading corpus CSV: {e}")
+        return {}
+
 def get_key(item):
-    return item.get('original_row', {}).get('ref Code') or item.get('ref_id') or item.get('source_id')
+    k = item.get('original_row', {}).get('ref Code') or item.get('ref_id') or item.get('source_id')
+    return str(k).strip() if k else None
 
 def load_and_merge(paths: List[str]) -> List[dict]:
     combined = []
@@ -20,7 +30,7 @@ def load_and_merge(paths: List[str]) -> List[dict]:
             print(f"Error loading {p}: {e}")
     return combined
 
-def do_horizontal_merge(kw_data, fields_data, index_data, output_file):
+def do_horizontal_merge(kw_data, fields_data, index_data, output_file, order_map):
     merged_data = {}
     
     # Merge KW
@@ -58,6 +68,9 @@ def do_horizontal_merge(kw_data, fields_data, index_data, output_file):
         print(f"Skipping {output_file} - No data to merge.")
         return
 
+    # Sort according to corpus order
+    final_list.sort(key=lambda x: order_map.get(str(get_key(x)), float('inf')))
+
     # Create dir if not exist
     os.makedirs(os.path.dirname(output_file), exist_ok=True)
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -65,7 +78,8 @@ def do_horizontal_merge(kw_data, fields_data, index_data, output_file):
     print(f"Merged {len(final_list)} items into {output_file}")
 
 
-def merge_all_results(results_dir: str):
+def merge_all_results(results_dir: str, corpus_csv: str):
+    order_map = get_corpus_order(corpus_csv)
     models = ["gemini_3_pro", "qwen_3_5"]
     
     for m in models:
@@ -90,7 +104,8 @@ def merge_all_results(results_dir: str):
             load_and_merge(kw_base),
             load_and_merge(fields_base),
             load_and_merge(index_base),
-            os.path.join(results_dir, f"merged_{m}.json")
+            os.path.join(results_dir, f"merged_{m}.json"),
+            order_map
         )
 
         # 2. English translated versions -> merged_w_en_{model}.json
@@ -103,12 +118,14 @@ def merge_all_results(results_dir: str):
             load_and_merge(kw_wen),
             load_and_merge(fields_wen),
             load_and_merge(index_wen),
-            os.path.join(results_dir, f"merged_w_en_{m}.json")
+            os.path.join(results_dir, f"merged_w_en_{m}.json"),
+            order_map
         )
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Merge 3-vector result files across batch subsets.")
     parser.add_argument("--results_dir", default="/home/esther/PycharmProjects/RomanJewish/results", help="Directory containing result JSON files")
+    parser.add_argument("--corpus_csv", default="/home/esther/PycharmProjects/RomanJewish/data/LUR_annotations.csv", help="Original Corpus CSV for ordering")
     
     args = parser.parse_args()
-    merge_all_results(args.results_dir)
+    merge_all_results(args.results_dir, args.corpus_csv)
