@@ -97,7 +97,8 @@ class DataLoader:
             sys.exit(1)
 
     @staticmethod
-    def load_corpus(csv_path: str, include_non_english: bool = False, include_unannotated: bool = False,
+    def load_corpus(csv_path: str, include_non_english: bool = False,
+                    # include_unannotated: bool = False,
                     analyzed_only: bool = False, context_filter: str = 'any') -> List[CorpusSample]:
         """
         Loads corpus samples from CSV.
@@ -105,16 +106,16 @@ class DataLoader:
         try:
             df = pd.read_csv(csv_path)
             # filter rows that have an English translation and non-empty Keywords
-            if not include_non_english:
+            if not include_non_english:  # TODO name to "only with English" and reverse meaning
                 df = df.dropna(subset=["English"])
                 if df['English'].dtype == object:
                     df = df[df['English'].str.strip() != '']
-                    
-            if not include_unannotated:
-                df = df.dropna(subset=["Keywords"])
-                # Also ensure they are not just blank strings if they are object type
-                if df['Keywords'].dtype == object:
-                    df = df[df['Keywords'].str.strip() != '']
+            # # TODO change name to "annotated only" and with the reverse meaning
+            # if not include_unannotated:
+            #     df = df.dropna(subset=["Keywords"])
+            #     # Also ensure they are not just blank strings if they are object type
+            #     if df['Keywords'].dtype == object:
+            #         df = df[df['Keywords'].str.strip() != '']
 
             if analyzed_only:
                 df = df[df['Analyzed [y/n]'].fillna('').str.strip().str.lower() == 'y']
