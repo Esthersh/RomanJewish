@@ -183,29 +183,26 @@ def load_all_models(results_dir):
             st.session_state.fields = []
 
 
-def switch_model(selected_file):
-    """Switch to a different model, preserving the current ref_id position."""
-    if not selected_file:
+def switch_model(selected_file, all_models_data):
+    """Switch the active model pointer and preserve index."""
+    if not selected_file or st.session_state.get('input_file_basename') == selected_file:
         return
-    if st.session_state.get('input_file_basename') == selected_file:
-        return  # Already on this model
-
-    new_results = st.session_state.all_models_data.get(selected_file, [])
-    if not new_results:
-        return
+        
+    new_results = all_models_data.get(selected_file, [])
+    if not new_results: return
 
     # Find the current ref_id to preserve position
     current_ref_id = None
-    old_results = st.session_state.get('results', [])
+    old_results_file = st.session_state.get('input_file_basename')
     current_index = st.session_state.get('current_index', 0)
-    if old_results and current_index < len(old_results):
-        current_ref_id = str(old_results[current_index].get('ref_id', ''))
+    
+    if old_results_file:
+        old_results = all_models_data.get(old_results_file, [])
+        if current_index < len(old_results):
+            current_ref_id = str(old_results[current_index].get('ref_id', ''))
 
-    # Set the new results
-    st.session_state.results = new_results
     st.session_state.input_file_basename = selected_file
 
-    # Find matching ref_id in the new model's results
     new_index = 0
     if current_ref_id:
         for i, res in enumerate(new_results):
@@ -214,7 +211,40 @@ def switch_model(selected_file):
                 break
 
     st.session_state.current_index = new_index
-    st.session_state.data_loaded = True
+
+
+# def switch_model(selected_file):
+#     """Switch to a different model, preserving the current ref_id position."""
+#     if not selected_file:
+#         return
+#     if st.session_state.get('input_file_basename') == selected_file:
+#         return  # Already on this model
+
+#     new_results = st.session_state.all_models_data.get(selected_file, [])
+#     if not new_results:
+#         return
+
+#     # Find the current ref_id to preserve position
+#     current_ref_id = None
+#     old_results = st.session_state.get('results', [])
+#     current_index = st.session_state.get('current_index', 0)
+#     if old_results and current_index < len(old_results):
+#         current_ref_id = str(old_results[current_index].get('ref_id', ''))
+
+#     # Set the new results
+#     st.session_state.results = new_results
+#     st.session_state.input_file_basename = selected_file
+
+#     # Find matching ref_id in the new model's results
+#     new_index = 0
+#     if current_ref_id:
+#         for i, res in enumerate(new_results):
+#             if str(res.get('ref_id', '')) == current_ref_id:
+#                 new_index = i
+#                 break
+
+#     st.session_state.current_index = new_index
+#     st.session_state.data_loaded = True
 
 
 def display_source_text(text_content, language=""):
@@ -494,6 +524,29 @@ def ensure_worksheet_exists(conn, sheet_url, worksheet_name):
         pass
 
 
+@st.cache_data
+def get_cached_models_data(results_dir):
+    """Loads and caches all JSON model data cleanly."""
+    all_models_data = {}
+    models_by_ref = {}
+    json_files = sorted([f for f in os.listdir(results_dir) if f.startswith('merged_') and f.endswith('.json')])
+    
+    for fn in json_files:
+        try:
+            with open(os.path.join(results_dir, fn), 'r') as f:
+                data = json.load(f)
+            all_models_data[fn] = data
+            for item in data:
+                rid = item.get('ref_id')
+                if rid is not None:
+                    rid_key = str(rid)
+                    models_by_ref.setdefault(rid_key, set()).add(fn)
+        except Exception as e:
+            st.error(f"Error loading {fn}: {e}")
+            
+    return all_models_data, models_by_ref
+
+
 def main():
     # Fix: Resolve results_dir relative to the script location
     # This ensures it works whether running from root or src/
@@ -606,7 +659,9 @@ def main():
     st.session_state.fields_file = cli_fields_file
 
     # Load all models data once (cached in session state)
-    load_all_models(results_dir)
+    # load_all_models(results_dir)
+    all_models_data, models_by_ref = get_cached_models_data(results_dir)
+    st.session_state.models_by_ref = models_by_ref
 
     # Initialize with first available model if none selected yet
     if not st.session_state.get('input_file_basename') and available_files:
@@ -644,17 +699,17 @@ def main():
             switch_model(selected_file)
             st.rerun()
 
-    st.sidebar.subheader("Output CSV File")
-    output_file = st.sidebar.text_input("Output CSV File", value="annotated_results.csv", label_visibility="collapsed")
+    # st.sidebar.subheader("Output CSV File")
+    # output_file = st.sidebar.text_input("Output CSV File", value="annotated_results.csv", label_visibility="collapsed")
 
-    if os.path.exists(output_file):
-        with open(output_file, "rb") as file:
-            st.sidebar.download_button(
-                label="📥 Download Annotated CSV",
-                data=file,
-                file_name=output_file,
-                mime="text/csv"
-            )
+    # if os.path.exists(output_file):
+    #     with open(output_file, "rb") as file:
+    #         st.sidebar.download_button(
+    #             label="📥 Download Annotated CSV",
+    #             data=file,
+    #             file_name=output_file,
+    #             mime="text/csv"
+    #         )
 
     if st.session_state.get('results'):
         st.sidebar.markdown("---")
@@ -673,40 +728,42 @@ def main():
                 st.session_state.current_index = selected_idx
                 st.rerun()
 
-    st.sidebar.markdown("---")
-    st.sidebar.subheader("Keyword Taxonomy")
+    # st.sidebar.markdown("---")
+    # st.sidebar.subheader("Keyword Taxonomy")
 
     # Acts as a clickable button that reveals the search and list below it
-    with st.sidebar.expander("Search & View All Keywords", expanded=False):
-        if st.session_state.keywords:
-            # 1. Add the search text input
-            search_query = st.text_input("Search keywords...", key="kw_search").lower()
+    # with st.sidebar.expander("Search & View All Keywords", expanded=False):
+    #     if st.session_state.keywords:
+    #         # 1. Add the search text input
+    #         search_query = st.text_input("Search keywords...", key="kw_search").lower()
 
-            # 2. Handle the search logic
-            if search_query:
-                # Filter keywords where the name contains the search string (case-insensitive)
-                filtered_kws = [
-                    kw for kw in st.session_state.keywords
-                    if search_query in getattr(kw, 'name', '').lower()
-                ]
+    #         # 2. Handle the search logic
+    #         if search_query:
+    #             # Filter keywords where the name contains the search string (case-insensitive)
+    #             filtered_kws = [
+    #                 kw for kw in st.session_state.keywords
+    #                 if search_query in getattr(kw, 'name', '').lower()
+    #             ]
 
-                if filtered_kws:
-                    st.markdown(f"**Found {len(filtered_kws)} matches:**")
-                    # Display matches as a flat list for easy reading
-                    for kw in filtered_kws:
-                        name = getattr(kw, 'name', 'Unknown')
-                        kw_id = getattr(kw, 'id', 'N/A')
-                        st.markdown(f"- {name} (ID: {kw_id})")
-                else:
-                    st.write("No keywords found matching your search.")
-            else:
-                # 3. If the search box is empty, show the full formatted tree
-                formatted_kws = format_keywords(st.session_state.keywords)
-                # Using a container with a set height gives it a nice scrollbar
-                with st.container(height=400):
-                    st.markdown(formatted_kws)
-        else:
-            st.warning("No keywords loaded yet.")
+    #             if filtered_kws:
+    #                 st.markdown(f"**Found {len(filtered_kws)} matches:**")
+    #                 # Display matches as a flat list for easy reading
+    #                 for kw in filtered_kws:
+    #                     name = getattr(kw, 'name', 'Unknown')
+    #                     kw_id = getattr(kw, 'id', 'N/A')
+    #                     st.markdown(f"- {name} (ID: {kw_id})")
+    #             else:
+    #                 st.write("No keywords found matching your search.")
+    #         else:
+    #             # 3. If the search box is empty, show the full formatted tree
+    #             if 'formatted_kws_html' not in st.session_state:
+    #                   st.session_state.formatted_kws_html = format_keywords(st.session_state.keywords)
+    # 
+    #             # Using a container with a set height gives it a nice scrollbar
+    #             with st.container(height=400):
+    #                 st.markdown(formatted_kws)
+    #     else:
+    #         st.warning("No keywords loaded yet.")
 
     # Initialize toggle state if it doesn't exist
     if 'show_keywords' not in st.session_state:
@@ -732,7 +789,9 @@ def main():
         st.success("All samples reviewed!")
         return
 
-    result = st.session_state.results[st.session_state.current_index]
+    # result = st.session_state.results[st.session_state.current_index]
+    active_file = st.session_state.input_file_basename
+    result = all_models_data[active_file][st.session_state.current_index]
 
     # Handle error or missing data fields
     if "error" in result:

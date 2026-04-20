@@ -27,7 +27,10 @@ def main():
             print("Error: --keywords_csv is required for KEYWORDS/MATCH_KEYWORDS prompts.")
             sys.exit(1)
         keywords = loader.load_keywords(args.keywords_csv)
-    corpus = loader.load_corpus(args.corpus_csv, use_all_samples=args.use_all_samples, include_unannotated=args.include_unannotated)
+    corpus = loader.load_corpus(args.corpus_csv, include_non_english=args.include_non_english,
+                                include_unannotated=args.include_unannotated,
+                                analyzed_only=args.analyzed_only,
+                                context_filter=args.context_filter)
 
     if args.limit:
         corpus = corpus[:args.limit]
@@ -89,7 +92,8 @@ def main():
                 "group": sample.group,
                 "ref_id": sample.ref_id,
                 "language": sample.language,
-                "translation": sample.original_row.get('translation', '')
+                "translation": sample.original_row.get('translation', ''),
+                "broader_context": sample.context_text
             }
             matched_ids, suggested_kws, full_res = classifier.classify(sample.text, metadata)
 
@@ -171,8 +175,11 @@ def parse_run_args() -> Namespace:
     parser.add_argument("--debug", action="store_true", help="Enable verbose debug logging")
     # only relevant if we decide the keyword could grow on the fly
     parser.add_argument("--expand_kwords", action="store_true")
-    parser.add_argument("--use_all_samples", action="store_true", help="Use all annotated samples, including those without English translations")
+    parser.add_argument("--include_non_english", action="store_true", help="Include samples without English translations")
     parser.add_argument("--include_unannotated", action="store_true", help="Include samples without keyword annotations")
+    parser.add_argument("--analyzed_only", action="store_true", help="Only include samples where Analyzed [y/n] == y")
+    parser.add_argument("--context_filter", type=str, default='any', choices=['with', 'without', 'any'],
+                        help="Filter samples by context: 'with' = only samples with context, 'without' = only without, 'any' = no filter")
 
     args = parser.parse_args()
     return args

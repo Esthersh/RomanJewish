@@ -354,7 +354,7 @@ class Classifier:
             return self._classify_fields(text, metadata)
         elif self.prompt_name.startswith("INDEX"):
             return self._classify_index(text, metadata)
-        elif self.prompt_name in CLASSIFICATION_PROMPTS.keys():
+        elif self.prompt_name.startswith("MATCH_KEYWORDS") or self.prompt_name.startswith("KEYWORDS"):
             return self._classify_keywords(text, metadata)
         else:
             return self._classify_default(text, metadata)
@@ -380,6 +380,7 @@ class Classifier:
             language=metadata.get('language', 'Hebrew'),
             Language=metadata.get('language', 'Hebrew'),
             source_name=metadata.get('source_name', ''),
+            broader_context=metadata.get('broader_context', '')
         )
 
         if self.debug:
@@ -433,6 +434,7 @@ class Classifier:
             translation=metadata.get('translation', ''),
             language=metadata.get('language', ''),
             source_name=metadata.get('source_name', ''),
+            broader_context=metadata.get('broader_context', '')
         )
 
         if self.debug:
@@ -474,6 +476,7 @@ class Classifier:
             translation=metadata.get('translation', ''),
             language=metadata.get('language', 'Hebrew'),
             source_name=metadata.get('source_name', ''),
+            broader_context=metadata.get('broader_context', '')
         )
 
         if self.debug:

@@ -34,6 +34,7 @@ class CorpusSample:
     language: str
     original_row: Dict[str, Any]
     ref_id: float
+    context_text: str = ''
 
 
 class DataLoader:
@@ -96,14 +97,15 @@ class DataLoader:
             sys.exit(1)
 
     @staticmethod
-    def load_corpus(csv_path: str, use_all_samples: bool = False, include_unannotated: bool = False) -> List[CorpusSample]:
+    def load_corpus(csv_path: str, include_non_english: bool = False, include_unannotated: bool = False,
+                    analyzed_only: bool = False, context_filter: str = 'any') -> List[CorpusSample]:
         """
         Loads corpus samples from CSV.
         """
         try:
             df = pd.read_csv(csv_path)
             # filter rows that have an English translation and non-empty Keywords
-            if not use_all_samples:
+            if not include_non_english:
                 df = df.dropna(subset=["English"])
                 if df['English'].dtype == object:
                     df = df[df['English'].str.strip() != '']
@@ -114,6 +116,15 @@ class DataLoader:
                 if df['Keywords'].dtype == object:
                     df = df[df['Keywords'].str.strip() != '']
 
+            if analyzed_only:
+                df = df[df['Analyzed [y/n]'].fillna('').str.strip().str.lower() == 'y']
+
+            if context_filter == 'with':
+                df = df[df['context text'].notna() & (df['context text'].astype(str).str.strip() != '')]
+            elif context_filter == 'without':
+                has_ctx = df['context text'].notna() & (df['context text'].astype(str).str.strip() != '')
+                df = df[~has_ctx]
+
             # Forward fill Group and Name columns
             if 'Group' in df.columns:
                 df['Group'] = df['Group'].ffill()
@@ -123,6 +134,8 @@ class DataLoader:
             samples = []
             for _, row in df.iterrows():
                 # Adjust column names based on actual file inspection if needed
+                ctx = row.get('context text', '')
+                ctx = str(ctx).strip() if pd.notna(ctx) else ''
 
                 sample = CorpusSample(
                     source_id=str(row.get('SourceID', '')),
@@ -131,7 +144,8 @@ class DataLoader:
                     text=str(row.get('Text', '')),
                     language=str(row.get('Language', '')),
                     ref_id=float(row.get('ref Code', '')),
-                    original_row=row.to_dict()
+                    original_row=row.to_dict(),
+                    context_text=ctx
                 )
                 sample.original_row['translation'] = row.get('English', '')
                 samples.append(sample)
