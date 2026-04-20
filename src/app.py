@@ -665,10 +665,12 @@ def main():
 
     # Initialize with first available model if none selected yet
     if not st.session_state.get('input_file_basename') and available_files:
-        first_file = available_files[0]
-        st.session_state.results = st.session_state.all_models_data.get(first_file, [])
-        st.session_state.input_file_basename = first_file
+        st.session_state.input_file_basename = available_files[0]
         st.session_state.data_loaded = True
+
+    # Get the current results directly from our cached data
+    current_basename = st.session_state.get('input_file_basename')
+    current_results = all_models_data.get(current_basename, [])
 
     # Determine which models have results for the current ref_id
     current_ref_id = None
