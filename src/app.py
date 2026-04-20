@@ -683,6 +683,25 @@ def main():
     st.session_state.keywords_file = cli_keywords_file
     st.session_state.fields_file = cli_fields_file
 
+    if not st.session_state.get('keywords'):
+        try:
+            loader = DataLoader()
+            st.session_state.keywords = loader.load_keywords(st.session_state.keywords_file)
+        except Exception as e:
+            st.error(f"Error loading keywords: {e}")
+            st.session_state.keywords = []
+
+    if not st.session_state.get('fields'):
+        try:
+            if hasattr(st.session_state, 'fields_file') and st.session_state.fields_file:
+                loader = DataLoader()
+                st.session_state.fields = loader.load_judicial_fields(st.session_state.fields_file)
+            else:
+                st.session_state.fields = []
+        except Exception as e:
+            st.error(f"Error loading fields: {e}")
+            st.session_state.fields = []
+
     # Load all models data once (cached in session state)
     # load_all_models(results_dir)
     all_models_data, models_by_ref = get_cached_models_data(results_dir)
