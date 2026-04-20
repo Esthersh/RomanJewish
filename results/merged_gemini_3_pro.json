@@ -3416,6 +3416,11 @@
     "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Women Inheritance Rights\",\n    \"field_id\": 31\n  }\n]",
     "matched_field_ids": [
       "31"
+    ],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Κρηναῖος",
+      "κληρονομέω"
     ]
   },
   {

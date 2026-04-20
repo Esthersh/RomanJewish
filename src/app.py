@@ -1241,6 +1241,9 @@ def save_results():
     # Use the results filename (without .json) as the worksheet name
     sheet_name = st.session_state.annotations[0]['results_filename'].replace('.json', '') \
         if st.session_state.annotations else new_df.iloc[0]['results_filename'].replace('.json', '')
+    # remove "merged_" prefix if it exists
+    if sheet_name.startswith("merged_"):
+        sheet_name = sheet_name[len("merged_"):]
 
     with st.spinner('Syncing with Google Sheets...'):
         try:
