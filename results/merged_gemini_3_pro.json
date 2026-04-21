@@ -182,10 +182,37 @@
       "English": "The daughters of Zelophehad took three shares in the inheritance:\n(1) their father’s inheritance, who was among those who left Egypt;\n(2) and his share among his brothers in the property of Hepher;\n(3) and since he was a firstborn, he takes two shares.",
       "translation": "The daughters of Zelophehad took three shares in the inheritance:\n(1) their father’s inheritance, who was among those who left Egypt;\n(2) and his share among his brothers in the property of Hepher;\n(3) and since he was a firstborn, he takes two shares."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Women Inheritance Rights\",\n    \"field_id\": 31\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Firstborn Inheritance Rights\",\n    \"field_id\": 104\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"firstborn\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 224\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"daughter\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 172\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"double portion\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 233\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"primogeniture\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 241\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"right of representation\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 95\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"female succession\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 199\n  }\n]",
+    "matched_ids": [
+      "224",
+      "172",
+      "233",
+      "241",
+      "95",
+      "199"
+    ],
+    "matched_keywords": [
+      "firstborn",
+      "daughter",
+      "double portion",
+      "primogeniture",
+      "right of representation",
+      "female succession"
+    ],
+    "suggested_kws": [],
     "matched_field_ids": [
       "31",
       "104"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "בנות צלפחד",
+      "נחלה",
+      "חלק",
+      "יוצאי מצרים",
+      "נכס",
+      "בכור"
     ]
   },
   {
@@ -2056,11 +2083,31 @@
       "English": "He who says, \"Give such-and-such a field to So-and-so my wife with hat is coming to her\"-she takes [the field] and also collects her marriage-settlement. And her hand is on top. [If] she wants, she takes the field. [If] she wants, she collects her marriage-settlement",
       "translation": "He who says, \"Give such-and-such a field to So-and-so my wife with hat is coming to her\"-she takes [the field] and also collects her marriage-settlement. And her hand is on top. [If] she wants, she takes the field. [If] she wants, she collects her marriage-settlement"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Family > Marital Arrangements > Provision for Wife\",\n    \"field_id\": 25\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"election of rights\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 301\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"cumulative legacy\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 279\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Testamentary Interpretation\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 302\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Testamentary Language\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 327\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"marriage contract\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 101\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"wife\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "301",
+      "279",
+      "302",
+      "327",
+      "101",
+      "149"
+    ],
+    "matched_keywords": [
+      "election of rights",
+      "cumulative legacy",
+      "Testamentary Interpretation",
+      "Testamentary Language",
+      "marriage contract",
+      "testator"
+    ],
+    "suggested_kws": [
+      "wife"
+    ],
     "matched_field_ids": [
       "25",
       "38"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "יד על העליונה",
@@ -2100,11 +2147,29 @@
       "English": "He who says, \"Give two hundred to Mr. So-and-so, my creditor\"- he collects the money and [also] collects the debt owing to him. [If he had said,] \"For his debt,\" he has a right only to collect the money owing to him.",
       "translation": "He who says, \"Give two hundred to Mr. So-and-so, my creditor\"- he collects the money and [also] collects the debt owing to him. [If he had said,] \"For his debt,\" he has a right only to collect the money owing to him."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  },\n  {\n    \"field\": \"Status > Inheritance > Debts and Obligations\",\n    \"field_id\": 119\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"creditor\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 195\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"debt\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 304\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"verbal instruction\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 193\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Testamentary Interpretation\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 302\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Testamentary Language\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 327\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamentary intent\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 293\n  }\n]",
+    "matched_ids": [
+      "195",
+      "304",
+      "193",
+      "302",
+      "327",
+      "293"
+    ],
+    "matched_keywords": [
+      "creditor",
+      "debt",
+      "verbal instruction",
+      "Testamentary Interpretation",
+      "Testamentary Language",
+      "testamentary intent"
+    ],
+    "suggested_kws": [],
     "matched_field_ids": [
       "38",
       "119"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "בעל חוב",
@@ -2145,13 +2210,35 @@
       "English": "[If] he had a field, and it had been made a surety for the wife for the settlement of her marriage-contract and for a creditor for a settlement of what was owing to him, if he then said, \"Give such-and-such a field to my wife, So-and-so, in payment for her marriage-contract, and to Mr. So-and-so, my creditor, in payment for what is owing to him, what is owing to them has been received. And their hand is on top.",
       "translation": "[If] he had a field, and it had been made a surety for the wife for the settlement of her marriage-contract and for a creditor for a settlement of what was owing to him, if he then said, \"Give such-and-such a field to my wife, So-and-so, in payment for her marriage-contract, and to Mr. So-and-so, my creditor, in payment for what is owing to him, what is owing to them has been received. And their hand is on top."
     },
-    "original_res": "[\n  {\n    \"field\": \"Obligations > Consensual Contract > Loan and Pledge > Real security\",\n    \"field_id\": 81\n  },\n  {\n    \"field\": \"Status > Family > Marital Arrangements > Provision for Wife\",\n    \"field_id\": 25\n  },\n  {\n    \"field\": \"Status > Inheritance > Debts and Obligations\",\n    \"field_id\": 119\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"hypothec\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 61\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"liened property\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 103\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"election of rights\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 301\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Secured Debt\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 325\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"creditor\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 195\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"marriage contract\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 101\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"debt\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 304\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"wife\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "61",
+      "103",
+      "301",
+      "325",
+      "195",
+      "101",
+      "304"
+    ],
+    "matched_keywords": [
+      "hypothec",
+      "liened property",
+      "election of rights",
+      "Secured Debt",
+      "creditor",
+      "marriage contract",
+      "debt"
+    ],
+    "suggested_kws": [
+      "wife"
+    ],
     "matched_field_ids": [
       "81",
       "25",
       "119",
       "38"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "אפותיקי",
@@ -2193,12 +2280,37 @@
       "English": "He who says, \"Give a portion to Mr. So-and-so in my estate— \"let him inherit with my sons in the position of the firstborn, he does not take a double portion. He who says, \"Let Mr. So-and-so inherit me,\" has said nothing  whatsoever. If he said, \"Give my property to So-and-so,\" his statement is carried out",
       "translation": "He who says, \"Give a portion to Mr. So-and-so in my estate— \"let him inherit with my sons in the position of the firstborn, he does not take a double portion. He who says, \"Let Mr. So-and-so inherit me,\" has said nothing  whatsoever. If he said, \"Give my property to So-and-so,\" his statement is carried out"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Firstborn Inheritance Rights\",\n    \"field_id\": 104\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Deeds of Gift as Wills\",\n    \"field_id\": 37\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Testamentary Language\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 327\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Gift vs. Inheritance\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 328\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"double portion\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 233\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"firstborn\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 224\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"co-heirs\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 297\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"nullity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 74\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"verbal instruction\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 193\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"property\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 60\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"alteration of inheritance\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"validity of statement\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "327",
+      "328",
+      "233",
+      "224",
+      "297",
+      "74",
+      "193",
+      "60"
+    ],
+    "matched_keywords": [
+      "Testamentary Language",
+      "Gift vs. Inheritance",
+      "double portion",
+      "firstborn",
+      "co-heirs",
+      "nullity",
+      "verbal instruction",
+      "property"
+    ],
+    "suggested_kws": [
+      "alteration of inheritance",
+      "validity of statement"
+    ],
     "matched_field_ids": [
       "104",
       "36",
       "37"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "חלק",
@@ -2242,11 +2354,25 @@
       "English": "[If] one used the language of inheritance below, and a gift above, inheritance above and a gift below, inheritance on this side and on that side, and a gift in the middle, since he has simply mentioned the matter of a gift, his statement is confirmed",
       "translation": "[If] one used the language of inheritance below, and a gift above, inheritance above and a gift below, inheritance on this side and on that side, and a gift in the middle, since he has simply mentioned the matter of a gift, his statement is confirmed"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Deeds of Gift as Wills\",\n    \"field_id\": 37\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Gift vs. Inheritance\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 328\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Testamentary Language\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 327\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Testamentary Interpretation\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 302\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testament formula\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 144\n  }\n]",
+    "matched_ids": [
+      "328",
+      "327",
+      "302",
+      "144"
+    ],
+    "matched_keywords": [
+      "Gift vs. Inheritance",
+      "Testamentary Language",
+      "Testamentary Interpretation",
+      "testament formula"
+    ],
+    "suggested_kws": [],
     "matched_field_ids": [
       "37",
       "36"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "ירושה",
@@ -2286,11 +2412,31 @@
       "English": "Two who were coming from overseas— even though their trading, eating and drinking were done in partner-ship, [if] one of them died, his fellow does not inherit him. But if he had conducted affairs in this way because of their being brothers, [the survivor] does inherit.",
       "translation": "Two who were coming from overseas— even though their trading, eating and drinking were done in partner-ship, [if] one of them died, his fellow does not inherit him. But if he had conducted affairs in this way because of their being brothers, [the survivor] does inherit."
     },
-    "original_res": "[\n  {\n    \"field\": \"Obligations > Consensual Contract > Partnership\",\n    \"field_id\": 76\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Classes of Heirs\",\n    \"field_id\": 30\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"eligibility to Inherit\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 337\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"partner\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 184\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"presumed relatives\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 331\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"brother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 66\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"societas\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 115\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"intestate succession\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 310\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"presumed heir\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 232\n  }\n]",
+    "matched_ids": [
+      "337",
+      "184",
+      "331",
+      "66",
+      "115",
+      "310",
+      "232"
+    ],
+    "matched_keywords": [
+      "eligibility to Inherit",
+      "partner",
+      "presumed relatives",
+      "brother",
+      "societas",
+      "intestate succession",
+      "presumed heir"
+    ],
+    "suggested_kws": [],
     "matched_field_ids": [
       "76",
       "30"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "מדינת הים",
@@ -2331,12 +2477,31 @@
       "English": "healthy person who wrote a will—a dying man who wrote his property as a gift- even though he gave possession after the gift, he has done nothing at all. But he who writes over his property in the name of his fellow, and he gave him possession after the gift, his statement is confirmed.",
       "translation": "healthy person who wrote a will—a dying man who wrote his property as a gift- even though he gave possession after the gift, he has done nothing at all. But he who writes over his property in the name of his fellow, and he gave him possession after the gift, his statement is confirmed."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Causa Mortis\",\n    \"field_id\": 32\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Deeds of Gift as Wills\",\n    \"field_id\": 37\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"deathbed gift\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 191\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"inoperative will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 342\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"nullity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 74\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Gift vs. Inheritance\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 328\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"diatheke\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"shekhiv mera\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "191",
+      "342",
+      "74",
+      "328",
+      "149"
+    ],
+    "matched_keywords": [
+      "deathbed gift",
+      "inoperative will",
+      "nullity",
+      "Gift vs. Inheritance",
+      "testator"
+    ],
+    "suggested_kws": [
+      "diatheke",
+      "shekhiv mera"
+    ],
     "matched_field_ids": [
       "32",
       "36",
       "37"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "בריא",
@@ -2350,6 +2515,63 @@
     ]
   },
   {
+    "ref_id": 5.400200001e+21,
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 1",
+    "text": "Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": "20",
+      "Level2 Id": 1.0,
+      "Level3 Id": NaN,
+      "Level4 Id": NaN,
+      "Analyzed [y/n]": "y",
+      "Text": "Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200001000000000000",
+      "KW Ids": NaN,
+      "Keywords": NaN,
+      "Judicial Topic Ids": "29",
+      "Judicial Topics": "Testaments",
+      "Index Ids": "406",
+      "Index Terms": "testamentum",
+      "Refference": "Ulp. 20, 1",
+      "Calculated refCode": "005400200001000000000000",
+      "Unnamed: 21": NaN,
+      "English": "A testament is the legal statement of our will, solemnly made in order that it may become operative after our death.",
+      "translation": "A testament is the legal statement of our will, solemnly made in order that it may become operative after our death."
+    },
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamentary intent\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 293\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"intent\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 356\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"testament\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"post mortem effect\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "293",
+      "356"
+    ],
+    "matched_keywords": [
+      "testamentary intent",
+      "intent"
+    ],
+    "suggested_kws": [
+      "testament",
+      "post mortem effect"
+    ],
+    "matched_field_ids": [
+      "29"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testamentum",
+      "contestatio",
+      "iusta contestatio",
+      "sollemniter"
+    ]
+  },
+  {
     "ref_id": 5.400200002e+21,
     "source_id": "54",
     "group": "Rabbinic",
@@ -2357,7 +2579,7 @@
     "text": "Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2381,10 +2603,33 @@
       "English": "There were formerly three kinds of wills, one made in the presence of the Comitia, one made when about to enter into battle, and one made by means of a piece of bronze and a balance. The two first having been abolished, at present the only one in use is that made by means of a piece of bronze and a balance, that is to say, by a fictitious sale. In the execution of this kind of a will a balance holder and a purchaser of an estate are present, as well as not less than five witnesses who have testamentary capacity.\n",
       "translation": "There were formerly three kinds of wills, one made in the presence of the Comitia, one made when about to enter into battle, and one made by means of a piece of bronze and a balance. The two first having been abolished, at present the only one in use is that made by means of a piece of bronze and a balance, that is to say, by a fictitious sale. In the execution of this kind of a will a balance holder and a purchaser of an estate are present, as well as not less than five witnesses who have testamentary capacity.\n"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"fictive sale\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 240\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"buyer\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 147\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"testamenti factio\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "260",
+      "240",
+      "145",
+      "75",
+      "147",
+      "148",
+      "99"
+    ],
+    "matched_keywords": [
+      "testamentum per aes et libram",
+      "fictive sale",
+      "mancipatory will",
+      "mancipatio",
+      "buyer",
+      "scale holder",
+      "witnesses"
+    ],
+    "suggested_kws": [
+      "familiae emptor",
+      "testamenti factio"
+    ],
     "matched_field_ids": [
       "36"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "aes et libra",
@@ -2406,7 +2651,7 @@
     "text": "Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2430,11 +2675,38 @@
       "English": "No one who is under the control of the testator or of the purchaser of the estate can act either as a witness or balance-holder; as the sale of the estate takes place between the testator and the purchaser, and for this reason members of their households cannot act as witnesses.",
       "translation": "No one who is under the control of the testator or of the purchaser of the estate can act either as a witness or balance-holder; as the sale of the estate takes place between the testator and the purchaser, and for this reason members of their households cannot act as witnesses."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Paternal Power\",\n    \"field_id\": 46\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"buyer\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 147\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Procedure\",\n    \"keyword\": \"disqualified witnesses\",\n    \"suggested\": false,\n    \"category_id\": 329,\n    \"keyword_id\": 17\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"patria potestas\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 9\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"domestici testes\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "149",
+      "148",
+      "147",
+      "99",
+      "17",
+      "75",
+      "9",
+      "145",
+      "260"
+    ],
+    "matched_keywords": [
+      "testator",
+      "scale holder",
+      "buyer",
+      "witnesses",
+      "disqualified witnesses",
+      "mancipatio",
+      "patria potestas",
+      "mancipatory will",
+      "testamentum per aes et libram"
+    ],
+    "suggested_kws": [
+      "familiae emptor",
+      "domestici testes"
+    ],
     "matched_field_ids": [
       "36",
       "46"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "familiae emptor",
@@ -2454,7 +2726,7 @@
     "text": "Filio familiam emente pater eius testis esse non potest.\r",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2478,11 +2750,31 @@
       "English": " If a son is the purchaser his father cannot be a witness.",
       "translation": " If a son is the purchaser his father cannot be a witness."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Paternal Power\",\n    \"field_id\": 46\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Procedure\",\n    \"keyword\": \"disqualified witnesses\",\n    \"suggested\": false,\n    \"category_id\": 329,\n    \"keyword_id\": 17\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "163",
+      "150",
+      "99",
+      "17",
+      "145",
+      "260"
+    ],
+    "matched_keywords": [
+      "son",
+      "father",
+      "witnesses",
+      "disqualified witnesses",
+      "mancipatory will",
+      "testamentum per aes et libram"
+    ],
+    "suggested_kws": [
+      "familiae emptor"
+    ],
     "matched_field_ids": [
       "36",
       "46"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "familia",
@@ -2498,7 +2790,7 @@
     "text": "Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2522,12 +2814,34 @@
       "English": "Of two brothers who are under the control of the same father, one cannot act as purchaser and the other as a witness; as what one of them receives by the sale he acquires for his father, and a son of the latter should not be a witness to this transaction.",
       "translation": "Of two brothers who are under the control of the same father, one cannot act as purchaser and the other as a witness; as what one of them receives by the sale he acquires for his father, and a son of the latter should not be a witness to this transaction."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Paternal Power\",\n    \"field_id\": 46\n  },\n  {\n    \"field\": \"Courts and Procedure > Evidence > Witnesses\",\n    \"field_id\": 101\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"patria potestas\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 9\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"brother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 66\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "9",
+      "66",
+      "150",
+      "99",
+      "75",
+      "260",
+      "145"
+    ],
+    "matched_keywords": [
+      "patria potestas",
+      "brother",
+      "father",
+      "witnesses",
+      "mancipatio",
+      "testamentum per aes et libram",
+      "mancipatory will"
+    ],
+    "suggested_kws": [
+      "familiae emptor"
+    ],
     "matched_field_ids": [
       "36",
       "46",
       "101"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "familiae emptor",
@@ -2545,7 +2859,7 @@
     "text": "Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2569,11 +2883,35 @@
       "English": "A father, however, and a son who is under his control, as well as two brothers who are under the control of the same father, can both be witnesses; or one can be a witness, and the other the balance-holder, when a third party is the purchaser of the estate; as no harm results where several witnesses are taken from the same household in a transaction with a stranger.\n\n",
       "translation": "A father, however, and a son who is under his control, as well as two brothers who are under the control of the same father, can both be witnesses; or one can be a witness, and the other the balance-holder, when a third party is the purchaser of the estate; as no harm results where several witnesses are taken from the same household in a transaction with a stranger.\n\n"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Paternal Power\",\n    \"field_id\": 46\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"patria potestas\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 9\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"brother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 66\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "260",
+      "145",
+      "9",
+      "150",
+      "163",
+      "66",
+      "148",
+      "99"
+    ],
+    "matched_keywords": [
+      "testamentum per aes et libram",
+      "mancipatory will",
+      "patria potestas",
+      "father",
+      "son",
+      "brother",
+      "scale holder",
+      "witnesses"
+    ],
+    "suggested_kws": [
+      "familiae emptor"
+    ],
     "matched_field_ids": [
       "36",
       "46"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "potestas",
@@ -2592,7 +2930,7 @@
     "text": "Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2616,13 +2954,54 @@
       "English": "A person who is deaf, dumb, or insane, a minor, or a woman cannot act either as purchaser or balance-holder.\n\n",
       "translation": "A person who is deaf, dumb, or insane, a minor, or a woman cannot act either as purchaser or balance-holder.\n\n"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Minors\",\n    \"field_id\": 49\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Mental Disability\",\n    \"field_id\": 50\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Legal Capacity of Women\",\n    \"field_id\": 120\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mute\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 164\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"deaf\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 152\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mentally impaired\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 153\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"ward\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 155\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"buyer\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 147\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Procedure\",\n    \"keyword\": \"disqualified witnesses\",\n    \"suggested\": false,\n    \"category_id\": 329,\n    \"keyword_id\": 17\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal disability\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 154\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "164",
+      "152",
+      "153",
+      "155",
+      "151",
+      "147",
+      "148",
+      "99",
+      "17",
+      "154",
+      "260"
+    ],
+    "matched_keywords": [
+      "mute",
+      "deaf",
+      "mentally impaired",
+      "ward",
+      "woman",
+      "buyer",
+      "scale holder",
+      "witnesses",
+      "disqualified witnesses",
+      "legal disability",
+      "testamentum per aes et libram"
+    ],
+    "suggested_kws": [
+      "familiae emptor"
+    ],
     "matched_field_ids": [
       "34",
       "36",
       "49",
       "50",
       "120"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "mutus",
+      "surdus",
+      "furiosus",
+      "pupillus",
+      "femina",
+      "familiae emptor",
+      "testis",
+      "libripens"
     ]
   },
   {
@@ -2633,7 +3012,7 @@
     "text": "Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2657,11 +3036,38 @@
       "English": "A Junian Latin may act either as purchaser, witness, or balance-holder, as he has no right to make a will",
       "translation": "A Junian Latin may act either as purchaser, witness, or balance-holder, as he has no right to make a will"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship > Freed Persons\",\n    \"field_id\": 105\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Junian Latin\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 156\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal eligibility\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 19\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"testamenti factio\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "156",
+      "99",
+      "148",
+      "260",
+      "19"
+    ],
+    "matched_keywords": [
+      "Junian Latin",
+      "witnesses",
+      "scale holder",
+      "testamentum per aes et libram",
+      "legal eligibility"
+    ],
+    "suggested_kws": [
+      "familiae emptor",
+      "testamenti factio"
+    ],
     "matched_field_ids": [
       "105",
       "34",
       "36"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Latinus Iunianus",
+      "familiae emptor",
+      "testis",
+      "libripens",
+      "testamenti factio"
     ]
   },
   {
@@ -2672,7 +3078,7 @@
     "text": "In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\". Quae nuncupatio et \"testatio\" \r\nvocatur.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2696,9 +3102,47 @@
       "English": "In a will made by means of a piece of bronze and a balance, two things take place, the sale of the estate, and the declaration with reference to the will. The declaration with reference to the will is made in the following manner; the testator holding the will in his hands says: \"Whatever is written in these waxen tablets I give, bequeath, and declare to be my will, and therefore do you, Roman citizens, give your testimony.\" This verbal statement is also called an attestation.\n\n",
       "translation": "In a will made by means of a piece of bronze and a balance, two things take place, the sale of the estate, and the declaration with reference to the will. The declaration with reference to the will is made in the following manner; the testator holding the will in his hands says: \"Whatever is written in these waxen tablets I give, bequeath, and declare to be my will, and therefore do you, Roman citizens, give your testimony.\" This verbal statement is also called an attestation.\n\n"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testament formula\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 144\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"nuncupation\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 157\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"tablets\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 158\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  }\n]",
+    "matched_ids": [
+      "260",
+      "144",
+      "145",
+      "75",
+      "157",
+      "158",
+      "149",
+      "99"
+    ],
+    "matched_keywords": [
+      "testamentum per aes et libram",
+      "testament formula",
+      "mancipatory will",
+      "mancipatio",
+      "nuncupation",
+      "tablets",
+      "testator",
+      "witnesses"
+    ],
+    "suggested_kws": [],
     "matched_field_ids": [
       "36"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testamentum",
+      "per aes et libram",
+      "familiae mancipatio",
+      "nuncupatio testamenti",
+      "nuncupatio",
+      "tabula testamenti",
+      "testator",
+      "legare",
+      "testari",
+      "Quiris",
+      "testimonium",
+      "testimonium perhibere",
+      "testatio"
     ]
   },
   {
@@ -2709,7 +3153,7 @@
     "text": "Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2733,10 +3177,37 @@
       "English": "A son under paternal control cannot execute a will as he has nothing of his own of which to make testamentary disposition. The Divine Augustus, however, granted as a military privilege, that a son under paternal control who was a soldier, could make a will disposing of the peculium which he had acquired while in camp.",
       "translation": "A son under paternal control cannot execute a will as he has nothing of his own of which to make testamentary disposition. The Divine Augustus, however, granted as a military privilege, that a son under paternal control who was a soldier, could make a will disposing of the peculium which he had acquired while in camp."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Paternal Power\",\n    \"field_id\": 46\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"soldier\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 159\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"peculium\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 161\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"filius familiae\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"peculium castrense\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "217",
+      "163",
+      "159",
+      "161"
+    ],
+    "matched_keywords": [
+      "testamenti factio activa",
+      "son",
+      "soldier",
+      "peculium"
+    ],
+    "suggested_kws": [
+      "filius familiae",
+      "peculium castrense"
+    ],
     "matched_field_ids": [
       "34",
       "46"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "filius familias",
+      "testamentum",
+      "testamentum facere",
+      "testari",
+      "peculium",
+      "miles",
+      "castra"
     ]
   },
   {
@@ -2747,7 +3218,7 @@
     "text": "Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2771,10 +3242,32 @@
       "English": "Anyone who is uncertain as to his condition, for instance, when he is ignorant that he is his own master because his father died while absent on a journey, cannot make a will.",
       "translation": "Anyone who is uncertain as to his condition, for instance, when he is ignorant that he is his own master because his father died while absent on a journey, cannot make a will."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Legal Capacity\",\n    \"field_id\": 9\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"sui iuris\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"uncertain status\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "217",
+      "150",
+      "163"
+    ],
+    "matched_keywords": [
+      "testamenti factio activa",
+      "father",
+      "son"
+    ],
+    "suggested_kws": [
+      "sui iuris",
+      "uncertain status"
+    ],
     "matched_field_ids": [
       "34",
       "9"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "status",
+      "sui iuris",
+      "testamentum",
+      "testamentum facere"
     ]
   },
   {
@@ -2785,7 +3278,7 @@
     "text": "Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2809,10 +3302,34 @@
       "English": "A person under the age of puberty, although he may not be subject to parental authority, cannot make a will; as he has not yet full mental capacity.\n\n",
       "translation": "A person under the age of puberty, although he may not be subject to parental authority, cannot make a will; as he has not yet full mental capacity.\n\n"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Minors\",\n    \"field_id\": 49\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"age of legal capacity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 170\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"minor\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 180\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal disability\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 154\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mental capacity\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal independence\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "170",
+      "217",
+      "180",
+      "154"
+    ],
+    "matched_keywords": [
+      "age of legal capacity",
+      "testamenti factio activa",
+      "minor",
+      "legal disability"
+    ],
+    "suggested_kws": [
+      "mental capacity",
+      "legal independence"
+    ],
     "matched_field_ids": [
       "34",
       "49"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "impubes",
+      "sui iuris",
+      "testamentum",
+      "iudicium animi"
     ]
   },
   {
@@ -2823,7 +3340,7 @@
     "text": "Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2847,10 +3364,46 @@
       "English": " One who is dumb, deaf, or insane, as well as a spendthrift interdicted by law from the control of his property, cannot make a will; a dumb person for the reason that he cannot speak the words of the declaration; one who is deaf, because he cannot hear the words uttered by the purchaser of the estate; an insane person, as he has not sufficient intelligence to permit him to make the declaration with reference to the property; the spendthrift, because he is forbidden to engage in commercial transactions, and hence cannot sell his estate.",
       "translation": " One who is dumb, deaf, or insane, as well as a spendthrift interdicted by law from the control of his property, cannot make a will; a dumb person for the reason that he cannot speak the words of the declaration; one who is deaf, because he cannot hear the words uttered by the purchaser of the estate; an insane person, as he has not sufficient intelligence to permit him to make the declaration with reference to the property; the spendthrift, because he is forbidden to engage in commercial transactions, and hence cannot sell his estate."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Mental Disability\",\n    \"field_id\": 50\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"deaf\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 152\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mute\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 164\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mentally impaired\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 153\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal disability\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 154\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"nuncupation\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 157\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"spendthrift\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "152",
+      "164",
+      "153",
+      "217",
+      "154",
+      "157",
+      "75"
+    ],
+    "matched_keywords": [
+      "deaf",
+      "mute",
+      "mentally impaired",
+      "testamenti factio activa",
+      "legal disability",
+      "nuncupation",
+      "mancipatio"
+    ],
+    "suggested_kws": [
+      "spendthrift"
+    ],
     "matched_field_ids": [
       "34",
       "50"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "bonis interdicere",
+      "commercium",
+      "familiae emptor",
+      "furiosus",
+      "mancipare",
+      "mutus",
+      "nuncupatio",
+      "prodigus",
+      "surdus",
+      "testamentum",
+      "testari"
     ]
   },
   {
@@ -2861,7 +3414,7 @@
     "text": "Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2885,10 +3438,38 @@
       "English": "Likewise, a Junian Latin and one included among the dediticii cannot make a will. A Junian Latin is incapable as he is expressly forbidden by the Junian Law, nor can one of the dediticii, because he is unable to make a testamentary declaration as a Roman citizen, for the reason that he is an alien; and he is prevented from doing so, as an alien, since he is a citizen of no certain country, and cannot dispose of his property by will in accordance with its laws.",
       "translation": "Likewise, a Junian Latin and one included among the dediticii cannot make a will. A Junian Latin is incapable as he is expressly forbidden by the Junian Law, nor can one of the dediticii, because he is unable to make a testamentary declaration as a Roman citizen, for the reason that he is an alien; and he is prevented from doing so, as an alien, since he is a citizen of no certain country, and cannot dispose of his property by will in accordance with its laws."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship\",\n    \"field_id\": 7\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Junian Latin\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 156\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"peregrine\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 166\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Explicit legal frameworks\",\n    \"keyword\": \"laws of another country\",\n    \"suggested\": false,\n    \"category_id\": 6,\n    \"keyword_id\": 167\n  },\n  {\n    \"category\": \"Explicit legal frameworks\",\n    \"keyword\": \"Lex Junia\",\n    \"suggested\": true,\n    \"category_id\": 6,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"dediticii\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "156",
+      "166",
+      "217",
+      "167"
+    ],
+    "matched_keywords": [
+      "Junian Latin",
+      "peregrine",
+      "testamenti factio activa",
+      "laws of another country"
+    ],
+    "suggested_kws": [
+      "Lex Junia",
+      "dediticii"
+    ],
     "matched_field_ids": [
       "7",
       "34"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Latinus Iunianus",
+      "dediticius",
+      "testamentum",
+      "lex Iunia",
+      "civis Romanus",
+      "testor",
+      "peregrinus",
+      "civitas"
     ]
   },
   {
@@ -2899,7 +3480,7 @@
     "text": "Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2923,11 +3504,33 @@
       "English": "Women who are over twelve years of age can make a will with the authority of their guardians, as long as they remain under guardianship.",
       "translation": "Women who are over twelve years of age can make a will with the authority of their guardians, as long as they remain under guardianship."
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Guardianship > Guardianship over Women\",\n    \"field_id\": 54\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Legal Capacity of Women\",\n    \"field_id\": 120\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"tutor\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 169\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"age of legal capacity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 170\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  }\n]",
+    "matched_ids": [
+      "151",
+      "169",
+      "170",
+      "217"
+    ],
+    "matched_keywords": [
+      "woman",
+      "tutor",
+      "age of legal capacity",
+      "testamenti factio activa"
+    ],
+    "suggested_kws": [],
     "matched_field_ids": [
       "34",
       "54",
       "120"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testamentum",
+      "testamentum facere",
+      "tutor",
+      "tutor auctor",
+      "tutela"
     ]
   },
   {
@@ -2938,7 +3541,7 @@
     "text": "Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.",
     "original_row": {
       "Group": "Rabbinic",
-      "Name": "Tosefta,ΒΒ",
+      "Name": "Ulpianus",
       "Language": "Latin",
       "SourceID": 54,
       "Level1 Id": "20",
@@ -2962,10 +3565,32 @@
       "English": "A public slave of the Roman people has the right to make a will disposing of half of his peculium.\n",
       "translation": "A public slave of the Roman people has the right to make a will disposing of half of his peculium.\n"
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Slavery\",\n    \"field_id\": 8\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"slave\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 202\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"public slave\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "217",
+      "202",
+      "149"
+    ],
+    "matched_keywords": [
+      "testamenti factio activa",
+      "slave",
+      "testator"
+    ],
+    "suggested_kws": [
+      "public slave"
+    ],
     "matched_field_ids": [
       "34",
       "8"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "servus publicus",
+      "populus Romanus",
+      "pars dimidia",
+      "testamentum",
+      "ius"
     ]
   },
   {
@@ -3183,9 +3808,33 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Intestacy\",\n    \"field_id\": 28\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"intestacy\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 69\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"fiscus\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 206\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"bona vacantia\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 220\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"property\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 60\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"lack of heirs\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "69",
+      "206",
+      "220",
+      "60"
+    ],
+    "matched_keywords": [
+      "intestacy",
+      "fiscus",
+      "bona vacantia",
+      "property"
+    ],
+    "suggested_kws": [
+      "lack of heirs"
+    ],
     "matched_field_ids": [
       "28"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀδιάθετος",
+      "κληρονόμος",
+      "ὑπάρχοντα",
+      "φίσκος",
+      "προσκρίνω"
     ]
   },
   {
@@ -3220,11 +3869,40 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Classes of Heirs\",\n    \"field_id\": 30\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"eligibility to Inherit\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 337\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"heredes legitimi\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 251\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"legatum\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 209\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"testamenti factio passiva\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 211\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"heir\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 178\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Alexandrians\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"invalid legacy\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "337",
+      "251",
+      "209",
+      "211",
+      "178"
+    ],
+    "matched_keywords": [
+      "eligibility to Inherit",
+      "heredes legitimi",
+      "legatum",
+      "testamenti factio passiva",
+      "heir"
+    ],
+    "suggested_kws": [
+      "Alexandrians",
+      "invalid legacy"
+    ],
     "matched_field_ids": [
       "30",
       "34",
       "38"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Ἀλεξανδρεύς",
+      "διατάσσω",
+      "ἐπιδικάζω",
+      "κληρονομέω",
+      "νόμος",
+      "προσήκω",
+      "χωρέω"
     ]
   },
   {
@@ -3259,11 +3937,44 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Family > Marital Arrangements > Provision for Wife\",\n    \"field_id\": 25\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"widow's inheritance\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 179\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legitimate children\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 248\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"child\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 160\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Explicit legal frameworks\",\n    \"keyword\": \"practice in province\",\n    \"suggested\": false,\n    \"category_id\": 6,\n    \"keyword_id\": 223\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"wife\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamentary restrictions\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Explicit legal frameworks\",\n    \"keyword\": \"Alexandrian law\",\n    \"suggested\": true,\n    \"category_id\": 6,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "179",
+      "248",
+      "160",
+      "163",
+      "151",
+      "149",
+      "223"
+    ],
+    "matched_keywords": [
+      "widow's inheritance",
+      "legitimate children",
+      "child",
+      "son",
+      "woman",
+      "testator",
+      "practice in province"
+    ],
+    "suggested_kws": [
+      "wife",
+      "testamentary restrictions",
+      "Alexandrian law"
+    ],
     "matched_field_ids": [
       "25",
       "34",
       "38"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Ἀλεξανδρεύς",
+      "διατάσσω",
+      "ἔξεστι",
+      "περιουσία",
+      "τέταρτον μέρος",
+      "μερίζω"
     ]
   },
   {
@@ -3298,9 +4009,29 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"public document\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 213\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"nullity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 74\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"inoperative will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 342\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamentary formalities\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "213",
+      "74",
+      "342"
+    ],
+    "matched_keywords": [
+      "public document",
+      "nullity",
+      "inoperative will"
+    ],
+    "suggested_kws": [
+      "testamentary formalities"
+    ],
     "matched_field_ids": [
       "36"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "διαθήκη",
+      "δημόσιος χρηματισμός",
+      "ἄκυρος"
     ]
   },
   {
@@ -3335,10 +4066,44 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"tablets\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 158\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Testamentary Language\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 327\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"supplements to a will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 308\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"nullity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 74\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"codicil\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 276\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"bequeathal clause\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 83\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Roman citizen\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "158",
+      "327",
+      "308",
+      "74",
+      "276",
+      "83",
+      "149"
+    ],
+    "matched_keywords": [
+      "tablets",
+      "Testamentary Language",
+      "supplements to a will",
+      "nullity",
+      "codicil",
+      "bequeathal clause",
+      "testator"
+    ],
+    "suggested_kws": [
+      "Roman citizen"
+    ],
     "matched_field_ids": [
       "34",
       "36"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "διαθήκη",
+      "Ῥωμαϊκὴ διαθήκη",
+      "διατάσσω",
+      "πινακίς",
+      "Ἑλληνικὴ πινακίς",
+      "κύριος",
+      "παραδεκτέος",
+      "Ἑλληνικὴ διαθήκη",
+      "Ῥωμαῖος"
     ]
   },
   {
@@ -3373,12 +4138,46 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship > Freed Persons\",\n    \"field_id\": 105\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Classes of Heirs\",\n    \"field_id\": 30\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Women Inheritance Rights\",\n    \"field_id\": 31\n  },\n  {\n    \"field\": \"Status > Slavery > Patronage/Clientela\",\n    \"field_id\": 106\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"freedperson\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 165\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"daughter\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 172\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"fiscus\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 206\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"intestacy\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 69\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"intestate succession\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 310\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"order of succession\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 205\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"patron\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"childless\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "165",
+      "163",
+      "172",
+      "206",
+      "69",
+      "310",
+      "205"
+    ],
+    "matched_keywords": [
+      "freedperson",
+      "son",
+      "daughter",
+      "fiscus",
+      "intestacy",
+      "intestate succession",
+      "order of succession"
+    ],
+    "suggested_kws": [
+      "patron",
+      "childless"
+    ],
     "matched_field_ids": [
       "105",
       "30",
       "31",
       "106"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀπελεύθερος",
+      "ἀστός",
+      "ἄτεκνος",
+      "ἀδιάθετος",
+      "κληρονομέω",
+      "πάτρων",
+      "ἐπιδικάζω",
+      "φίσκος"
     ]
   },
   {
@@ -3413,10 +4212,35 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship > Freed Persons\",\n    \"field_id\": 105\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"freedperson\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 165\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"seizure\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 207\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"fiscus\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 206\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"eligibility to Inherit\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 337\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio passiva\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 211\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"social status\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "165",
+      "207",
+      "206",
+      "337",
+      "211"
+    ],
+    "matched_keywords": [
+      "freedperson",
+      "seizure",
+      "fiscus",
+      "eligibility to Inherit",
+      "testamenti factio passiva"
+    ],
+    "suggested_kws": [
+      "social status"
+    ],
     "matched_field_ids": [
       "105",
       "34"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀπελεύθερος",
+      "διατάσσω",
+      "τάξις",
+      "ἀναλαμβάνω"
     ]
   },
   {
@@ -3451,10 +4275,28 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Women Inheritance Rights\",\n    \"field_id\": 31\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 272\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"child\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 160\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"female succession\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 199\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"eligibility to Inherit\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 337\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Cyrenaean\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "272",
+      "160",
+      "151",
+      "199",
+      "337"
+    ],
+    "matched_keywords": [
+      "mother",
+      "child",
+      "woman",
+      "female succession",
+      "eligibility to Inherit"
+    ],
+    "suggested_kws": [
+      "Cyrenaean"
+    ],
     "matched_field_ids": [
       "31"
     ],
+    "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
       "Κρηναῖος",
@@ -3493,11 +4335,39 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship\",\n    \"field_id\": 7\n  },\n  {\n    \"field\": \"Status > Family > Marriage > Legitimate Children\",\n    \"field_id\": 118\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Classes of Heirs\",\n    \"field_id\": 30\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"eligibility to Inherit\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 337\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"child\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 160\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"peregrine\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 166\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"maternal estate\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 273\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"paternal estate\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 330\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"heir\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 178\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"parents\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Cyrenean\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mixed marriage\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "337",
+      "160",
+      "166",
+      "273",
+      "330",
+      "178"
+    ],
+    "matched_keywords": [
+      "eligibility to Inherit",
+      "child",
+      "peregrine",
+      "maternal estate",
+      "paternal estate",
+      "heir"
+    ],
+    "suggested_kws": [
+      "parents",
+      "Cyrenean",
+      "mixed marriage"
+    ],
     "matched_field_ids": [
       "7",
       "118",
       "30"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Κρηναῖος",
+      "ξένος",
+      "κληρονομέω"
     ]
   },
   {
@@ -3532,10 +4402,38 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship\",\n    \"field_id\": 7\n  },\n  {\n    \"field\": \"Status > Inheritance\",\n    \"field_id\": 6\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"eligibility to Inherit\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 337\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"maternal estate\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 273\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"peregrine\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 166\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"child\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 160\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 272\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"citizen\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"citizenship status\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"maternal inheritance\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "337",
+      "273",
+      "166",
+      "160",
+      "272",
+      "151"
+    ],
+    "matched_keywords": [
+      "eligibility to Inherit",
+      "maternal estate",
+      "peregrine",
+      "child",
+      "mother",
+      "woman"
+    ],
+    "suggested_kws": [
+      "citizen",
+      "citizenship status",
+      "maternal inheritance"
+    ],
     "matched_field_ids": [
       "7",
       "6"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀστός",
+      "ξένος",
+      "κληρονομέω"
     ]
   },
   {
@@ -3570,10 +4468,37 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship > Freed Persons\",\n    \"field_id\": 105\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"freedperson\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 165\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"legatum\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 209\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"currency\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 62\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"alimentary rights\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 96\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"citizen\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"restriction on bequests\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "165",
+      "149",
+      "209",
+      "62",
+      "96"
+    ],
+    "matched_keywords": [
+      "freedperson",
+      "testator",
+      "legatum",
+      "currency",
+      "alimentary rights"
+    ],
+    "suggested_kws": [
+      "citizen",
+      "restriction on bequests"
+    ],
     "matched_field_ids": [
       "105",
       "38"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀστός",
+      "ἀπελεύθερος",
+      "διατάσσω",
+      "μηνιαῖος",
+      "δραχμή"
     ]
   },
   {
@@ -3608,11 +4533,36 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship > Freed Persons\",\n    \"field_id\": 105\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Legal Capacity of Women\",\n    \"field_id\": 120\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"freedperson\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 165\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Women's Status\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 324\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal disability\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 154\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"citizen\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "165",
+      "151",
+      "324",
+      "217",
+      "154"
+    ],
+    "matched_keywords": [
+      "freedperson",
+      "woman",
+      "Women's Status",
+      "testamenti factio activa",
+      "legal disability"
+    ],
+    "suggested_kws": [
+      "citizen"
+    ],
     "matched_field_ids": [
       "105",
       "34",
       "120"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀπελευθέρα",
+      "ἀστός",
+      "ἀστή",
+      "διατίθημι"
     ]
   },
   {
@@ -3647,10 +4597,39 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship > Freed Persons\",\n    \"field_id\": 105\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"freedperson\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 165\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"postumus alienus\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 219\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"successive legacies\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 349\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"legatum\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 209\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"seizure\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 207\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"fiscus\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 206\n  }\n]",
+    "matched_ids": [
+      "165",
+      "219",
+      "349",
+      "209",
+      "207",
+      "206"
+    ],
+    "matched_keywords": [
+      "freedperson",
+      "postumus alienus",
+      "successive legacies",
+      "legatum",
+      "seizure",
+      "fiscus"
+    ],
+    "suggested_kws": [],
     "matched_field_ids": [
       "105",
       "38"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀπελεύθερος",
+      "Ῥωμαῖος",
+      "διατάσσω",
+      "ἔγγονος",
+      "ἀποδείκνυμι",
+      "διάταξις",
+      "ἐκλείπω",
+      "ἀναλαμβάνω"
     ]
   },
   {
@@ -3685,9 +4664,36 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"burial rites\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 244\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"seizure\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 207\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"fiscus\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 206\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"bona vacantia\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 220\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"legatum\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 209\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"funerary sacrifices\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"lapsed legacy\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "244",
+      "207",
+      "206",
+      "220",
+      "209"
+    ],
+    "matched_keywords": [
+      "burial rites",
+      "seizure",
+      "fiscus",
+      "bona vacantia",
+      "legatum"
+    ],
+    "suggested_kws": [
+      "funerary sacrifices",
+      "lapsed legacy"
+    ],
     "matched_field_ids": [
       "38"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀναλαμβάνω",
+      "ἐπιμελέομαι",
+      "θυσία",
+      "καταλείπω",
+      "κατοίχομαι"
     ]
   },
   {
@@ -3722,11 +4728,42 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Trust\",\n    \"field_id\": 39\n  },\n  {\n    \"field\": \"Status > Citizenship\",\n    \"field_id\": 7\n  },\n  {\n    \"field\": \"Courts and Procedure > Procedure > Confession\",\n    \"field_id\": 122\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"fideicommissum\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 278\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"seizure\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 207\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"eligibility to Inherit\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 337\n  },\n  {\n    \"category\": \"Procedure\",\n    \"keyword\": \"confession\",\n    \"suggested\": false,\n    \"category_id\": 329,\n    \"keyword_id\": 174\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"peregrine\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 166\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"fiscus\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 206\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Roman citizen\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"emperor\",\n    \"suggested\": true,\n    \"category_id\": 137,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"reward for confession\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "278",
+      "207",
+      "337",
+      "174",
+      "166",
+      "206"
+    ],
+    "matched_keywords": [
+      "fideicommissum",
+      "seizure",
+      "eligibility to Inherit",
+      "confession",
+      "peregrine",
+      "fiscus"
+    ],
+    "suggested_kws": [
+      "Roman citizen",
+      "emperor",
+      "reward for confession"
+    ],
     "matched_field_ids": [
       "39",
       "7",
       "122"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "πίστις",
+      "κληρονομία",
+      "ἀναλαμβάνω",
+      "ἐξομολογέω",
+      "Ἕλλην",
+      "Ῥωμαῖος"
     ]
   },
   {
@@ -3761,11 +4798,114 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Citizenship > Freed Persons\",\n    \"field_id\": 105\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  },\n  {\n    \"field\": \"Status > Slavery > Manumission\",\n    \"field_id\": 43\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"freedperson\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 165\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Junian Latin\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 156\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"age of legal capacity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 170\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"seizure\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 207\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio passiva\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 211\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"legatum\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 209\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"fiscus\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 206\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal manumission\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Explicit legal frameworks\",\n    \"keyword\": \"Lex Aelia Sentia\",\n    \"suggested\": true,\n    \"category_id\": 6,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "165",
+      "156",
+      "170",
+      "207",
+      "211",
+      "209",
+      "206"
+    ],
+    "matched_keywords": [
+      "freedperson",
+      "Junian Latin",
+      "age of legal capacity",
+      "seizure",
+      "testamenti factio passiva",
+      "legatum",
+      "fiscus"
+    ],
+    "suggested_kws": [
+      "legal manumission",
+      "Lex Aelia Sentia"
+    ],
     "matched_field_ids": [
       "105",
       "38",
       "43"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀπελεύθερος",
+      "ἀπελευθέρωσις",
+      "νόμιμος ἀπελευθέρωσις",
+      "διατάσσω",
+      "ἀναλαμβάνω"
+    ]
+  },
+  {
+    "ref_id": 8.1002e+21,
+    "source_id": "81",
+    "group": "Rabbinic",
+    "name": "Gnomon 20",
+    "text": "κ δουλευ ἐν δεσμοῖς γενομένῳ καὶ ὕστερον ἀπελ̣ευθερωθέ̣ντι ἢ καὶ μηδέπω τριάκοντα ἐτῶν γενομένῳ τὰ δια̣τ̣ασσόμενα ἀναλαμβ(άνεται).",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Gnomon 4-20",
+      "Language": "Greek",
+      "SourceID": 81,
+      "Level1 Id": "20",
+      "Level2 Id": NaN,
+      "Level3 Id": NaN,
+      "Level4 Id": NaN,
+      "Analyzed [y/n]": "y",
+      "Text": "κ δουλευ ἐν δεσμοῖς γενομένῳ καὶ ὕστερον ἀπελ̣ευθερωθέ̣ντι ἢ καὶ μηδέπω τριάκοντα ἐτῶν γενομένῳ τὰ δια̣τ̣ασσόμενα ἀναλαμβ(άνεται).",
+      "context level": "Source",
+      "context text": "δ [τ]ῶν [τ]ελευτω[ν] ἀδιαθέτως ο̣ἷς οὐδείς ἐστιν ἄλλος κατὰ νόμο̣υ̣ς̣ κληρονόμος τὰ ὑπάρχοντα τῷ φίσκῳ πρ̣οσκρείνεται.\nε τ[ὰ] ὑπὸ Ἀλεξανδρέων οἷς οὐ πρ̣οσήκει διατασσόμενα χωρεῖ τοῖς κατὰ νόμους ⟦αυ⟧ κληρονομεῖν αὐτοὺς δυναμένοις, ἐάνπ̣ε̣ρ ὦσι καὶ ἐπιδικάζονται.\nϛ Ἀλεξανδρεῖ οὐκ ἐξὸν διατάξαι γυναικὶ γενεᾶς αὐτῷ ἐξ αὐτῆς μὴ οὔσης πλέον τετάρτου μέρους ἧς ἔχει περιουσίας,τέκνων δὲ αὐτῷ ἐξ αὐτῆς ὄντων οὐ πλείονος ἐξὸν μερίζειν τῇ γυναικὶ ἢ ὅσων ἐὰν ἑκάστῳ τῶν υἱῶν διατάξῃ.\nζ δ[ι]αθῆκαι, ὅσαι μὴ κατὰ δημοσίους χρηματισμοὺς γείνωνται, ἄκυροί εἰσι.\nη ἐὰν Ῥωμαικῇ δια⟦κ⟧θήκῃ προσκαίηται ὅτι ὅσα δὲ ἐὰν διατά[ξ]ω κατὰ πινα̣κ̣ίδας Ἑλληνικὰς κύρια ἔστω, οὐ παραδεκτέα[ἐ]στίν, οὐ γὰρ ἔ[ξ]εστιν Ῥωμαίῳ διαθήκην Ἑλληνικὴν γράψαι.\nθ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \\ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.\nι ὅσα ἐὰν ἀπελ[ε]ύθερος διατάξη\\ταί/ τινι οὐκ ὄντι τῆς αὐτῆς τά̣ξεως, ἀναλαμβάνεται.\nια γυνὴ Κρηνέα τέκνον οὐ κληρ[ο]νομεῖ.\nιβ τὰ ἐκ Κρηνέας κα̣ὶ̣ ξένου γενόμενα τέκνα τοὺς γονεῖς ἀμφοτέ[ρ]ους κληρονομεῖ.\nιγ τὰ ἐξ ἀστῆς καὶ ξένο̣υ γενόμενα τέκνα ξένα γεί̣νεται καὶ οὐ κληρονομεῖ τὴν μητέρα.\nιδ οὐκ ἐξὸν ἀστῷ ἀπελευθέροις διατάσσειν πλέον φ (δραχμῶν) ἢ [μ]ηνιαίων (δραχμῶν) ε.\nιε οὐκ ἐξὸν ἀπελευθέραις ἀστῶν διατίθεσθαι ὥσπερ οὐ[δ]ὲ ἀσταῖς.\nιϛ ὅσα ἀπελευθέροις Ῥωμαίων διατάσσεται ἐπὶ τῷ καὶ εἰς ἐ̣γ̣γόνους αὐτῶν ἐλθεῖν, ἐὰν ἀποδειχθῇ τὰ ἔγγονα μηδέπω γε̣[γο]νότα ὅτε ἡ διάταξις ἐγράφετο, ἐγλιπόντων τῶν λαβόντων ἀνα[λ]αμβάνεται.\nιζ τὰ καταλειπόμενα εἰς θυσίας κατοιχομένων, ὅταν μη[κ]έ̣τι ὦσιν οἱ ἐπιμεληθησόμενοι του, ἀναλαμβάνεται.\nιη τὰ\\ς/ κατὰ πίστιν γεινομένας κληρονομίας ὑπὸ Ἑλλήνω̣ν̣ \\εἰς/ ⟦ὑπὸ⟧ Ῥωμαίους ἢ ὑπὸ Ῥωμαίων \\εἰς/ Ἕλληνας ὁ θεὸς Οὐεσπασιανὸς̣ [ἀ]νέλαβεν, οἱ μέντοι τὰς πίστεις ἐξωμολογησάμενοι τὸ ἥμισ[υ ε]ἰ̣λήφασι.\nιθ τὰ διατασσόμενα ἀπελευθέροις οὐδέπω ἐσχηκό[σι ν]ο̣μ̣ί̣μην ἀπελευθέρωσιν ἀναλαμβάνεται. νομίμη δέ ἐστ̣ι̣ν̣ [ἀ]π̣ελευθέρωσις, ἐὰν ὁ ἀπελευθερούμενος ὑπὲρ τρίοκοντα [ἔ]τ̣[η] ἦν γε[γ]ο̣νώς.\nκ δουλευ ἐν δεσμοῖς γενομένῳ καὶ ὕστερον ἀπελ̣ευθερωθέ̣ντι ἢ καὶ μηδέπω τριάκοντα ἐτῶν γενομένῳ τὰ δια̣τ̣ασσόμενα ἀναλαμβ(άνεται).",
+      "ref Code": "008100200000000000000000",
+      "KW Ids": NaN,
+      "Keywords": NaN,
+      "Judicial Topic Ids": "1, 2, 6, 8, 10",
+      "Judicial Topics": "Status, Property, Inheritance, Slavery, Acquisition",
+      "Index Ids": NaN,
+      "Index Terms": NaN,
+      "Refference": "Gnomon 20",
+      "Calculated refCode": "008100200000000000000000",
+      "Unnamed: 21": NaN,
+      "English": NaN,
+      "translation": NaN
+    },
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"slave\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 202\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"freedperson\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 165\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"slaves status\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 339\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"eligibility to Inherit\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 337\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"testamenti factio passiva\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 211\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"fiscus\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 206\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"seizure\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 207\n  },\n  {\n    \"category\": \"Explicit legal frameworks\",\n    \"keyword\": \"Lex Aelia Sentia\",\n    \"suggested\": true,\n    \"category_id\": 6,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"dediticii\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"confiscation\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "202",
+      "165",
+      "339",
+      "337",
+      "211",
+      "206",
+      "207"
+    ],
+    "matched_keywords": [
+      "slave",
+      "freedperson",
+      "slaves status",
+      "eligibility to Inherit",
+      "testamenti factio passiva",
+      "fiscus",
+      "seizure"
+    ],
+    "suggested_kws": [
+      "Lex Aelia Sentia",
+      "dediticii",
+      "confiscation"
+    ],
+    "matched_field_ids": [
+      "34",
+      "38",
+      "43"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "δοῦλος",
+      "δεσμός",
+      "ἀπελευθερόω",
+      "τριάκοντα ἔτη",
+      "διατάσσω",
+      "ἀναλαμβάνω"
     ]
   },
   {
@@ -4618,10 +5758,33 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Courts and Procedure > Courts\",\n    \"field_id\": 16\n  },\n  {\n    \"field\": \"Public Law > Administrative Law > Provincial Government \",\n    \"field_id\": 123\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"consilium principis\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 318\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"succession disputes\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 231\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"disputed inheritance\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 227\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"litigant\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 257\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"heir\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 178\n  }\n]",
+    "matched_ids": [
+      "318",
+      "231",
+      "227",
+      "257",
+      "178"
+    ],
+    "matched_keywords": [
+      "consilium principis",
+      "succession disputes",
+      "disputed inheritance",
+      "litigant",
+      "heir"
+    ],
+    "suggested_kws": [],
     "matched_field_ids": [
       "16",
       "123"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "συνέδριον",
+      "βασιλεία",
+      "ἐθνάρχης",
+      "βασιλεύς"
     ]
   },
   {
@@ -4656,10 +5819,35 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Public Law > Administrative Law > Provincial Government\",\n    \"field_id\": 123\n  },\n  {\n    \"field\": \"Status > Inheritance\",\n    \"field_id\": 6\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"succession disputes\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 231\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"disputed inheritance\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 227\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"shared inheritance\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 314\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"co-heirs\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 297\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"division of estate\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "231",
+      "227",
+      "314",
+      "163",
+      "297"
+    ],
+    "matched_keywords": [
+      "succession disputes",
+      "disputed inheritance",
+      "shared inheritance",
+      "son",
+      "co-heirs"
+    ],
+    "suggested_kws": [
+      "division of estate"
+    ],
     "matched_field_ids": [
       "123",
       "6"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ἀμφισβητέω",
+      "βασιλεία",
+      "διαιρέω",
+      "τετραρχία"
     ]
   },
   {
@@ -4694,11 +5882,34 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Public Law > Administrative Law > Provincial Government\",\n    \"field_id\": 123\n  },\n  {\n    \"field\": \"Public Law > Taxation\",\n    \"field_id\": 111\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments\",\n    \"field_id\": 29\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"currency\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 62\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"taxes\",\n    \"suggested\": false,\n    \"category_id\": 137,\n    \"keyword_id\": 58\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"shared inheritance\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 314\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"heir\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 178\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"territory\",\n    \"suggested\": true,\n    \"category_id\": 1,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Offices and Administration\",\n    \"keyword\": \"revenue\",\n    \"suggested\": true,\n    \"category_id\": 137,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "62",
+      "58",
+      "314",
+      "178"
+    ],
+    "matched_keywords": [
+      "currency",
+      "taxes",
+      "shared inheritance",
+      "heir"
+    ],
+    "suggested_kws": [
+      "territory",
+      "revenue"
+    ],
     "matched_field_ids": [
       "123",
       "111",
       "29"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "πρόσοδος",
+      "τάλαντον",
+      "τάσσω"
     ]
   },
   {
@@ -4733,11 +5944,41 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Public Law > Administrative Law > Provincial Government \",\n    \"field_id\": 123\n  },\n  {\n    \"field\": \"Public Law > Taxation\",\n    \"field_id\": 111\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"legatum\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 209\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"gift\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 73\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"immovable property\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 190\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"Testamentary Heir\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 322\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"house in the city\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 268\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"imperial grant\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "209",
+      "73",
+      "190",
+      "322",
+      "268",
+      "151"
+    ],
+    "matched_keywords": [
+      "legatum",
+      "gift",
+      "immovable property",
+      "Testamentary Heir",
+      "house in the city",
+      "woman"
+    ],
+    "suggested_kws": [
+      "imperial grant"
+    ],
     "matched_field_ids": [
       "123",
       "111",
       "38"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "διαθήκη",
+      "καταλείπω",
+      "ἀποδείκνυμι",
+      "δεσπότις",
+      "πρόσοδος",
+      "τοπαρχία",
+      "τάσσω"
     ]
   },
   {
@@ -4772,10 +6013,33 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Family > Marriage\",\n    \"field_id\": 21\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments\",\n    \"field_id\": 29\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"daughter\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 172\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"Testamentary Heir\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 322\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"gift\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 73\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"currency\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 62\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"transfer of inherited property\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 334\n  }\n]",
+    "matched_ids": [
+      "172",
+      "322",
+      "73",
+      "62",
+      "334"
+    ],
+    "matched_keywords": [
+      "daughter",
+      "Testamentary Heir",
+      "gift",
+      "currency",
+      "transfer of inherited property"
+    ],
+    "suggested_kws": [],
     "matched_field_ids": [
       "21",
       "29"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "διαθήκη",
+      "καταλείπω",
+      "συνοικίζω",
+      "χαρίζομαι"
     ]
   },
   {
@@ -4810,9 +6074,37 @@
       "English": NaN,
       "translation": NaN
     },
-    "original_res": "[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]",
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"transfer of inherited property\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 334\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"gift after death\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 305\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"gift\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 73\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"currency\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 62\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"estate distribution\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"heirloom\",\n    \"suggested\": true,\n    \"category_id\": 1,\n    \"keyword_id\": -1\n  }\n]",
+    "matched_ids": [
+      "334",
+      "305",
+      "73",
+      "62"
+    ],
+    "matched_keywords": [
+      "transfer of inherited property",
+      "gift after death",
+      "gift",
+      "currency"
+    ],
+    "suggested_kws": [
+      "estate distribution",
+      "heirloom"
+    ],
     "matched_field_ids": [
       "38"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "δωρεά",
+      "ἐξαιρέω",
+      "ἐπιδιανέμω",
+      "καταλείπω",
+      "κατοίχομαι",
+      "κειμήλιον",
+      "οἶκος",
+      "τάλαντον"
     ]
   }
 ]
