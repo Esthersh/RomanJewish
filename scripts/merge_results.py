@@ -4,6 +4,7 @@ import argparse
 import pandas as pd
 from typing import List
 
+
 def get_corpus_order(csv_path: str):
     try:
         df = pd.read_csv(csv_path, dtype=str)
@@ -12,9 +13,11 @@ def get_corpus_order(csv_path: str):
         print(f"Error reading corpus CSV: {e}")
         return {}
 
+
 def get_key(item):
     k = item.get('original_row', {}).get('ref Code') or item.get('ref_id') or item.get('source_id')
     return str(k).strip() if k else None
+
 
 def load_and_merge(paths: List[str]) -> List[dict]:
     combined = []
@@ -30,9 +33,10 @@ def load_and_merge(paths: List[str]) -> List[dict]:
             print(f"Error loading {p}: {e}")
     return combined
 
+
 def do_horizontal_merge(kw_data, fields_data, index_data, output_file, order_map):
     merged_data = {}
-    
+
     # Merge KW
     for item in kw_data:
         key = get_key(item)
@@ -80,11 +84,11 @@ def do_horizontal_merge(kw_data, fields_data, index_data, output_file, order_map
 
 def merge_all_results(results_dir: str, corpus_csv: str):
     order_map = get_corpus_order(corpus_csv)
-    models = ["gemini_3_pro", "qwen_3_5"]
-    
+    models = ["gemini_3_pro", "qwen_3_5", "claude_opus4_6"]
+
     for m in models:
         print(f"\n--- Processing Model: {m} ---")
-        
+
         # 1. Base files (Plain + Context) -> merged_{model}.json
         kw_base = [
             os.path.join(results_dir, f"keywords_{m}.json"),
@@ -98,7 +102,7 @@ def merge_all_results(results_dir: str, corpus_csv: str):
             os.path.join(results_dir, f"index_v1_{m}.json"),
             os.path.join(results_dir, f"index_v1_context_{m}.json")
         ]
-        
+
         print(f"Merging Base (Plain + Context) for {m}...")
         do_horizontal_merge(
             load_and_merge(kw_base),
@@ -112,7 +116,7 @@ def merge_all_results(results_dir: str, corpus_csv: str):
         kw_wen = [os.path.join(results_dir, f"keywords_w_en_context_{m}.json")]
         fields_wen = [os.path.join(results_dir, f"fields_w_en_context_{m}.json")]
         index_wen = [os.path.join(results_dir, f"index_w_en_v1_context_{m}.json")]
-        
+
         print(f"Merging W_EN (Translated versions) for {m}...")
         do_horizontal_merge(
             load_and_merge(kw_wen),
@@ -122,10 +126,13 @@ def merge_all_results(results_dir: str, corpus_csv: str):
             order_map
         )
 
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Merge 3-vector result files across batch subsets.")
-    parser.add_argument("--results_dir", default="/home/esther/PycharmProjects/RomanJewish/results", help="Directory containing result JSON files")
-    parser.add_argument("--corpus_csv", default="/home/esther/PycharmProjects/RomanJewish/data/LUR_annotations.csv", help="Original Corpus CSV for ordering")
-    
+    parser.add_argument("--results_dir", default="/home/esther/PycharmProjects/RomanJewish/results",
+                        help="Directory containing result JSON files")
+    parser.add_argument("--corpus_csv", default="/home/esther/PycharmProjects/RomanJewish/data/LUR_annotations.csv",
+                        help="Original Corpus CSV for ordering")
+
     args = parser.parse_args()
     merge_all_results(args.results_dir, args.corpus_csv)
