@@ -10,14 +10,14 @@ credentials:
       first_name: Yair
       last_name: Furstenberg
       logged_in: false
-      password: riay
+      password: yair
     david:
       email: david@example.com
       failed_login_attempts: 0
       first_name: David
       last_name: Flam
       logged_in: false
-      password: divad
+      password: david
     esther:
       email: esther@example.com
       failed_login_attempts: 0
@@ -81,3 +81,11 @@ credentials:
       last_name:
       logged_in: false
       password: shlomi
+    matti:
+      email: matti@example.com
+      failed_login_attempts: 0
+      first_name: Matti
+      last_name:
+      logged_in: false
+      password: matti
+
