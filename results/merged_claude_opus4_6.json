@@ -4262,7 +4262,7 @@
     "name": "Lat. Insc. 7",
     "text": "Ti(berius) Cl(audius) Ti(beri) f(ilius) Pop(lilia tribu) Fatalis | Roma (centurio) leg(ionis) II Aug(ustae), leg(ionis) XX | Vic(tricis), leg(ionis) II Aug(ustae), leg(ionis) XI C(laudiae) p(iae) f(idelis), | leg(ionis) XIV G(eminae) M(artiae) V(ictricis), leg(ionis) XII Ful(minatae), | leg(ionis) X Fr(etensis), III (= tertius) hast(atus) vix(it) an(nos) | XLII, mil(itavit) ann(os) XXIII. Cl(audia) | Ionice lib(erta) et heres ob me|rita eius. O(ssa) t(ibi) b(ene) q(uiescant). T(erra) t(ibi) l(evis) s(it).",
     "original_row": {
-      "Group": NaN,
+      "Group": "ROMAN",
       "Name": "Latin Inscription",
       "Language": "Latin",
       "SourceID": 73,
