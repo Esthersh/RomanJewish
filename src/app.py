@@ -119,7 +119,8 @@ def add_anno(result, filename,
              field_kept_ids, field_miss_ids,
              index_kept_terms, index_miss_terms,
              annotator_comments="",
-             dup_keywords=None):
+             dup_keywords=None,
+             next_i=False):
     """Adds the 3-vector annotation to the session state."""
     annotation = create_annotation(
         result, filename,
@@ -139,7 +140,8 @@ def add_anno(result, filename,
         st.session_state.keyword_manager.update_keywords(kw_new_accepted)
 
     # Increment index
-    st.session_state.current_index += 1
+    if next_i:
+        st.session_state.current_index += 1
 
 
 def load_all_models(results_dir):
@@ -1194,16 +1196,16 @@ def main():
                      kw_final_kept, final_new_kws,
                      field_kept_ids + f_intersection, field_miss_agreed_ids,
                      index_kept_terms + i_intersection, index_miss_agreed_terms,
-                     annotator_comments, dup_keywords)
+                     annotator_comments, dup_keywords, next_i=True)
             st.rerun()
 
     with col_save:
-        if st.button("Save & Next", type="primary"):
+        if st.button("Save", type="primary"):
             add_anno(result, filename,
                      kw_final_kept, final_new_kws,
                      field_kept_ids + f_intersection, field_miss_agreed_ids,
                      index_kept_terms + i_intersection, index_miss_agreed_terms,
-                     annotator_comments, dup_keywords)
+                     annotator_comments, dup_keywords, next_i=False)
             save_results()
             st.rerun()
 
