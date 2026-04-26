@@ -11,6 +11,7 @@ import pandas as pd
 import json
 import yaml
 from datetime import date
+import unicodedata
 from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
 from classifier import format_keywords
@@ -57,9 +58,9 @@ def get_config(results_dir):
     return default_input, keywords_file, fields_file, json_files
 
 
-def create_annotation(result, filename, 
+def create_annotation(result, filename,
                       kw_kept_ids, kw_new_accepted,
-                      field_kept_ids, field_miss_ids, 
+                      field_kept_ids, field_miss_ids,
                       index_kept_terms, index_miss_terms,
                       annotator_comments="",
                       dup_keywords=None):
@@ -67,7 +68,7 @@ def create_annotation(result, filename,
     if dup_keywords is None:
         dup_keywords = []
     original_row = result.get('original_row', {})
-    
+
     # Gold reference for meta-data and metrics
     def get_gold_list(key):
         val = original_row.get(key, '')
@@ -88,20 +89,20 @@ def create_annotation(result, filename,
         "group": result.get("group"),
         "name": result.get("name"),
         "text": result.get("text"),
-        
+
         # Keywords
         "orig_kw_ids": result.get('matched_ids', []),
         "kw_kept_ids": kw_kept_ids,
         # "kw_manually_added_ids": kw_man_ids,
         "kw_accepted_new": kw_new_accepted,
         "gold_kw_ids": gold_kw_ids,
-        
+
         # Judicial Fields
         "orig_field_ids": result.get('matched_field_ids', []),
         "field_kept_ids": field_kept_ids,
         "field_miss_agreed_ids": field_miss_ids,
         "gold_field_ids": gold_field_ids,
-        
+
         # Index Terms (Lists of strings)
         "orig_index_terms": result.get('index_terms', []),
         "index_kept_terms": index_kept_terms,
@@ -112,19 +113,19 @@ def create_annotation(result, filename,
     }
 
 
-def add_anno(result, filename, 
+def add_anno(result, filename,
              kw_kept_ids,
              kw_new_accepted,
-             field_kept_ids, field_miss_ids, 
+             field_kept_ids, field_miss_ids,
              index_kept_terms, index_miss_terms,
              annotator_comments="",
              dup_keywords=None):
     """Adds the 3-vector annotation to the session state."""
     annotation = create_annotation(
-        result, filename, 
+        result, filename,
         kw_kept_ids,
         kw_new_accepted,
-        field_kept_ids, field_miss_ids, 
+        field_kept_ids, field_miss_ids,
         index_kept_terms, index_miss_terms,
         annotator_comments,
         dup_keywords
@@ -187,7 +188,7 @@ def switch_model(selected_file, all_models_data):
     """Switch the active model pointer and preserve index."""
     if not selected_file or st.session_state.get('input_file_basename') == selected_file:
         return
-        
+
     new_results = all_models_data.get(selected_file, [])
     if not new_results: return
 
@@ -195,7 +196,7 @@ def switch_model(selected_file, all_models_data):
     current_ref_id = None
     old_results_file = st.session_state.get('input_file_basename')
     current_index = st.session_state.get('current_index', 0)
-    
+
     if old_results_file:
         old_results = all_models_data.get(old_results_file, [])
         if current_index < len(old_results):
@@ -287,14 +288,14 @@ def compute_sample_metrics(gold_ids, pred_ids):
 def display_metrics(output_file, results_dir=None):
     """Renders the aggregated metrics dashboard page."""
     st.title("📊 Aggregated Metrics Dashboard")
-    
+
     if st.button("⬅ Back to Annotation"):
         st.session_state.show_metrics = False
         st.rerun()
 
     # --- Section: LLM Performance Summary (Original Predictions) ---
     st.markdown("### LLM Performance Summary (Original Predictions)")
-    
+
     vector = st.radio("Select Vector for Metrics:", ["Keywords", "Judicial Fields", "Index Terms"], horizontal=True)
     v_prefix = {"Keywords": "kw", "Judicial Fields": "field", "Index Terms": "index"}[vector]
     gold_key = {"Keywords": "KW Ids", "Judicial Fields": "Judicial Topic Ids", "Index Terms": "Index Terms"}[vector]
@@ -303,27 +304,28 @@ def display_metrics(output_file, results_dir=None):
     if results_dir and os.path.exists(results_dir):
         json_files = sorted([f for f in os.listdir(results_dir) if f.endswith('.json')])
         summary_rows = []
-        
+
         for jf in json_files:
             try:
                 with open(os.path.join(results_dir, jf), 'r') as f:
                     data = json.load(f)
-                
+
                 precisions, recalls, jaccards = [], [], []
-                
+
                 for item in data:
                     if "error" in item: continue
                     gold_raw = item.get('original_row', {}).get(gold_key, '')
-                    if not gold_raw or str(gold_raw).lower() == 'nan': continue
-                    
+                    if not gold_raw or str(gold_raw).lower() == 'nan':
+                        continue
+
                     gold = [g.strip() for g in str(gold_raw).split(',') if g.strip()]
                     pred = item.get(pred_key, [])
-                    
+
                     p, r, j = compute_sample_metrics(gold, pred)
                     precisions.append(p)
                     recalls.append(r)
                     jaccards.append(j)
-                
+
                 if precisions:
                     df = pd.DataFrame({'p': precisions, 'r': recalls, 'j': jaccards})
                     summary_rows.append({
@@ -341,27 +343,31 @@ def display_metrics(output_file, results_dir=None):
             st.dataframe(pd.DataFrame(summary_rows).style.format(precision=3), hide_index=True)
         else:
             st.info(f"No gold standard data found for {vector} in result files.")
-    
+
     st.markdown("---")
     st.markdown("### ✍️ Annotation-Based Metrics")
 
     if not os.path.exists(output_file):
         st.warning("No annotated results file found yet.")
         return
-        
+
     try:
         results_df = pd.read_csv(output_file)
         if not results_df.empty:
             st.markdown(f"#### Dataset Level Averages ({vector})")
-            m_cols = [f'{v_prefix}_orig_j', f'{v_prefix}_mod_j', f'{v_prefix}_orig_p', f'{v_prefix}_mod_p', f'{v_prefix}_orig_r', f'{v_prefix}_mod_r']
+            m_cols = [f'{v_prefix}_orig_j', f'{v_prefix}_mod_j', f'{v_prefix}_orig_p', f'{v_prefix}_mod_p',
+                      f'{v_prefix}_orig_r', f'{v_prefix}_mod_r']
             existing_m = [c for c in m_cols if c in results_df.columns]
-            
+
             if existing_m:
                 dataset_level = results_df[existing_m].mean()
                 c1, c2, c3 = st.columns(3)
-                c1.metric("Jaccard (Orig → Mod)", f"{dataset_level.get(f'{v_prefix}_orig_j', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_j', 0):.3f}")
-                c2.metric("Precision (Orig → Mod)", f"{dataset_level.get(f'{v_prefix}_orig_p', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_p', 0):.3f}")
-                c3.metric("Recall (Orig → Mod)", f"{dataset_level.get(f'{v_prefix}_orig_r', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_r', 0):.3f}")
+                c1.metric("Jaccard (Orig → Mod)",
+                          f"{dataset_level.get(f'{v_prefix}_orig_j', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_j', 0):.3f}")
+                c2.metric("Precision (Orig → Mod)",
+                          f"{dataset_level.get(f'{v_prefix}_orig_p', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_p', 0):.3f}")
+                c3.metric("Recall (Orig → Mod)",
+                          f"{dataset_level.get(f'{v_prefix}_orig_r', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_r', 0):.3f}")
 
             st.markdown("#### Sample Level Details")
             display_cols = ['ref_id', 'group', 'name'] + existing_m
@@ -369,7 +375,6 @@ def display_metrics(output_file, results_dir=None):
             st.dataframe(results_df[avail_cols].tail(20), hide_index=True)
     except Exception as e:
         st.error(f"Error loading metrics from {output_file}: {e}")
-
 
 
 def display_instructions(available_models):
@@ -484,7 +489,7 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, s
                 obj = item_map.get(str(item).strip().lower())
                 cat = obj.full_path.split(">")[0].strip() if hasattr(obj, 'full_path') else "Uncategorized"
                 groups.setdefault(cat, []).append(item)
-                
+
             for cat in sorted(groups.keys()):
                 if show_dup:
                     _, _, c_header = st.columns([0.27, 0.1, 0.63], vertical_alignment="center")
@@ -493,7 +498,7 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, s
                 with c_header:
                     # st.markdown(f"###### {cat}")
                     st.markdown(f"**{cat}**")
-                    
+
                 for item in groups[cat]:
                     render_item(item, header_cat=cat)
         else:
@@ -597,7 +602,6 @@ def main():
             }
         </style>
     """, unsafe_allow_html=True)
-
 
     # --- AUTHENTICATION ---
     # Read credentials from Streamlit secrets (cloud) or config.yaml (local dev)
@@ -761,13 +765,13 @@ def main():
         st.sidebar.markdown("---")
         st.sidebar.subheader("Navigation")
         options = [f"{i + 1} | {res.get('name', 'Unknown')}" for i, res in enumerate(current_results)]
-        
+
         selected_source = st.sidebar.selectbox(
             "Skip to source according to name, number:",
             options=options,
             index=st.session_state.current_index if st.session_state.current_index < len(options) else 0
         )
-        
+
         if selected_source:
             selected_idx = int(selected_source.split(" | ")[0]) - 1
             if selected_idx != st.session_state.current_index:
@@ -869,9 +873,13 @@ def main():
         field_map = {str(f.id).strip().lower(): f for f in st.session_state.get('fields', [])}
         matched_field_ids = result.get('matched_field_ids', [])
         gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
-        has_gold_f = (gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
-        gold_f_set = set([g.strip().lower() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
+        has_gold_f = (
+                gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
+        gold_f_set = set(
+            [g.strip().lower() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
         pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
+        # for greek and latin, use unicodedata.normalize to ignore accents and diacritics
+        pred_f_set = set(unicodedata.normalize('NFC', fid) for fid in pred_f_set)
 
         f_intersection = sorted(list(pred_f_set & gold_f_set))
         f_suggestions = sorted(list(pred_f_set - gold_f_set))
@@ -947,6 +955,8 @@ def main():
 
         # Split matched into Intersection and Suggestions
         pred_set = set(str(mid).strip().lower() for mid in matched_ids)
+        # for greek and latin, use unicodedata.normalize to ignore accents and diacritics
+        pred_set = set(unicodedata.normalize('NFC', mid) for mid in pred_set)
         gold_set = set(str(gid).strip().lower() for gid in gold_ids_list)
         intersection_ids = sorted(list(pred_set & gold_set))
         suggestion_ids = sorted(list(pred_set - gold_set))
@@ -961,7 +971,8 @@ def main():
                 groups = {}
                 for mid in intersection_ids:
                     kw_obj = kw_map.get(str(mid).strip().lower())
-                    cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj, 'full_path') else "Uncategorized"
+                    cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj,
+                                                                                       'full_path') else "Uncategorized"
                     groups.setdefault(cat, []).append(mid)
 
                 for cat in sorted(groups.keys()):
@@ -969,16 +980,16 @@ def main():
                     with c_header:
                         # st.markdown(f"###### {cat}")
                         st.markdown(f"**{cat}**")
-                        
+
                     for mid in groups[cat]:
                         kw_obj = kw_map.get(str(mid).strip().lower())
                         label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-                        
+
                         if label.startswith(cat):
                             label = label[len(cat):].strip()
                             if label.startswith(">"): label = label[1:].strip()
                             if not label: label = cat
-                            
+
                         c_dup, c_label = st.columns([0.26, 0.74], vertical_alignment="center")
                         with c_dup:
                             if st.toggle("dup", key=f"kw_int_dup_{current_id}_{mid}", help=None):
@@ -1000,7 +1011,6 @@ def main():
             )
             dup_keywords.extend(dup_sug_ids)
 
-
         with col3:
             st.write("**New Suggestions** (Accept/Edit)")
             final_new_kws = []
@@ -1008,9 +1018,11 @@ def main():
                 for i, skw in enumerate(suggested_kws):
                     c_acc, c_edit, c_reset = st.columns([0.1, 0.8, 0.1], vertical_alignment="center")
                     with c_edit:
-                        edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}", label_visibility="collapsed", help=skw)
+                        edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}",
+                                                  label_visibility="collapsed", help=skw)
                     with c_reset:
-                        if st.button("", icon=":material/refresh:", key=f"kw_new_reset_{current_id}_{i}", help="Reset to original suggestion", use_container_width=True):
+                        if st.button("", icon=":material/refresh:", key=f"kw_new_reset_{current_id}_{i}",
+                                     help="Reset to original suggestion", use_container_width=True):
                             st.session_state[f"kw_new_edit_{current_id}_{i}"] = skw
                             st.rerun()
                     with c_acc:
@@ -1026,7 +1038,8 @@ def main():
             groups = {}
             for mid in missed_ids:
                 kw_obj = kw_map.get(str(mid).strip().lower())
-                cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj, 'full_path') else "Uncategorized"
+                cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj,
+                                                                                   'full_path') else "Uncategorized"
                 groups.setdefault(cat, []).append(mid)
 
             for cat in sorted(groups.keys()):
@@ -1034,16 +1047,16 @@ def main():
                 with c_header:
                     # st.markdown(f"###### {cat}")
                     st.markdown(f"**{cat}**")
-                    
+
                 for mid in groups[cat]:
                     kw_obj = kw_map.get(str(mid).strip().lower())
                     label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-                    
+
                     if label.startswith(cat):
                         label = label[len(cat):].strip()
                         if label.startswith(">"): label = label[1:].strip()
                         if not label: label = cat
-                        
+
                     c_dup, c_acc, c_label = st.columns([0.12, 0.05, 0.83], vertical_alignment="center")
                     with c_label:
                         html_box = f"""
@@ -1082,6 +1095,8 @@ def main():
         gold_i_list = [g.strip() for g in str(gold_index_raw).split(',') if g.strip()] if has_gold_i else []
 
         pred_i_set = set(str(p).strip().lower() for p in pred_index)
+        # for greek and latin, use unicodedata.normalize to ignore accents and diacritics
+        pred_i_set = set(unicodedata.normalize('NFC', p) for p in pred_i_set)
         gold_i_set = set(str(g).strip().lower() for g in gold_i_list)
 
         i_intersection = sorted(list(pred_i_set & gold_i_set))
@@ -1194,11 +1209,11 @@ def save_results():
 
     for ann in st.session_state.annotations:
         row = ann.copy()
-        
+
         # Helper to compute and add metrics
         def add_vector_metrics(row, gold, original, modified, prefix, ignore_list=None):
             if ignore_list is None: ignore_list = []
-            
+
             gold = [g for g in gold if str(g).strip().lower() not in ignore_list]
             original = [g for g in original if str(g).strip().lower() not in ignore_list]
             modified = [g for g in modified if str(g).strip().lower() not in ignore_list]
@@ -1217,11 +1232,11 @@ def save_results():
         kw_mod = ann['kw_kept_ids']
         ignore_kws = [str(k).strip().lower() for k in ann.get('dup_keywords', [])]
         add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], kw_mod, 'kw', ignore_list=ignore_kws)
-        
+
         # Fields Metrics
         f_mod = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
         add_vector_metrics(row, ann['gold_field_ids'], ann['orig_field_ids'], f_mod, 'field')
-        
+
         # Index Metrics
         i_mod = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
         add_vector_metrics(row, ann['gold_index_terms'], ann['orig_index_terms'], i_mod, 'index')
@@ -1238,7 +1253,7 @@ def save_results():
         export_data.append(row)
 
     new_df = pd.DataFrame(export_data)
-    
+
     # try:
     #     if os.path.exists(filename):
     #         try:
