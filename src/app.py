@@ -880,6 +880,7 @@ def main():
         pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
         # for greek and latin, use unicodedata.normalize to ignore accents and diacritics
         pred_f_set = set(unicodedata.normalize('NFC', fid) for fid in pred_f_set)
+        gold_f_set = set(unicodedata.normalize('NFC', gid) for gid in gold_f_set)
 
         f_intersection = sorted(list(pred_f_set & gold_f_set))
         f_suggestions = sorted(list(pred_f_set - gold_f_set))
@@ -958,6 +959,7 @@ def main():
         # for greek and latin, use unicodedata.normalize to ignore accents and diacritics
         pred_set = set(unicodedata.normalize('NFC', mid) for mid in pred_set)
         gold_set = set(str(gid).strip().lower() for gid in gold_ids_list)
+        gold_set = set(unicodedata.normalize('NFC', gid) for gid in gold_set)
         intersection_ids = sorted(list(pred_set & gold_set))
         suggestion_ids = sorted(list(pred_set - gold_set))
         missed_ids = sorted(list(gold_set - pred_set))
@@ -1098,6 +1100,7 @@ def main():
         # for greek and latin, use unicodedata.normalize to ignore accents and diacritics
         pred_i_set = set(unicodedata.normalize('NFC', p) for p in pred_i_set)
         gold_i_set = set(str(g).strip().lower() for g in gold_i_list)
+        gold_i_set = set(unicodedata.normalize('NFC', g) for g in gold_i_set)
 
         i_intersection = sorted(list(pred_i_set & gold_i_set))
         i_suggestions = sorted(list(pred_i_set - gold_i_set))
