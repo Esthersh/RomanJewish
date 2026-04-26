@@ -844,6 +844,14 @@ def main():
     active_file = st.session_state.input_file_basename
     result = all_models_data[active_file][st.session_state.current_index]
 
+    # Extract text content and language
+    language_val = result.get('original_row', {}).get('Language', '')
+    source_text_content = result.get('text', '')
+
+    st.sidebar.markdown("---")
+    with st.sidebar.expander("**📖 Source Text**", expanded=False):
+        display_source_text(source_text_content, language_val)
+
     # Handle error or missing data fields
     if "error" in result:
         st.error(f"Sample {result.get('source_id')} had error: {result['error']}")
