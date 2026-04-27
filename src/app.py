@@ -22,7 +22,6 @@ from keyword_manager import KeywordManager
 
 DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1cb4Pmc7SFCZ3C5kJD8kkDFQsuJXdk16a1afoRElJ3L0/edit?gid=0#gid=0"
 
-
 MODEL_NAMES_ALIASES = {
     "gemini_3_pro": "Gemini",
     "claude_opus4_6": "Claude",
@@ -31,6 +30,7 @@ MODEL_NAMES_ALIASES = {
     "e_en_claude_opus4_6": "Claude (Translated)",
     "w_en_qwen_3_5": "Qwen (Translated)"
 }
+
 
 # Function to parse arguments
 def get_config(results_dir):
@@ -49,7 +49,7 @@ def get_config(results_dir):
     fields_file = None
     # Assuming results_dir ends with 'results/prioritized', go up two levels
     project_root = os.path.dirname(os.path.dirname(results_dir))
-    
+
     # If the user passed just "results" without "prioritized", we only go up one level
     if os.path.basename(results_dir) == "results":
         project_root = os.path.dirname(results_dir)
@@ -319,43 +319,7 @@ def display_metrics(output_file, results_dir=None):
     pred_key = {"Keywords": "matched_ids", "Judicial Fields": "matched_field_ids", "Index Terms": "index_terms"}[vector]
 
     if results_dir and os.path.exists(results_dir):
-        json_files = sorted([f for f in os.listdir(results_dir) if f.endswith('.json')])
-        summary_rows = []
-
-        for jf in json_files:
-            try:
-                with open(os.path.join(results_dir, jf), 'r') as f:
-                    data = json.load(f)
-
-                precisions, recalls, jaccards = [], [], []
-
-                for item in data:
-                    if "error" in item: continue
-                    gold_raw = item.get('original_row', {}).get(gold_key, '')
-                    if not gold_raw or str(gold_raw).lower() == 'nan':
-                        continue
-
-                    gold = [g.strip() for g in str(gold_raw).split(',') if g.strip()]
-                    pred = item.get(pred_key, [])
-
-                    p, r, j = compute_sample_metrics(gold, pred)
-                    precisions.append(p)
-                    recalls.append(r)
-                    jaccards.append(j)
-
-                if precisions:
-                    df = pd.DataFrame({'p': precisions, 'r': recalls, 'j': jaccards})
-                    summary_rows.append({
-                        "File": jf,
-                        "Samples": len(data),
-                        "Gold Count": len(precisions),
-                        "Avg Prec": df['p'].mean(),
-                        "Avg Rec": df['r'].mean(),
-                        "Avg Jac": df['j'].mean()
-                    })
-            except Exception as e:
-                st.error(f"Error processing {jf}: {e}")
-
+        summary_rows = get_cached_metrics(results_dir, gold_key, pred_key)
         if summary_rows:
             st.dataframe(pd.DataFrame(summary_rows).style.format(precision=3), hide_index=True)
         else:
@@ -436,7 +400,7 @@ Where **TP** = true positives (correctly predicted), **FP** = false positives
     st.markdown("### Choose a Model to Begin")
     selected_model = st.selectbox(
         "Select Model",
-        options=[""] + available_models,
+        options=available_models,
         help="You must select a model before starting annotation."
     )
 
@@ -589,6 +553,135 @@ def _load_models_data_cached(results_dir, json_files):
     return all_models_data, models_by_ref
 
 
+@st.cache_data
+def load_taxonomies(keywords_file, fields_file):
+    """Loads keywords and judicial fields once, caching the results."""
+    loader = DataLoader()
+
+    try:
+        keywords = loader.load_keywords(keywords_file) if keywords_file else []
+    except Exception as e:
+        st.error(f"Error loading keywords: {e}")
+        keywords = []
+
+    try:
+        fields = loader.load_judicial_fields(fields_file) if fields_file else []
+    except Exception as e:
+        st.error(f"Error loading fields: {e}")
+        fields = []
+
+    return keywords, fields
+
+
+@st.cache_data
+def load_local_credentials(config_path):
+    import yaml
+    from yaml.loader import SafeLoader
+    with open(config_path) as f:
+        return yaml.load(f, Loader=SafeLoader)
+
+
+@st.cache_data(show_spinner=False)
+def load_auth_config(project_root):
+    """
+    Reads and caches credentials from Streamlit secrets or local YAML.
+    Returns: tuple(credentials_dict, cookie_config_dict)
+    """
+    try:
+        credentials = dict(st.secrets["auth_credentials"])
+        # Convert nested AttrDict to plain dicts for streamlit-authenticator
+        credentials["usernames"] = {
+            user: dict(data) for user, data in st.secrets["auth_credentials"]["usernames"].items()
+        }
+        cookie_config = dict(st.secrets["auth_cookie"])
+        return credentials, cookie_config
+
+    except (KeyError, FileNotFoundError):
+        # Fallback to local config.yaml
+        config_path = os.path.join(project_root, "config.yaml")
+        config = load_local_credentials(config_path)  # Assuming this is defined elsewhere
+        return config['credentials'], config['cookie']
+
+
+def setup_authenticator(project_root):
+    """
+    Initializes the authenticator and renders the login UI.
+    Returns: tuple(authenticator_object, is_authenticated_boolean)
+    """
+    credentials, cookie_config = load_auth_config(project_root)
+
+    authenticator = stauth.Authenticate(
+        credentials,
+        cookie_config['name'],
+        cookie_config['key'],
+        cookie_config['expiry_days']
+    )
+
+    try:
+        authenticator.login()
+    except Exception as e:
+        st.error(e)
+
+    return authenticator, st.session_state.get('authentication_status')
+
+
+@st.cache_data
+def build_taxonomy_maps(keywords, fields):
+    """Creates fast-lookup dictionaries for keywords and fields."""
+    kw_map = {str(k.id).strip().lower(): k for k in keywords}
+    field_map = {str(f.id).strip().lower(): f for f in fields}
+    return kw_map, field_map
+
+
+def get_cached_metrics(results_dir, gold_key, pred_key):
+    """Reads directory live, passes file list to cached metrics calculator."""
+    if not results_dir or not os.path.exists(results_dir):
+        return []
+    json_files = tuple(sorted([f for f in os.listdir(results_dir) if f.endswith('.json')]))
+    return _compute_metrics_cached(results_dir, json_files, gold_key, pred_key)
+
+@st.cache_data
+def _compute_metrics_cached(results_dir, json_files, gold_key, pred_key):
+    """Heavy lifting for metrics, cached based on the exact list of files."""
+    summary_rows = []
+    for jf in json_files:
+        try:
+            with open(os.path.join(results_dir, jf), 'r') as f:
+                data = json.load(f)
+
+            precisions, recalls, jaccards = [], [], []
+
+            for item in data:
+                if "error" in item: continue
+                gold_raw = item.get('original_row', {}).get(gold_key, '')
+                if not gold_raw or str(gold_raw).lower() == 'nan':
+                    continue
+
+                gold = [g.strip() for g in str(gold_raw).split(',') if g.strip()]
+                pred = item.get(pred_key, [])
+
+                p, r, j = compute_sample_metrics(gold, pred)
+                precisions.append(p)
+                recalls.append(r)
+                jaccards.append(j)
+
+            if precisions:
+                df = pd.DataFrame({'p': precisions, 'r': recalls, 'j': jaccards})
+                model = MODEL_NAMES_ALIASES[jf.replace("merged_", "").replace(".json", "")]
+                summary_rows.append({
+                    "Model": model,
+                    "Samples": len(data),
+                    "Gold Count": len(precisions),
+                    "Avg Prec": df['p'].mean(),
+                    "Avg Rec": df['r'].mean(),
+                    "Avg Jac": df['j'].mean()
+                })
+        except Exception as e:
+            st.error(f"Error processing {jf}: {e}")
+
+    return summary_rows
+
+
 def main():
     # Fix: Safely resolve results_dir whether script is in root/ or src/
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -621,40 +714,15 @@ def main():
     """, unsafe_allow_html=True)
 
     # --- AUTHENTICATION ---
-    # Read credentials from Streamlit secrets (cloud) or config.yaml (local dev)
-    try:
-        credentials = dict(st.secrets["auth_credentials"])
-        # Convert nested AttrDict to plain dicts for streamlit-authenticator
-        credentials["usernames"] = {
-            user: dict(data) for user, data in st.secrets["auth_credentials"]["usernames"].items()
-        }
-        cookie_config = dict(st.secrets["auth_cookie"])
-    except (KeyError, FileNotFoundError):
-        # Fallback to local config.yaml
-        config_path = os.path.join(project_root, "config.yaml")
-        with open(config_path) as f:
-            config = yaml.load(f, Loader=SafeLoader)
-        credentials = config['credentials']
-        cookie_config = config['cookie']
+    authenticator, auth_status = setup_authenticator(project_root)
 
-    authenticator = stauth.Authenticate(
-        credentials,
-        cookie_config['name'],
-        cookie_config['key'],
-        cookie_config['expiry_days']
-    )
-
-    try:
-        authenticator.login()
-    except Exception as e:
-        st.error(e)
-
-    if st.session_state.get('authentication_status') is False:
+    # 2. Gatekeeper Logic
+    if auth_status is False:
         st.error('Username/password is incorrect')
-        return
-    elif st.session_state.get('authentication_status') is None:
+        st.stop()  # st.stop() is slightly safer than return here
+    elif auth_status is None:
         st.warning('Please enter your username and password')
-        return
+        st.stop()
 
     # --- User is authenticated from here ---
 
@@ -702,28 +770,34 @@ def main():
 
     cli_input_file, cli_keywords_file, cli_fields_file, available_files = get_config(results_dir)
     # rename the available_files to more user-friendly model names using MODEL_NAMES_ALIASES
-    available_models = [MODEL_NAMES_ALIASES.get(fn.replace("merged_", "").replace(".json", ""), fn) for fn in available_files]
+    available_models = [MODEL_NAMES_ALIASES.get(fn.replace("merged_", "").replace(".json", ""), fn) for fn in
+                        available_files]
     st.session_state.keywords_file = cli_keywords_file
     st.session_state.fields_file = cli_fields_file
 
-    if not st.session_state.get('keywords'):
-        try:
-            loader = DataLoader()
-            st.session_state.keywords = loader.load_keywords(st.session_state.keywords_file)
-        except Exception as e:
-            st.error(f"Error loading keywords: {e}")
-            st.session_state.keywords = []
+    # if not st.session_state.get('keywords'):
+    #     try:
+    #         loader = DataLoader()
+    #         st.session_state.keywords = loader.load_keywords(st.session_state.keywords_file)
+    #     except Exception as e:
+    #         st.error(f"Error loading keywords: {e}")
+    #         st.session_state.keywords = []
+    #
+    # if not st.session_state.get('fields'):
+    #     try:
+    #         if hasattr(st.session_state, 'fields_file') and st.session_state.fields_file:
+    #             loader = DataLoader()
+    #             st.session_state.fields = loader.load_judicial_fields(st.session_state.fields_file)
+    #         else:
+    #             st.session_state.fields = []
+    #     except Exception as e:
+    #         st.error(f"Error loading fields: {e}")
+    #         st.session_state.fields = []
 
-    if not st.session_state.get('fields'):
-        try:
-            if hasattr(st.session_state, 'fields_file') and st.session_state.fields_file:
-                loader = DataLoader()
-                st.session_state.fields = loader.load_judicial_fields(st.session_state.fields_file)
-            else:
-                st.session_state.fields = []
-        except Exception as e:
-            st.error(f"Error loading fields: {e}")
-            st.session_state.fields = []
+    st.session_state.keywords, st.session_state.fields = load_taxonomies(
+        st.session_state.keywords_file,
+        st.session_state.fields_file
+    )
 
     # Load all models data once (cached in session state)
     # load_all_models(results_dir)
@@ -771,7 +845,6 @@ def main():
             if alias == selected_model:
                 selected_file = fn
                 break
-
 
         if selected_file and selected_file != st.session_state.get('input_file_basename'):
             switch_model(selected_file, all_models_data)
@@ -905,10 +978,12 @@ def main():
     current_id = f"{active_file_clean}_sample_{source_id}"
     original_row = result.get('original_row', {})
 
+    kw_map, field_map = build_taxonomy_maps(st.session_state.keywords, st.session_state.fields)
+
     # --- JUDICIAL FIELDS SECTION ---
     with st.expander("**Judicial Fields Review**", expanded=False):
 
-        field_map = {str(f.id).strip().lower(): f for f in st.session_state.get('fields', [])}
+        # field_map = {str(f.id).strip().lower(): f for f in st.session_state.get('fields', [])}
         matched_field_ids = result.get('matched_field_ids', [])
         gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
         has_gold_f = (
@@ -979,12 +1054,10 @@ def main():
     with st.expander("**Keywords Review**", expanded=False):
 
         matched_ids = result.get('matched_ids', [])
-        matched_names = result.get('matched_keywords', [])
         suggested_kws = result.get('suggested_kws', [])
-        kw_map = {str(k.id).strip().lower(): k for k in st.session_state.keywords}
+        # kw_map = {str(k.id).strip().lower(): k for k in st.session_state.keywords}
 
         gold_kw_ids_raw = original_row.get('KW Ids', '')
-        gold_kw_names_raw = original_row.get('Keywords', '')
         has_gold_kw = (gold_kw_ids_raw
                        and str(gold_kw_ids_raw).strip()
                        and str(gold_kw_ids_raw).lower() != 'nan')
@@ -1246,7 +1319,7 @@ def save_results():
     # --- Prepare Data ---
     export_data = []
     kw_map = {str(k.id).strip().lower(): k.full_path for k in st.session_state.keywords}
-    field_map = {str(f.id).strip().lower(): f.full_path for f in st.session_state.get('fields', [])}
+    # field_map = {str(f.id).strip().lower(): f.full_path for f in st.session_state.get('fields', [])}
 
     for ann in st.session_state.annotations:
         row = ann.copy()
