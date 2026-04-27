@@ -302,7 +302,96 @@ def compute_sample_metrics(gold_ids, pred_ids):
     return precision, recall, jaccard
 
 
-def display_metrics(output_file, results_dir=None):
+def _load_annotation_sheets(results_dir):
+    """Loads and deduplicates annotation data from all Google Sheet tabs."""
+    if 'conn' not in st.session_state:
+        st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
+
+    sheet_names = []
+    if results_dir and os.path.exists(results_dir):
+        json_files = sorted([f for f in os.listdir(results_dir)
+                             if f.startswith('merged_') and f.endswith('.json')])
+        sheet_names = [f.replace('merged_', '').replace('.json', '') for f in json_files]
+
+    all_dfs = []
+    for sheet_name in sheet_names:
+        try:
+            df = st.session_state.conn.read(worksheet=sheet_name, ttl=300)
+            if df is None or df.empty:
+                continue
+            # Keep the last annotation per unique record
+            dedup_cols = [c for c in ['results_filename', 'ref_id', 'name'] if c in df.columns]
+            if dedup_cols:
+                df = df.drop_duplicates(subset=dedup_cols, keep='last')
+            df['_sheet'] = MODEL_NAMES_ALIASES.get(sheet_name, sheet_name)
+            all_dfs.append(df)
+        except Exception:
+            pass
+
+    return pd.concat(all_dfs, ignore_index=True) if all_dfs else pd.DataFrame()
+
+
+def _compute_annotation_metrics(df, vector):
+    """
+    Recomputes orig/mod precision, recall, Jaccard per row from raw list columns.
+    orig_*: LLM predictions vs initial gold
+    mod_*:  LLM predictions vs updated gold (annotator's final output)
+    """
+    def parse_col(val):
+        if pd.isna(val) or not str(val).strip() or str(val).strip() == 'nan':
+            return []
+        return [s.strip() for s in str(val).split(',') if s.strip()]
+
+    col_map = {
+        "Keywords": {
+            "pred":       "orig_kw_ids",
+            "init_gold":  "gold_kw_ids",
+            "mod_gold":   ["kw_kept_ids"],
+            "prefix":     "kw",
+        },
+        "Judicial Fields": {
+            "pred":       "orig_field_ids",
+            "init_gold":  "gold_field_ids",
+            "mod_gold":   ["field_kept_ids", "field_miss_agreed_ids"],
+            "prefix":     "field",
+        },
+        "Index Terms": {
+            "pred":       "orig_index_terms",
+            "init_gold":  "gold_index_terms",
+            "mod_gold":   ["index_kept_terms", "index_miss_agreed_terms"],
+            "prefix":     "index",
+        },
+    }[vector]
+
+    rows = []
+    for _, r in df.iterrows():
+        pred      = parse_col(r.get(col_map["pred"], ""))
+        init_gold = parse_col(r.get(col_map["init_gold"], ""))
+        mod_gold  = sum([parse_col(r.get(c, "")) for c in col_map["mod_gold"]], [])
+
+        if not init_gold and not pred:
+            continue
+
+        op, or_, oj = compute_sample_metrics(init_gold, pred)
+        mp, mr, mj  = compute_sample_metrics(mod_gold,  pred)
+        p = col_map["prefix"]
+        rows.append({
+            "Model":              r.get('_sheet', ''),
+            "ref_id":             r.get('ref_id', ''),
+            "group":              r.get('group', ''),
+            "name":               r.get('name', ''),
+            f"{p}_orig_p":        round(op, 3),
+            f"{p}_mod_p":         round(mp, 3),
+            f"{p}_orig_r":        round(or_, 3),
+            f"{p}_mod_r":         round(mr, 3),
+            f"{p}_orig_j":        round(oj, 3),
+            f"{p}_mod_j":         round(mj, 3),
+        })
+
+    return pd.DataFrame(rows)
+
+
+def display_metrics(results_dir=None):
     """Renders the aggregated metrics dashboard page."""
     st.title("📊 Aggregated Metrics Dashboard")
 
@@ -330,34 +419,31 @@ def display_metrics(output_file, results_dir=None):
     st.markdown("---")
     st.markdown("### ✍️ Annotation-Based Metrics")
 
-    if not os.path.exists(output_file):
-        st.warning("No annotated results file found yet.")
+    with st.spinner("Loading annotations from Google Sheets..."):
+        combined_df = _load_annotation_sheets(results_dir)
+
+    if combined_df.empty:
+        st.info("No annotation data found in Google Sheets yet.")
         return
 
-    try:
-        results_df = pd.read_csv(output_file)
-        if not results_df.empty:
-            st.markdown(f"#### Dataset Level Averages ({vector})")
-            m_cols = [f'{v_prefix}_orig_j', f'{v_prefix}_mod_j', f'{v_prefix}_orig_p', f'{v_prefix}_mod_p',
-                      f'{v_prefix}_orig_r', f'{v_prefix}_mod_r']
-            existing_m = [c for c in m_cols if c in results_df.columns]
+    metrics_df = _compute_annotation_metrics(combined_df, vector)
 
-            if existing_m:
-                dataset_level = results_df[existing_m].mean()
-                c1, c2, c3 = st.columns(3)
-                c1.metric("Jaccard (Orig → Mod)",
-                          f"{dataset_level.get(f'{v_prefix}_orig_j', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_j', 0):.3f}")
-                c2.metric("Precision (Orig → Mod)",
-                          f"{dataset_level.get(f'{v_prefix}_orig_p', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_p', 0):.3f}")
-                c3.metric("Recall (Orig → Mod)",
-                          f"{dataset_level.get(f'{v_prefix}_orig_r', 0):.3f} → {dataset_level.get(f'{v_prefix}_mod_r', 0):.3f}")
+    if metrics_df.empty:
+        st.info(f"No annotated records with gold standard found for {vector}.")
+        return
 
-            st.markdown("#### Sample Level Details")
-            display_cols = ['ref_id', 'group', 'name'] + existing_m
-            avail_cols = [c for c in display_cols if c in results_df.columns]
-            st.dataframe(results_df[avail_cols].tail(20), hide_index=True)
-    except Exception as e:
-        st.error(f"Error loading metrics from {output_file}: {e}")
+    p = v_prefix
+    st.markdown(f"#### Dataset Level Averages ({vector}) — {len(metrics_df)} annotated records")
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Jaccard  (Orig → Mod)",
+              f"{metrics_df[f'{p}_orig_j'].mean():.3f} → {metrics_df[f'{p}_mod_j'].mean():.3f}")
+    c2.metric("Precision (Orig → Mod)",
+              f"{metrics_df[f'{p}_orig_p'].mean():.3f} → {metrics_df[f'{p}_mod_p'].mean():.3f}")
+    c3.metric("Recall   (Orig → Mod)",
+              f"{metrics_df[f'{p}_orig_r'].mean():.3f} → {metrics_df[f'{p}_mod_r'].mean():.3f}")
+
+    st.markdown("#### Sample Level Details")
+    st.dataframe(metrics_df, hide_index=True)
 
 
 def display_instructions(available_models, available_files):
@@ -463,10 +549,14 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, s
 
         if show_dup:
             with c_dup:
-                if st.toggle("dup", value=False, key=f"{key_prefix}_dup_{current_id}_{item}", help=None):
+                dup_key = f"{key_prefix}_dup_{current_id}_{item}"
+                if dup_key not in st.session_state: st.session_state[dup_key] = False
+                if st.toggle("dup", key=dup_key, help=None):
                     dup_items.append(item)
         with c_acc:
-            if st.checkbox("", value=False, key=f"{key_prefix}_{current_id}_{item}"):
+            acc_key = f"{key_prefix}_{current_id}_{item}"
+            if acc_key not in st.session_state: st.session_state[acc_key] = False
+            if st.checkbox("", key=acc_key):
                 kept_items.append(item)
 
     if suggestions:
@@ -537,9 +627,10 @@ def get_cached_models_data(results_dir):
     return _load_models_data_cached(results_dir, json_files)
 
 
-@st.cache_data
+@st.cache_resource
 def _load_models_data_cached(results_dir, json_files):
-    """The actual heavy lifting, cached strictly based on the list of filenames."""
+    """The actual heavy lifting, cached strictly based on the list of filenames.
+    Uses cache_resource (no deep copy) since the data is large and read-only."""
     all_models_data = {}
     models_by_ref = {}
 
@@ -559,7 +650,7 @@ def _load_models_data_cached(results_dir, json_files):
     return all_models_data, models_by_ref
 
 
-@st.cache_data
+@st.cache_resource
 def load_taxonomies(keywords_file, fields_file):
     """Loads keywords and judicial fields once, caching the results."""
     loader = DataLoader()
@@ -631,7 +722,6 @@ def setup_authenticator(project_root):
     return authenticator, st.session_state.get('authentication_status')
 
 
-@st.cache_data
 def build_taxonomy_maps(keywords, fields):
     """Creates fast-lookup dictionaries for keywords and fields."""
     kw_map = {str(k.id).strip().lower(): k for k in keywords}
@@ -686,6 +776,134 @@ def _compute_metrics_cached(results_dir, json_files, gold_key, pred_key):
             st.error(f"Error processing {jf}: {e}")
 
     return summary_rows
+
+
+def load_annotated_data_from_sheet(sheet_name, current_id, result, original_row):
+    try:
+        if 'conn' not in st.session_state:
+            st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
+
+        try:
+            if 'sheet_cache' not in st.session_state:
+                st.session_state.sheet_cache = {}
+
+            if sheet_name in st.session_state.sheet_cache:
+                df = st.session_state.sheet_cache[sheet_name]
+            else:
+                df = st.session_state.conn.read(worksheet=sheet_name, ttl=0)
+                if df is not None and not df.empty:
+                    st.session_state.sheet_cache[sheet_name] = df
+
+            if df is None or df.empty:
+                st.error("Sheet is empty or does not exist.")
+                return False
+        except Exception as e:
+            st.error(f"Failed to read sheet: {e}")
+            return False
+
+        target_filename = result.get("origin_file", "").split("/")[-1]
+        target_name = str(result.get("name", ""))
+        target_ref = str(original_row.get("Refference") or original_row.get("ref Code", ""))
+
+        # Standard string matching without clean_id
+        match_mask = (
+                (df['results_filename'].astype(str) == target_filename) &
+                (df['name'].astype(str) == target_name) &
+                (df['ref_id'].astype(str) == target_ref)
+        )
+
+        matching_rows = df[match_mask]
+
+        if matching_rows.empty:
+            st.warning("No pre-annotated data found for this record.")
+            return False
+
+        row_data = matching_rows.iloc[-1]
+
+        def parse_list(val):
+            if pd.isna(val) or not str(val).strip(): return []
+            return [s.strip() for s in str(val).split(',')]
+
+        # 1. Parse all the saved data
+        kw_kept = parse_list(row_data.get('kw_kept_ids', ''))
+        kw_acc_new = parse_list(row_data.get('kw_accepted_new', ''))
+        field_kept = parse_list(row_data.get('field_kept_ids', ''))
+        field_miss = parse_list(row_data.get('field_miss_agreed_ids', ''))
+        index_kept = parse_list(row_data.get('index_kept_terms', ''))
+        index_miss = parse_list(row_data.get('index_miss_agreed_terms', ''))
+        comments = str(row_data.get('annotator_comments', ''))
+        if comments == 'nan' or pd.isna(row_data.get('annotator_comments')):
+            comments = ''
+
+        # 2. Clean up old session state checkboxes for this specific record
+        keys_to_delete = [k for k in st.session_state.keys() if f"_{current_id}_" in k]
+        for k in keys_to_delete:
+            del st.session_state[k]
+
+        # 3. Compute the same intersection/suggestion/missed splits the UI uses,
+        #    so we can set each checkbox to exactly the right state.
+        import unicodedata as _ud
+
+        def _norm(s): return _ud.normalize('NFC', str(s).strip().lower())
+
+        pred_set = set(_norm(m) for m in result.get('matched_ids', []))
+        gold_kw = [g.strip() for g in str(original_row.get('KW Ids', '')).split(',') if g.strip()]
+        gold_f_list = [g.strip() for g in str(original_row.get('Judicial Topic Ids', '')).split(',') if g.strip()]
+        gold_i_list = [g.strip() for g in str(original_row.get('Index Terms', '')).split(',') if g.strip()]
+
+        gold_kw_set = set(_norm(g) for g in gold_kw)
+        gold_f_set = set(_norm(g) for g in gold_f_list)
+        gold_i_set = set(_norm(g) for g in gold_i_list)
+
+        kw_kept_set = set(_norm(k) for k in kw_kept)
+        field_kept_set = set(_norm(f) for f in field_kept)
+        field_miss_set = set(_norm(f) for f in field_miss)
+        index_kept_set = set(_norm(t) for t in index_kept)
+        index_miss_set = set(_norm(t) for t in index_miss)
+
+        # Keywords — suggestions (pred not in gold)
+        for item in result.get('matched_ids', []):
+            if _norm(item) not in gold_kw_set:  # it's a suggestion, not intersection
+                st.session_state[f"kw_sug_{current_id}_{item}"] = (_norm(item) in kw_kept_set)
+
+        # Keywords — missed gold (gold not in pred)
+        for gid in gold_kw:
+            if _norm(gid) not in pred_set:
+                st.session_state[f"kw_miss_{current_id}_{gid}"] = (_norm(gid) in kw_kept_set)
+
+        # New keyword suggestions (suggestions not in taxonomy)
+        for i, skw in enumerate(result.get('suggested_kws', [])):
+            st.session_state[f"kw_new_acc_{current_id}_{i}"] = (skw in kw_acc_new)
+            st.session_state[f"kw_new_edit_{current_id}_{i}"] = skw
+
+        # Fields — suggestions
+        for fid in result.get('matched_field_ids', []):
+            if _norm(fid) not in gold_f_set:
+                st.session_state[f"f_sug_{current_id}_{fid}"] = (_norm(fid) in field_kept_set)
+
+        # Fields — missed gold
+        for gid in gold_f_list:
+            if _norm(gid) not in set(_norm(f) for f in result.get('matched_field_ids', [])):
+                st.session_state[f"f_miss_{current_id}_{gid}"] = (_norm(gid) in field_miss_set)
+
+        # Index terms — suggestions
+        for term in result.get('index_terms', []):
+            if _norm(term) not in gold_i_set:
+                st.session_state[f"i_sug_{current_id}_{term}"] = (_norm(term) in index_kept_set)
+
+        # Index terms — missed gold
+        for term in gold_i_list:
+            if _norm(term) not in set(_norm(p) for p in result.get('index_terms', [])):
+                st.session_state[f"i_miss_{current_id}_{term}"] = (_norm(term) in index_miss_set)
+
+        st.session_state[f"comments_{current_id}"] = comments
+
+        st.toast("Loaded annotated data successfully!")
+        return True
+
+    except Exception as e:
+        st.error(f"Error loading annotated data: {e}")
+        return False
 
 
 def main():
@@ -800,10 +1018,11 @@ def main():
     #         st.error(f"Error loading fields: {e}")
     #         st.session_state.fields = []
 
-    st.session_state.keywords, st.session_state.fields = load_taxonomies(
-        st.session_state.keywords_file,
-        st.session_state.fields_file
-    )
+    if not st.session_state.get('keywords'):
+        st.session_state.keywords, st.session_state.fields = load_taxonomies(
+            st.session_state.keywords_file,
+            st.session_state.fields_file
+        )
 
     # Load all models data once (cached in session state)
     # load_all_models(results_dir)
@@ -932,8 +1151,7 @@ def main():
         return
 
     if st.session_state.show_metrics:
-        output_file = "annotated_results.csv"  ## TODO If this is part of the side bar then it should be dynamic based on the input
-        display_metrics(output_file, results_dir=results_dir)
+        display_metrics(results_dir=results_dir)
         return
 
     # Main UI
@@ -971,24 +1189,43 @@ def main():
             st.rerun()
         return
 
-    st.write("#### Source Text")
-    # Create two columns: The first is 1 part wide, the second is 2 parts wide
-    col1, col2 = st.columns([1.5, 1])
-    with col1:
-        st.info(f"Group: {result.get('group')} | Name: {result.get('name')}")
-
-    language_val = result.get('original_row', {}).get('Language', '')
-    display_source_text(result.get('text', ''), language_val)
-
-    st.markdown("<br>", unsafe_allow_html=True)
-
     # --- Prepare common data ---
     active_file_clean = active_file.replace(".json", "")
     source_id = result.get('source_id', st.session_state.current_index)
     current_id = f"{active_file_clean}_sample_{source_id}"
     original_row = result.get('original_row', {})
 
-    kw_map, field_map = build_taxonomy_maps(st.session_state.keywords, st.session_state.fields)
+    if 'kw_map' not in st.session_state or 'field_map' not in st.session_state:
+        st.session_state.kw_map, st.session_state.field_map = build_taxonomy_maps(
+            st.session_state.keywords, st.session_state.fields
+        )
+    kw_map = st.session_state.kw_map
+    field_map = st.session_state.field_map
+
+    st.write("#### Source Text")
+    # Create two columns: The first is 1 part wide, the second is 2 parts wide
+    col1, col2 = st.columns([1.5, 1.2])
+    with col1:
+        st.info(f"Group: {result.get('group')} | Name: {result.get('name')}")
+    with col2:
+        c1, c2 = st.columns([1.15, 1])
+        with c2:
+            st.markdown("<div style='margin-top: 14px;'></div>", unsafe_allow_html=True)
+            if st.button(":material/refresh: load annotated data"):
+                # sheet name is according to the result['origin_file']
+                original_model_prompt = result['origin_file'].split("/")[-1].replace(".json", "")
+                sheet_name = original_model_prompt.replace("merged_", "")
+                success = load_annotated_data_from_sheet(sheet_name,
+                                               current_id,
+                                               result,
+                                               original_row)
+                if success:
+                    st.rerun()
+
+    language_val = result.get('original_row', {}).get('Language', '')
+    display_source_text(result.get('text', ''), language_val)
+
+    st.markdown("<br>", unsafe_allow_html=True)
 
     # --- JUDICIAL FIELDS SECTION ---
     with st.expander("**Judicial Fields Review**", expanded=False):
@@ -1053,7 +1290,9 @@ def main():
                     """
                     st.markdown(html_box, unsafe_allow_html=True)
                 with c_acc:
-                    if st.checkbox("", value=True, key=f"f_miss_{current_id}_{fid}"):
+                    miss_key = f"f_miss_{current_id}_{fid}"
+                    if miss_key not in st.session_state: st.session_state[miss_key] = True
+                    if st.checkbox("", key=miss_key):
                         field_miss_agreed_ids.append(fid)
         else:
             st.caption("No missed gold fields.")
@@ -1141,15 +1380,18 @@ def main():
                 for i, skw in enumerate(suggested_kws):
                     c_acc, c_edit, c_reset = st.columns([0.1, 0.8, 0.1], vertical_alignment="center")
                     with c_edit:
-                        edited_kw = st.text_input("Edit", value=skw, key=f"kw_new_edit_{current_id}_{i}",
-                                                  label_visibility="collapsed", help=skw)
+                        edit_key = f"kw_new_edit_{current_id}_{i}"
+                        if edit_key not in st.session_state: st.session_state[edit_key] = skw
+                        edited_kw = st.text_input("Edit", key=edit_key, label_visibility="collapsed", help=skw)
                     with c_reset:
                         if st.button("", icon=":material/refresh:", key=f"kw_new_reset_{current_id}_{i}",
                                      help="Reset to original suggestion", use_container_width=True):
-                            st.session_state[f"kw_new_edit_{current_id}_{i}"] = skw
+                            st.session_state[edit_key] = skw
                             st.rerun()
                     with c_acc:
-                        if st.checkbox("", value=False, key=f"kw_new_acc_{current_id}_{i}"):
+                        acc_key = f"kw_new_acc_{current_id}_{i}"
+                        if acc_key not in st.session_state: st.session_state[acc_key] = False
+                        if st.checkbox("", key=acc_key):
                             final_new_kws.append(edited_kw)
             else:
                 st.caption("No new suggestions.")
@@ -1199,10 +1441,14 @@ def main():
                         """
                         st.markdown(html_box, unsafe_allow_html=True)
                     with c_dup:
-                        if st.toggle("dup", value=False, key=f"kw_miss_dup_{current_id}_{mid}", help=None):
+                        dup_key = f"kw_miss_dup_{current_id}_{mid}"
+                        if dup_key not in st.session_state: st.session_state[dup_key] = False
+                        if st.toggle("dup", key=dup_key, help=None):
                             dup_keywords.append(mid)
                     with c_acc:
-                        if st.checkbox("", value=True, key=f"kw_miss_{current_id}_{mid}"):
+                        miss_key = f"kw_miss_{current_id}_{mid}"
+                        if miss_key not in st.session_state: st.session_state[miss_key] = True
+                        if st.checkbox("", key=miss_key):
                             agreed_missed_ids.append(mid)
         else:
             st.caption("No missed gold keywords.")
@@ -1267,14 +1513,18 @@ def main():
                     """
                     st.markdown(html_box, unsafe_allow_html=True)
                 with c_acc:
-                    if st.checkbox("", value=True, key=f"i_miss_{current_id}_{term}"):
+                    miss_key = f"i_miss_{current_id}_{term}"
+                    if miss_key not in st.session_state: st.session_state[miss_key] = True
+                    if st.checkbox("", key=miss_key):
                         index_miss_agreed_terms.append(term)
         else:
             st.caption("No missed gold index terms.")
 
     st.markdown("---")
     st.markdown("<p style='font-size: 16px; margin-bottom: 0px;'>Comments</p>", unsafe_allow_html=True)
-    annotator_comments = st.text_area("Comments:", value="", key=f"comments_{current_id}", label_visibility="collapsed")
+    com_key = f"comments_{current_id}"
+    if com_key not in st.session_state: st.session_state[com_key] = ""
+    annotator_comments = st.text_area("Comments:", key=com_key, label_visibility="collapsed")
 
     # Display progress
     st.write(f"Progress: {st.session_state.current_index + 1} / {len(current_results)}")
@@ -1334,16 +1584,21 @@ def save_results():
     for ann in st.session_state.annotations:
         row = ann.copy()
 
-        # Helper to compute and add metrics
-        def add_vector_metrics(row, gold, original, modified, prefix, ignore_list=None):
+        # Helper to compute and add metrics.
+        # orig_*: LLM predictions vs initial gold
+        # mod_*:  LLM predictions vs updated gold (annotator's final output)
+        #   - Items the annotator kept (even if not in initial gold) become TP
+        #   - Items the LLM predicted but annotator rejected remain FP (pred is still orig)
+        #   - Items the annotator added from missed gold improve recall
+        def add_vector_metrics(row, initial_gold, pred, updated_gold, prefix, ignore_list=None):
             if ignore_list is None: ignore_list = []
 
-            gold = [g for g in gold if str(g).strip().lower() not in ignore_list]
-            original = [g for g in original if str(g).strip().lower() not in ignore_list]
-            modified = [g for g in modified if str(g).strip().lower() not in ignore_list]
+            initial_gold = [g for g in initial_gold if str(g).strip().lower() not in ignore_list]
+            pred = [g for g in pred if str(g).strip().lower() not in ignore_list]
+            updated_gold = [g for g in updated_gold if str(g).strip().lower() not in ignore_list]
 
-            op, or_, oj = compute_sample_metrics(gold, original)
-            mp, mr, mj = compute_sample_metrics(gold, modified)
+            op, or_, oj = compute_sample_metrics(initial_gold, pred)
+            mp, mr, mj = compute_sample_metrics(updated_gold, pred)
             row[f'{prefix}_orig_p'] = round(op, 4)
             row[f'{prefix}_orig_r'] = round(or_, 4)
             row[f'{prefix}_orig_j'] = round(oj, 4)
@@ -1351,19 +1606,17 @@ def save_results():
             row[f'{prefix}_mod_r'] = round(mr, 4)
             row[f'{prefix}_mod_j'] = round(mj, 4)
 
-        # Keywords Metrics
-        # kw_mod = ann['kw_kept_ids'] + ann['kw_manually_added_ids']
-        kw_mod = ann['kw_kept_ids']
+        # Keywords: pred = orig_kw_ids (unchanged), updated gold = kw_kept_ids
         ignore_kws = [str(k).strip().lower() for k in ann.get('dup_keywords', [])]
-        add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], kw_mod, 'kw', ignore_list=ignore_kws)
+        add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], ann['kw_kept_ids'], 'kw', ignore_list=ignore_kws)
 
-        # Fields Metrics
-        f_mod = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
-        add_vector_metrics(row, ann['gold_field_ids'], ann['orig_field_ids'], f_mod, 'field')
+        # Fields: pred = orig_field_ids, updated gold = kept + agreed missed
+        f_updated_gold = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
+        add_vector_metrics(row, ann['gold_field_ids'], ann['orig_field_ids'], f_updated_gold, 'field')
 
-        # Index Metrics
-        i_mod = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
-        add_vector_metrics(row, ann['gold_index_terms'], ann['orig_index_terms'], i_mod, 'index')
+        # Index: pred = orig_index_terms, updated gold = kept + agreed missed
+        i_updated_gold = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
+        add_vector_metrics(row, ann['gold_index_terms'], ann['orig_index_terms'], i_updated_gold, 'index')
 
         # Convert lists to strings for CSV
         for key, val in row.items():
@@ -1426,6 +1679,10 @@ def save_results():
 
             # 3. Write back the FULL dataset
             st.session_state.conn.update(worksheet=sheet_name, data=combined_df)
+            
+            # Invalidate custom cache so subsequent loads fetch fresh data
+            if 'sheet_cache' in st.session_state and sheet_name in st.session_state.sheet_cache:
+                del st.session_state.sheet_cache[sheet_name]
 
             st.success("Google Sheet updated successfully!")
 
