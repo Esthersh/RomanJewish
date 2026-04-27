@@ -154,9 +154,6 @@ def add_anno(result, filename,
     if kw_new_accepted:
         st.session_state.keyword_manager.update_keywords(kw_new_accepted)
 
-    # restart the annotator_comments to an empty string
-
-
     # Increment index
     if next_i:
         st.session_state.current_index += 1
@@ -903,7 +900,9 @@ def main():
     st.markdown("<br>", unsafe_allow_html=True)
 
     # --- Prepare common data ---
-    current_id = f"sample_{st.session_state.current_index}"
+    active_file_clean = active_file.replace(".json", "")
+    source_id = result.get('source_id', st.session_state.current_index)
+    current_id = f"{active_file_clean}_sample_{source_id}"
     original_row = result.get('original_row', {})
 
     # --- JUDICIAL FIELDS SECTION ---
