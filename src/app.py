@@ -311,7 +311,10 @@ def _load_annotation_sheets(results_dir):
     if results_dir and os.path.exists(results_dir):
         json_files = sorted([f for f in os.listdir(results_dir)
                              if f.startswith('merged_') and f.endswith('.json')])
-        sheet_names = [f.replace('merged_', '').replace('.json', '') for f in json_files]
+        base_names = [f.replace('merged_', '').replace('.json', '') for f in json_files]
+        # Also include w_en_ variants (translated model sheets) for non-w_en base names
+        w_en_names = [f"w_en_{name}" for name in base_names if not name.startswith('w_en_')]
+        sheet_names = base_names + w_en_names
 
     all_dfs = []
     for sheet_name in sheet_names:
@@ -433,14 +436,24 @@ def display_metrics(results_dir=None):
         return
 
     p = v_prefix
-    st.markdown(f"#### Dataset Level Averages ({vector}) — {len(metrics_df)} annotated records")
-    c1, c2, c3 = st.columns(3)
-    c1.metric("Jaccard  (Orig → Mod)",
-              f"{metrics_df[f'{p}_orig_j'].mean():.3f} → {metrics_df[f'{p}_mod_j'].mean():.3f}")
-    c2.metric("Precision (Orig → Mod)",
-              f"{metrics_df[f'{p}_orig_p'].mean():.3f} → {metrics_df[f'{p}_mod_p'].mean():.3f}")
-    c3.metric("Recall   (Orig → Mod)",
-              f"{metrics_df[f'{p}_orig_r'].mean():.3f} → {metrics_df[f'{p}_mod_r'].mean():.3f}")
+
+    def render_metric_row(label, subset_df, n_samples):
+        st.markdown(f"**{label}** — {n_samples} records")
+        c1, c2, c3 = st.columns(3)
+        c1.metric("Jaccard (Orig → Mod)",
+                  f"{subset_df[f'{p}_orig_j'].mean():.3f} → {subset_df[f'{p}_mod_j'].mean():.3f}")
+        c2.metric("Precision (Orig → Mod)",
+                  f"{subset_df[f'{p}_orig_p'].mean():.3f} → {subset_df[f'{p}_mod_p'].mean():.3f}")
+        c3.metric("Recall (Orig → Mod)",
+                  f"{subset_df[f'{p}_orig_r'].mean():.3f} → {subset_df[f'{p}_mod_r'].mean():.3f}")
+
+    st.markdown(f"#### Dataset Level Averages ({vector})")
+    # render_metric_row("All Models", metrics_df, len(metrics_df))
+
+    # st.markdown("##### Per Model")
+    for model_name, model_df in metrics_df.groupby("Model"):
+        with st.expander(f"**{model_name}** — {len(model_df)} records", expanded=True):
+            render_metric_row(model_name, model_df, len(model_df))
 
     st.markdown("#### Sample Level Details")
     st.dataframe(metrics_df, hide_index=True)
