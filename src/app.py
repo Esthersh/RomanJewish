@@ -47,7 +47,13 @@ def get_config(results_dir):
     # Default keywords file
     keywords_file = None
     fields_file = None
-    project_root = os.path.dirname(results_dir)
+    # Assuming results_dir ends with 'results/prioritized', go up two levels
+    project_root = os.path.dirname(os.path.dirname(results_dir))
+    
+    # If the user passed just "results" without "prioritized", we only go up one level
+    if os.path.basename(results_dir) == "results":
+        project_root = os.path.dirname(results_dir)
+
     kw_path = os.path.join(project_root, "data", "Keywords.csv")
     if os.path.exists(kw_path):
         keywords_file = kw_path
@@ -591,12 +597,12 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Check if the results directory is sitting right next to the script (server/flat structure)
-    if os.path.exists(os.path.join(script_dir, "../results/prioritized")):
-        results_dir = os.path.join(script_dir, "../results/prioritized")
+    if os.path.exists(os.path.join(script_dir, "results", "prioritized")):
+        results_dir = os.path.join(script_dir, "results", "prioritized")
     else:
         # Assume the script is inside a subfolder (like src/), so go up one level (local structure)
         project_root = os.path.dirname(script_dir)
-        results_dir = os.path.join(project_root, "../results/prioritized")
+        results_dir = os.path.join(project_root, "results", "prioritized")
 
     st.set_page_config(layout="centered",
                        page_title="RomanJewish Legal Classifier - Review")
