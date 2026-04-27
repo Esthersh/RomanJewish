@@ -23,6 +23,15 @@ from keyword_manager import KeywordManager
 DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1cb4Pmc7SFCZ3C5kJD8kkDFQsuJXdk16a1afoRElJ3L0/edit?gid=0#gid=0"
 
 
+MODEL_NAMES_ALIASES = {
+    "gemini_3_pro": "Gemini",
+    "claude_opus4_6": "Claude",
+    "qwen_3_5": "Qwen",
+    "w_en_gemini_3_pro": "Gemini (Translated)",
+    "e_en_claude_opus4_6": "Claude (Translated)",
+    "w_en_qwen_3_5": "Qwen (Translated)"
+}
+
 # Function to parse arguments
 def get_config(results_dir):
     # Ensure results directory exists
@@ -138,6 +147,9 @@ def add_anno(result, filename,
     # Update keyword manager (for new suggested keywords that were accepted)
     if kw_new_accepted:
         st.session_state.keyword_manager.update_keywords(kw_new_accepted)
+
+    # restart the annotator_comments to an empty string
+
 
     # Increment index
     if next_i:
@@ -579,12 +591,12 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Check if the results directory is sitting right next to the script (server/flat structure)
-    if os.path.exists(os.path.join(script_dir, "results")):
-        results_dir = os.path.join(script_dir, "results")
+    if os.path.exists(os.path.join(script_dir, "results/prioritized")):
+        results_dir = os.path.join(script_dir, "results/prioritized")
     else:
         # Assume the script is inside a subfolder (like src/), so go up one level (local structure)
         project_root = os.path.dirname(script_dir)
-        results_dir = os.path.join(project_root, "results")
+        results_dir = os.path.join(project_root, "results/prioritized")
 
     st.set_page_config(layout="centered",
                        page_title="RomanJewish Legal Classifier - Review")
@@ -686,6 +698,8 @@ def main():
     st.sidebar.markdown("---")
 
     cli_input_file, cli_keywords_file, cli_fields_file, available_files = get_config(results_dir)
+    # rename the available_files to more user-friendly model names using MODEL_NAMES_ALIASES
+    available_models = [MODEL_NAMES_ALIASES.get(fn.replace("merged_", "").replace(".json", ""), fn) for fn in available_files]
     st.session_state.keywords_file = cli_keywords_file
     st.session_state.fields_file = cli_fields_file
 
@@ -740,12 +754,21 @@ def main():
             default_index = 0
 
         st.sidebar.subheader("Switch Model")
-        selected_file = st.sidebar.selectbox(
+        selected_model = st.sidebar.selectbox(
             "Switch Model",
-            options=models_for_source,
+            options=available_models,
             index=default_index,
             label_visibility="collapsed"
         )
+
+        # revert the selected_model back to the actual filename using MODEL_NAMES_ALIASES
+        selected_file = None
+        for fn in available_files:
+            alias = MODEL_NAMES_ALIASES.get(fn.replace("merged_", "").replace(".json", ""), fn)
+            if alias == selected_model:
+                selected_file = fn
+                break
+
 
         if selected_file and selected_file != st.session_state.get('input_file_basename'):
             switch_model(selected_file, all_models_data)
@@ -823,7 +846,7 @@ def main():
 
     # --- Show pages if flagged ---
     if st.session_state.show_instructions:
-        display_instructions(available_files)
+        display_instructions(available_models)
         return
 
     if st.session_state.show_metrics:
