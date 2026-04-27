@@ -308,6 +308,8 @@ def display_metrics(output_file, results_dir=None):
 
     if st.button("⬅ Back to Annotation"):
         st.session_state.show_metrics = False
+        if not st.session_state.get('input_file_basename'):
+            st.session_state.show_instructions = True
         st.rerun()
 
     # --- Section: LLM Performance Summary (Original Predictions) ---
@@ -358,7 +360,7 @@ def display_metrics(output_file, results_dir=None):
         st.error(f"Error loading metrics from {output_file}: {e}")
 
 
-def display_instructions(available_models):
+def display_instructions(available_models, available_files):
     """Renders the instructions / help page."""
     st.title("📖 Annotation Task Instructions")
 
@@ -405,7 +407,11 @@ Where **TP** = true positives (correctly predicted), **FP** = false positives
     )
 
     if st.button("▶ Begin Annotation", type="primary", disabled=not selected_model):
-        st.session_state.input_file_basename = selected_model
+        selected_file = next((fn for fn in available_files if
+                              MODEL_NAMES_ALIASES.get(fn.replace("merged_", "").replace(".json", ""),
+                                                      fn) == selected_model), None)
+
+        st.session_state.input_file_basename = selected_file
         st.session_state.show_instructions = False
         st.rerun()
 
@@ -922,7 +928,7 @@ def main():
 
     # --- Show pages if flagged ---
     if st.session_state.show_instructions:
-        display_instructions(available_models)
+        display_instructions(available_models, available_files)
         return
 
     if st.session_state.show_metrics:
@@ -933,9 +939,12 @@ def main():
     # Main UI
     st.title("Local Law Under Rome")
 
-    # if not current_results:
-    #     st.info("Please select a results JSON file from the sidebar to begin.")
-    #     return
+    if not current_results:
+        st.info("No active model data found. Please select a model to begin.")
+        if st.button("Go to Instructions"):
+            st.session_state.show_instructions = True
+            st.rerun()
+        return
 
     if st.session_state.current_index >= len(current_results):
         st.success("All samples reviewed!")
