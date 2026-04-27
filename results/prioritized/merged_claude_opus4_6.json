@@ -93,7 +93,8 @@
       "30",
       "31"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300080002e+20,
@@ -168,7 +169,8 @@
     "matched_field_ids": [
       "30"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300080003e+20,
@@ -238,7 +240,8 @@
       "104",
       "31"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300080004e+20,
@@ -313,7 +316,8 @@
       "31",
       "26"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300080005e+20,
@@ -404,7 +408,8 @@
       "33",
       "37"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300080006e+20,
@@ -487,7 +492,8 @@
       "36",
       "17"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300080007e+20,
@@ -567,7 +573,8 @@
       "37",
       "28"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300080008e+20,
@@ -630,7 +637,8 @@
       "26",
       "31"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300090001e+20,
@@ -701,7 +709,8 @@
     "matched_field_ids": [
       "31"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300090002e+20,
@@ -777,7 +786,8 @@
       "28",
       "38"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300090003e+20,
@@ -848,7 +858,8 @@
     "matched_field_ids": [
       "28"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300090004e+20,
@@ -913,7 +924,8 @@
       "76",
       "107"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300090005e+20,
@@ -978,7 +990,8 @@
     "matched_field_ids": [
       "24"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300090006e+20,
@@ -1050,7 +1063,8 @@
       "32",
       "17"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300090007e+20,
@@ -1132,7 +1146,8 @@
       "32",
       "55"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300090008e+20,
@@ -1214,7 +1229,8 @@
       "28",
       "119"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.003300090009e+20,
@@ -1293,7 +1309,8 @@
       "27",
       "24"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 2.00330009001e+20,
@@ -1361,7 +1378,8 @@
       "30",
       "11"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070001e+20,
@@ -1440,7 +1458,8 @@
     "matched_field_ids": [
       "30"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070002e+20,
@@ -1500,7 +1519,8 @@
       "104",
       "101"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070003e+20,
@@ -1589,7 +1609,8 @@
       "17",
       "118"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070004e+20,
@@ -1654,7 +1675,8 @@
     "matched_field_ids": [
       "104"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070005e+20,
@@ -1721,7 +1743,8 @@
     "matched_field_ids": [
       "104"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070006e+20,
@@ -1783,7 +1806,8 @@
       "104",
       "119"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070007e+20,
@@ -1848,7 +1872,8 @@
     "matched_field_ids": [
       "104"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070008e+20,
@@ -1928,7 +1953,8 @@
       "28",
       "31"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070009e+20,
@@ -2012,7 +2038,8 @@
       "28",
       "30"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.00330007001e+20,
@@ -2087,7 +2114,8 @@
       "31",
       "30"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070011e+20,
@@ -2159,7 +2187,8 @@
       "104",
       "38"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070012e+20,
@@ -2225,7 +2254,8 @@
       "38",
       "25"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070013e+20,
@@ -2291,7 +2321,8 @@
       "38",
       "74"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070014e+20,
@@ -2365,7 +2396,8 @@
       "81",
       "24"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070015e+20,
@@ -2435,7 +2467,8 @@
       "38",
       "104"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300070016e+20,
@@ -2496,7 +2529,8 @@
     "matched_field_ids": [
       "37"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300080005e+20,
@@ -2559,7 +2593,8 @@
     "matched_field_ids": [
       "30"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 3.003300080009e+20,
@@ -2624,7 +2659,8 @@
     "matched_field_ids": [
       "37"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200001e+21,
@@ -2683,7 +2719,8 @@
     "matched_field_ids": [
       "29"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200002e+21,
@@ -2750,7 +2787,8 @@
     "matched_field_ids": [
       "36"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200003e+21,
@@ -2818,7 +2856,8 @@
       "36",
       "101"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200004e+21,
@@ -2887,7 +2926,8 @@
     "matched_field_ids": [
       "36"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200005e+21,
@@ -2959,7 +2999,8 @@
       "36",
       "46"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200006e+21,
@@ -3032,7 +3073,8 @@
     "matched_field_ids": [
       "36"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200007e+21,
@@ -3101,7 +3143,8 @@
     "matched_field_ids": [
       "34"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200008e+21,
@@ -3166,7 +3209,8 @@
       "34",
       "105"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200009e+21,
@@ -3233,7 +3277,8 @@
     "matched_field_ids": [
       "36"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.40020001e+21,
@@ -3318,7 +3363,8 @@
       "34",
       "46"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200011e+21,
@@ -3381,7 +3427,8 @@
     "matched_field_ids": [
       "34"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200012e+21,
@@ -3443,7 +3490,8 @@
       "34",
       "49"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200013e+21,
@@ -3519,7 +3567,8 @@
       "34",
       "50"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200014e+21,
@@ -3594,7 +3643,8 @@
       "34",
       "105"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200015e+21,
@@ -3677,7 +3727,8 @@
       "54",
       "120"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 5.400200016e+21,
@@ -3737,7 +3788,8 @@
       "34",
       "42"
     ],
-    "suggested_fields": []
+    "suggested_fields": [],
+    "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 7.3000007e+21,
@@ -3834,7 +3886,8 @@
       "terra tibi levis sit",
       "militare",
       "inscriptio funeraria"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 6.9009056e+21,
@@ -3995,7 +4048,8 @@
       "bequest",
       "fidei commissum",
       "familiae emptor"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10004e+21,
@@ -4063,7 +4117,8 @@
       "προσκρίνω",
       "ὑπάρχοντα",
       "τελευτάω"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10005e+21,
@@ -4139,7 +4194,8 @@
       "kata nomous",
       "adiathetos",
       "diathēkē"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10006e+21,
@@ -4223,7 +4279,8 @@
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
-    "index_terms": []
+    "index_terms": [],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10007e+21,
@@ -4270,7 +4327,8 @@
       "διαθήκη",
       "δημόσιος χρηματισμός",
       "ἄκυρος"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10008e+21,
@@ -4345,7 +4403,8 @@
       "Ἑλληνικὴ διαθήκη",
       "διατάσσω",
       "προσκαίω"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10009e+21,
@@ -4428,7 +4487,8 @@
       "πάτρων",
       "ἐπιδικάζομαι",
       "φίσκος"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.1001e+21,
@@ -4502,7 +4562,8 @@
       "status class",
       "confiscation",
       "taxis"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10011e+21,
@@ -4549,7 +4610,8 @@
       "Κρηνέα",
       "κληρονομέω",
       "τέκνον"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10012e+21,
@@ -4626,7 +4688,8 @@
       "ξένος",
       "κληρονομέω",
       "γονεύς"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10013e+21,
@@ -4698,7 +4761,8 @@
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
-    "index_terms": []
+    "index_terms": [],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10014e+21,
@@ -4749,7 +4813,8 @@
       "δραχμή",
       "μηνιαῖος",
       "ἔξεστι"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10015e+21,
@@ -4799,7 +4864,8 @@
       "testate",
       "testamentary capacity",
       "disposition"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10016e+21,
@@ -4877,7 +4943,8 @@
       "φίσκος",
       "Ῥωμαῖος",
       "ἀποδείκνυμι"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10017e+21,
@@ -4926,7 +4993,8 @@
       "κατοιχόμενοι",
       "ἐπιμεληθησόμενοι",
       "ἀναλαμβάνω"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10018e+21,
@@ -5004,7 +5072,8 @@
       "Ῥωμαῖος",
       "Ἕλλην",
       "ἥμισυ"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.10019e+21,
@@ -5082,7 +5151,8 @@
       "ἀναλαμβάνω",
       "ἀπελευθερόω",
       "τριάκοντα ἔτη"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 8.1002e+21,
@@ -5160,7 +5230,8 @@
       "ἀναλαμβάνω",
       "δοῦλος",
       "ἀπελευθέρωσις"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 6.9022244e+21,
@@ -5289,7 +5360,8 @@
       "ὑπάρχοντα",
       "ἐπιτρέπω",
       "βέβαιος"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 6.9020764e+21,
@@ -5424,7 +5496,8 @@
       "καταλείπω",
       "διατίθημι",
       "προτομή"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 6.9011572e+21,
@@ -5558,7 +5631,8 @@
       "Polemonos meris",
       "Arsinoeitēs nomos",
       "Traianos Hadrianos"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.5023499e+21,
@@ -5695,7 +5769,8 @@
       "ἀγορά",
       "ὁδός",
       "πλάνη"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.5001e+21,
@@ -5847,7 +5922,8 @@
       "מחוזא",
       "אורליס אנטונינס",
       "טרינס הדרינס"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.401002e+21,
@@ -5965,7 +6041,8 @@
       "στερέω",
       "συντηρέω",
       "Λῷος"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.4010024e+21,
@@ -6041,7 +6118,8 @@
       "δραχμή",
       "δισχίλιοι",
       "τιμή"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 6.200010007e+21,
@@ -6179,7 +6257,8 @@
       "διπλεῖ",
       "μωλέω",
       "συγγιγνώσκω"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 6.200010009e+21,
@@ -6308,7 +6387,8 @@
       "ἄγω",
       "φέρω",
       "συγγιγνώσκω"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.800020093e+21,
@@ -6381,7 +6461,8 @@
       "Ἀρχέλαος",
       "ἐθνάρχης",
       "Καῖσαρ"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.800020094e+21,
@@ -6458,7 +6539,8 @@
       "Ἀρχέλαος",
       "βασιλεία",
       "ἀμφισβητέω"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.800020095e+21,
@@ -6547,7 +6629,8 @@
       "τετραρχία",
       "Φίλιππος",
       "Ἀντίπας"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.800020098e+21,
@@ -6641,7 +6724,8 @@
       "οἶκος",
       "Ἀρχέλαος",
       "τοπαρχία"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.800020099e+21,
@@ -6725,7 +6809,8 @@
       "συνοικίζω",
       "Φερώρας",
       "κομίζω"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   },
   {
     "ref_id": 7.8000201e+21,
@@ -6803,6 +6888,7 @@
       "Ἡρώδης",
       "διαθήκη",
       "εὐτελής"
-    ]
+    ],
+    "origin_file": "../results/merged_claude_opus4_6.json"
   }
 ]

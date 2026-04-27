@@ -64,7 +64,8 @@
       "מנחיל",
       "אח מן האב",
       "אח מן האם"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300080002e+20,
@@ -124,7 +125,8 @@
       "סדר נחלות",
       "קודם",
       "יוצאי ירך"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300080003e+20,
@@ -187,7 +189,8 @@
       "חלק",
       "בכור",
       "נכס"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300080004e+20,
@@ -255,7 +258,8 @@
       "נכסים",
       "פי שנים",
       "נזונות"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300080005e+20,
@@ -341,7 +345,8 @@
       "Torah",
       "Spirit of the Sages",
       "eligibility"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300080006e+20,
@@ -414,7 +419,8 @@
       "חלק",
       "זכה",
       "קיים"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300080007e+20,
@@ -490,7 +496,8 @@
       "זון",
       "פרנס",
       "נשא"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300080008e+20,
@@ -564,7 +571,8 @@
       "חולקות בשוה",
       "חמר",
       "נשא"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300090001e+20,
@@ -635,7 +643,8 @@
       "זון",
       "שאל על הפתחים",
       "זכר"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300090002e+20,
@@ -708,7 +717,8 @@
       "יורש",
       "מנה",
       "דחה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300090003e+20,
@@ -784,7 +794,8 @@
       " עצמן",
       "גדולים וקטנים",
       "עושים ואוכלין"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300090004e+20,
@@ -859,7 +870,8 @@
       "שושבינות",
       "נגבית בבית דין",
       "גמילות חסדים"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300090005e+20,
@@ -916,7 +928,8 @@
       "נגבין",
       "סבלונות מרבין",
       "סבלונות מעטין"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300090006e+20,
@@ -980,7 +993,8 @@
       "ראיה",
       "בריא",
       "מוציא מחברו"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300090007e+20,
@@ -1067,7 +1081,8 @@
       "זכה",
       "קטן",
       "גדול"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300090008e+20,
@@ -1150,7 +1165,8 @@
       "בית שמאי",
       "בית הלל",
       "מוריש"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.003300090009e+20,
@@ -1224,7 +1240,8 @@
       "נכסים הנכנסים והיוצאים",
       "בית שמאי",
       "בית הלל"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 2.00330009001e+20,
@@ -1292,7 +1309,8 @@
       "חלק",
       "מודה",
       "שווה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070001e+20,
@@ -1374,7 +1392,8 @@
       "נכסי הגר",
       "נכסי עבד משוחרר",
       "זכה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070002e+20,
@@ -1435,7 +1454,8 @@
       "ערער",
       "חיה",
       "חזקה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070003e+20,
@@ -1510,7 +1530,8 @@
       "מתנה",
       "עבד",
       "מוכס"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070004e+20,
@@ -1574,7 +1595,8 @@
       "זרוע",
       "לחיים",
       "קיבה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070005e+20,
@@ -1639,7 +1661,8 @@
       "פלפל",
       "יתם",
       "נטיעה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070006e+20,
@@ -1707,7 +1730,8 @@
       "שטר חוב",
       "ירש",
       "הרשות בידו"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070007e+20,
@@ -1770,7 +1794,8 @@
       "מוחזק",
       "פי שנים",
       "נכסים"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070008e+20,
@@ -1834,7 +1859,8 @@
       "שבט",
       "יוצאי מצרים",
       "ערבות מואב"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070009e+20,
@@ -1910,7 +1936,8 @@
       "מרגל",
       "מתלונן",
       "חלק"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.00330007001e+20,
@@ -1994,7 +2021,8 @@
       "פי שנים",
       "שווה",
       "זכה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070011e+20,
@@ -2063,7 +2091,8 @@
       "פי שנים",
       "כראוי לו",
       "ידו על העליונה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070012e+20,
@@ -2127,7 +2156,8 @@
       "ראוי",
       "כתובה",
       "יד על העליונה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070013e+20,
@@ -2191,7 +2221,8 @@
       "ראוי",
       "דינר",
       "נטל"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070014e+20,
@@ -2260,7 +2291,8 @@
       "בעל חוב",
       "יד על העליונה",
       "פלני"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070015e+20,
@@ -2330,7 +2362,8 @@
       "ירש",
       "דבריו קיימין",
       "לא אמר כלום"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300070016e+20,
@@ -2388,7 +2421,8 @@
       "ירושה",
       "מתנה",
       "דבריו קיימין"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300080005e+20,
@@ -2453,7 +2487,8 @@
       "מאכל ומשק",
       "יורש",
       "אחוה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 3.003300080009e+20,
@@ -2516,7 +2551,8 @@
       "מתנה",
       "זכה",
       "קיים"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200001e+21,
@@ -2567,7 +2603,8 @@
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
-    "index_terms": []
+    "index_terms": [],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200002e+21,
@@ -2639,7 +2676,8 @@
       "libripens",
       "familiae emptor",
       "testamenti factio"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200003e+21,
@@ -2708,7 +2746,8 @@
       "familiae mancipatio",
       "potestas",
       "domesticus testis"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200004e+21,
@@ -2770,7 +2809,8 @@
     "index_terms": [
       "familiae emptor",
       "testis"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200005e+21,
@@ -2838,7 +2878,8 @@
       "mancipium",
       "testis",
       "adquirere"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200006e+21,
@@ -2909,7 +2950,8 @@
       "libripens",
       "familiae emptor",
       "adhibere"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200007e+21,
@@ -2981,7 +3023,8 @@
       "pupillus",
       "familiae emptor",
       "libripens"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200008e+21,
@@ -3043,7 +3086,8 @@
       "familiae emptor",
       "libripens",
       "testamenti factio"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200009e+21,
@@ -3109,7 +3153,8 @@
       "testatio",
       "tabula testamenti",
       "Quirites"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.40020001e+21,
@@ -3173,7 +3218,8 @@
       "peculium",
       "castrum",
       "adquiro"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200011e+21,
@@ -3233,7 +3279,8 @@
       "status",
       "incertus",
       "ignorare"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200012e+21,
@@ -3289,7 +3336,8 @@
       "testamentum",
       "sui iuris",
       "iudicium animi"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200013e+21,
@@ -3366,7 +3414,8 @@
       "bonis interdictum",
       "commercium",
       "mancipare"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200014e+21,
@@ -3433,7 +3482,8 @@
       "civis Romanus",
       "peregrinus",
       "testari"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200015e+21,
@@ -3493,7 +3543,8 @@
       "tutor",
       "tutela",
       "auctor"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 5.400200016e+21,
@@ -3553,7 +3604,8 @@
       "populus Romanus",
       "testamentum facere",
       "pars dimidia"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_qwen_3_5.json"
   },
   {
     "ref_id": 7.3000007e+21,
@@ -3623,7 +3675,8 @@
       "liberta",
       "militare",
       "tribus"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 6.9009056e+21,
@@ -3752,7 +3805,8 @@
       "ὑποτίθεμαι",
       "ζυγοστατής",
       "Ῥωμαικός"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10004e+21,
@@ -3813,7 +3867,8 @@
       "ὑπάρχον",
       "φίσκος",
       "προσκρίνω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10005e+21,
@@ -3878,7 +3933,8 @@
       "ἐπιδικάζω",
       "κληρονομέω",
       "προσήκει"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10006e+21,
@@ -3943,7 +3999,8 @@
       "γενεά",
       "ἐξόν",
       "μερίζω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10007e+21,
@@ -3999,7 +4056,8 @@
       "δημόσιος",
       "χρηματισμός",
       "ἄκυρος"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10008e+21,
@@ -4061,7 +4119,8 @@
       "παραδεκτός",
       "ἔξεστιν",
       "διατάζω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10009e+21,
@@ -4131,7 +4190,8 @@
       "πάτρων",
       "ἐπιδικάζω",
       "φίσκος"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.1001e+21,
@@ -4189,7 +4249,8 @@
       "διατάζω",
       "τάξις",
       "ἀναλαμβάνω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10011e+21,
@@ -4250,7 +4311,8 @@
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
-    "index_terms": []
+    "index_terms": [],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10012e+21,
@@ -4309,7 +4371,8 @@
       "Κρηνέος",
       "ξένος",
       "κληρονομέω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10013e+21,
@@ -4367,7 +4430,8 @@
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
-    "index_terms": []
+    "index_terms": [],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10014e+21,
@@ -4432,7 +4496,8 @@
       "ἀπελεύθερος",
       "διατάσσω",
       "ἐξόν"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10015e+21,
@@ -4493,7 +4558,8 @@
       "ἀστός",
       "ἀστή",
       "διατίθεμαι"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10016e+21,
@@ -4561,7 +4627,8 @@
       "ἐγγόνος",
       "ἀναλαμβάνω",
       "ἀποδείκνω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10017e+21,
@@ -4621,7 +4688,8 @@
       "κατοιχός",
       "ἐπιμελέω",
       "ἀναλαμβάνω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10018e+21,
@@ -4684,7 +4752,8 @@
       "Οὐεσπασιανός",
       "πίστις",
       "Ῥωμαίος"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.10019e+21,
@@ -4745,7 +4814,8 @@
       "νόμιμος",
       "διατάσσω",
       "ἀναλαμβάνω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 8.1002e+21,
@@ -4812,7 +4882,8 @@
       "τριάκοντα ἐτῶν",
       "διάταξις",
       "ἀναλαμβάνω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 6.9022244e+21,
@@ -4912,7 +4983,8 @@
       "ἀναγινώσκω",
       "συμφωνῶ",
       "ἐπιμέλεια"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 6.9020764e+21,
@@ -5027,7 +5099,8 @@
       "μνημόνειον",
       "ἐνδομενεία",
       "κοινωνικός"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 6.9011572e+21,
@@ -5137,7 +5210,8 @@
       "χρέος",
       "δημόσιος",
       "ἰδιωτικός"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.5023499e+21,
@@ -5236,7 +5310,8 @@
       "εἰσόδος",
       "ἐξόδος",
       "ἥμισυ"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.5001e+21,
@@ -5334,7 +5409,8 @@
       "נכס",
       "מחוז",
       "גנת תמריא"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.401002e+21,
@@ -5411,7 +5487,8 @@
       "συμμαχία",
       "φιλία",
       "διαθέω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.4010024e+21,
@@ -5479,7 +5556,8 @@
       "ἐπιδόω",
       "τιμάω",
       "τιμή"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 6.200010007e+21,
@@ -5583,7 +5661,8 @@
       "μολιόμενα",
       "ἐλεύθερος",
       "καταστάσω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 6.200010009e+21,
@@ -5689,7 +5768,8 @@
       "δρομεός",
       "ἐνσειέω",
       "διαλακόντο"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.800020093e+21,
@@ -5757,7 +5837,8 @@
       "προσείπω",
       "ὑποσχέω",
       "βασιλεύς"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.800020094e+21,
@@ -5818,7 +5899,8 @@
       "βασιλεία",
       "διαιρ῰",
       "τετραρχία"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.800020095e+21,
@@ -5885,7 +5967,8 @@
       "Αὐραν῿τίς",
       "Ζήνωνος οἴκος",
       "τάξω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.800020098e+21,
@@ -5955,7 +6038,8 @@
       "τάλαντον",
       "τοπαρχία",
       "χαρίζω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.800020099e+21,
@@ -6027,7 +6111,8 @@
       "χαρίζω",
       "συνοικίζω",
       "μυριάς"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   },
   {
     "ref_id": 7.8000201e+21,
@@ -6094,6 +6179,7 @@
       "τάλαντον",
       "κατοιχόμενος",
       "ἐπιδιανέμω"
-    ]
+    ],
+    "origin_file": "../results/merged_qwen_3_5.json"
   }
 ]

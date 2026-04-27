@@ -96,7 +96,7 @@ def create_annotation(result, filename,
     gold_index_terms = get_gold_list('Index Terms')
 
     return {
-        "results_filename": filename,
+        "results_filename": result["origin_file"].split("/")[-1],
         "annotator": st.session_state.get('name', ''),
         "date": date.today().isoformat(),
         "ref_id": original_row.get("Refference") or original_row.get("ref Code"),
@@ -944,6 +944,7 @@ def main():
     # result = st.session_state.results[st.session_state.current_index]
     active_file = st.session_state.input_file_basename
     result = all_models_data[active_file][st.session_state.current_index]
+
 
     # Extract text content and language
     language_val = result.get('original_row', {}).get('Language', '')

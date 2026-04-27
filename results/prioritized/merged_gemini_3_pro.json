@@ -77,7 +77,8 @@
       "בן אחות",
       "אח האם",
       "אח מן האם"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300080002e+20,
@@ -147,7 +148,8 @@
       "נחלה",
       "יוצא ירך",
       "קדימה בנחלה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300080003e+20,
@@ -213,7 +215,8 @@
       "בנות צלפחד",
       "יוצאי מצרים",
       "נכס"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300080004e+20,
@@ -277,7 +280,8 @@
       "פי שניים",
       "נכס",
       "מזונות"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300080005e+20,
@@ -356,7 +360,8 @@
       "מתנה",
       "ראוי ליורשו",
       "רוח חכמים נוחה הימנו"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300080006e+20,
@@ -425,7 +430,8 @@
       "זכייה",
       "נאמן",
       "דבריו קיימים"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300080007e+20,
@@ -506,7 +512,8 @@
       "פרנסה",
       "מזונות",
       "חלוקה בשווה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300080008e+20,
@@ -573,7 +580,8 @@
       "גדול",
       "קטן",
       "חומר"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300090001e+20,
@@ -636,7 +644,8 @@
       "מזונות",
       "נכסים מרובים",
       "נכסים מועטים"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300090002e+20,
@@ -706,7 +715,8 @@
       "נכסים מועטים",
       "מנה",
       "יורש"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300090003e+20,
@@ -776,7 +786,8 @@
       "גדול",
       "קטן",
       "עושה ואוכל"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300090004e+20,
@@ -851,7 +862,8 @@
       "שושבינות",
       "גבייה בבית דין",
       "גמילות חסדים"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300090005e+20,
@@ -907,7 +919,8 @@
       "betrothal meal",
       "claim",
       "גבייה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300090006e+20,
@@ -974,7 +987,8 @@
       "בריא",
       "ראיה",
       "המוציא מחברו עליו הראיה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300090007e+20,
@@ -1066,7 +1080,8 @@
       "זכייה",
       "קטן",
       "גדול"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300090008e+20,
@@ -1136,7 +1151,8 @@
       "בעל חוב",
       "יורש",
       "נכסים בחזקתן"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.003300090009e+20,
@@ -1206,7 +1222,8 @@
       "נכסים בחזקתן",
       "נכסים הנכנסים והיוצאים עמה",
       "חלוקה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 2.00330009001e+20,
@@ -1270,7 +1287,8 @@
       "חזקה",
       "חלוקה",
       "מחלוקת"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070001e+20,
@@ -1351,7 +1369,8 @@
       "עבד משוחרר",
       "נכסי הגר",
       "כל הקודם זכה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070002e+20,
@@ -1418,7 +1437,8 @@
       "contesting opinion",
       "נאמן",
       "חזקה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070003e+20,
@@ -1504,7 +1524,8 @@
       "שעת מיתה",
       "עבד",
       "מוכס"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070004e+20,
@@ -1573,7 +1594,8 @@
       "זרוע",
       "לחי",
       "קיבה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070005e+20,
@@ -1636,7 +1658,8 @@
       "firstborn",
       "double portion",
       "heir"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070006e+20,
@@ -1699,7 +1722,8 @@
       "פי שנים",
       "שטר חוב",
       "ירושה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070007e+20,
@@ -1766,7 +1790,8 @@
       "בכור",
       "פי שנים",
       "נכס"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070008e+20,
@@ -1829,7 +1854,8 @@
       "עומדים בערבות מואב",
       "שבט",
       "ראוי"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070009e+20,
@@ -1914,7 +1940,8 @@
       "עדת קרח",
       "זכות אבות",
       "זכות אמהות"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.00330007001e+20,
@@ -1993,7 +2020,8 @@
       "בכור",
       "פי שניים",
       "זכייה בחיי האב"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070011e+20,
@@ -2055,7 +2083,8 @@
       "ידו על העליונה",
       "פי שנים",
       "ראוי"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070012e+20,
@@ -2121,7 +2150,8 @@
       "יד על העליונה",
       "hand on top",
       "ראוי"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070013e+20,
@@ -2186,7 +2216,8 @@
       "בעל חוב",
       "חוב",
       "ראוי"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070014e+20,
@@ -2260,7 +2291,8 @@
       "בעל חוב",
       "חוב",
       "ידו על העליונה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070015e+20,
@@ -2326,7 +2358,8 @@
       "estate",
       "firstborn",
       "double portion"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300070016e+20,
@@ -2384,7 +2417,8 @@
       "ירושה",
       "מתנה",
       "דבריו קיימין"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300080005e+20,
@@ -2445,7 +2479,8 @@
       "משא ומתן",
       "יורש",
       "אחווה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 3.003300080009e+20,
@@ -2511,7 +2546,8 @@
       "נכסים",
       "מתנה",
       "זיכה"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200001e+21,
@@ -2569,7 +2605,8 @@
       "sollemnis",
       "valeo",
       "mens"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200002e+21,
@@ -2642,7 +2679,8 @@
       "familiae emptor",
       "testis",
       "testamenti factio"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200003e+21,
@@ -2711,7 +2749,8 @@
       "libripens",
       "familiae mancipatio",
       "testis domesticus"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200004e+21,
@@ -2774,7 +2813,8 @@
       "testis",
       "purchaser",
       "witness"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200005e+21,
@@ -2843,7 +2883,8 @@
       "familiae emptor",
       "testis",
       "mancipium"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200006e+21,
@@ -2913,7 +2954,8 @@
       "libripens",
       "familia",
       "alienum negotium"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200007e+21,
@@ -2992,7 +3034,8 @@
       "familiae emptor",
       "testis",
       "libripens"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200008e+21,
@@ -3057,7 +3100,8 @@
       "testis",
       "libripens",
       "testamenti factio"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200009e+21,
@@ -3131,7 +3175,8 @@
       "Quirites",
       "testimonium",
       "testatio"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.40020001e+21,
@@ -3193,7 +3238,8 @@
       "testor",
       "peculium",
       "miles"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200011e+21,
@@ -3252,7 +3298,8 @@
       "status",
       "sui iuris",
       "testamentum"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200012e+21,
@@ -3313,7 +3360,8 @@
       "sui iuris",
       "testamentum",
       "iudicium animi"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200013e+21,
@@ -3392,7 +3440,8 @@
       "testari",
       "commercium",
       "mancipare"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200014e+21,
@@ -3461,7 +3510,8 @@
       "testari",
       "peregrinus",
       "civitas"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200015e+21,
@@ -3524,7 +3574,8 @@
       "tutor",
       "tutor auctor",
       "tutela"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 5.400200016e+21,
@@ -3586,7 +3637,8 @@
       "testamentum",
       "ius",
       "pars dimidia"
-    ]
+    ],
+    "origin_file": "../results/merged_w_en_gemini_3_pro.json"
   },
   {
     "ref_id": 7.3000007e+21,
@@ -3651,7 +3703,8 @@
       "libertus",
       "milito",
       "tribus"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 6.9009056e+21,
@@ -3769,7 +3822,8 @@
       "νομικός",
       "αὐθεντικός",
       "ἀντίγραφον"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10004e+21,
@@ -3830,7 +3884,8 @@
       "ὑπάρχοντα",
       "φίσκος",
       "προσκρίνω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10005e+21,
@@ -3898,7 +3953,8 @@
       "νόμος",
       "προσήκω",
       "χωρέω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10006e+21,
@@ -3970,7 +4026,8 @@
       "περιουσία",
       "τέταρτον μέρος",
       "μερίζω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10007e+21,
@@ -4027,7 +4084,8 @@
       "διαθήκη",
       "δημόσιος χρηματισμός",
       "ἄκυρος"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10008e+21,
@@ -4099,7 +4157,8 @@
       "παραδεκτέος",
       "Ἑλληνικὴ διαθήκη",
       "Ῥωμαῖος"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10009e+21,
@@ -4173,7 +4232,8 @@
       "πάτρων",
       "ἐπιδικάζω",
       "φίσκος"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.1001e+21,
@@ -4236,7 +4296,8 @@
       "διατάσσω",
       "τάξις",
       "ἀναλαμβάνω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10011e+21,
@@ -4296,7 +4357,8 @@
     "index_terms": [
       "Κρηναῖος",
       "κληρονομέω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10012e+21,
@@ -4363,7 +4425,8 @@
       "Κρηναῖος",
       "ξένος",
       "κληρονομέω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10013e+21,
@@ -4429,7 +4492,8 @@
       "ἀστός",
       "ξένος",
       "κληρονομέω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10014e+21,
@@ -4494,7 +4558,8 @@
       "διατάσσω",
       "μηνιαῖος",
       "δραχμή"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10015e+21,
@@ -4558,7 +4623,8 @@
       "ἀστός",
       "ἀστή",
       "διατίθημι"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10016e+21,
@@ -4625,7 +4691,8 @@
       "διάταξις",
       "ἐκλείπω",
       "ἀναλαμβάνω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10017e+21,
@@ -4689,7 +4756,8 @@
       "θυσία",
       "καταλείπω",
       "κατοίχομαι"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10018e+21,
@@ -4759,7 +4827,8 @@
       "ἐξομολογέω",
       "Ἕλλην",
       "Ῥωμαῖος"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.10019e+21,
@@ -4829,7 +4898,8 @@
       "νόμιμος ἀπελευθέρωσις",
       "διατάσσω",
       "ἀναλαμβάνω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 8.1002e+21,
@@ -4901,7 +4971,8 @@
       "τριάκοντα ἔτη",
       "διατάσσω",
       "ἀναλαμβάνω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 6.9022244e+21,
@@ -4991,7 +5062,8 @@
       "σηστέρτιος νοῦμμος",
       "ζυγοστατέω",
       "ἀντιμαρτύρομαι"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 6.9020764e+21,
@@ -5096,7 +5168,8 @@
       "μαρτυρέω",
       "μνημονεῖον",
       "ἀπελεύθερος"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 6.9011572e+21,
@@ -5196,7 +5269,8 @@
       "διατάσσω",
       "γλύμμα",
       "μάρτυς"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.5023499e+21,
@@ -5283,7 +5357,8 @@
       "βαθύνω",
       "ὑπάρχοντα",
       "τελευτάω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.5001e+21,
@@ -5377,7 +5452,8 @@
       "ארמלה",
       "שהד",
       "בית עלם"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.401002e+21,
@@ -5458,7 +5534,8 @@
       "γράμμα",
       "ἀνιερόω",
       "δίκαιος"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.4010024e+21,
@@ -5525,7 +5602,8 @@
       "δραχμή",
       "τιμή",
       "τιμάω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 6.200010007e+21,
@@ -5624,7 +5702,8 @@
       "στατήρ",
       "ὄμνυμι",
       "ἐπιπόλαια χρήματα"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 6.200010009e+21,
@@ -5719,7 +5798,8 @@
       "ἐπιπόλαιος",
       "διαλαγχάνω",
       "στατήρ"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.800020093e+21,
@@ -5780,7 +5860,8 @@
       "βασιλεία",
       "ἐθνάρχης",
       "βασιλεύς"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.800020094e+21,
@@ -5843,7 +5924,8 @@
       "βασιλεία",
       "διαιρέω",
       "τετραρχία"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.800020095e+21,
@@ -5905,7 +5987,8 @@
       "πρόσοδος",
       "τάλαντον",
       "τάσσω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.800020098e+21,
@@ -5974,7 +6057,8 @@
       "πρόσοδος",
       "τοπαρχία",
       "τάσσω"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.800020099e+21,
@@ -6035,7 +6119,8 @@
       "καταλείπω",
       "συνοικίζω",
       "χαρίζομαι"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   },
   {
     "ref_id": 7.8000201e+21,
@@ -6100,6 +6185,7 @@
       "κειμήλιον",
       "οἶκος",
       "τάλαντον"
-    ]
+    ],
+    "origin_file": "../results/merged_gemini_3_pro.json"
   }
 ]
