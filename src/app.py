@@ -33,7 +33,7 @@ MODEL_NAMES_ALIASES = {
 
 
 # Function to parse arguments
-def get_config(results_dir):
+def get_config(results_dir, project_root=None):
     # Ensure results directory exists
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
@@ -47,12 +47,16 @@ def get_config(results_dir):
     # Default keywords file
     keywords_file = None
     fields_file = None
-    # Assuming results_dir ends with 'results/prioritized', go up two levels
-    project_root = os.path.dirname(os.path.dirname(results_dir))
-
-    # If the user passed just "results" without "prioritized", we only go up one level
-    if os.path.basename(results_dir) == "results":
-        project_root = os.path.dirname(results_dir)
+    # If project_root not passed, walk up from results_dir until we find a data/ folder
+    if project_root is None:
+        candidate = results_dir
+        for _ in range(5):
+            candidate = os.path.dirname(candidate)
+            if os.path.exists(os.path.join(candidate, "data", "Keywords.csv")):
+                project_root = candidate
+                break
+        if project_root is None:
+            project_root = os.path.dirname(os.path.dirname(results_dir))
 
     kw_path = os.path.join(project_root, "data", "Keywords.csv")
     if os.path.exists(kw_path):
@@ -1005,7 +1009,7 @@ def main():
         st.link_button("📈 Go to Annotations", DEFAULT_SHEET_URL, use_container_width=True)
     st.sidebar.markdown("---")
 
-    cli_input_file, cli_keywords_file, cli_fields_file, available_files = get_config(results_dir)
+    cli_input_file, cli_keywords_file, cli_fields_file, available_files = get_config(results_dir, project_root)
     # rename the available_files to more user-friendly model names using MODEL_NAMES_ALIASES
     available_models = [MODEL_NAMES_ALIASES.get(fn.replace("merged_", "").replace(".json", ""), fn) for fn in
                         available_files]
