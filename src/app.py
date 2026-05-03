@@ -168,7 +168,7 @@ def load_all_models(results_dir):
                              if f.startswith('merged_') and f.endswith('.json')])
         for fn in json_files:
             try:
-                with open(os.path.join(results_dir, fn), 'r') as f:
+                with open(os.path.join(results_dir, fn), 'r', encoding='utf-8') as f:
                     data = json.load(f)
                 all_models_data[fn] = data
                 for item in data:
@@ -649,7 +649,7 @@ def _load_models_data_cached(results_dir, json_files):
 
     for fn in json_files:
         try:
-            with open(os.path.join(results_dir, fn), 'r') as f:
+            with open(os.path.join(results_dir, fn), 'r', encoding='utf-8') as f:
                 data = json.load(f)
             all_models_data[fn] = data
             for item in data:
@@ -687,7 +687,7 @@ def load_taxonomies(keywords_file, fields_file):
 def load_local_credentials(config_path):
     import yaml
     from yaml.loader import SafeLoader
-    with open(config_path) as f:
+    with open(config_path, 'r', encoding='utf-8') as f:
         return yaml.load(f, Loader=SafeLoader)
 
 
@@ -755,7 +755,7 @@ def _compute_metrics_cached(results_dir, json_files, gold_key, pred_key):
     summary_rows = []
     for jf in json_files:
         try:
-            with open(os.path.join(results_dir, jf), 'r') as f:
+            with open(os.path.join(results_dir, jf), 'r', encoding='utf-8') as f:
                 data = json.load(f)
 
             precisions, recalls, jaccards = [], [], []
