@@ -94,6 +94,19 @@
       "31"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "נוחלין",
+      "מנחילין",
+      "נחלה",
+      "אחין מן האב",
+      "אחים מן האם",
+      "בני אחיות",
+      "אחי האם",
+      "ירושה",
+      "מנחיל",
+      "נוחל"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -170,6 +183,19 @@
       "30"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "סדר נחלות",
+      "נחלה",
+      "יוצאי ירכו",
+      "קודם",
+      "בן",
+      "בת",
+      "אחין",
+      "אחי האב",
+      "והעברתם את נחלתו",
+      "כלל"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -241,6 +267,16 @@
       "31"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "בנות צלפחד",
+      "נחלה",
+      "יוצאי מצרים",
+      "חפר",
+      "בכור",
+      "שני חלקים",
+      "נכסים"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -317,6 +353,15 @@
       "26"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "נחלה",
+      "פי שנים",
+      "נכסי האב",
+      "נכסי האם",
+      "נזונות",
+      "בכור"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -409,6 +454,26 @@
       "37"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "בכור",
+      "פי שנים",
+      "נחלה",
+      "ירושה",
+      "מתנה",
+      "התנה על מה שכתוב בתורה",
+      "המחלק נכסיו",
+      "דבריו קימין",
+      "רוח חכמים נוחה",
+      "ראוי לירשו",
+      "רבי יוחנן בן ברוקה",
+      "רבן שמעון בן גמליאל",
+      "נוהגין כשורה",
+      "זכור לטוב",
+      "הכותב נכסיו לאחרים",
+      "רבה לאחד ומעט לאחד",
+      "השוה"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -493,6 +558,19 @@
       "17"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "נאמן",
+      "דיתיקי",
+      "נוטל עמו בחלקו",
+      "יחזרו נכסים למקומן",
+      "נפלו לו נכסים",
+      "זכה",
+      "יורשין",
+      "דבריו קימין",
+      "נחלה",
+      "ירש"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -574,6 +652,27 @@
       "28"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "כתב נכסים",
+      "מהיום ולאחר מיתה",
+      "מכר",
+      "לוקח",
+      "תולש",
+      "מאכיל",
+      "תלוש",
+      "יורש",
+      "מתפרנס",
+      "ניזון",
+      "חולקין בשוה",
+      "נשא",
+      "רבי יהודה",
+      "רבי יוסי",
+      "רשות האב",
+      "כתובין לבן",
+      "גדולים וקטנים",
+      "כותב נכסיו"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -638,6 +737,19 @@
       "31"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "גדולות",
+      "קטנות",
+      "מתפרנסות",
+      "נזונות",
+      "חולקות בשוה",
+      "נשאו",
+      "חומר",
+      "נחלה",
+      "בנות",
+      "בנים"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -710,6 +822,19 @@
       "31"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "נכסים מרובים",
+      "נכסים מועטים",
+      "ירש",
+      "זון",
+      "שאל על הפתחים",
+      "אדמון",
+      "רבן גמליאל",
+      "זכר",
+      "הפסיד",
+      "פרנסה"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -787,6 +912,17 @@
       "38"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "טמטום",
+      "נכסים מרובים",
+      "נכסים מועטים",
+      "דחה",
+      "מנה",
+      "ילד",
+      "יורש",
+      "ירש"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -859,6 +995,8 @@
       "28"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -925,6 +1063,16 @@
       "107"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "אחין השתפין",
+      "אומנות",
+      "לאמצע",
+      "שושבינות",
+      "נגבית בבית דין",
+      "גמילות חסדים",
+      "נתרפא משל עצמו"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -991,6 +1139,14 @@
       "24"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "סבלונות",
+      "חמיו",
+      "סעודת חתן",
+      "נגבין",
+      "מנה"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1064,6 +1220,15 @@
       "17"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "שכיב מרע",
+      "מתנה",
+      "שיר קרקע",
+      "המוציא מחברו עליו הראיה",
+      "ראיה",
+      "בריא"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1147,6 +1312,31 @@
       "55"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "מחלק נכסים על פיו",
+      "בריא",
+      "מסכן",
+      "אחריות",
+      "נקנין",
+      "כסף",
+      "שטר",
+      "חזקה",
+      "משיכה",
+      "כבינה",
+      "מנה",
+      "קימו",
+      "שכיב מרע",
+      "שבת",
+      "קל וחומר",
+      "זכין",
+      "קטן",
+      "גדול",
+      "רבי אליעזר",
+      "רבי יהושע",
+      "בני רוכל",
+      "חכמים"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1230,6 +1420,8 @@
       "119"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1310,6 +1502,20 @@
       "24"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "נפל הבית",
+      "יורשי הבעל",
+      "יורשי האשה",
+      "בית שמאי",
+      "בית הלל",
+      "חזקה",
+      "כתובה",
+      "נכסים הנכנסים והיוצאין",
+      "יורשי האב",
+      "חלק",
+      "נכסים בחזקתן"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1379,6 +1585,18 @@
       "11"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "נפל הבית",
+      "חזקה",
+      "חלוקין",
+      "מודים",
+      "יחלקו",
+      "נכסים בחזקתן",
+      "מורישיו",
+      "בן עזאי",
+      "רבי עקיבא"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1459,6 +1677,20 @@
       "30"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "נחלה",
+      "נוחלין",
+      "מנחילין",
+      "ממזר",
+      "מוריש",
+      "גר",
+      "עבד משוחרר",
+      "נתגייר",
+      "נשתחרר",
+      "נכסי הגר",
+      "קודם"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1520,6 +1752,15 @@
       "101"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "חיה",
+      "ערער",
+      "הוחזקה על עמדה",
+      "נאמנת",
+      "יצא ראשון",
+      "בכור"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1610,6 +1851,18 @@
       "118"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "מוחזקין",
+      "בכור",
+      "נאמן",
+      "מתנה",
+      "שעת מיתה",
+      "עבד",
+      "מוכסין",
+      "נחלה",
+      "הוחזקה"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1676,6 +1929,21 @@
       "104"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "בכור",
+      "פי שנים",
+      "שבח",
+      "נכסים",
+      "מיתת אביהן",
+      "מוחכרת",
+      "מושכרת",
+      "פרה רועה באפר",
+      "זרוע",
+      "לחיים",
+      "קיבה",
+      "בהמה"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1744,6 +2012,17 @@
       "104"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "בכור",
+      "פי שנים",
+      "פילפלו",
+      "יתומין",
+      "נוטל",
+      "בניין",
+      "נטיעות",
+      "מוחזק"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1807,6 +2086,17 @@
       "119"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "בכור",
+      "פי שנים",
+      "שטרי חוב",
+      "נוטל",
+      "נותן",
+      "הרשות בידו",
+      "ירשו",
+      "אי איפשי"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1873,6 +2163,16 @@
       "104"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "בכור",
+      "פי שנים",
+      "ראוי",
+      "מוחזק",
+      "נכסי אבי אביו",
+      "נחלה",
+      "ירושה"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -1954,6 +2254,18 @@
       "31"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "בנות צלפחד",
+      "נחלה",
+      "יוצאי מצרים",
+      "ערבות מואב",
+      "ירש",
+      "שבט",
+      "ראוי",
+      "נתחלקה",
+      "חלק אחי אביהן"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2039,6 +2351,25 @@
       "30"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "יוצאי מצרים",
+      "ערבות מואב",
+      "כור",
+      "לתך",
+      "נחלה",
+      "מתלוננים",
+      "מרגלים",
+      "עדת קרח",
+      "יהושע",
+      "כלב",
+      "חלק",
+      "נתחלקה",
+      "הוריש",
+      "אבות אבותיהן",
+      "אמות אמותיהן",
+      "שמעון בן לעזר"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2115,6 +2446,24 @@
       "30"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "מרגלים",
+      "יהושע",
+      "כלב",
+      "מלוננים",
+      "עדת קרח",
+      "נחלה",
+      "בכור",
+      "פי שנים",
+      "נכסי האב",
+      "נכסי האם",
+      "זכריה בן הקצב",
+      "כפר איבוס",
+      "קודם",
+      "נפל לאמצע",
+      "שוין"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2188,6 +2537,15 @@
       "38"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "מאתים דינר",
+      "בכור",
+      "פי שנים",
+      "בכורה",
+      "ידו על העליונה",
+      "כראוי לו"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2255,6 +2613,15 @@
       "25"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "כתובה",
+      "שדה",
+      "ידה על העליונה",
+      "נוטלת",
+      "בראוי לה",
+      "בכתובתה"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2322,6 +2689,14 @@
       "74"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "בעל חוב",
+      "חוב",
+      "מאתים דינר",
+      "נוטל",
+      "ראוי"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2397,6 +2772,15 @@
       "24"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "הפותיקי",
+      "כתובה",
+      "בעל חוב",
+      "חוב",
+      "ידן על העליונה",
+      "נתקבלו"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2468,6 +2852,17 @@
       "104"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "חלק",
+      "בכורה",
+      "פי שנים",
+      "יירש",
+      "ירושה",
+      "מתנה",
+      "נכסי",
+      "דבריו קיימין"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2530,6 +2925,13 @@
       "37"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "ירושה",
+      "מתנה",
+      "דבריו קיימין",
+      "כתב"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2594,6 +2996,13 @@
       "30"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "מדינת הים",
+      "משאן ומתנן",
+      "אחוה",
+      "יורשו"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2660,6 +3069,15 @@
       "37"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "דייתיקי",
+      "שכיב מרע",
+      "מתנה",
+      "זיכה",
+      "בריא",
+      "דבריו קיימין"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2720,6 +3138,14 @@
       "29"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testamentum",
+      "contestatio",
+      "nuncupatio",
+      "sollemniter",
+      "valere"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2788,6 +3214,18 @@
       "36"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testamentum",
+      "calata comitia",
+      "in procinctu",
+      "per aes et libram",
+      "mancipatio imaginaria",
+      "libripens",
+      "familiae emptor",
+      "testis",
+      "testamenti factio"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2857,6 +3295,18 @@
       "101"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testator",
+      "familiae emptor",
+      "testis",
+      "libripens",
+      "familiae mancipatio",
+      "potestas",
+      "domesticus",
+      "testamentum per aes et libram",
+      "adhibere"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -2927,6 +3377,14 @@
       "36"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "familiae emptor",
+      "testis",
+      "filius familias",
+      "mancipatio",
+      "testamentum per aes et libram"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3000,6 +3458,17 @@
       "46"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "familiae emptor",
+      "testis",
+      "potestas",
+      "mancipium",
+      "adquirere",
+      "filius suus",
+      "frater",
+      "testamentum"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3074,6 +3543,19 @@
       "36"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testis",
+      "libripens",
+      "familiae emptor",
+      "potestas",
+      "mancipatio",
+      "testamentum per aes et libram",
+      "testamenti factio",
+      "domesticus testis",
+      "alienum negotium",
+      "nuncupatio"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3144,6 +3626,20 @@
       "34"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "mutus",
+      "surdus",
+      "furiosus",
+      "pupillus",
+      "femina",
+      "familiae emptor",
+      "testis",
+      "libripens",
+      "testamentum per aes et libram",
+      "mancipatio",
+      "testamenti factio"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3210,6 +3706,14 @@
       "105"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Latinus Iunianus",
+      "familiae emptor",
+      "testis",
+      "libripens",
+      "testamenti factio"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3278,6 +3782,23 @@
       "36"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testamentum",
+      "aes et libra",
+      "familiae mancipatio",
+      "nuncupatio",
+      "tabula testamenti",
+      "testator",
+      "cera",
+      "do lego",
+      "testor",
+      "Quirites",
+      "testimonium perhibere",
+      "testatio",
+      "nuncupare",
+      "testamenti factio"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3364,6 +3885,18 @@
       "46"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "filius familiae",
+      "testamentum",
+      "testari",
+      "peculium",
+      "castra",
+      "miles",
+      "patria potestas",
+      "testamenti factio",
+      "divus Augustus"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3428,6 +3961,14 @@
       "34"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "status",
+      "sui iuris",
+      "testamentum",
+      "peregre",
+      "testamentum facere"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3491,6 +4032,13 @@
       "49"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "impubes",
+      "sui iuris",
+      "testamentum",
+      "iudicium animi"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3568,6 +4116,22 @@
       "50"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "mutus",
+      "surdus",
+      "furiosus",
+      "prodigus",
+      "bonis interdictum",
+      "testamentum",
+      "nuncupatio",
+      "familiae emptor",
+      "testari",
+      "commercium",
+      "mancipare",
+      "familia",
+      "interdictum"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3644,6 +4208,17 @@
       "105"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Latinus Iunianus",
+      "dediticii",
+      "testamentum",
+      "lex Iunia",
+      "civis Romanus",
+      "peregrinus",
+      "testari",
+      "civitas"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3728,6 +4303,15 @@
       "120"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testamentum",
+      "femina",
+      "tutela",
+      "tutor auctore",
+      "duodecimus annus aetatis",
+      "testamenti factio"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
@@ -3789,16 +4373,23 @@
       "42"
     ],
     "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "servus publicus",
+      "testamenti faciendi ius",
+      "peculium",
+      "pars dimidia"
+    ],
     "origin_file": "../results/merged_w_en_claude_opus4_6.json"
   },
   {
     "ref_id": 7.3000007e+21,
     "source_id": "73",
-    "group": "ROMAN",
+    "group": "nan",
     "name": "Lat. Insc. 7",
     "text": "Ti(berius) Cl(audius) Ti(beri) f(ilius) Pop(lilia tribu) Fatalis | Roma (centurio) leg(ionis) II Aug(ustae), leg(ionis) XX | Vic(tricis), leg(ionis) II Aug(ustae), leg(ionis) XI C(laudiae) p(iae) f(idelis), | leg(ionis) XIV G(eminae) M(artiae) V(ictricis), leg(ionis) XII Ful(minatae), | leg(ionis) X Fr(etensis), III (= tertius) hast(atus) vix(it) an(nos) | XLII, mil(itavit) ann(os) XXIII. Cl(audia) | Ionice lib(erta) et heres ob me|rita eius. O(ssa) t(ibi) b(ene) q(uiescant). T(erra) t(ibi) l(evis) s(it).",
     "original_row": {
-      "Group": "ROMAN",
+      "Group": NaN,
       "Name": "Latin Inscription",
       "Language": "Latin",
       "SourceID": 73,
