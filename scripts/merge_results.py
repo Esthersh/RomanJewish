@@ -82,35 +82,38 @@ def do_horizontal_merge(kw_data, fields_data, index_data, output_file, order_map
     print(f"Merged {len(final_list)} items into {output_file}")
 
 
-def merge_all_results(results_dir: str, corpus_csv: str):
+def merge_all_results(results_dir: str, corpus_csv: str, en_only: bool = False):
     order_map = get_corpus_order(corpus_csv)
-    models = ["gemini_3_pro", "qwen_3_5", "claude_opus4_6"]
+    models = ["claude_opus4_6"]  # ["gemini_3_pro", "qwen_3_5", "claude_opus4_6"]
 
     for m in models:
         print(f"\n--- Processing Model: {m} ---")
 
         # 1. Base files (Plain + Context) -> merged_{model}.json
-        kw_base = [
-            os.path.join(results_dir, f"keywords_{m}.json"),
-            os.path.join(results_dir, f"keywords_context_{m}.json")
-        ]
-        fields_base = [
-            os.path.join(results_dir, f"fields_{m}.json"),
-            os.path.join(results_dir, f"fields_context_{m}.json")
-        ]
-        index_base = [
-            os.path.join(results_dir, f"index_v1_{m}.json"),
-            os.path.join(results_dir, f"index_v1_context_{m}.json")
-        ]
+        if not en_only:
+            kw_base = [
+                os.path.join(results_dir, f"keywords_{m}.json"),
+                os.path.join(results_dir, f"keywords_context_{m}.json")
+            ]
+            fields_base = [
+                os.path.join(results_dir, f"fields_{m}.json"),
+                os.path.join(results_dir, f"fields_context_{m}.json")
+            ]
+            index_base = [
+                os.path.join(results_dir, f"index_v1_{m}.json"),
+                os.path.join(results_dir, f"index_v1_context_{m}.json")
+            ]
 
-        print(f"Merging Base (Plain + Context) for {m}...")
-        do_horizontal_merge(
-            load_and_merge(kw_base),
-            load_and_merge(fields_base),
-            load_and_merge(index_base),
-            os.path.join(results_dir, f"merged_{m}.json"),
-            order_map
-        )
+            print(f"Merging Base (Plain + Context) for {m}...")
+            do_horizontal_merge(
+                load_and_merge(kw_base),
+                load_and_merge(fields_base),
+                load_and_merge(index_base),
+                os.path.join(results_dir, f"merged_{m}.json"),
+                order_map
+            )
+        else:
+            print(f"Skipping Base files for {m} (--en_only flag active)")
 
         # 2. English translated versions -> merged_w_en_{model}.json
         kw_wen = [os.path.join(results_dir, f"keywords_w_en_context_{m}.json")]
@@ -133,6 +136,8 @@ if __name__ == "__main__":
                         help="Directory containing result JSON files")
     parser.add_argument("--corpus_csv", default="/home/esther/PycharmProjects/RomanJewish/data/LUR_annotations.csv",
                         help="Original Corpus CSV for ordering")
+    parser.add_argument("--en_only", action="store_true",
+                        help="Skip base files and merge ONLY the English translated files")
 
     args = parser.parse_args()
-    merge_all_results(args.results_dir, args.corpus_csv)
+    merge_all_results(args.results_dir, args.corpus_csv, args.en_only)
