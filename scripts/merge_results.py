@@ -84,7 +84,8 @@ def do_horizontal_merge(kw_data, fields_data, index_data, output_file, order_map
 
 def merge_all_results(results_dir: str, corpus_csv: str, en_only: bool = False):
     order_map = get_corpus_order(corpus_csv)
-    models = ["claude_opus4_6"]  # ["gemini_3_pro", "qwen_3_5", "claude_opus4_6"]
+    # models = ["gemini_3_pro", "qwen_3_5", "claude_opus4_6"]
+    models = ["gemini", "qwen", "claude"]
 
     for m in models:
         print(f"\n--- Processing Model: {m} ---")
@@ -116,9 +117,12 @@ def merge_all_results(results_dir: str, corpus_csv: str, en_only: bool = False):
             print(f"Skipping Base files for {m} (--en_only flag active)")
 
         # 2. English translated versions -> merged_w_en_{model}.json
-        kw_wen = [os.path.join(results_dir, f"keywords_w_en_context_{m}.json")]
-        fields_wen = [os.path.join(results_dir, f"fields_w_en_context_{m}.json")]
-        index_wen = [os.path.join(results_dir, f"index_w_en_v1_context_{m}.json")]
+        # kw_wen = [os.path.join(results_dir, f"keywords_w_en_context_{m}.json")]
+        # fields_wen = [os.path.join(results_dir, f"fields_w_en_context_{m}.json")]
+        # index_wen = [os.path.join(results_dir, f"index_w_en_v1_context_{m}.json")]
+        kw_wen = [os.path.join(results_dir, f"tosefta_keywords_w_en_context_{m}.json")]
+        fields_wen = [os.path.join(results_dir, f"tosefta_fields_w_en_context_{m}.json")]
+        index_wen = [os.path.join(results_dir, f"tosefta_index_w_en_v1_context_{m}.json")]
 
         print(f"Merging W_EN (Translated versions) for {m}...")
         do_horizontal_merge(
@@ -141,3 +145,4 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
     merge_all_results(args.results_dir, args.corpus_csv, args.en_only)
+
