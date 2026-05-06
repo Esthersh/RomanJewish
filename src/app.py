@@ -20,7 +20,8 @@ from streamlit_gsheets import GSheetsConnection
 from data_loader import DataLoader
 from keyword_manager import KeywordManager
 
-DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1cb4Pmc7SFCZ3C5kJD8kkDFQsuJXdk16a1afoRElJ3L0/edit?gid=0#gid=0"
+DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1J8qZuf8ahVPpsFypwHuvoXqpyj6yEjhzba4_aZIDRZg/edit?gid=2081850469#gid=2081850469"
+#"https://docs.google.com/spreadsheets/d/1cb4Pmc7SFCZ3C5kJD8kkDFQsuJXdk16a1afoRElJ3L0/edit?gid=0#gid=0"
 
 MODEL_NAMES_ALIASES = {
     "gemini_3_pro": "Gemini",
@@ -1209,7 +1210,7 @@ def main():
     # --- Prepare common data ---
     active_file_clean = active_file.replace(".json", "")
     source_id = result.get('source_id', st.session_state.current_index)
-    current_id = f"{active_file_clean}_sample_{source_id}"
+    current_id = f"{active_file_clean}_idx_{st.session_state.current_index}"
     original_row = result.get('original_row', {})
 
     if 'kw_map' not in st.session_state or 'field_map' not in st.session_state:
