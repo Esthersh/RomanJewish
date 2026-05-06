@@ -1209,7 +1209,6 @@ def main():
 
     # --- Prepare common data ---
     active_file_clean = active_file.replace(".json", "")
-    source_id = result.get('source_id', st.session_state.current_index)
     current_id = f"{active_file_clean}_idx_{st.session_state.current_index}"
     original_row = result.get('original_row', {})
 
