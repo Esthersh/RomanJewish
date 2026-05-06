@@ -20,8 +20,7 @@ from streamlit_gsheets import GSheetsConnection
 from data_loader import DataLoader
 from keyword_manager import KeywordManager
 
-DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1J8qZuf8ahVPpsFypwHuvoXqpyj6yEjhzba4_aZIDRZg/edit?gid=2081850469#gid=2081850469"
-#"https://docs.google.com/spreadsheets/d/1cb4Pmc7SFCZ3C5kJD8kkDFQsuJXdk16a1afoRElJ3L0/edit?gid=0#gid=0"
+DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1cb4Pmc7SFCZ3C5kJD8kkDFQsuJXdk16a1afoRElJ3L0/edit?gid=0#gid=0"
 
 MODEL_NAMES_ALIASES = {
     "gemini_3_pro": "Gemini",
