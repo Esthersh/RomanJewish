@@ -1675,6 +1675,9 @@ def save_results():
     sheet_name = new_df.results_filename.iloc[0].removeprefix("merged_").removesuffix(".json")
     if sheet_name.startswith('merged_'):
         sheet_name = sheet_name[len('merged_'):]
+    # specific fix for sheet name "w_en_claude", it should be "w_en_claude_opus4_6"
+    if sheet_name == "w_en_claude":
+        sheet_name = "w_en_claude_opus4_6"
 
     with st.spinner('Syncing with Google Sheets...'):
         try:
