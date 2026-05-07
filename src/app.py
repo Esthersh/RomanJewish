@@ -1671,13 +1671,18 @@ def save_results():
     # --- Google Sheets Read -> Append -> Update ---
     # Derive sheet name from the active model file (consistent source of truth)
     active = st.session_state.get('input_file_basename', '')
-    # sheet_name = active.replace('.json', '')
-    sheet_name = new_df.results_filename.iloc[0].removeprefix("merged_").removesuffix(".json")
+    sheet_name = active.removeprefix("merged_").removesuffix(".json")
+
+    # sheet_name = new_df.results_filename.iloc[0].removeprefix("merged_").removesuffix(".json")
     if sheet_name.startswith('merged_'):
         sheet_name = sheet_name[len('merged_'):]
-    # specific fix for sheet name "w_en_claude", it should be "w_en_claude_opus4_6"
-    if sheet_name == "w_en_claude":
-        sheet_name = "w_en_claude_opus4_6"
+
+    # determine if to add the prefix "w_en" based on whether the original filename had it or not
+    w_en = True if "w_en" in row['results_filename'] else False
+    if w_en and not sheet_name.startswith("w_en"):
+        sheet_name = "w_en_" + sheet_name
+
+
 
     with st.spinner('Syncing with Google Sheets...'):
         try:
