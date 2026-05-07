@@ -34,12 +34,14 @@ from sklearn.metrics import precision_score, recall_score, jaccard_score
 # ---------------------------------------------------------------------------
 # Config
 # ---------------------------------------------------------------------------
-INPUT_FILE = Path("../data/streamlit_app_output.xlsx")
-LUR_FILE = Path("../data/LUR_annotations.csv")
-OUTPUT_DIR = Path("../results/annotation_report")
+INPUT_FILE    = Path("../data/streamlit_app_output.xlsx")
+LUR_FILE      = Path("../data/LUR_annotations.csv")
+KEYWORDS_FILE = Path("../data/Keywords.csv")
+TOPICS_FILE   = Path("../data/Topics.csv")
+OUTPUT_DIR    = Path("../results/annotation_report")
 SHEETS = [
     "claude_opus4_6",
-    "w_en_claude_opus4_6",
+    # "w_en_claude_opus4_6",
     "gemini_3_pro",
     "w_en_gemini_3_pro",
     "qwen_3_5",
@@ -212,6 +214,109 @@ def aggregate_group(grp: pd.DataFrame, sheet: str, language: str,
 
 
 # ---------------------------------------------------------------------------
+# Model coverage analysis
+# ---------------------------------------------------------------------------
+
+MODEL_SHEETS = {
+    "gemini": ["gemini_3_pro", "w_en_gemini_3_pro"],
+    "qwen":   ["qwen_3_5", "w_en_qwen_3_5"],
+    "claude": ["claude_opus4_6"],
+}
+
+
+def _safe_set(value) -> set:
+    """parse_set wrapper that treats None (datetime corruption) as empty set."""
+    result = parse_set(value)
+    return result if result is not None else set()
+
+
+def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
+    """Return a DataFrame [ref_id, text, new_gold_keywords, new_gold_fields, new_gold_index].
+
+    new_gold_keywords  = kw_kept_ids  → resolved to keyword names
+    new_gold_fields    = field_kept_ids ∪ field_miss_agreed_ids  → resolved to topic names
+    new_gold_index     = index_kept_terms ∪ index_miss_agreed_terms  (already text)
+
+    Values are unioned across all sheets (MODEL_SHEETS) per ref_id.
+    Rows follow LUR order and are restricted to Analyzed == 'y' records
+    that appear in at least one sheet.
+    """
+    kw_names = pd.read_csv(KEYWORDS_FILE).set_index("Id")["Keyword"].to_dict()
+    fi_names = pd.read_csv(TOPICS_FILE).set_index("Id")["Topic"].to_dict()
+
+    lur = pd.read_csv(lur_path)
+    lur = lur[lur["Analyzed [y/n]"].str.strip().str.lower() == "y"].reset_index(drop=True)
+
+    gold_kw: dict[str, set] = {}
+    gold_fi: dict[str, set] = {}
+    gold_ix: dict[str, set] = {}
+    ref_text: dict[str, str] = {}
+
+    all_sheets = [s for sheets in MODEL_SHEETS.values() for s in sheets]
+    for sheet in all_sheets:
+        df = pd.read_excel(excel_path, sheet_name=sheet)
+        df = df.drop_duplicates(subset="ref_id", keep="last")
+        for _, row in df.iterrows():
+            ref_id = row["ref_id"]
+            if pd.isna(ref_id):
+                continue
+            gold_kw[ref_id] = gold_kw.get(ref_id, set()) | _safe_set(row["kw_kept_ids"])
+            gold_fi[ref_id] = gold_fi.get(ref_id, set()) | _safe_set(row["field_kept_ids"]) | _safe_set(row["field_miss_agreed_ids"])
+            gold_ix[ref_id] = gold_ix.get(ref_id, set()) | _safe_set(row["index_kept_terms"]) | _safe_set(row["index_miss_agreed_terms"])
+            if ref_id not in ref_text and pd.notna(row.get("text")):
+                ref_text[ref_id] = str(row["text"])
+
+    covered = set(gold_kw.keys())
+
+    def resolve(ids: set, lookup: dict) -> str:
+        names = sorted(lookup.get(int(i), i) for i in ids if str(i).strip())
+        return ", ".join(names)
+
+    records = []
+    for _, row in lur.iterrows():
+        ref_id = row.get("Reference")
+        if pd.isna(ref_id) or ref_id not in covered:
+            continue
+        records.append({
+            "ref_id":            ref_id,
+            "text":              ref_text.get(ref_id, ""),
+            "new_gold_keywords": resolve(gold_kw.get(ref_id, set()), kw_names),
+            "new_gold_fields":   resolve(gold_fi.get(ref_id, set()), fi_names),
+            "new_gold_index":    ", ".join(sorted(gold_ix.get(ref_id, set()))),
+        })
+
+    return pd.DataFrame(records)
+
+
+def build_coverage_dataframe(lur_path: Path, excel_path: Path) -> pd.DataFrame:
+    """Return a DataFrame [ref_id, gemini, qwen, claude] in LUR row order.
+
+    Each boolean column is True when that model has an annotation for the record
+    in any of its associated sheets.  w_en_claude_opus4_6 is excluded.
+    """
+    lur = pd.read_csv(lur_path)
+    lur = lur[lur["Analyzed [y/n]"].str.strip().str.lower() == "y"]
+
+    model_ref_ids: dict[str, set] = {}
+    for model, sheets in MODEL_SHEETS.items():
+        covered: set = set()
+        for sheet in sheets:
+            df = pd.read_excel(excel_path, sheet_name=sheet)
+            covered.update(df["ref_id"].dropna().unique())
+        model_ref_ids[model] = covered
+
+    records = []
+    for _, row in lur.iterrows():
+        ref_id = row["Reference"] if pd.notna(row.get("Reference")) else None
+        record: dict = {"ref_id": ref_id}
+        for model, covered in model_ref_ids.items():
+            record[model] = (ref_id in covered) if ref_id is not None else False
+        records.append(record)
+
+    return pd.DataFrame(records)
+
+
+# ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
@@ -268,6 +373,22 @@ def main() -> None:
     avg_path = OUTPUT_DIR / "metrics_avg.csv"
     avg_df.to_csv(avg_path, index=False, float_format="%.4f")
     print(f"Saved: {avg_path}")
+
+    # ---- updated gold annotations ----
+    print("\nBuilding updated gold annotations...")
+    gold_df = build_gold_annotations(LUR_FILE, INPUT_FILE)
+    gold_path = OUTPUT_DIR / "gold_annotations.csv"
+    gold_df.to_csv(gold_path, index=False)
+    print(f"Saved: {gold_path} ({len(gold_df)} records)")
+
+    # ---- model coverage dataframe ----
+    print("\nBuilding model coverage dataframe...")
+    coverage_df = build_coverage_dataframe(LUR_FILE, INPUT_FILE)
+    coverage_path = OUTPUT_DIR / "model_coverage.csv"
+    coverage_df.to_csv(coverage_path, index=False)
+    print(f"Saved: {coverage_path}")
+    covered_any = coverage_df[["gemini", "qwen", "claude"]].any(axis=1).sum()
+    print(f"  {covered_any} / {len(coverage_df)} records covered by at least one model")
 
     # ---- console preview ----
     pd.set_option("display.max_columns", None)

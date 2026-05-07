@@ -27,7 +27,7 @@ MODEL_NAMES_ALIASES = {
     "claude_opus4_6": "Claude",
     "qwen_3_5": "Qwen",
     "w_en_gemini_3_pro": "Gemini (Translated)",
-    "e_en_claude_opus4_6": "Claude (Translated)",
+    "w_en_claude_opus4_6": "Claude (Translated)",
     "w_en_qwen_3_5": "Qwen (Translated)"
 }
 
