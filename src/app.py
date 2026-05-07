@@ -1671,7 +1671,8 @@ def save_results():
     # --- Google Sheets Read -> Append -> Update ---
     # Derive sheet name from the active model file (consistent source of truth)
     active = st.session_state.get('input_file_basename', '')
-    sheet_name = active.replace('.json', '')
+    # sheet_name = active.replace('.json', '')
+    sheet_name = new_df.results_filename.iloc[0].removeprefix("merged_").removesuffix(".json")
     if sheet_name.startswith('merged_'):
         sheet_name = sheet_name[len('merged_'):]
 
