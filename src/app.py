@@ -316,9 +316,12 @@ def _load_annotation_sheets(results_dir):
         json_files = sorted([f for f in os.listdir(results_dir)
                              if f.startswith('merged_') and f.endswith('.json')])
         base_names = [f.replace('merged_', '').replace('.json', '') for f in json_files]
-        # Also include w_en_ variants (translated model sheets) for non-w_en base names
+        # w_en_ variants generated from the base names (canonical names used by save_results)
         w_en_names = [f"w_en_{name}" for name in base_names if not name.startswith('w_en_')]
-        sheet_names = base_names + w_en_names
+        # Legacy short names (old saves used origin_file-derived names like w_en_gemini / w_en_claude)
+        legacy_w_en = [f"w_en_{n[len('w_en_'):].split('_')[0]}" for n in w_en_names]
+        all_names = base_names + w_en_names
+        sheet_names = all_names + [n for n in legacy_w_en if n not in all_names]
 
     all_dfs = []
     for sheet_name in sheet_names:
@@ -1228,9 +1231,10 @@ def main():
         with c2:
             st.markdown("<div style='margin-top: 14px;'></div>", unsafe_allow_html=True)
             if st.button(":material/refresh: load annotated data"):
-                # sheet name is according to the result['origin_file']
-                original_model_prompt = result['origin_file'].split("/")[-1].replace(".json", "")
-                sheet_name = original_model_prompt.replace("merged_", "")
+                active = st.session_state.get('input_file_basename', '')
+                sheet_name = active.replace('.json', '')
+                if sheet_name.startswith('merged_'):
+                    sheet_name = sheet_name[len('merged_'):]
                 success = load_annotated_data_from_sheet(sheet_name,
                                                current_id,
                                                result,
@@ -1665,12 +1669,11 @@ def save_results():
     #     st.error(f"Failed to save local CSV: {e}")
 
     # --- Google Sheets Read -> Append -> Update ---
-    # Use the results filename (without .json) as the worksheet name
-    sheet_name = st.session_state.annotations[0]['results_filename'].replace('.json', '') \
-        if st.session_state.annotations else new_df.iloc[0]['results_filename'].replace('.json', '')
-    # remove "merged_" prefix if it exists
-    if sheet_name.startswith("merged_"):
-        sheet_name = sheet_name[len("merged_"):]
+    # Derive sheet name from the active model file (consistent source of truth)
+    active = st.session_state.get('input_file_basename', '')
+    sheet_name = active.replace('.json', '')
+    if sheet_name.startswith('merged_'):
+        sheet_name = sheet_name[len('merged_'):]
 
     with st.spinner('Syncing with Google Sheets...'):
         try:
