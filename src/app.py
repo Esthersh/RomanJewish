@@ -1235,6 +1235,13 @@ def main():
                 sheet_name = active.replace('.json', '')
                 if sheet_name.startswith('merged_'):
                     sheet_name = sheet_name[len('merged_'):]
+                # determine whether to load from sheet_name or from f'w_en_{sheet_name}'
+                # if the English translation appears in LUR_annotations
+                origin_filename = result.get("origin_file", "")
+                is_w_en = "w_en" in origin_filename
+
+                if is_w_en and not sheet_name.startswith("w_en"):
+                    sheet_name = f"w_en_{sheet_name}"
                 success = load_annotated_data_from_sheet(sheet_name,
                                                current_id,
                                                result,
