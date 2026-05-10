@@ -41,7 +41,7 @@ TOPICS_FILE   = Path("../data/Topics.csv")
 OUTPUT_DIR    = Path("../results/annotation_report")
 SHEETS = [
     "claude_opus4_6",
-    # "w_en_claude_opus4_6",
+    "w_en_claude_opus4_6",
     "gemini_3_pro",
     "w_en_gemini_3_pro",
     "qwen_3_5",
@@ -220,7 +220,7 @@ def aggregate_group(grp: pd.DataFrame, sheet: str, language: str,
 MODEL_SHEETS = {
     "gemini": ["gemini_3_pro", "w_en_gemini_3_pro"],
     "qwen":   ["qwen_3_5", "w_en_qwen_3_5"],
-    "claude": ["claude_opus4_6"],
+    "claude": ["claude_opus4_6", "w_en_claude_opus4_6"],
 }
 
 
