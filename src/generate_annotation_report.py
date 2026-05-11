@@ -156,12 +156,12 @@ def compute_sample_metrics(row: pd.Series) -> dict:
 # ---------------------------------------------------------------------------
 
 def load_and_deduplicate(sheet_name: str) -> tuple[pd.DataFrame, int]:
-    """Load sheet, keep last annotation per ref_id (latest date wins).
+    """Load sheet, keep last annotation per name (latest date wins).
     Returns (deduplicated DataFrame, original row count).
     """
     df = pd.read_excel(INPUT_FILE, sheet_name=sheet_name)
     # n_total = len(df)
-    df = df.drop_duplicates(subset="ref_id", keep="last").reset_index(drop=True)
+    df = df.drop_duplicates(subset="name", keep="last").reset_index(drop=True)
     return df
 
 
@@ -169,12 +169,17 @@ def process_sheet(sheet_name: str, lang_map: dict) -> pd.DataFrame:
     """Return per-sample DataFrame with computed metrics and language label."""
     df = load_and_deduplicate(sheet_name)
 
-    df["language"] = df["ref_id"].map(lang_map).fillna("Unknown")
+    names = sorted(df["name"].dropna().astype(str).tolist())
+    print(f"  [{sheet_name}] {len(names)} unique names:")
+    for n in names:
+        print(f"    {n}")
+
+    df["language"] = df["name"].map(lang_map).fillna("Unknown")
 
     records = []
     for _, row in df.iterrows():
         m = compute_sample_metrics(row)
-        m["ref_id"] = row["ref_id"]
+        m["ref_id"] = row["name"]
         m["language"] = row["language"]
         records.append(m)
 
@@ -255,9 +260,10 @@ def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
     all_sheets = [s for sheets in MODEL_SHEETS.values() for s in sheets]
     for sheet in all_sheets:
         df = pd.read_excel(excel_path, sheet_name=sheet)
-        df = df.drop_duplicates(subset="ref_id", keep="last")
+        df["name"] = df["name"].str.strip()
+        df = df.drop_duplicates(subset="name", keep="last")
         for _, row in df.iterrows():
-            ref_id = row["ref_id"]
+            ref_id = row["name"]
             if pd.isna(ref_id):
                 continue
             gold_kw[ref_id] = gold_kw.get(ref_id, set()) | _safe_set(row["kw_kept_ids"])
@@ -302,7 +308,7 @@ def build_coverage_dataframe(lur_path: Path, excel_path: Path) -> pd.DataFrame:
         covered: set = set()
         for sheet in sheets:
             df = pd.read_excel(excel_path, sheet_name=sheet)
-            covered.update(df["ref_id"].dropna().unique())
+            covered.update(df["name"].dropna().unique())
         model_ref_ids[model] = covered
 
     records = []
@@ -314,6 +320,41 @@ def build_coverage_dataframe(lur_path: Path, excel_path: Path) -> pd.DataFrame:
         records.append(record)
 
     return pd.DataFrame(records)
+
+
+# ---------------------------------------------------------------------------
+# Model comparison by vector
+# ---------------------------------------------------------------------------
+
+def build_model_comparison(vector_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Rank all sheets by jaccard_after within each vector (language == 'All').
+
+    Returns:
+        ranking_df  – all sheets ranked per vector (by jaccard_after desc)
+        best_df     – one row per vector: the top-ranked sheet and its metrics
+    """
+    all_rows = vector_df[vector_df["language"] == "All"].copy()
+
+    metric_cols = [
+        "precision_before", "recall_before", "jaccard_before",
+        "precision_after",  "recall_after",  "jaccard_after",
+        "delta_precision",  "delta_recall",   "delta_jaccard",
+    ]
+
+    ranking_rows = []
+    for vec in ["keywords", "fields", "index"]:
+        grp = all_rows[all_rows["vector"] == vec].copy()
+        grp = grp.sort_values("jaccard_after", ascending=False).reset_index(drop=True)
+        grp["rank"] = grp.index + 1
+        ranking_rows.append(grp[["rank", "sheet", "n_samples", "vector"] + metric_cols])
+
+    ranking_df = pd.concat(ranking_rows, ignore_index=True)
+
+    best_df = ranking_df[ranking_df["rank"] == 1][
+        ["vector", "sheet", "n_samples"] + metric_cols
+    ].reset_index(drop=True)
+
+    return ranking_df, best_df
 
 
 # ---------------------------------------------------------------------------
@@ -390,6 +431,12 @@ def main() -> None:
     covered_any = coverage_df[["gemini", "qwen", "claude"]].any(axis=1).sum()
     print(f"  {covered_any} / {len(coverage_df)} records covered by at least one model")
 
+    # ---- model comparison by vector ----
+    ranking_df, best_df = build_model_comparison(vector_df)
+    ranking_path = OUTPUT_DIR / "model_ranking_by_vector.csv"
+    ranking_df.to_csv(ranking_path, index=False, float_format="%.4f")
+    print(f"\nSaved: {ranking_path}")
+
     # ---- console preview ----
     pd.set_option("display.max_columns", None)
     pd.set_option("display.width", 220)
@@ -397,6 +444,10 @@ def main() -> None:
     print(vector_df.to_string(index=False))
     print("\n=== Average Across Vectors ===")
     print(avg_df.to_string(index=False))
+    print("\n=== Model Ranking by Vector (language=All, sorted by jaccard_after) ===")
+    print(ranking_df.to_string(index=False))
+    print("\n=== Best Model per Vector ===")
+    print(best_df.to_string(index=False))
 
 
 if __name__ == "__main__":
