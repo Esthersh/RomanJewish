@@ -103,7 +103,9 @@ def create_annotation(result, filename,
         "results_filename": result["origin_file"].split("/")[-1],
         "annotator": st.session_state.get('name', ''),
         "date": date.today().isoformat(),
-        "ref_id": original_row.get("Refference") or original_row.get("ref Code"),
+        # "ref_id": original_row.get("Refference") or original_row.get("ref Code"),
+        # convert ref_id to string at creation time
+        "ref_id": str(original_row.get("Refference") or original_row.get("ref Code") or ""),
         "source_id": result.get('source_id'),
         "group": result.get("group"),
         "name": result.get("name"),
@@ -296,8 +298,8 @@ def display_source_text(text_content, language=""):
 
 def compute_sample_metrics(gold_ids, pred_ids):
     """Compute precision, recall, and Jaccard index for a single sample."""
-    gold = set(str(g).strip() for g in gold_ids if str(g).strip())
-    pred = set(str(p).strip() for p in pred_ids if str(p).strip())
+    gold = set(str(g).strip().lower() for g in gold_ids if str(g).strip())
+    pred = set(str(p).strip().lower() for p in pred_ids if str(p).strip())
     tp = len(gold & pred)
     precision = tp / len(pred) if pred else 0.0
     recall = tp / len(gold) if gold else 0.0
@@ -330,9 +332,15 @@ def _load_annotation_sheets(results_dir):
             if df is None or df.empty:
                 continue
             # Keep the last annotation per unique record
-            dedup_cols = [c for c in ['results_filename', 'ref_id', 'name'] if c in df.columns]
+            # dedup_cols = [c for c in ['results_filename', 'ref_id', 'name'] if c in df.columns]
+            # dedup_cols = [c for c in ['results_filename', 'name'] if c in df.columns]
+            dedup_cols = [c for c in ['name'] if c in df.columns]
             if dedup_cols:
                 df = df.drop_duplicates(subset=dedup_cols, keep='last')
+            names = sorted(df["name"].dropna().astype(str).tolist()) if "name" in df.columns else []
+            print(f"[{sheet_name}] {len(names)} unique names:")
+            for n in names:
+                print(f"  {n}")
             df['_sheet'] = MODEL_NAMES_ALIASES.get(sheet_name, sheet_name)
             all_dfs.append(df)
         except Exception:
@@ -347,6 +355,7 @@ def _compute_annotation_metrics(df, vector):
     orig_*: LLM predictions vs initial gold
     mod_*:  LLM predictions vs updated gold (annotator's final output)
     """
+
     def parse_col(val):
         if pd.isna(val) or not str(val).strip() or str(val).strip() == 'nan':
             return []
@@ -354,48 +363,48 @@ def _compute_annotation_metrics(df, vector):
 
     col_map = {
         "Keywords": {
-            "pred":       "orig_kw_ids",
-            "init_gold":  "gold_kw_ids",
-            "mod_gold":   ["kw_kept_ids"],
-            "prefix":     "kw",
+            "pred": "orig_kw_ids",
+            "init_gold": "gold_kw_ids",
+            "mod_gold": ["kw_kept_ids"],
+            "prefix": "kw",
         },
         "Judicial Fields": {
-            "pred":       "orig_field_ids",
-            "init_gold":  "gold_field_ids",
-            "mod_gold":   ["field_kept_ids", "field_miss_agreed_ids"],
-            "prefix":     "field",
+            "pred": "orig_field_ids",
+            "init_gold": "gold_field_ids",
+            "mod_gold": ["field_kept_ids", "field_miss_agreed_ids"],
+            "prefix": "field",
         },
         "Index Terms": {
-            "pred":       "orig_index_terms",
-            "init_gold":  "gold_index_terms",
-            "mod_gold":   ["index_kept_terms", "index_miss_agreed_terms"],
-            "prefix":     "index",
+            "pred": "orig_index_terms",
+            "init_gold": "gold_index_terms",
+            "mod_gold": ["index_kept_terms", "index_miss_agreed_terms"],
+            "prefix": "index",
         },
     }[vector]
 
     rows = []
     for _, r in df.iterrows():
-        pred      = parse_col(r.get(col_map["pred"], ""))
+        pred = parse_col(r.get(col_map["pred"], ""))
         init_gold = parse_col(r.get(col_map["init_gold"], ""))
-        mod_gold  = sum([parse_col(r.get(c, "")) for c in col_map["mod_gold"]], [])
+        mod_gold = sum([parse_col(r.get(c, "")) for c in col_map["mod_gold"]], [])
 
         if not init_gold and not pred:
             continue
 
         op, or_, oj = compute_sample_metrics(init_gold, pred)
-        mp, mr, mj  = compute_sample_metrics(mod_gold,  pred)
+        mp, mr, mj = compute_sample_metrics(mod_gold, pred)
         p = col_map["prefix"]
         rows.append({
-            "Model":              r.get('_sheet', ''),
-            "ref_id":             r.get('ref_id', ''),
-            "group":              r.get('group', ''),
-            "name":               r.get('name', ''),
-            f"{p}_orig_p":        round(op, 3),
-            f"{p}_mod_p":         round(mp, 3),
-            f"{p}_orig_r":        round(or_, 3),
-            f"{p}_mod_r":         round(mr, 3),
-            f"{p}_orig_j":        round(oj, 3),
-            f"{p}_mod_j":         round(mj, 3),
+            "Model": r.get('_sheet', ''),
+            "ref_id": r.get('ref_id', ''),
+            "group": r.get('group', ''),
+            "name": r.get('name', ''),
+            f"{p}_orig_p": round(op, 3),
+            f"{p}_mod_p": round(mp, 3),
+            f"{p}_orig_r": round(or_, 3),
+            f"{p}_mod_r": round(mr, 3),
+            f"{p}_orig_j": round(oj, 3),
+            f"{p}_mod_j": round(mj, 3),
         })
 
     return pd.DataFrame(rows)
@@ -660,7 +669,8 @@ def _load_models_data_cached(results_dir, json_files):
                 data = json.load(f)
             all_models_data[fn] = data
             for item in data:
-                rid = item.get('ref_id')
+                # rid = item.get('ref_id')
+                rid = item.get('name')
                 if rid is not None:
                     rid_key = str(rid)
                     models_by_ref.setdefault(rid_key, set()).add(fn)
@@ -756,6 +766,7 @@ def get_cached_metrics(results_dir, gold_key, pred_key):
     json_files = tuple(sorted([f for f in os.listdir(results_dir) if f.endswith('.json')]))
     return _compute_metrics_cached(results_dir, json_files, gold_key, pred_key)
 
+
 @st.cache_data
 def _compute_metrics_cached(results_dir, json_files, gold_key, pred_key):
     """Heavy lifting for metrics, cached based on the exact list of files."""
@@ -828,8 +839,8 @@ def load_annotated_data_from_sheet(sheet_name, current_id, result, original_row)
         # Standard string matching without clean_id
         match_mask = (
                 (df['results_filename'].astype(str) == target_filename) &
-                (df['name'].astype(str) == target_name) &
-                (df['ref_id'].astype(str) == target_ref)
+                (df['name'].astype(str) == target_name)
+            # & (df['ref_id'].astype(str) == target_ref)
         )
 
         matching_rows = df[match_mask]
@@ -864,7 +875,8 @@ def load_annotated_data_from_sheet(sheet_name, current_id, result, original_row)
         #    so we can set each checkbox to exactly the right state.
         import unicodedata as _ud
 
-        def _norm(s): return _ud.normalize('NFC', str(s).strip().lower())
+        def _norm(s):
+            return _ud.normalize('NFC', str(s).strip().lower())
 
         pred_set = set(_norm(m) for m in result.get('matched_ids', []))
         gold_kw = [g.strip() for g in str(original_row.get('KW Ids', '')).split(',') if g.strip()]
@@ -1192,7 +1204,6 @@ def main():
     active_file = st.session_state.input_file_basename
     result = all_models_data[active_file][st.session_state.current_index]
 
-
     # Extract text content and language
     language_val = result.get('original_row', {}).get('Language', '')
     source_text_content = result.get('text', '')
@@ -1243,9 +1254,9 @@ def main():
                 if is_w_en and not sheet_name.startswith("w_en"):
                     sheet_name = f"w_en_{sheet_name}"
                 success = load_annotated_data_from_sheet(sheet_name,
-                                               current_id,
-                                               result,
-                                               original_row)
+                                                         current_id,
+                                                         result,
+                                                         original_row)
                 if success:
                     st.rerun()
 
@@ -1635,7 +1646,8 @@ def save_results():
 
         # Keywords: pred = orig_kw_ids (unchanged), updated gold = kw_kept_ids
         ignore_kws = [str(k).strip().lower() for k in ann.get('dup_keywords', [])]
-        add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], ann['kw_kept_ids'], 'kw', ignore_list=ignore_kws)
+        add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], ann['kw_kept_ids'], 'kw',
+                           ignore_list=ignore_kws)
 
         # Fields: pred = orig_field_ids, updated gold = kept + agreed missed
         f_updated_gold = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
@@ -1689,8 +1701,6 @@ def save_results():
     if w_en and not sheet_name.startswith("w_en"):
         sheet_name = "w_en_" + sheet_name
 
-
-
     with st.spinner('Syncing with Google Sheets...'):
         try:
             if 'conn' not in st.session_state:
@@ -1714,7 +1724,7 @@ def save_results():
 
             # 3. Write back the FULL dataset
             st.session_state.conn.update(worksheet=sheet_name, data=combined_df)
-            
+
             # Invalidate custom cache so subsequent loads fetch fresh data
             if 'sheet_cache' in st.session_state and sheet_name in st.session_state.sheet_cache:
                 del st.session_state.sheet_cache[sheet_name]

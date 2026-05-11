@@ -170,9 +170,9 @@ def process_sheet(sheet_name: str, lang_map: dict) -> pd.DataFrame:
     df = load_and_deduplicate(sheet_name)
 
     names = sorted(df["name"].dropna().astype(str).tolist())
-    print(f"  [{sheet_name}] {len(names)} unique names:")
-    for n in names:
-        print(f"    {n}")
+    # print(f"  [{sheet_name}] {len(names)} unique names:")
+    # for n in names:
+    #     print(f"    {n}")
 
     df["language"] = df["name"].map(lang_map).fillna("Unknown")
 
