@@ -256,12 +256,14 @@ def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
     gold_fi: dict[str, set] = {}
     gold_ix: dict[str, set] = {}
     ref_text: dict[str, str] = {}
+    has_en_translation: set[str] = set()
 
     all_sheets = [s for sheets in MODEL_SHEETS.values() for s in sheets]
     for sheet in all_sheets:
         df = pd.read_excel(excel_path, sheet_name=sheet)
         df["name"] = df["name"].str.strip()
         df = df.drop_duplicates(subset="name", keep="last")
+        is_en_sheet = sheet.startswith("w_en_")
         for _, row in df.iterrows():
             ref_id = row["name"]
             if pd.isna(ref_id):
@@ -271,6 +273,8 @@ def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
             gold_ix[ref_id] = gold_ix.get(ref_id, set()) | _safe_set(row["index_kept_terms"]) | _safe_set(row["index_miss_agreed_terms"])
             if ref_id not in ref_text and pd.notna(row.get("text")):
                 ref_text[ref_id] = str(row["text"])
+            if is_en_sheet:
+                has_en_translation.add(ref_id)
 
     covered = set(gold_kw.keys())
 
@@ -284,11 +288,13 @@ def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
         if pd.isna(ref_id) or ref_id not in covered:
             continue
         records.append({
-            "ref_id":            ref_id,
-            "text":              ref_text.get(ref_id, ""),
-            "new_gold_keywords": resolve(gold_kw.get(ref_id, set()), kw_names),
-            "new_gold_fields":   resolve(gold_fi.get(ref_id, set()), fi_names),
-            "new_gold_index":    ", ".join(sorted(gold_ix.get(ref_id, set()))),
+            "ref_id":                  ref_id,
+            "text":                    ref_text.get(ref_id, ""),
+            "language":                row.get("Language", ""),
+            "has_english_translation": ref_id in has_en_translation,
+            "new_gold_keywords":       resolve(gold_kw.get(ref_id, set()), kw_names),
+            "new_gold_fields":         resolve(gold_fi.get(ref_id, set()), fi_names),
+            "new_gold_index":          ", ".join(sorted(gold_ix.get(ref_id, set()))),
         })
 
     return pd.DataFrame(records)
