@@ -255,6 +255,7 @@ def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
     gold_kw: dict[str, set] = {}
     gold_fi: dict[str, set] = {}
     gold_ix: dict[str, set] = {}
+    gold_kw_new: dict[str, set] = {}
     ref_text: dict[str, str] = {}
     has_en_translation: set[str] = set()
 
@@ -271,6 +272,7 @@ def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
             gold_kw[ref_id] = gold_kw.get(ref_id, set()) | _safe_set(row["kw_kept_ids"])
             gold_fi[ref_id] = gold_fi.get(ref_id, set()) | _safe_set(row["field_kept_ids"]) | _safe_set(row["field_miss_agreed_ids"])
             gold_ix[ref_id] = gold_ix.get(ref_id, set()) | _safe_set(row["index_kept_terms"]) | _safe_set(row["index_miss_agreed_terms"])
+            gold_kw_new[ref_id] = gold_kw_new.get(ref_id, set()) | _safe_set(row.get("kw_accepted_new"))
             if ref_id not in ref_text and pd.notna(row.get("text")):
                 ref_text[ref_id] = str(row["text"])
             if is_en_sheet:
@@ -291,10 +293,12 @@ def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
             "ref_id":                  ref_id,
             "text":                    ref_text.get(ref_id, ""),
             "language":                row.get("Language", ""),
+            "english":                 row.get("English", ""),
             "has_english_translation": ref_id in has_en_translation,
             "new_gold_keywords":       resolve(gold_kw.get(ref_id, set()), kw_names),
             "new_gold_fields":         resolve(gold_fi.get(ref_id, set()), fi_names),
             "new_gold_index":          ", ".join(sorted(gold_ix.get(ref_id, set()))),
+            "new_keyword_suggestions": ", ".join(sorted(gold_kw_new.get(ref_id, set()))),
         })
 
     return pd.DataFrame(records)
