@@ -669,8 +669,7 @@ def _load_models_data_cached(results_dir, json_files):
                 data = json.load(f)
             all_models_data[fn] = data
             for item in data:
-                # rid = item.get('ref_id')
-                rid = item.get('name')
+                rid = item.get('ref_id')
                 if rid is not None:
                     rid_key = str(rid)
                     models_by_ref.setdefault(rid_key, set()).add(fn)
