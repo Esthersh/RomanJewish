@@ -1,0 +1,730 @@
+[
+  {
+    "ref_id": "000200330008000100000000",
+    "source_id": "2",
+    "group": "Rabbinic",
+    "name": "Mishnah Bava batra 8:1",
+    "text": "יש נוחלין ומנחילין, ויש נוחלין ולא מנחילין, מנחילין ולא נוחלין, לא נוחלין ולא מנחילין. ואלו נוחלין ומנחילין, האב את הבנים והבנים את האב והאחין מן האב, נוחלין ומנחילין. האיש את אמו והאיש את אשתו, ובני אחיות, נוחלין ולא מנחילין. האשה את בניה והאשה את בעלה ואחי האם, מנחילין ולא נוחלין. והאחים מן האם, לא נוחלין ולא מנחילין:",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Mishnah, ΒΒ",
+      "Language": "Hebrew",
+      "SourceID": 2,
+      "Level1 Id": 33,
+      "Level2 Id": 8,
+      "Level3 Id": 1.0,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "There are those who receive inheritance and transmit inheritance;\nand there are those who receive inheritance but do not transmit inheritance;\ntransmit inheritance but do not receive inheritance;\nneither receive inheritance nor transmit inheritance.\nThe following receive inheritance and transmit inheritance:\na father vis-à-vis his sons;\nsons vis-à-vis their father;\nbrothers of the same father [vis-à-vis each other]—\nthese receive inheritance and transmit inheritance.\nA man from his mother;\na man from his wife;\nand the sons of sisters—\nthese receive inheritance but do not transmit inheritance.\nA woman to her sons;\nand a woman to her husband;\nand a mother’s brothers—\nthese transmit inheritance but do not receive inheritance. And maternal brothers—\nthese neither receive inheritance nor transmit inheritance.",
+      "Text": "יש נוחלין ומנחילין, ויש נוחלין ולא מנחילין, מנחילין ולא נוחלין, לא נוחלין ולא מנחילין. ואלו נוחלין ומנחילין, האב את הבנים והבנים את האב והאחין מן האב, נוחלין ומנחילין. האיש את אמו והאיש את אשתו, ובני אחיות, נוחלין ולא מנחילין. האשה את בניה והאשה את בעלה ואחי האם, מנחילין ולא נוחלין. והאחים מן האם, לא נוחלין ולא מנחילין:",
+      "context level": "Level2",
+      "context text": "יש נוחלין ומנחילין, ויש נוחלין ולא מנחילין, מנחילין ולא נוחלין, לא נוחלין ולא מנחילין. ואלו נוחלין ומנחילין, האב את הבנים והבנים את האב והאחין מן האב, נוחלין ומנחילין. האיש את אמו והאיש את אשתו, ובני אחיות, נוחלין ולא מנחילין. האשה את בניה והאשה את בעלה ואחי האם, מנחילין ולא נוחלין. והאחים מן האם, לא נוחלין ולא מנחילין:\nסדר נחלות כך הוא, (במדבר כז) איש כי ימות ובן אין לו, והעברתם את נחלתו לבתו, בן קודם לבת, וכל יוצאי ירכו של בן קודמין לבת. בת קודמת לאחין. יוצאי ירכה של בת, קודמין לאחין. אחין קודמין לאחי האב. יוצאי ירכן של אחין, קודמין לאחי האב. זה הכלל, כל הקודם בנחלה, יוצאי ירכו קודמין. והאב קודם לכל יוצאי ירכו:\nבנות צלפחד נטלו שלשה חלקים בנחלה. חלק אביהן שהיה עם יוצאי מצרים, וחלקו עם אחיו בנכסי חפר. ושהיה בכור נוטל שני חלקים:\nאחד הבן ואחד הבת בנחלה, אלא שהבן נוטל פי שנים בנכסי האב ואינו נוטל פי שנים בנכסי האם. והבנות נזונות מנכסי האב ואינן נזונות מנכסי האם:\nהאומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:\nהאומר זה בני, נאמן. זה אחי, אינו נאמן ונוטל עמו בחלקו. מת, יחזרו נכסים למקומן. נפלו לו נכסים ממקום אחר, יירשו אחיו עמו. מי שמת ונמצאת דיתיקי קשורה על ירכו, הרי זו אינה כלום. זכה בה לאחר, בין מן היורשין בין שאינו מן היורשין, דבריו קימין:\nהכותב נכסיו לבניו, צריך שיכתב מהיום ולאחר מיתה, דברי רבי יהודה. רבי יוסי אומר, אינו צריך. הכותב נכסיו לבנו לאחר מותו, האב אינו יכול למכר, מפני שהן כתובין לבן, והבן אינו יכול למכר, מפני שהן ברשות האב. מכר האב, מכורין עד שימות. מכר הבן, אין ללוקח בהן כלום עד שימות האב. האב תולש ומאכיל לכל מי שירצה. ומה שהניח תלוש, הרי הוא של יורשין. הניח בנים גדולים וקטנים, אין הגדולים מתפרנסים על הקטנים ולא הקטנים נזונין על הגדולים, אלא חולקין בשוה. נשאו הגדולים, ישאו הקטנים. ואם אמרו קטנים הרי אנו נושאים כדרך שנשאתם אתם, אין שומעין להם, אלא מה שנתן להם אביהם נתן:\nהניח בנות גדולות וקטנות, אין הגדולות מתפרנסות על הקטנות ולא הקטנות נזונות על הגדולות, אלא חולקות בשוה. נשאו גדולות, ישאו קטנות. ואם אמרו קטנות, הרי אנו נושאות כדרך שנשאתם אתם, אין שומעין להן. זה חמר בבנות מבבנים, שהבנות נזונות על הבנים ואין נזונות על הבנות:",
+      "ref Code": "000200330008000100000000",
+      "Reference": "Mishnah Bava batra 8:1",
+      "Calculated refCode": "000200330008000100000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "221",
+      "243",
+      "333",
+      "321",
+      "231"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "78",
+      "31"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "נוחלין",
+      "ומנחילין,",
+      "נוחלין",
+      "מנחילין,",
+      "מנחילין"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "000300330007000100000000",
+    "source_id": "3",
+    "group": "Rabbinic",
+    "name": "Tosefta Bava Batra 7:1",
+    "text": "כל שהוא לפנים מחבירו הוא קודם את חבירו. ונחלה משמשת והולכת ועולה, אפי' עד ראובן. בן האחין זה את זה, והאחיות זו את זו, האחין את האחיות, והאחיות את האחין, נוחלין ומנחילין. ממזר מוריש את קרוביו. גוי ועבד הבאו על בת ישראל אפי' חזר הגוי ונתגייר, עבד ונשתחרר, נכסיו כנכסי הגר וכנכסי עבד משוחרר. כל הקודם בהן זכה.",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Tosefta,ΒΒ",
+      "Language": "Hebrew",
+      "SourceID": 3,
+      "Level1 Id": 33,
+      "Level2 Id": 7,
+      "Level3 Id": 1.0,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "Whoever is closer [in relationship] than his fellow takes precedence over his fellow. And an inheritance goes on upward, even to Reuben [that is, the ultimate progenitor of the tribe]. And brothers so far as one another are concerned, sisters so far as one another are concerned, brothers so far as the sisters are concerned, and sisters so far as the brothers are concerned, both inherit and bequeath A mamzer causes his relatives to inherit. A gentile and a slave who had intercourse with an Israelite girl, even though thereafter the gentile went and converted, the slave went and was emancipated. his estate is in the status of the estate of a proselyte, or his estate is in the status of a freed slave. So whoever acquired possession of them first gains title to them.",
+      "Text": "כל שהוא לפנים מחבירו הוא קודם את חבירו. ונחלה משמשת והולכת ועולה, אפי' עד ראובן. בן האחין זה את זה, והאחיות זו את זו, האחין את האחיות, והאחיות את האחין, נוחלין ומנחילין. ממזר מוריש את קרוביו. גוי ועבד הבאו על בת ישראל אפי' חזר הגוי ונתגייר, עבד ונשתחרר, נכסיו כנכסי הגר וכנכסי עבד משוחרר. כל הקודם בהן זכה.",
+      "context level": "Level2",
+      "context text": "כל שהוא לפנים מחבירו הוא קודם את חבירו. ונחלה משמשת והולכת ועולה, אפי' עד ראובן. בן האחין זה את זה, והאחיות זו את זו, האחין את האחיות, והאחיות את האחין, נוחלין ומנחילין. ממזר מוריש את קרוביו. גוי ועבד הבאו על בת ישראל אפי' חזר הגוי ונתגייר, עבד ונשתחרר, נכסיו כנכסי הגר וכנכסי עבד משוחרר. כל הקודם בהן זכה.\nנאמנת חיה לומר זה יצא ראשון. אימתי, בזמן שאין שם ערער, אבל יש שם ערער אינה נאמנת. ר' לעזר או' אם הוחזקה על עמדה נאמנת, ואם לאו, אינה נאמנת.\nהיו מוחזקין בו שהוא בכור, ובשעת מתנה אמ' אינו בכור, אינו נאמן. היו מוחזקין בו שאינו בכור, ובשעת מתנה אמ' בכור הוא, נאמן. היו מוחזקין בו שהוא בכור, ובשעת מיתה אמ' בכור הוא, נאמן. היו מוחזקין בו שהוא בנו, ובשעת מיתתו אמ' בני הוא, נאמן. היו מוחזקין בו שהוא בנו, ובשעת מיתתו אמ' אינו בני, אינו נאמן. שאין בנו, ובשעת מיתתו אמ' בנו הוא, נאמן. היו מוחזקין בו שהוא בנו, ובשעת מיתתו אמ' אחי הוא, אינו נאמן. שהוא אחיו, ובשעת מיתתו אמ' בני הוא, נאמן. היו מוחזקין בו שהוא בנו, ובשעת מיתתו אמ' עבדו הוא, אין נאמן. שהוא עבדו, ובשעת מיתה אמ' בנו הוא, נאמן. היה עומד בין המוכסין ואמ' בני הוא, וחזר ואמ' עבדי הוא, נאמן. עבדי הוא, וחזר ואמ' בני הוא, אין נאמן.\nאין הבכור נוטל פי שנים בשבח שהשביחו נכסים לאחר מיתת אביהן. ר' או' אומ' אני הבכור נוטל פי שנים בשבח שהשביחו נכסים לאחר מיתת אביהן, שאף שלו השביח בשלהן. כיצד, היתה לו בהמה מוחכרת, ומושכרת, אצל אחרים, ופרה רועה באפר, הבכור נוטל פי שנים. ואין נוטל פי שנים בזרוע ובלחיים ובקיבה.\nר' או' כל דבר שלא פילפלו בו יתומין לאחר מיתת אביהן הבכור נוטל פי שנים. וחכמים או' אין נוטל פי שנים אלא בכל אשר ימצא לו. אבל בנה בניין, נטע נטיעות, הכל שוין שנוטל פי שנים.\nכיצד נוטל פי שנים, ירשו שטרי חוב, הבכור נוטל פי שנים. יצאו עליו שטרי חוב, נותן פי שנים, ואם אמ' אי איפשי שלא ליטול ושלא ליתן, הרשות בידו.\nכיצד אין נוטל בראוי כבמוחזק, מת אביו בחיי אביו נוטל פי שנים מנכסי אביו, ואין נוטל פי שנים מנכסי אבי אביו. ואם היה אביו בכור, אף הוא נוטל פי שנים מנכסי אבי אביו.\nבנות צלפחד נטלו שלשה חלקין בנחלה, חלק אביהן שהיה מיוצאי מצרים. ר' ליעזר בן יעקב או' אף חלק אחי אביהן, לפי שלא ניתנה הארץ אלא ליוצאי מצרים, ולא נתחלקה אלא לעומדים בערבות מואב, ירש השבט את שבטו וחזר השבט וירש את הראוי לו.\nכיצד, שני אחין שהיו מיוצאי מצרים, לאחד יש לו תשעה בנים ולאחד יש לו בן אחד, ולפניהם בית חמשת כורין, תשעה נטלו בית לתך לתך, ואחד נטל בית לתך, החזירום לאבתיהם, חזרו אבות והורישו את הבנים, תשעה נטלו מחצה, ואחד נטל מחצה. ר' שמעון בן לעזר אומ' אף נתחלקה הארץ ליוצאי מצרים, כיצד, היה מן היוצאין ממצרים ומן העומדין בערבות מואב נוטל שני חלקין, מיוצאי מצרים ולא מן העומדין בערבות מואב, ולא מיוצאי מצרים נוטל חלק אחד. המתלוננים, והמרגלים, ועדתו של קרח, לא נטלו חלק בארץ, אבל הבנים ירשו בזכות אבות אבותיהן, ובזכות אמות אמותיהן. וכן היה ר' שמעון בן לעזר או' יהושע וכלב נטלו שלשה חלקים בנחלה, שהן מיוצאי מצרים, ומן העומדים בערבות מואב, ושנטלו חלקן של מרגלים.\nוחלק של מרגלים נטלו יהושע וכלב, חלק המלוננים ועדתו של קרח נפל לאמצע, והבנים נחלו לעצמן. וכשם שהבן קודם את הבת בנכסי האב, כך קודם הבן את הבת בנכסי האם. ר' אלעזר בר' יוסי או' משם ר' זכריה בן הקצב, וכן היה ר' שמעון בן יהודה איש כפר איבוס או' משום ר' שמעון, אחד הבן ואחד הבת שוין בנכסי האם. האו' יחלקו בני נכסיי, והיה שם בכור, אם זכו בנכסים בחיי האב אין נוטל פי שנים, ואם לאו, נוטל פי שנים.\nהאומ' תנו מאתים דינר לפלני בני בכור כראוי לו, נוטל, ונוטל פי שנים. בבכורתו, ידו על העליונה, רצה נוטלן ורצה נוטל פי שנים.\nהאומ' תנו שדה פלנית לפלני' אשתי בראוי לה, נוטלתה, ונוטלת כתובתה. בכתובתה, ידה על העליונה, רוצה נוטלתה, רוצה נוטלת כתובתה.\nהאומר תנו מאתים דינר לפל' בעל חובי בחובו, בראוי לו, נוטלו, ונוטל עוד מאתים דינר. בחובו, אין לו אלא חובו.\nהיתה לו שדה עשויה הפותיקי לאשה בכתובתה, ולבעל חוב בחובו, ואמ' תנו שדה פלנית לפל' אשתי בכתובתה, ולפל' בעל חובי בחובו, נתקבלו, וידן על העליונה.\nהאומ' תנו חלק לפל' בנכסי יירש עם הבנים. בבכורה אין נוטל פי שנים. האומ' יירשני פל' לא אמ' כלום. תנו נכסיי לפל', דבריו קיימין.\nכתב ירושה מלמטה ומתנה מלמעלה, ירושה מלמעלה ומתנה מלמטה, ירושה מכן ומכן ומתנה באמצע, הואיל והזכיר שום מתנה, דבריו קיימין.\nר' יוחנן בן ברוקה אומ' אם אמ' על מי שראוי לו ליורשו, דבריו קיימין, על מי שאינו ראוי לו ליורשו, אין דבריו קיימין. כיצד, אמ' על בת הבן בין הבנים ועל בן הבת בין הבנות, דבריו קיימין. על הבת בין הבנים ועל האח בין הבנות, לא אמ' כלום.",
+      "ref Code": "000300330007000100000000",
+      "Reference": "Tosefta Bava Batra 7:1",
+      "Calculated refCode": "000300330007000100000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "78",
+      "99",
+      "337",
+      "89",
+      "80"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "99",
+      "100"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "שהוא",
+      "לפנים",
+      "מחבירו",
+      "קודם",
+      "חבירו."
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200001000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 1",
+    "text": "Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 1,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "A testament is the legal statement of our will, solemnly made in order that it may become operative after our death.",
+      "Text": "Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200001000000000000",
+      "Reference": "Ulp. 20, 1",
+      "Calculated refCode": "005400200001000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "177",
+      "339",
+      "91",
+      "184",
+      "42"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "100",
+      "123"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Testamentum",
+      "mentis",
+      "nostrae",
+      "iusta",
+      "contestatio"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200002000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 2",
+    "text": "Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 2,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "There were formerly three kinds of wills, one made in the presence of the Comitia, one made when about to enter into battle, and one made by means of a piece of bronze and a balance. The two first having been abolished, at present the only one in use is that made by means of a piece of bronze and a balance, that is to say, by a fictitious sale. In the execution of this kind of a will a balance holder and a purchaser of an estate are present, as well as not less than five witnesses who have testamentary capacity.\n",
+      "Text": "Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200002000000000000",
+      "Reference": "Ulp. 20, 2",
+      "Calculated refCode": "005400200002000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "77",
+      "99",
+      "213",
+      "284",
+      "181"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "41",
+      "91"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Testamentorum",
+      "genera",
+      "fuerunt",
+      "tria,",
+      "unum,"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200003000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 3",
+    "text": "Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 3,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "No one who is under the control of the testator or of the purchaser of the estate can act either as a witness or balance-holder; as the sale of the estate takes place between the testator and the purchaser, and for this reason members of their households cannot act as witnesses.",
+      "Text": "Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200003000000000000",
+      "Reference": "Ulp. 20, 3",
+      "Calculated refCode": "005400200003000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "109",
+      "134",
+      "80",
+      "295",
+      "276"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "85",
+      "76"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "potestate",
+      "testatoris",
+      "familiae",
+      "emptoris,",
+      "testis"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200004000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 4",
+    "text": "Filio familiam emente pater eius testis esse non potest.\r",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 4,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": " If a son is the purchaser his father cannot be a witness.",
+      "Text": "Filio familiam emente pater eius testis esse non potest.\r",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200004000000000000",
+      "Reference": "Ulp. 20, 4",
+      "Calculated refCode": "005400200004000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "219",
+      "78",
+      "177",
+      "62",
+      "278"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "60",
+      "54"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Filio",
+      "familiam",
+      "emente",
+      "pater",
+      "eius"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200005000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 5",
+    "text": "Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 5,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "Of two brothers who are under the control of the same father, one cannot act as purchaser and the other as a witness; as what one of them receives by the sale he acquires for his father, and a son of the latter should not be a witness to this transaction.",
+      "Text": "Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200005000000000000",
+      "Reference": "Ulp. 20, 5",
+      "Calculated refCode": "005400200005000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "253",
+      "258",
+      "5",
+      "56",
+      "201"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "114",
+      "79"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "duobus",
+      "fratribus,",
+      "eiusdem",
+      "patris",
+      "potestate"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200006000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 6",
+    "text": "Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 6,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "A father, however, and a son who is under his control, as well as two brothers who are under the control of the same father, can both be witnesses; or one can be a witness, and the other the balance-holder, when a third party is the purchaser of the estate; as no harm results where several witnesses are taken from the same household in a transaction with a stranger.\n\n",
+      "Text": "Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200006000000000000",
+      "Reference": "Ulp. 20, 6",
+      "Calculated refCode": "005400200006000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "271",
+      "262",
+      "353",
+      "199",
+      "287"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "46",
+      "120"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Pater",
+      "filius",
+      "potestate",
+      "eius",
+      "est,"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200007000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 7",
+    "text": "Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 7,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "A person who is deaf, dumb, or insane, a minor, or a woman cannot act either as purchaser or balance-holder.\n\n",
+      "Text": "Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200007000000000000",
+      "Reference": "Ulp. 20, 7",
+      "Calculated refCode": "005400200007000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "26",
+      "20",
+      "313",
+      "312",
+      "323"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "26",
+      "84"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Mutus,",
+      "surdus,",
+      "furiosus,",
+      "pupillus,",
+      "femina"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200008000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 8",
+    "text": "Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 8,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "A Junian Latin may act either as purchaser, witness, or balance-holder, as he has no right to make a will",
+      "Text": "Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200008000000000000",
+      "Reference": "Ulp. 20, 8",
+      "Calculated refCode": "005400200008000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "120",
+      "262",
+      "91",
+      "52",
+      "62"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "91",
+      "11"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Latinus",
+      "Iunianus",
+      "familiae",
+      "emptor",
+      "testis"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200009000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 9",
+    "text": "In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\". Quae nuncupatio et \"testatio\" \r\nvocatur.",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 9,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "In a will made by means of a piece of bronze and a balance, two things take place, the sale of the estate, and the declaration with reference to the will. The declaration with reference to the will is made in the following manner; the testator holding the will in his hands says: \"Whatever is written in these waxen tablets I give, bequeath, and declare to be my will, and therefore do you, Roman citizens, give your testimony.\" This verbal statement is also called an attestation.\n\n",
+      "Text": "In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\". Quae nuncupatio et \"testatio\" \r\nvocatur.",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200009000000000000",
+      "Reference": "Ulp. 20, 9",
+      "Calculated refCode": "005400200009000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "22",
+      "196",
+      "70",
+      "171",
+      "207"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "21",
+      "97"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "testamento,",
+      "quod",
+      "libram",
+      "fit,",
+      "duae"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200010000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 10",
+    "text": "Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 10,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "A son under paternal control cannot execute a will as he has nothing of his own of which to make testamentary disposition. The Divine Augustus, however, granted as a military privilege, that a son under paternal control who was a soldier, could make a will disposing of the peculium which he had acquired while in camp.",
+      "Text": "Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200010000000000000",
+      "Reference": "Ulp. 20, 10",
+      "Calculated refCode": "005400200010000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "139",
+      "38",
+      "311",
+      "212",
+      "321"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "86",
+      "12"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Filius",
+      "familiae",
+      "testamentum",
+      "facere",
+      "potest,"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200011000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 11",
+    "text": "Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 11,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "Anyone who is uncertain as to his condition, for instance, when he is ignorant that he is his own master because his father died while absent on a journey, cannot make a will.",
+      "Text": "Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200011000000000000",
+      "Reference": "Ulp. 20, 11",
+      "Calculated refCode": "005400200011000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "62",
+      "220",
+      "98",
+      "284",
+      "189"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "53",
+      "32"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "statu",
+      "incertus",
+      "factus,",
+      "quod",
+      "patre"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  },
+  {
+    "ref_id": "005400200012000000000000",
+    "source_id": "54",
+    "group": "Rabbinic",
+    "name": "Ulp. 20, 12",
+    "text": "Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.",
+    "original_row": {
+      "Group": "Rabbinic",
+      "Name": "Ulpianus",
+      "Language": "Latin",
+      "SourceID": 54,
+      "Level1 Id": 20,
+      "Level2 Id": 12,
+      "Level3 Id": null,
+      "Level4 Id": null,
+      "Analyzed [y/n]": "n",
+      "English": "A person under the age of puberty, although he may not be subject to parental authority, cannot make a will; as he has not yet full mental capacity.\n\n",
+      "Text": "Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.",
+      "context level": "Level 1",
+      "context text": "\"Testamentum est mentis nostrae iusta contestatio in id sollemniter \nfacta, ut post mortem nostram valeat.\n\"\n\"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, \r\nquod in procinctu, tertium, quod per aes et libram appellatum est. His \r\nduobus testamentis abolitis hodie solum in usu est, quod per aes et \r\nlibram fit, id est per mancipationem imaginariam. In quo testamento \r\nlibripens adhibetur et familiae emptor et non minus quam quinque testes, \r\ncum quibus testamenti factio est.\"\n\"Qui in potestate testatoris est aut familiae emptoris, testis aut \r\nlibripens adhiberi non potest, quoniam familiae mancipatio inter \r\ntestatorem et familiae emptorem fit, et ob id domestici testes adhibendi \r\nnon sunt.\"\nFilio familiam emente pater eius testis esse non potest.\r\n\"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter \r\nfamiliae emptor, alter testis esse non potest, quoniam quod unus ex his \r\nmancipio accipit, adquirit patri, cui filius suus testis esse non debet.\r\n\"\n\"Pater et filius +  qui in potestate eius est, item duo fratres, qui in \r\neiusdem patris potestate sunt, testes utrique, vel alter testis, alter \r\nlibripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una \r\ndomo plures testes alieno negotio adhiberi.\"\n\"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, \r\nneque testis libripensve fieri potest.\"\n\"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, \r\nquoniam cum eo testamenti factio est.\"\n\"In testamento, quod per aes et libram fit, duae res aguntur, familiae \r\nmancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc \r\nmodum: tabulas testamenti testator tenens ita dicit: \"\"haec ut in his \r\ntabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, \r\nQuirites, testimonium perhibetote\"\". Quae nuncupatio et \"\"testatio\"\" \r\nvocatur.\"\n\"Filius familiae testamentum facere non potest, quoniam nihil suum habet, \r\nut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut \r\nfilius familiae miles de eo peculio, quod in castris adquisivit, \r\ntestamentum facere possit.\"\n\"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, \r\nse sui iuris esse, testamentum facere non potest.\r\n\"\n\"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam \r\nnondum plenum iudicium animi habet.\"\n\"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, \r\ntestamentum facere non possunt: mutus, quoniam verba nuncupationis loqui \r\nnon potest; surdus, quoniam verba familiae emptoris exaudire non potest; \r\nfuriosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, \r\nquoniam commercium in illi interdictum est, et ob id familiam mancipare \r\nnon potest.\"\n\"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum \r\nfacere non potest: Latinus quidem, quoniam nominatim lege Iunia \r\nprohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi \r\ncivis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, \r\nquoniam nullius certae civitatis civis est, ut secundum leges civitatis \r\nsuae testetur.\"\n\"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore \r\nauctore, donec in tutela sunt.\"\n\"Servus publicus populi Romani partis dimidiae testamenti faciendi habet \r\nius.\"",
+      "ref Code": "005400200012000000000000",
+      "Reference": "Ulp. 20, 12",
+      "Calculated refCode": "005400200012000000000000"
+    },
+    "original_res": {},
+    "matched_ids": [
+      "348",
+      "308",
+      "260",
+      "209",
+      "270"
+    ],
+    "matched_keywords": [],
+    "suggested_kws": [
+      "suggested_term_1",
+      "suggested_term_2"
+    ],
+    "matched_field_ids": [
+      "97",
+      "101"
+    ],
+    "suggested_fields": [],
+    "matched_index_ids": [],
+    "index_terms": [
+      "Inpubes,",
+      "licet",
+      "iuris",
+      "sit,",
+      "facere"
+    ],
+    "origin_file": "data/non_analyzed_fabricated.csv"
+  }
+]

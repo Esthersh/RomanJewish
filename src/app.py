@@ -82,7 +82,12 @@ def create_annotation(result, filename,
                       field_kept_ids, field_miss_ids,
                       index_kept_terms, index_miss_terms,
                       annotator_comments="",
-                      dup_keywords=None):
+                      dup_keywords=None,
+                      kw_fn_ids=None,
+                      user_defined_topics=None,
+                      user_defined_keywords=None,
+                      user_defined_index_terms=None,
+                      is_non_analyzed=False):
     """Creates the annotation dictionary for 3-Vector Review."""
     if dup_keywords is None:
         dup_keywords = []
@@ -130,7 +135,14 @@ def create_annotation(result, filename,
         "index_miss_agreed_terms": index_miss_terms,
         "gold_index_terms": gold_index_terms,
         "annotator_comments": annotator_comments,
-        "dup_keywords": dup_keywords
+        "dup_keywords": dup_keywords,
+
+        # Non-analyzed specific fields
+        "is_non_analyzed": is_non_analyzed,
+        "kw_fn_ids": kw_fn_ids or [],
+        "user_defined_topics": user_defined_topics or [],
+        "user_defined_keywords": user_defined_keywords or [],
+        "user_defined_index_terms": user_defined_index_terms or [],
     }
 
 
@@ -141,7 +153,12 @@ def add_anno(result, filename,
              index_kept_terms, index_miss_terms,
              annotator_comments="",
              dup_keywords=None,
-             next_i=False):
+             next_i=False,
+             kw_fn_ids=None,
+             user_defined_topics=None,
+             user_defined_keywords=None,
+             user_defined_index_terms=None,
+             is_non_analyzed=False):
     """Adds the 3-vector annotation to the session state."""
     annotation = create_annotation(
         result, filename,
@@ -150,7 +167,12 @@ def add_anno(result, filename,
         field_kept_ids, field_miss_ids,
         index_kept_terms, index_miss_terms,
         annotator_comments,
-        dup_keywords
+        dup_keywords,
+        kw_fn_ids=kw_fn_ids,
+        user_defined_topics=user_defined_topics,
+        user_defined_keywords=user_defined_keywords,
+        user_defined_index_terms=user_defined_index_terms,
+        is_non_analyzed=is_non_analyzed,
     )
 
     # Add to the session buffer
@@ -1156,6 +1178,200 @@ def render_keywords_review(result, original_row, kw_map, current_id):
     return intersection_ids, kept_suggestion_ids, agreed_missed_ids, final_new_kws, dup_keywords
 
 
+def render_fields_review_non_analyzed(result, original_row, field_map, all_fields, current_id):
+    """Non-analyzed: col1 = model predictions (all pre-checked), col2 = FN selection, below = free text."""
+    with st.expander("**Judicial Fields Review**", expanded=False):
+        matched_field_ids = result.get('matched_field_ids', [])
+
+        col_f1, col_f2 = st.columns(2)
+
+        with col_f1:
+            st.write("**Suggestions** (Accept/Reject)")
+            field_kept_ids = []
+            if matched_field_ids:
+                for fid in matched_field_ids:
+                    f_obj = field_map.get(str(fid).strip().lower())
+                    label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
+                    c_acc, c_label = st.columns([0.1, 0.9], vertical_alignment="center")
+                    with c_label:
+                        st.markdown(f"""
+                        <div style="padding:10px;margin-bottom:12px;border:1px solid rgba(128,128,128,0.3);
+                            border-radius:8px;background-color:rgba(128,128,128,0.1);color:inherit;
+                            word-wrap:break-word;font-size:14px;">✅ {label}</div>
+                        """, unsafe_allow_html=True)
+                    with c_acc:
+                        acc_key = f"f_pred_{current_id}_{fid}"
+                        if acc_key not in st.session_state:
+                            st.session_state[acc_key] = True
+                        if st.checkbox("", key=acc_key):
+                            field_kept_ids.append(fid)
+            else:
+                st.caption("No model predictions.")
+
+        with col_f2:
+            st.write("**Missed Fields** (False Negatives)")
+            pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
+            available = [f for f in all_fields if str(f.id).strip().lower() not in pred_f_set]
+            option_labels = [f.full_path for f in available]
+            label_to_id = {f.full_path: str(f.id) for f in available}
+            fn_key = f"f_fn_{current_id}"
+            selected = st.multiselect("", option_labels, key=fn_key, label_visibility="collapsed")
+            field_fn_ids = [label_to_id[lbl] for lbl in selected if lbl in label_to_id]
+
+        st.write("**Topics Missing from Hierarchy**")
+        missing_key = f"f_missing_topics_{current_id}"
+        if missing_key not in st.session_state:
+            st.session_state[missing_key] = ""
+        missing_text = st.text_area(
+            "", key=missing_key, label_visibility="collapsed",
+            placeholder="Enter topics not in the hierarchy, one per line"
+        )
+        user_defined_topics = [t.strip() for t in missing_text.splitlines() if t.strip()]
+
+    return field_kept_ids, field_fn_ids, user_defined_topics
+
+
+def render_keywords_review_non_analyzed(result, original_row, kw_map, all_keywords, current_id):
+    """Non-analyzed: col1 = model predictions (all pre-checked), col2 = new suggestions, col3 = FN selection."""
+    with st.expander("**Keywords Review**", expanded=False):
+        matched_ids = result.get('matched_ids', [])
+        suggested_kws = result.get('suggested_kws', [])
+
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.write("**Suggestions** (Accept/Reject)")
+            kw_kept_ids = []
+            if matched_ids:
+                groups = {}
+                for mid in matched_ids:
+                    kw_obj = kw_map.get(str(mid).strip().lower())
+                    cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj, 'full_path') else "Uncategorized"
+                    groups.setdefault(cat, []).append(mid)
+
+                for cat in sorted(groups.keys()):
+                    _, c_header = st.columns([0.1, 0.9], vertical_alignment="center")
+                    with c_header:
+                        st.markdown(f"**{cat}**")
+                    for mid in groups[cat]:
+                        kw_obj = kw_map.get(str(mid).strip().lower())
+                        label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+                        if label.startswith(cat):
+                            label = label[len(cat):].strip()
+                            if label.startswith(">"): label = label[1:].strip()
+                            if not label: label = cat
+                        c_acc, c_label = st.columns([0.1, 0.9], vertical_alignment="center")
+                        with c_label:
+                            st.markdown(f"""
+                            <div style="padding:10px;margin-bottom:12px;border:1px solid rgba(128,128,128,0.3);
+                                border-radius:8px;background-color:rgba(128,128,128,0.1);color:inherit;
+                                word-wrap:break-word;font-size:14px;">✅ {label}</div>
+                            """, unsafe_allow_html=True)
+                        with c_acc:
+                            acc_key = f"kw_pred_{current_id}_{mid}"
+                            if acc_key not in st.session_state:
+                                st.session_state[acc_key] = True
+                            if st.checkbox("", key=acc_key):
+                                kw_kept_ids.append(mid)
+            else:
+                st.caption("No model predictions.")
+
+        with col2:
+            st.write("**New Suggestions** (Accept/Edit)")
+            final_new_kws = []
+            if suggested_kws:
+                for i, skw in enumerate(suggested_kws):
+                    c_acc, c_edit, c_reset = st.columns([0.1, 0.8, 0.1], vertical_alignment="center")
+                    with c_edit:
+                        edit_key = f"kw_new_edit_{current_id}_{i}"
+                        if edit_key not in st.session_state: st.session_state[edit_key] = skw
+                        edited_kw = st.text_input("Edit", key=edit_key, label_visibility="collapsed", help=skw)
+                    with c_reset:
+                        if st.button("", icon=":material/refresh:", key=f"kw_new_reset_{current_id}_{i}",
+                                     help="Reset to original suggestion", use_container_width=True):
+                            st.session_state[edit_key] = skw
+                            st.rerun()
+                    with c_acc:
+                        acc_key = f"kw_new_acc_{current_id}_{i}"
+                        if acc_key not in st.session_state: st.session_state[acc_key] = False
+                        if st.checkbox("", key=acc_key):
+                            final_new_kws.append(edited_kw)
+            else:
+                st.caption("No new suggestions.")
+
+        with col3:
+            st.write("**Missed Keywords** (False Negatives)")
+            pred_kw_set = set(str(mid).strip().lower() for mid in matched_ids)
+            available = [k for k in all_keywords if str(k.id).strip().lower() not in pred_kw_set]
+            option_labels = [f"[{k.id}] {k.full_path}" for k in available]
+            label_to_id = {f"[{k.id}] {k.full_path}": str(k.id) for k in available}
+            fn_key = f"kw_fn_{current_id}"
+            selected = st.multiselect("", option_labels, key=fn_key, label_visibility="collapsed")
+            kw_fn_ids = [label_to_id[lbl] for lbl in selected if lbl in label_to_id]
+
+        st.write("**Keywords Missing from Hierarchy**")
+        missing_key = f"kw_missing_{current_id}"
+        if missing_key not in st.session_state:
+            st.session_state[missing_key] = ""
+        missing_text = st.text_area(
+            "", key=missing_key, label_visibility="collapsed",
+            placeholder="Enter keywords not in the hierarchy, one per line"
+        )
+        user_defined_keywords = [k.strip() for k in missing_text.splitlines() if k.strip()]
+
+    return kw_kept_ids, final_new_kws, kw_fn_ids, user_defined_keywords
+
+
+def render_index_review_non_analyzed(result, original_row, current_id):
+    """Non-analyzed: col1 = model predictions (all pre-checked), col2 = FN free text, below = missing terms."""
+    with st.expander("**Index Terms Review**", expanded=False):
+        pred_index = result.get('index_terms', [])
+
+        col_i1, col_i2 = st.columns(2)
+
+        with col_i1:
+            st.write("**Suggestions** (Accept/Reject)")
+            index_kept_terms = []
+            if pred_index:
+                for term in pred_index:
+                    c_acc, c_label = st.columns([0.1, 0.9], vertical_alignment="center")
+                    with c_label:
+                        st.markdown(f"""
+                        <div style="padding:10px;margin-bottom:12px;border:1px solid rgba(128,128,128,0.3);
+                            border-radius:8px;background-color:rgba(128,128,128,0.1);color:inherit;
+                            word-wrap:break-word;font-size:14px;">✅ {term}</div>
+                        """, unsafe_allow_html=True)
+                    with c_acc:
+                        acc_key = f"i_pred_{current_id}_{term}"
+                        if acc_key not in st.session_state:
+                            st.session_state[acc_key] = True
+                        if st.checkbox("", key=acc_key):
+                            index_kept_terms.append(term)
+            else:
+                st.caption("No model predictions.")
+
+        with col_i2:
+            st.write("**Missed Index Terms** (False Negatives)")
+            fn_key = f"i_fn_{current_id}"
+            if fn_key not in st.session_state:
+                st.session_state[fn_key] = ""
+            fn_text = st.text_area("", key=fn_key, label_visibility="collapsed",
+                                   placeholder="Enter missed index terms, one per line")
+            index_fn_terms = [t.strip() for t in fn_text.splitlines() if t.strip()]
+
+        st.write("**Index Terms Missing from Hierarchy**")
+        missing_key = f"i_missing_{current_id}"
+        if missing_key not in st.session_state:
+            st.session_state[missing_key] = ""
+        missing_text = st.text_area(
+            "", key=missing_key, label_visibility="collapsed",
+            placeholder="Enter index terms not in the hierarchy, one per line"
+        )
+        user_defined_index_terms = [t.strip() for t in missing_text.splitlines() if t.strip()]
+
+    return index_kept_terms, index_fn_terms, user_defined_index_terms
+
+
 def render_index_review(result, original_row, current_id):
     with st.expander("**Index Terms Review**", expanded=False):
         pred_index = result.get('index_terms', [])
@@ -1548,14 +1764,43 @@ def main():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    field_kept_ids, field_miss_agreed_ids, f_intersection = render_fields_review(
-        result, original_row, field_map, current_id)
+    is_non_analyzed = str(original_row.get('Analyzed [y/n]', 'y')).strip().lower() == 'n'
 
-    intersection_ids, kept_suggestion_ids, agreed_missed_ids, final_new_kws, dup_keywords = render_keywords_review(
-        result, original_row, kw_map, current_id)
+    if is_non_analyzed:
+        field_kept_ids, field_fn_ids, user_defined_topics = render_fields_review_non_analyzed(
+            result, original_row, field_map, st.session_state.fields, current_id)
 
-    index_kept_terms, index_miss_agreed_terms, i_intersection = render_index_review(
-        result, original_row, current_id)
+        kw_kept_ids, final_new_kws, kw_fn_ids, user_defined_keywords = render_keywords_review_non_analyzed(
+            result, original_row, kw_map, st.session_state.keywords, current_id)
+
+        index_kept_terms, index_fn_terms, user_defined_index_terms = render_index_review_non_analyzed(
+            result, original_row, current_id)
+
+        dup_keywords = []
+        kw_final_kept = kw_kept_ids
+        f_final_kept = field_kept_ids
+        f_miss = field_fn_ids
+        i_final_kept = index_kept_terms
+        i_miss = index_fn_terms
+    else:
+        field_kept_ids, field_miss_agreed_ids, f_intersection = render_fields_review(
+            result, original_row, field_map, current_id)
+
+        intersection_ids, kept_suggestion_ids, agreed_missed_ids, final_new_kws, dup_keywords = render_keywords_review(
+            result, original_row, kw_map, current_id)
+
+        index_kept_terms, index_miss_agreed_terms, i_intersection = render_index_review(
+            result, original_row, current_id)
+
+        kw_fn_ids = []
+        user_defined_topics = []
+        user_defined_keywords = []
+        user_defined_index_terms = []
+        kw_final_kept = intersection_ids + kept_suggestion_ids + agreed_missed_ids
+        f_final_kept = field_kept_ids + f_intersection
+        f_miss = field_miss_agreed_ids
+        i_final_kept = index_kept_terms + i_intersection
+        i_miss = index_miss_agreed_terms
 
     st.markdown("---")
     st.markdown("<p style='font-size: 16px; margin-bottom: 0px;'>Comments</p>", unsafe_allow_html=True)
@@ -1566,16 +1811,11 @@ def main():
     # Display progress
     st.write(f"Progress: {st.session_state.current_index + 1} / {len(current_results)}")
 
-    # Combine all annotation vectors
-    # kw_manually_added_ids = [k.split("(ID: ")[1].strip(")") for k in manually_added_kws]
-    kw_final_kept = intersection_ids + kept_suggestion_ids + agreed_missed_ids
-
     filename = st.session_state.get('input_file_basename', 'unknown.json')
 
     col_prev, col_skip, col_next, col_save = st.columns([0.15, 0.12, 0.15, 0.58])
     with col_prev:
         if st.button("⬅ Previous", disabled=(st.session_state.current_index == 0)):
-            # If the sample we're leaving was annotated (not skipped), pop the annotation
             if (st.session_state.annotations
                     and st.session_state.current_index - 1 not in st.session_state.skipped_indices):
                 st.session_state.annotations.pop()
@@ -1592,18 +1832,28 @@ def main():
         if st.button("Next Sample"):
             add_anno(result, filename,
                      kw_final_kept, final_new_kws,
-                     field_kept_ids + f_intersection, field_miss_agreed_ids,
-                     index_kept_terms + i_intersection, index_miss_agreed_terms,
-                     annotator_comments, dup_keywords, next_i=True)
+                     f_final_kept, f_miss,
+                     i_final_kept, i_miss,
+                     annotator_comments, dup_keywords, next_i=True,
+                     kw_fn_ids=kw_fn_ids,
+                     user_defined_topics=user_defined_topics,
+                     user_defined_keywords=user_defined_keywords,
+                     user_defined_index_terms=user_defined_index_terms,
+                     is_non_analyzed=is_non_analyzed)
             st.rerun()
 
     with col_save:
         if st.button("Save", type="primary"):
             add_anno(result, filename,
                      kw_final_kept, final_new_kws,
-                     field_kept_ids + f_intersection, field_miss_agreed_ids,
-                     index_kept_terms + i_intersection, index_miss_agreed_terms,
-                     annotator_comments, dup_keywords, next_i=False)
+                     f_final_kept, f_miss,
+                     i_final_kept, i_miss,
+                     annotator_comments, dup_keywords, next_i=False,
+                     kw_fn_ids=kw_fn_ids,
+                     user_defined_topics=user_defined_topics,
+                     user_defined_keywords=user_defined_keywords,
+                     user_defined_index_terms=user_defined_index_terms,
+                     is_non_analyzed=is_non_analyzed)
             save_results()
             st.rerun()
 
