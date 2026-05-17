@@ -1333,7 +1333,7 @@ def render_index_review_non_analyzed(result, original_row, current_id):
             st.write("**Suggestions** (Accept/Reject)")
             index_kept_terms = []
             if pred_index:
-                for term in pred_index:
+                for i, term in enumerate(pred_index):
                     c_acc, c_label = st.columns([0.1, 0.9], vertical_alignment="center")
                     with c_label:
                         st.markdown(f"""
@@ -1342,7 +1342,7 @@ def render_index_review_non_analyzed(result, original_row, current_id):
                             word-wrap:break-word;font-size:14px;">✅ {term}</div>
                         """, unsafe_allow_html=True)
                     with c_acc:
-                        acc_key = f"i_pred_{current_id}_{term}"
+                        acc_key = f"i_pred_{current_id}_{i}_{term}"
                         if acc_key not in st.session_state:
                             st.session_state[acc_key] = True
                         if st.checkbox("", key=acc_key):
