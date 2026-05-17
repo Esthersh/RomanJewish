@@ -67,7 +67,7 @@ def create_merged_from_csv(csv_path, output_dir, keywords_file=None, fields_file
         matched_ids = random.sample(kw_ids, min(5, len(kw_ids))) if kw_ids else []
         matched_field_ids = random.sample(field_ids, min(2, len(field_ids))) if field_ids else []
         index_terms = [w for w in text.split() if len(w) > 3][:5] or ["term_a", "term_b"]
-        suggested_kws = ["suggested_term_1", "suggested_term_2"]
+        suggested_kws = []
 
         original_row = {k: _safe(v) for k, v in row.to_dict().items()}
 
