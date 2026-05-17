@@ -937,6 +937,290 @@ def load_annotated_data_from_sheet(sheet_name, current_id, result, original_row)
         return False
 
 
+def render_fields_review(result, original_row, field_map, current_id):
+    with st.expander("**Judicial Fields Review**", expanded=False):
+        matched_field_ids = result.get('matched_field_ids', [])
+        gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
+        has_gold_f = (
+                gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
+        gold_f_set = set(
+            [g.strip().lower() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
+        pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
+        pred_f_set = set(unicodedata.normalize('NFC', fid) for fid in pred_f_set)
+        gold_f_set = set(unicodedata.normalize('NFC', gid) for gid in gold_f_set)
+
+        f_intersection = sorted(list(pred_f_set & gold_f_set))
+        f_suggestions = sorted(list(pred_f_set - gold_f_set))
+        f_missed = sorted(list(gold_f_set - pred_f_set))
+
+        col_f1, col_f2 = st.columns(2)
+        with col_f1:
+            st.write("**Intersection** (Read-only)")
+            if f_intersection:
+                for fid in f_intersection:
+                    f_obj = field_map.get(str(fid).strip().lower())
+                    label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
+                    st.info(f"✅ {label}")
+            else:
+                st.caption("No intersection.")
+
+        with col_f2:
+            field_kept_ids = render_suggestion_list(
+                suggestions=f_suggestions,
+                current_id=current_id,
+                key_prefix="f_sug",
+                item_map=field_map
+            )
+
+        st.write("**Missed Gold Fields** (Agree/Disagree)")
+        field_miss_agreed_ids = []
+        if f_missed:
+            for fid in f_missed:
+                f_obj = field_map.get(str(fid).strip().lower())
+                label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
+                c_acc, c_label = st.columns([0.03, 0.97], vertical_alignment="center")
+                with c_label:
+                    html_box = f"""
+                    <div style="
+                        padding: 10px;
+                        margin-bottom: 12px;
+                        border: 1px solid rgba(128, 128, 128, 0.3);
+                        border-radius: 8px;
+                        background-color: rgba(128, 128, 128, 0.1);
+                        color: inherit;
+                        word-wrap: break-word;
+                        font-size: 14px;
+                        width: fit-content;
+                    ">
+                        {label}
+                    </div>
+                    """
+                    st.markdown(html_box, unsafe_allow_html=True)
+                with c_acc:
+                    miss_key = f"f_miss_{current_id}_{fid}"
+                    if miss_key not in st.session_state: st.session_state[miss_key] = True
+                    if st.checkbox("", key=miss_key):
+                        field_miss_agreed_ids.append(fid)
+        else:
+            st.caption("No missed gold fields.")
+
+    return field_kept_ids, field_miss_agreed_ids, f_intersection
+
+
+def render_keywords_review(result, original_row, kw_map, current_id):
+    with st.expander("**Keywords Review**", expanded=False):
+        matched_ids = result.get('matched_ids', [])
+        suggested_kws = result.get('suggested_kws', [])
+
+        gold_kw_ids_raw = original_row.get('KW Ids', '')
+        has_gold_kw = (gold_kw_ids_raw
+                       and str(gold_kw_ids_raw).strip()
+                       and str(gold_kw_ids_raw).lower() != 'nan')
+        gold_ids_list = []
+        if has_gold_kw:
+            gold_ids_list = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
+
+        pred_set = set(str(mid).strip().lower() for mid in matched_ids)
+        pred_set = set(unicodedata.normalize('NFC', mid) for mid in pred_set)
+        gold_set = set(str(gid).strip().lower() for gid in gold_ids_list)
+        gold_set = set(unicodedata.normalize('NFC', gid) for gid in gold_set)
+        intersection_ids = sorted(list(pred_set & gold_set))
+        suggestion_ids = sorted(list(pred_set - gold_set))
+        missed_ids = sorted(list(gold_set - pred_set))
+
+        dup_keywords = []
+        col1, col2, col3 = st.columns(3)
+
+        with col1:
+            st.write("**Intersection** (Read-only)")
+            if intersection_ids:
+                groups = {}
+                for mid in intersection_ids:
+                    kw_obj = kw_map.get(str(mid).strip().lower())
+                    cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj,
+                                                                                       'full_path') else "Uncategorized"
+                    groups.setdefault(cat, []).append(mid)
+
+                for cat in sorted(groups.keys()):
+                    _, c_header = st.columns([0.26, 0.74], vertical_alignment="center")
+                    with c_header:
+                        st.markdown(f"**{cat}**")
+
+                    for mid in groups[cat]:
+                        kw_obj = kw_map.get(str(mid).strip().lower())
+                        label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+
+                        if label.startswith(cat):
+                            label = label[len(cat):].strip()
+                            if label.startswith(">"): label = label[1:].strip()
+                            if not label: label = cat
+
+                        c_dup, c_label = st.columns([0.26, 0.74], vertical_alignment="center")
+                        with c_dup:
+                            if st.toggle("dup", key=f"kw_int_dup_{current_id}_{mid}", help=None):
+                                dup_keywords.append(mid)
+                        with c_label:
+                            st.info(f"✅ {label}")
+            else:
+                st.caption("No intersection found.")
+
+        with col2:
+            kept_suggestion_ids, dup_sug_ids = render_suggestion_list(
+                suggestions=suggestion_ids,
+                current_id=current_id,
+                key_prefix="kw_sug",
+                item_map=kw_map,
+                show_dup=True,
+                group_by_category=True
+            )
+            dup_keywords.extend(dup_sug_ids)
+
+        with col3:
+            st.write("**New Suggestions** (Accept/Edit)")
+            final_new_kws = []
+            if suggested_kws:
+                for i, skw in enumerate(suggested_kws):
+                    c_acc, c_edit, c_reset = st.columns([0.1, 0.8, 0.1], vertical_alignment="center")
+                    with c_edit:
+                        edit_key = f"kw_new_edit_{current_id}_{i}"
+                        if edit_key not in st.session_state: st.session_state[edit_key] = skw
+                        edited_kw = st.text_input("Edit", key=edit_key, label_visibility="collapsed", help=skw)
+                    with c_reset:
+                        if st.button("", icon=":material/refresh:", key=f"kw_new_reset_{current_id}_{i}",
+                                     help="Reset to original suggestion", use_container_width=True):
+                            st.session_state[edit_key] = skw
+                            st.rerun()
+                    with c_acc:
+                        acc_key = f"kw_new_acc_{current_id}_{i}"
+                        if acc_key not in st.session_state: st.session_state[acc_key] = False
+                        if st.checkbox("", key=acc_key):
+                            final_new_kws.append(edited_kw)
+            else:
+                st.caption("No new suggestions.")
+
+        st.write("**Missed Gold Keywords** (Agree/Disagree)")
+        agreed_missed_ids = []
+        if missed_ids:
+            groups = {}
+            for mid in missed_ids:
+                kw_obj = kw_map.get(str(mid).strip().lower())
+                cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj,
+                                                                                   'full_path') else "Uncategorized"
+                groups.setdefault(cat, []).append(mid)
+
+            for cat in sorted(groups.keys()):
+                _, _, c_header = st.columns([0.12, 0.05, 0.83], vertical_alignment="center")
+                with c_header:
+                    st.markdown(f"**{cat}**")
+
+                for mid in groups[cat]:
+                    kw_obj = kw_map.get(str(mid).strip().lower())
+                    label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
+
+                    if label.startswith(cat):
+                        label = label[len(cat):].strip()
+                        if label.startswith(">"): label = label[1:].strip()
+                        if not label: label = cat
+
+                    c_dup, c_acc, c_label = st.columns([0.12, 0.05, 0.83], vertical_alignment="center")
+                    with c_label:
+                        html_box = f"""
+                        <div style="
+                            padding: 10px;
+                            margin-bottom: 12px;
+                            border: 1px solid rgba(128, 128, 128, 0.3);
+                            border-radius: 8px;
+                            background-color: rgba(128, 128, 128, 0.1);
+                            color: inherit;
+                            word-wrap: break-word;
+                            font-size: 14px;
+                            width: fit-content;
+                        ">
+                            {label}
+                        </div>
+                        """
+                        st.markdown(html_box, unsafe_allow_html=True)
+                    with c_dup:
+                        dup_key = f"kw_miss_dup_{current_id}_{mid}"
+                        if dup_key not in st.session_state: st.session_state[dup_key] = False
+                        if st.toggle("dup", key=dup_key, help=None):
+                            dup_keywords.append(mid)
+                    with c_acc:
+                        miss_key = f"kw_miss_{current_id}_{mid}"
+                        if miss_key not in st.session_state: st.session_state[miss_key] = True
+                        if st.checkbox("", key=miss_key):
+                            agreed_missed_ids.append(mid)
+        else:
+            st.caption("No missed gold keywords.")
+
+    return intersection_ids, kept_suggestion_ids, agreed_missed_ids, final_new_kws, dup_keywords
+
+
+def render_index_review(result, original_row, current_id):
+    with st.expander("**Index Terms Review**", expanded=False):
+        pred_index = result.get('index_terms', [])
+        gold_index_raw = original_row.get('Index Terms', '')
+        has_gold_i = (gold_index_raw and str(gold_index_raw).strip() and str(gold_index_raw).lower() != 'nan')
+        gold_i_list = [g.strip() for g in str(gold_index_raw).split(',') if g.strip()] if has_gold_i else []
+
+        pred_i_set = set(str(p).strip().lower() for p in pred_index)
+        pred_i_set = set(unicodedata.normalize('NFC', p) for p in pred_i_set)
+        gold_i_set = set(str(g).strip().lower() for g in gold_i_list)
+        gold_i_set = set(unicodedata.normalize('NFC', g) for g in gold_i_set)
+
+        i_intersection = sorted(list(pred_i_set & gold_i_set))
+        i_suggestions = sorted(list(pred_i_set - gold_i_set))
+        i_missed = sorted(list(gold_i_set - pred_i_set))
+
+        col_i1, col_i2 = st.columns(2)
+        with col_i1:
+            st.write("**Intersection** (Read-only)")
+            if i_intersection:
+                for term in i_intersection:
+                    st.info(f"✅ {term}")
+            else:
+                st.caption("No intersection.")
+
+        with col_i2:
+            index_kept_terms = render_suggestion_list(
+                suggestions=i_suggestions,
+                current_id=current_id,
+                key_prefix="i_sug"
+            )
+
+        st.write("**Missed Gold Index Terms** (Agree/Disagree)")
+        index_miss_agreed_terms = []
+        if i_missed:
+            for term in i_missed:
+                c_acc, c_label = st.columns([0.03, 0.97], vertical_alignment="center")
+                with c_label:
+                    html_box = f"""
+                    <div style="
+                        padding: 10px;
+                        margin-bottom: 12px;
+                        border: 1px solid rgba(128, 128, 128, 0.3);
+                        border-radius: 8px;
+                        background-color: rgba(128, 128, 128, 0.1);
+                        color: inherit;
+                        word-wrap: break-word;
+                        font-size: 14px;
+                        width: fit-content;
+                    ">
+                        {term}
+                    </div>
+                    """
+                    st.markdown(html_box, unsafe_allow_html=True)
+                with c_acc:
+                    miss_key = f"i_miss_{current_id}_{term}"
+                    if miss_key not in st.session_state: st.session_state[miss_key] = True
+                    if st.checkbox("", key=miss_key):
+                        index_miss_agreed_terms.append(term)
+        else:
+            st.caption("No missed gold index terms.")
+
+    return index_kept_terms, index_miss_agreed_terms, i_intersection
+
+
 def main():
     # Fix: Safely resolve results_dir whether script is in root/ or src/
     script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -1264,298 +1548,14 @@ def main():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # --- JUDICIAL FIELDS SECTION ---
-    with st.expander("**Judicial Fields Review**", expanded=False):
+    field_kept_ids, field_miss_agreed_ids, f_intersection = render_fields_review(
+        result, original_row, field_map, current_id)
 
-        # field_map = {str(f.id).strip().lower(): f for f in st.session_state.get('fields', [])}
-        matched_field_ids = result.get('matched_field_ids', [])
-        gold_field_ids_raw = original_row.get('Judicial Topic Ids', '')
-        has_gold_f = (
-                gold_field_ids_raw and str(gold_field_ids_raw).strip() and str(gold_field_ids_raw).lower() != 'nan')
-        gold_f_set = set(
-            [g.strip().lower() for g in str(gold_field_ids_raw).split(',') if g.strip()]) if has_gold_f else set()
-        pred_f_set = set(str(fid).strip().lower() for fid in matched_field_ids)
-        # for greek and latin, use unicodedata.normalize to ignore accents and diacritics
-        pred_f_set = set(unicodedata.normalize('NFC', fid) for fid in pred_f_set)
-        gold_f_set = set(unicodedata.normalize('NFC', gid) for gid in gold_f_set)
+    intersection_ids, kept_suggestion_ids, agreed_missed_ids, final_new_kws, dup_keywords = render_keywords_review(
+        result, original_row, kw_map, current_id)
 
-        f_intersection = sorted(list(pred_f_set & gold_f_set))
-        f_suggestions = sorted(list(pred_f_set - gold_f_set))
-        f_missed = sorted(list(gold_f_set - pred_f_set))
-
-        col_f1, col_f2 = st.columns(2)
-        with col_f1:
-            st.write("**Intersection** (Read-only)")
-            if f_intersection:
-                for fid in f_intersection:
-                    f_obj = field_map.get(str(fid).strip().lower())
-                    label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-                    st.info(f"✅ {label}")
-            else:
-                st.caption("No intersection.")
-
-        with col_f2:
-            field_kept_ids = render_suggestion_list(
-                suggestions=f_suggestions,
-                current_id=current_id,
-                key_prefix="f_sug",
-                item_map=field_map
-            )
-
-        st.write("**Missed Gold Fields** (Agree/Disagree)")
-        field_miss_agreed_ids = []
-        if f_missed:
-            for fid in f_missed:
-                f_obj = field_map.get(str(fid).strip().lower())
-                label = f_obj.full_path if f_obj else f"Unknown ID: {fid}"
-                c_acc, c_label = st.columns([0.03, 0.97], vertical_alignment="center")
-                with c_label:
-                    html_box = f"""
-                    <div style="
-                        padding: 10px;
-                        margin-bottom: 12px;
-                        border: 1px solid rgba(128, 128, 128, 0.3);
-                        border-radius: 8px;
-                        background-color: rgba(128, 128, 128, 0.1);
-                        color: inherit;
-                        word-wrap: break-word;
-                        font-size: 14px;
-                        width: fit-content;
-                    ">
-                        {label}
-                    </div>
-                    """
-                    st.markdown(html_box, unsafe_allow_html=True)
-                with c_acc:
-                    miss_key = f"f_miss_{current_id}_{fid}"
-                    if miss_key not in st.session_state: st.session_state[miss_key] = True
-                    if st.checkbox("", key=miss_key):
-                        field_miss_agreed_ids.append(fid)
-        else:
-            st.caption("No missed gold fields.")
-
-    # st.markdown("---")
-
-    # --- KEYWORDS SECTION ---
-    with st.expander("**Keywords Review**", expanded=False):
-
-        matched_ids = result.get('matched_ids', [])
-        suggested_kws = result.get('suggested_kws', [])
-        # kw_map = {str(k.id).strip().lower(): k for k in st.session_state.keywords}
-
-        gold_kw_ids_raw = original_row.get('KW Ids', '')
-        has_gold_kw = (gold_kw_ids_raw
-                       and str(gold_kw_ids_raw).strip()
-                       and str(gold_kw_ids_raw).lower() != 'nan')
-        gold_ids_list = []
-        if has_gold_kw:
-            gold_ids_list = [g.strip() for g in str(gold_kw_ids_raw).split(',') if g.strip()]
-
-        # Split matched into Intersection and Suggestions
-        pred_set = set(str(mid).strip().lower() for mid in matched_ids)
-        # for greek and latin, use unicodedata.normalize to ignore accents and diacritics
-        pred_set = set(unicodedata.normalize('NFC', mid) for mid in pred_set)
-        gold_set = set(str(gid).strip().lower() for gid in gold_ids_list)
-        gold_set = set(unicodedata.normalize('NFC', gid) for gid in gold_set)
-        intersection_ids = sorted(list(pred_set & gold_set))
-        suggestion_ids = sorted(list(pred_set - gold_set))
-        missed_ids = sorted(list(gold_set - pred_set))
-
-        dup_keywords = []
-        col1, col2, col3 = st.columns(3)
-
-        with col1:
-            st.write("**Intersection** (Read-only)")
-            if intersection_ids:
-                groups = {}
-                for mid in intersection_ids:
-                    kw_obj = kw_map.get(str(mid).strip().lower())
-                    cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj,
-                                                                                       'full_path') else "Uncategorized"
-                    groups.setdefault(cat, []).append(mid)
-
-                for cat in sorted(groups.keys()):
-                    _, c_header = st.columns([0.26, 0.74], vertical_alignment="center")
-                    with c_header:
-                        # st.markdown(f"###### {cat}")
-                        st.markdown(f"**{cat}**")
-
-                    for mid in groups[cat]:
-                        kw_obj = kw_map.get(str(mid).strip().lower())
-                        label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-
-                        if label.startswith(cat):
-                            label = label[len(cat):].strip()
-                            if label.startswith(">"): label = label[1:].strip()
-                            if not label: label = cat
-
-                        c_dup, c_label = st.columns([0.26, 0.74], vertical_alignment="center")
-                        with c_dup:
-                            if st.toggle("dup", key=f"kw_int_dup_{current_id}_{mid}", help=None):
-                                dup_keywords.append(mid)
-                        with c_label:
-                            st.info(f"✅ {label}")
-            else:
-                st.caption("No intersection found.")
-
-        with col2:
-            # 1. Keyword Suggestions (Uses kw_map)
-            kept_suggestion_ids, dup_sug_ids = render_suggestion_list(
-                suggestions=suggestion_ids,
-                current_id=current_id,
-                key_prefix="kw_sug",
-                item_map=kw_map,
-                show_dup=True,
-                group_by_category=True
-            )
-            dup_keywords.extend(dup_sug_ids)
-
-        with col3:
-            st.write("**New Suggestions** (Accept/Edit)")
-            final_new_kws = []
-            if suggested_kws:
-                for i, skw in enumerate(suggested_kws):
-                    c_acc, c_edit, c_reset = st.columns([0.1, 0.8, 0.1], vertical_alignment="center")
-                    with c_edit:
-                        edit_key = f"kw_new_edit_{current_id}_{i}"
-                        if edit_key not in st.session_state: st.session_state[edit_key] = skw
-                        edited_kw = st.text_input("Edit", key=edit_key, label_visibility="collapsed", help=skw)
-                    with c_reset:
-                        if st.button("", icon=":material/refresh:", key=f"kw_new_reset_{current_id}_{i}",
-                                     help="Reset to original suggestion", use_container_width=True):
-                            st.session_state[edit_key] = skw
-                            st.rerun()
-                    with c_acc:
-                        acc_key = f"kw_new_acc_{current_id}_{i}"
-                        if acc_key not in st.session_state: st.session_state[acc_key] = False
-                        if st.checkbox("", key=acc_key):
-                            final_new_kws.append(edited_kw)
-            else:
-                st.caption("No new suggestions.")
-
-        # Missed Keywords section
-        st.write("**Missed Gold Keywords** (Agree/Disagree)")
-        agreed_missed_ids = []
-        if missed_ids:
-            groups = {}
-            for mid in missed_ids:
-                kw_obj = kw_map.get(str(mid).strip().lower())
-                cat = kw_obj.full_path.split(">")[0].strip() if kw_obj and hasattr(kw_obj,
-                                                                                   'full_path') else "Uncategorized"
-                groups.setdefault(cat, []).append(mid)
-
-            for cat in sorted(groups.keys()):
-                _, _, c_header = st.columns([0.12, 0.05, 0.83], vertical_alignment="center")
-                with c_header:
-                    # st.markdown(f"###### {cat}")
-                    st.markdown(f"**{cat}**")
-
-                for mid in groups[cat]:
-                    kw_obj = kw_map.get(str(mid).strip().lower())
-                    label = kw_obj.full_path if kw_obj else f"Unknown ID: {mid}"
-
-                    if label.startswith(cat):
-                        label = label[len(cat):].strip()
-                        if label.startswith(">"): label = label[1:].strip()
-                        if not label: label = cat
-
-                    c_dup, c_acc, c_label = st.columns([0.12, 0.05, 0.83], vertical_alignment="center")
-                    with c_label:
-                        html_box = f"""
-                        <div style="
-                            padding: 10px;
-                            margin-bottom: 12px;
-                            border: 1px solid rgba(128, 128, 128, 0.3);
-                            border-radius: 8px;
-                            background-color: rgba(128, 128, 128, 0.1);
-                            color: inherit;
-                            word-wrap: break-word;
-                            font-size: 14px;
-                            width: fit-content;
-                        ">
-                            {label}
-                        </div>
-                        """
-                        st.markdown(html_box, unsafe_allow_html=True)
-                    with c_dup:
-                        dup_key = f"kw_miss_dup_{current_id}_{mid}"
-                        if dup_key not in st.session_state: st.session_state[dup_key] = False
-                        if st.toggle("dup", key=dup_key, help=None):
-                            dup_keywords.append(mid)
-                    with c_acc:
-                        miss_key = f"kw_miss_{current_id}_{mid}"
-                        if miss_key not in st.session_state: st.session_state[miss_key] = True
-                        if st.checkbox("", key=miss_key):
-                            agreed_missed_ids.append(mid)
-        else:
-            st.caption("No missed gold keywords.")
-
-    # st.markdown("---")
-
-    # --- INDEX TERMS SECTION ---
-    with st.expander("**Index Terms Review**", expanded=False):
-
-        pred_index = result.get('index_terms', [])
-        gold_index_raw = original_row.get('Index Terms', '')
-        has_gold_i = (gold_index_raw and str(gold_index_raw).strip() and str(gold_index_raw).lower() != 'nan')
-        gold_i_list = [g.strip() for g in str(gold_index_raw).split(',') if g.strip()] if has_gold_i else []
-
-        pred_i_set = set(str(p).strip().lower() for p in pred_index)
-        # for greek and latin, use unicodedata.normalize to ignore accents and diacritics
-        pred_i_set = set(unicodedata.normalize('NFC', p) for p in pred_i_set)
-        gold_i_set = set(str(g).strip().lower() for g in gold_i_list)
-        gold_i_set = set(unicodedata.normalize('NFC', g) for g in gold_i_set)
-
-        i_intersection = sorted(list(pred_i_set & gold_i_set))
-        i_suggestions = sorted(list(pred_i_set - gold_i_set))
-        i_missed = sorted(list(gold_i_set - pred_i_set))
-
-        col_i1, col_i2 = st.columns(2)
-        with col_i1:
-            st.write("**Intersection** (Read-only)")
-            if i_intersection:
-                for term in i_intersection:
-                    st.info(f"✅ {term}")
-            else:
-                st.caption("No intersection.")
-
-        with col_i2:
-            # 3. Index Terms (No map, uses the term directly)
-            index_kept_terms = render_suggestion_list(
-                suggestions=i_suggestions,
-                current_id=current_id,
-                key_prefix="i_sug"
-            )
-
-        st.write("**Missed Gold Index Terms** (Agree/Disagree)")
-        index_miss_agreed_terms = []
-        if i_missed:
-            for term in i_missed:
-                c_acc, c_label = st.columns([0.03, 0.97], vertical_alignment="center")
-                with c_label:
-                    html_box = f"""
-                    <div style="
-                        padding: 10px;
-                        margin-bottom: 12px;
-                        border: 1px solid rgba(128, 128, 128, 0.3);
-                        border-radius: 8px;
-                        background-color: rgba(128, 128, 128, 0.1);
-                        color: inherit;
-                        word-wrap: break-word;
-                        font-size: 14px;
-                        width: fit-content;
-                    ">
-                        {term}
-                    </div>
-                    """
-                    st.markdown(html_box, unsafe_allow_html=True)
-                with c_acc:
-                    miss_key = f"i_miss_{current_id}_{term}"
-                    if miss_key not in st.session_state: st.session_state[miss_key] = True
-                    if st.checkbox("", key=miss_key):
-                        index_miss_agreed_terms.append(term)
-        else:
-            st.caption("No missed gold index terms.")
+    index_kept_terms, index_miss_agreed_terms, i_intersection = render_index_review(
+        result, original_row, current_id)
 
     st.markdown("---")
     st.markdown("<p style='font-size: 16px; margin-bottom: 0px;'>Comments</p>", unsafe_allow_html=True)
