@@ -1582,7 +1582,7 @@ def main():
     if models_for_source and not st.session_state.show_instructions and st.session_state.get('input_file_basename'):
         current_basename = st.session_state.get('input_file_basename')
         try:
-            default_index = models_for_source.index(current_basename) if current_basename in models_for_source else 0
+            default_index = available_files.index(current_basename) if current_basename in available_files else 0
         except ValueError:
             default_index = 0
 
