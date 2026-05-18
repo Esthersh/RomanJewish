@@ -1979,16 +1979,15 @@ def save_results():
 
             analyzed_rows.append(row)
 
-    def _derive_sheet_name(results_filename):
+    def _derive_sheet_name(_results_filename=None):
         active = st.session_state.get('input_file_basename', '')
         sheet_name = active.removeprefix("merged_").removesuffix(".json")
         if sheet_name.startswith('merged_'):
             sheet_name = sheet_name[len('merged_'):]
-        # Strip any non_analyzed_ segment from the filename so sheet routing
-        # is determined solely by the Analyzed [y/n] column, not the filename.
+        # Strip non_analyzed_ so sheet routing is driven solely by Analyzed [y/n].
+        # w_en is already encoded in active (e.g. merged_w_en_claude_opus4_6.json)
+        # so no separate check on origin_file is needed.
         sheet_name = sheet_name.removeprefix("non_analyzed_")
-        if "w_en" in results_filename and not sheet_name.startswith("w_en"):
-            sheet_name = "w_en_" + sheet_name
         return sheet_name
 
     def _write_rows_to_sheet(rows, sheet_name):
@@ -2020,12 +2019,10 @@ def save_results():
     active = st.session_state.get('input_file_basename', '')
 
     if analyzed_rows:
-        sheet_name = _derive_sheet_name(analyzed_rows[-1].get('results_filename', active))
-        _write_rows_to_sheet(analyzed_rows, sheet_name)
+        _write_rows_to_sheet(analyzed_rows, _derive_sheet_name())
 
     if non_analyzed_rows:
-        base_sheet = _derive_sheet_name(non_analyzed_rows[-1].get('results_filename', active))
-        _write_rows_to_sheet(non_analyzed_rows, f"non_analyzed_{base_sheet}")
+        _write_rows_to_sheet(non_analyzed_rows, f"non_analyzed_{_derive_sheet_name()}")
 
     st.session_state.annotations = []
 
