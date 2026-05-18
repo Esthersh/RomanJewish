@@ -23,28 +23,52 @@
       "Reference": "Mishnah Bava batra 8:1",
       "Calculated refCode": "000200330008000100000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"intestacy\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 69\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"eligibility to Inherit\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 337\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"paternal lineage\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 311\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Agnatic Consanguinity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 323\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"intestate succession\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 310\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"agnatic succession\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 309\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"brother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 66\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 272\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"heir\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 178\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"maternal lineage\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"husband\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"wife\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "221",
-      "243",
-      "333",
-      "321",
-      "231"
+      "69",
+      "337",
+      "311",
+      "323",
+      "310",
+      "309",
+      "150",
+      "163",
+      "66",
+      "272",
+      "178"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "intestacy",
+      "eligibility to Inherit",
+      "paternal lineage",
+      "Agnatic Consanguinity",
+      "intestate succession",
+      "agnatic succession",
+      "father",
+      "son",
+      "brother",
+      "mother",
+      "heir"
+    ],
+    "suggested_kws": [
+      "maternal lineage",
+      "husband",
+      "wife"
+    ],
     "matched_field_ids": [
-      "78",
+      "30",
+      "103",
       "31"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "נוחלין",
-      "ומנחילין,",
-      "נוחלין",
-      "מנחילין,",
-      "מנחילין"
+      "נוחל",
+      "מנחיל",
+      "אח מן האב",
+      "בן אחות",
+      "אח האם",
+      "אח מן האם"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -72,28 +96,53 @@
       "Reference": "Tosefta Bava Batra 7:1",
       "Calculated refCode": "000300330007000100000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"Inheritance priority\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 173\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"order of succession\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 205\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"degrees of kinship\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 312\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"brother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 66\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"sister\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 275\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"bastard\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 204\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"convert\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 201\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"slave\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 202\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"freedperson\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 165\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"bona vacantia\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 220\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"modes of acquisition\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 192\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"actual possession\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 238\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"ownerless property\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "78",
-      "99",
-      "337",
-      "89",
-      "80"
+      "173",
+      "205",
+      "312",
+      "66",
+      "275",
+      "204",
+      "201",
+      "202",
+      "165",
+      "220",
+      "192",
+      "238"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "Inheritance priority",
+      "order of succession",
+      "degrees of kinship",
+      "brother",
+      "sister",
+      "bastard",
+      "convert",
+      "slave",
+      "freedperson",
+      "bona vacantia",
+      "modes of acquisition",
+      "actual possession"
+    ],
+    "suggested_kws": [
+      "ownerless property"
+    ],
     "matched_field_ids": [
-      "99",
-      "100"
+      "30",
+      "68"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "שהוא",
-      "לפנים",
-      "מחבירו",
-      "קודם",
-      "חבירו."
+      "נחלה",
+      "נוחל ומנחיל",
+      "ממזר",
+      "מוריש",
+      "גר",
+      "עבד משוחרר",
+      "נכסי הגר",
+      "כל הקודם זכה"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -121,28 +170,30 @@
       "Reference": "Ulp. 20, 1",
       "Calculated refCode": "005400200001000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"intent\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 356\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamentary intent\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 293\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"testament\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "177",
-      "339",
-      "91",
-      "184",
-      "42"
+      "356",
+      "293"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "intent",
+      "testamentary intent"
+    ],
+    "suggested_kws": [
+      "testament"
+    ],
     "matched_field_ids": [
-      "100",
-      "123"
+      "29"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "Testamentum",
-      "mentis",
-      "nostrae",
-      "iusta",
-      "contestatio"
+      "testamentum",
+      "contestatio",
+      "iustus",
+      "sollemnis",
+      "valeo",
+      "mens"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -170,28 +221,45 @@
       "Reference": "Ulp. 20, 2",
       "Calculated refCode": "005400200002000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"fictive sale\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 240\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"buyer\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 147\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"testamenti factio\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"comitia calata\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "77",
-      "99",
-      "213",
-      "284",
-      "181"
+      "260",
+      "240",
+      "145",
+      "75",
+      "148",
+      "147",
+      "99"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "testamentum per aes et libram",
+      "fictive sale",
+      "mancipatory will",
+      "mancipatio",
+      "scale holder",
+      "buyer",
+      "witnesses"
+    ],
+    "suggested_kws": [
+      "familiae emptor",
+      "testamenti factio",
+      "comitia calata"
+    ],
     "matched_field_ids": [
-      "41",
-      "91"
+      "36"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "Testamentorum",
-      "genera",
-      "fuerunt",
-      "tria,",
-      "unum,"
+      "testamentum",
+      "comitia calata",
+      "procinctus",
+      "aes et libra",
+      "mancipatio imaginaria",
+      "libripens",
+      "familiae emptor",
+      "testis",
+      "testamenti factio"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -219,28 +287,41 @@
       "Reference": "Ulp. 20, 3",
       "Calculated refCode": "005400200003000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Procedure\",\n    \"keyword\": \"disqualified witnesses\",\n    \"suggested\": false,\n    \"category_id\": 329,\n    \"keyword_id\": 17\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"patria potestas\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 9\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "109",
-      "134",
-      "80",
-      "295",
-      "276"
+      "17",
+      "9",
+      "75",
+      "145",
+      "149",
+      "148",
+      "99"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "disqualified witnesses",
+      "patria potestas",
+      "mancipatio",
+      "mancipatory will",
+      "testator",
+      "scale holder",
+      "witnesses"
+    ],
+    "suggested_kws": [
+      "familiae emptor"
+    ],
     "matched_field_ids": [
-      "85",
-      "76"
+      "36"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "potestate",
-      "testatoris",
-      "familiae",
-      "emptoris,",
-      "testis"
+      "potestas",
+      "testator",
+      "familiae emptor",
+      "testis",
+      "libripens",
+      "familiae mancipatio",
+      "testis domesticus"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -268,28 +349,35 @@
       "Reference": "Ulp. 20, 4",
       "Calculated refCode": "005400200004000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"buyer\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 147\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Procedure\",\n    \"keyword\": \"disqualified witnesses\",\n    \"suggested\": false,\n    \"category_id\": 329,\n    \"keyword_id\": 17\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "219",
-      "78",
-      "177",
-      "62",
-      "278"
+      "163",
+      "147",
+      "150",
+      "17",
+      "145"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "son",
+      "buyer",
+      "father",
+      "disqualified witnesses",
+      "mancipatory will"
+    ],
+    "suggested_kws": [
+      "familiae emptor"
+    ],
     "matched_field_ids": [
-      "60",
-      "54"
+      "36",
+      "46"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "Filio",
-      "familiam",
-      "emente",
-      "pater",
-      "eius"
+      "familiae emptor",
+      "testis",
+      "purchaser",
+      "witness"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -317,28 +405,41 @@
       "Reference": "Ulp. 20, 5",
       "Calculated refCode": "005400200005000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"brother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 66\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"patria potestas\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 9\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Procedure\",\n    \"keyword\": \"disqualified witnesses\",\n    \"suggested\": false,\n    \"category_id\": 329,\n    \"keyword_id\": 17\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "253",
-      "258",
-      "5",
-      "56",
-      "201"
+      "66",
+      "150",
+      "163",
+      "99",
+      "9",
+      "75",
+      "260",
+      "17"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "brother",
+      "father",
+      "son",
+      "witnesses",
+      "patria potestas",
+      "mancipatio",
+      "testamentum per aes et libram",
+      "disqualified witnesses"
+    ],
+    "suggested_kws": [
+      "familiae emptor"
+    ],
     "matched_field_ids": [
-      "114",
-      "79"
+      "36",
+      "46"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "duobus",
-      "fratribus,",
-      "eiusdem",
-      "patris",
-      "potestate"
+      "potestas",
+      "familiae emptor",
+      "testis",
+      "mancipium"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -366,28 +467,42 @@
       "Reference": "Ulp. 20, 6",
       "Calculated refCode": "005400200006000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"brother\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 66\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"patria potestas\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 9\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "271",
-      "262",
-      "353",
-      "199",
-      "287"
+      "150",
+      "163",
+      "66",
+      "99",
+      "148",
+      "9",
+      "260",
+      "145"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "father",
+      "son",
+      "brother",
+      "witnesses",
+      "scale holder",
+      "patria potestas",
+      "testamentum per aes et libram",
+      "mancipatory will"
+    ],
+    "suggested_kws": [
+      "familiae emptor"
+    ],
     "matched_field_ids": [
-      "46",
-      "120"
+      "36",
+      "46"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "Pater",
-      "filius",
-      "potestate",
-      "eius",
-      "est,"
+      "potestas",
+      "testis",
+      "libripens",
+      "familia",
+      "alienum negotium"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -415,28 +530,51 @@
       "Reference": "Ulp. 20, 7",
       "Calculated refCode": "005400200007000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mute\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 164\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"deaf\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 152\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"mentally impaired\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 153\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"ward\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 155\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"minor\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 180\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"woman\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 151\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"buyer\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 147\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal disability\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 154\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal eligibility\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 19\n  }\n]",
     "matched_ids": [
-      "26",
-      "20",
-      "313",
-      "312",
-      "323"
+      "164",
+      "152",
+      "153",
+      "155",
+      "180",
+      "151",
+      "147",
+      "99",
+      "148",
+      "154",
+      "19"
     ],
-    "matched_keywords": [],
+    "matched_keywords": [
+      "mute",
+      "deaf",
+      "mentally impaired",
+      "ward",
+      "minor",
+      "woman",
+      "buyer",
+      "witnesses",
+      "scale holder",
+      "legal disability",
+      "legal eligibility"
+    ],
     "suggested_kws": [],
     "matched_field_ids": [
-      "26",
-      "84"
+      "34",
+      "36",
+      "120",
+      "50",
+      "49"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "Mutus,",
-      "surdus,",
-      "furiosus,",
-      "pupillus,",
-      "femina"
+      "mutus",
+      "surdus",
+      "furiosus",
+      "pupillus",
+      "familiae emptor",
+      "testis",
+      "libripens"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -464,28 +602,37 @@
       "Reference": "Ulp. 20, 8",
       "Calculated refCode": "005400200008000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"Junian Latin\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 156\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"buyer\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 147\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"scale holder\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 148\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"familiae emptor\",\n    \"suggested\": true,\n    \"category_id\": 2,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"testamenti factio\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "120",
-      "262",
-      "91",
-      "52",
-      "62"
+      "156",
+      "147",
+      "99",
+      "148",
+      "145"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "Junian Latin",
+      "buyer",
+      "witnesses",
+      "scale holder",
+      "mancipatory will"
+    ],
+    "suggested_kws": [
+      "familiae emptor",
+      "testamenti factio"
+    ],
     "matched_field_ids": [
-      "91",
-      "11"
+      "105",
+      "34"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "Latinus",
-      "Iunianus",
-      "familiae",
-      "emptor",
-      "testis"
+      "Latinus Iunianus",
+      "familiae emptor",
+      "testis",
+      "libripens",
+      "testamenti factio"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -513,28 +660,46 @@
       "Reference": "Ulp. 20, 9",
       "Calculated refCode": "005400200009000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testamentum per aes et libram\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 260\n  },\n  {\n    \"category\": \"Formula\",\n    \"keyword\": \"testament formula\",\n    \"suggested\": false,\n    \"category_id\": 4,\n    \"keyword_id\": 144\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"mancipatory will\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 145\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"mancipatio\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 75\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"nuncupation\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 157\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"tablets\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 158\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"testator\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 149\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"witnesses\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 99\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"testatio\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "22",
-      "196",
-      "70",
-      "171",
-      "207"
+      "260",
+      "144",
+      "145",
+      "75",
+      "157",
+      "158",
+      "149",
+      "99"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "testamentum per aes et libram",
+      "testament formula",
+      "mancipatory will",
+      "mancipatio",
+      "nuncupation",
+      "tablets",
+      "testator",
+      "witnesses"
+    ],
+    "suggested_kws": [
+      "testatio"
+    ],
     "matched_field_ids": [
-      "21",
-      "97"
+      "36"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "testamento,",
-      "quod",
-      "libram",
-      "fit,",
-      "duae"
+      "testamentum",
+      "aes et libra",
+      "familiae mancipatio",
+      "nuncupatio",
+      "testator",
+      "tabula testamenti",
+      "legare",
+      "Quirites",
+      "testimonium",
+      "testatio"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -562,28 +727,34 @@
       "Reference": "Ulp. 20, 10",
       "Calculated refCode": "005400200010000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"son\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 163\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"soldier\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 159\n  },\n  {\n    \"category\": \"Objects\",\n    \"keyword\": \"peculium\",\n    \"suggested\": false,\n    \"category_id\": 1,\n    \"keyword_id\": 161\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"patria potestas\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 9\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  }\n]",
     "matched_ids": [
-      "139",
-      "38",
-      "311",
-      "212",
-      "321"
+      "163",
+      "159",
+      "161",
+      "9",
+      "217"
     ],
-    "matched_keywords": [],
+    "matched_keywords": [
+      "son",
+      "soldier",
+      "peculium",
+      "patria potestas",
+      "testamenti factio activa"
+    ],
     "suggested_kws": [],
     "matched_field_ids": [
-      "86",
-      "12"
+      "34",
+      "46"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "Filius",
-      "familiae",
+      "filius familias",
       "testamentum",
-      "facere",
-      "potest,"
+      "testor",
+      "peculium",
+      "miles"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -611,28 +782,31 @@
       "Reference": "Ulp. 20, 11",
       "Calculated refCode": "005400200011000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"patria potestas\",\n    \"suggested\": false,\n    \"category_id\": 5,\n    \"keyword_id\": 9\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"father\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 150\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"sui iuris\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal capacity\",\n    \"suggested\": true,\n    \"category_id\": 3,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "62",
-      "220",
-      "98",
-      "284",
-      "189"
+      "217",
+      "9",
+      "150"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "testamenti factio activa",
+      "patria potestas",
+      "father"
+    ],
+    "suggested_kws": [
+      "sui iuris",
+      "legal capacity"
+    ],
     "matched_field_ids": [
-      "53",
-      "32"
+      "34",
+      "46"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "statu",
-      "incertus",
-      "factus,",
-      "quod",
-      "patre"
+      "status",
+      "sui iuris",
+      "testamentum"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   },
@@ -660,28 +834,33 @@
       "Reference": "Ulp. 20, 12",
       "Calculated refCode": "005400200012000000000000"
     },
-    "original_res": {},
+    "original_res": "[\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"age of legal capacity\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 170\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"legal disability\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 154\n  },\n  {\n    \"category\": \"Legal matter\",\n    \"keyword\": \"testamenti factio activa\",\n    \"suggested\": false,\n    \"category_id\": 3,\n    \"keyword_id\": 217\n  },\n  {\n    \"category\": \"Parties\",\n    \"keyword\": \"minor\",\n    \"suggested\": false,\n    \"category_id\": 2,\n    \"keyword_id\": 180\n  },\n  {\n    \"category\": \"Legal terms\",\n    \"keyword\": \"sui iuris\",\n    \"suggested\": true,\n    \"category_id\": 5,\n    \"keyword_id\": -1\n  }\n]",
     "matched_ids": [
-      "348",
-      "308",
-      "260",
-      "209",
-      "270"
+      "170",
+      "154",
+      "217",
+      "180"
     ],
-    "matched_keywords": [],
-    "suggested_kws": [],
+    "matched_keywords": [
+      "age of legal capacity",
+      "legal disability",
+      "testamenti factio activa",
+      "minor"
+    ],
+    "suggested_kws": [
+      "sui iuris"
+    ],
     "matched_field_ids": [
-      "97",
-      "101"
+      "34",
+      "49"
     ],
     "suggested_fields": [],
     "matched_index_ids": [],
     "index_terms": [
-      "Inpubes,",
-      "licet",
-      "iuris",
-      "sit,",
-      "facere"
+      "impubes",
+      "sui iuris",
+      "testamentum",
+      "iudicium animi"
     ],
     "origin_file": "data/non_analyzed_fabricated.csv"
   }

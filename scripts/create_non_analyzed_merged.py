@@ -1,17 +1,18 @@
 """
 Creates a merged JSON file from a non-analyzed CSV for testing the non-analyzed UI.
-Fabricated model predictions are added using real taxonomy IDs so the app can render labels.
+Predictions are taken from a reference merged JSON (matched by name), so the app
+renders real labels instead of random IDs.
 
 Usage:
     python scripts/create_non_analyzed_merged.py \
         --csv data/non_analyzed_fabricated.csv \
+        --predictions results/prioritized/tosefta/merged_gemini_3_pro.json \
         --output_dir results/prioritized/tosefta
 """
 
 import json
 import sys
 import os
-import random
 import argparse
 
 import pandas as pd
@@ -19,8 +20,6 @@ import pandas as pd
 script_dir = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.dirname(script_dir)
 sys.path.insert(0, os.path.join(project_root, "src"))
-
-from data_loader import DataLoader
 
 
 def _safe(val):
@@ -35,39 +34,29 @@ def _safe(val):
     return val
 
 
-def create_merged_from_csv(csv_path, output_dir, keywords_file=None, fields_file=None, seed=42):
-    random.seed(seed)
-
+def create_merged_from_csv(csv_path, output_dir, predictions_file):
     df = pd.read_csv(csv_path)
 
-    # Forward-fill Group / Name so rows without them get the parent value
     for col in ("Group", "Name"):
         if col in df.columns:
             df[col] = df[col].ffill()
 
-    # Load taxonomy for realistic fabricated predictions
-    loader = DataLoader()
-    kw_ids, field_ids = [], []
-
-    if keywords_file and os.path.exists(keywords_file):
-        kws = loader.load_keywords(keywords_file)
-        kw_ids = [str(k.id) for k in kws]
-
-    if fields_file and os.path.exists(fields_file):
-        fields = loader.load_judicial_fields(fields_file)
-        field_ids = [str(f.id) for f in fields]
+    with open(predictions_file, encoding="utf-8") as f:
+        pred_data = json.load(f)
+    pred_by_name = {item["name"].strip(): item for item in pred_data}
 
     results = []
     for _, row in df.iterrows():
         ref_code = str(row.get("ref Code") or row.get("Calculated refCode") or "")
-        name = str(row.get("Reference") or row.get("Name") or "")
+        name = str(row.get("Reference") or row.get("Name") or "").strip()
         text = str(row.get("Text") or "")
-        english = str(row.get("English") or "")
 
-        matched_ids = random.sample(kw_ids, min(5, len(kw_ids))) if kw_ids else []
-        matched_field_ids = random.sample(field_ids, min(2, len(field_ids))) if field_ids else []
-        index_terms = [w for w in text.split() if len(w) > 3][:5] or ["term_a", "term_b"]
-        suggested_kws = []
+        pred = pred_by_name.get(name, {})
+        matched_ids = pred.get("matched_ids", [])
+        matched_field_ids = pred.get("matched_field_ids", [])
+        index_terms = pred.get("index_terms", [])
+        suggested_kws = pred.get("suggested_kws", [])
+        matched_keywords = pred.get("matched_keywords", [])
 
         original_row = {k: _safe(v) for k, v in row.to_dict().items()}
 
@@ -78,17 +67,19 @@ def create_merged_from_csv(csv_path, output_dir, keywords_file=None, fields_file
             "name": name,
             "text": text,
             "original_row": original_row,
-            "original_res": {},
+            "original_res": pred.get("original_res", {}),
             "matched_ids": matched_ids,
-            "matched_keywords": [],
+            "matched_keywords": matched_keywords,
             "suggested_kws": suggested_kws,
             "matched_field_ids": matched_field_ids,
-            "suggested_fields": [],
-            "matched_index_ids": [],
+            "suggested_fields": pred.get("suggested_fields", []),
+            "matched_index_ids": pred.get("matched_index_ids", []),
             "index_terms": index_terms,
             "origin_file": csv_path,
         }
         results.append(item)
+        if not pred:
+            print(f"  WARNING: no prediction found for {name!r}")
 
     os.makedirs(output_dir, exist_ok=True)
     base = os.path.splitext(os.path.basename(csv_path))[0]
@@ -104,26 +95,13 @@ def create_merged_from_csv(csv_path, output_dir, keywords_file=None, fields_file
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Create a merged JSON from a non-analyzed CSV.")
     parser.add_argument("--csv", required=True, help="Path to the non-analyzed CSV file")
+    parser.add_argument("--predictions", required=True,
+                        help="Merged JSON whose predictions to use (matched by name)")
     parser.add_argument("--output_dir", default=None,
                         help="Output directory (default: results/prioritized/tosefta)")
-    parser.add_argument("--keywords_file", default=None)
-    parser.add_argument("--fields_file", default=None)
-    parser.add_argument("--seed", type=int, default=42)
     args = parser.parse_args()
 
     if args.output_dir is None:
         args.output_dir = os.path.join(project_root, "results", "prioritized", "tosefta")
 
-    if args.keywords_file is None:
-        kw_path = os.path.join(project_root, "data", "Keywords.csv")
-        args.keywords_file = kw_path if os.path.exists(kw_path) else None
-
-    if args.fields_file is None:
-        tp_path = os.path.join(project_root, "data", "Topics.csv")
-        args.fields_file = tp_path if os.path.exists(tp_path) else None
-
-    create_merged_from_csv(
-        args.csv, args.output_dir,
-        args.keywords_file, args.fields_file,
-        args.seed,
-    )
+    create_merged_from_csv(args.csv, args.output_dir, args.predictions)
