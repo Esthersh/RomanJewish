@@ -1,5 +1,6 @@
 import os
 import sys
+import string
 
 # Add the project root to sys.path
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -553,7 +554,14 @@ Where **TP** = true positives (correctly predicted), **FP** = false positives
         st.rerun()
 
 
-def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, show_dup=False, group_by_category=False):
+_PUNCT_TABLE = str.maketrans('', '', string.punctuation)
+
+
+def _strip_display_punct(s):
+    return s.translate(_PUNCT_TABLE)
+
+
+def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, show_dup=False, group_by_category=False, label_fn=None):
     """
     Renders an expandable suggestion list with checkboxes.
     Returns a list of accepted items.
@@ -568,6 +576,9 @@ def render_suggestion_list(suggestions, current_id, key_prefix, item_map=None, s
             label = obj.full_path if obj else f"Unknown ID: {item}"
         else:
             label = str(item)
+
+        if label_fn is not None:
+            label = label_fn(label)
 
         if header_cat and label.startswith(header_cat):
             label = label[len(header_cat):].strip()
@@ -1197,7 +1208,7 @@ def render_fields_review_non_analyzed(result, original_row, field_map, all_field
                         st.markdown(f"""
                         <div style="padding:10px;margin-bottom:12px;border:1px solid rgba(128,128,128,0.3);
                             border-radius:8px;background-color:rgba(128,128,128,0.1);color:inherit;
-                            word-wrap:break-word;font-size:14px;">✅ {label}</div>
+                            word-wrap:break-word;font-size:14px;">{label}</div>
                         """, unsafe_allow_html=True)
                     with c_acc:
                         acc_key = f"f_pred_{current_id}_{fid}"
@@ -1265,7 +1276,7 @@ def render_keywords_review_non_analyzed(result, original_row, kw_map, all_keywor
                             st.markdown(f"""
                             <div style="padding:10px;margin-bottom:12px;border:1px solid rgba(128,128,128,0.3);
                                 border-radius:8px;background-color:rgba(128,128,128,0.1);color:inherit;
-                                word-wrap:break-word;font-size:14px;">✅ {label}</div>
+                                word-wrap:break-word;font-size:14px;">{label}</div>
                             """, unsafe_allow_html=True)
                         with c_acc:
                             acc_key = f"kw_pred_{current_id}_{mid}"
@@ -1339,7 +1350,7 @@ def render_index_review_non_analyzed(result, original_row, current_id):
                         st.markdown(f"""
                         <div style="padding:10px;margin-bottom:12px;border:1px solid rgba(128,128,128,0.3);
                             border-radius:8px;background-color:rgba(128,128,128,0.1);color:inherit;
-                            word-wrap:break-word;font-size:14px;">✅ {term}</div>
+                            word-wrap:break-word;font-size:14px;">{_strip_display_punct(term)}</div>
                         """, unsafe_allow_html=True)
                     with c_acc:
                         acc_key = f"i_pred_{current_id}_{i}_{term}"
@@ -1393,7 +1404,7 @@ def render_index_review(result, original_row, current_id):
             st.write("**Intersection** (Read-only)")
             if i_intersection:
                 for term in i_intersection:
-                    st.info(f"✅ {term}")
+                    st.info(f"✅ {_strip_display_punct(term)}")
             else:
                 st.caption("No intersection.")
 
@@ -1401,7 +1412,8 @@ def render_index_review(result, original_row, current_id):
             index_kept_terms = render_suggestion_list(
                 suggestions=i_suggestions,
                 current_id=current_id,
-                key_prefix="i_sug"
+                key_prefix="i_sug",
+                label_fn=_strip_display_punct
             )
 
         st.write("**Missed Gold Index Terms** (Agree/Disagree)")
@@ -1422,7 +1434,7 @@ def render_index_review(result, original_row, current_id):
                         font-size: 14px;
                         width: fit-content;
                     ">
-                        {term}
+                        {_strip_display_punct(term)}
                     </div>
                     """
                     st.markdown(html_box, unsafe_allow_html=True)
@@ -1866,24 +1878,15 @@ def save_results():
     # --- Prepare Data ---
     export_data = []
     kw_map = {str(k.id).strip().lower(): k.full_path for k in st.session_state.keywords}
-    # field_map = {str(f.id).strip().lower(): f.full_path for f in st.session_state.get('fields', [])}
 
     for ann in st.session_state.annotations:
         row = ann.copy()
 
-        # Helper to compute and add metrics.
-        # orig_*: LLM predictions vs initial gold
-        # mod_*:  LLM predictions vs updated gold (annotator's final output)
-        #   - Items the annotator kept (even if not in initial gold) become TP
-        #   - Items the LLM predicted but annotator rejected remain FP (pred is still orig)
-        #   - Items the annotator added from missed gold improve recall
         def add_vector_metrics(row, initial_gold, pred, updated_gold, prefix, ignore_list=None):
             if ignore_list is None: ignore_list = []
-
             initial_gold = [g for g in initial_gold if str(g).strip().lower() not in ignore_list]
             pred = [g for g in pred if str(g).strip().lower() not in ignore_list]
             updated_gold = [g for g in updated_gold if str(g).strip().lower() not in ignore_list]
-
             op, or_, oj = compute_sample_metrics(initial_gold, pred)
             mp, mr, mj = compute_sample_metrics(updated_gold, pred)
             row[f'{prefix}_orig_p'] = round(op, 4)
@@ -1893,20 +1896,28 @@ def save_results():
             row[f'{prefix}_mod_r'] = round(mr, 4)
             row[f'{prefix}_mod_j'] = round(mj, 4)
 
-        # Keywords: pred = orig_kw_ids (unchanged), updated gold = kw_kept_ids
         ignore_kws = [str(k).strip().lower() for k in ann.get('dup_keywords', [])]
-        add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], ann['kw_kept_ids'], 'kw',
-                           ignore_list=ignore_kws)
 
-        # Fields: pred = orig_field_ids, updated gold = kept + agreed missed
-        f_updated_gold = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
-        add_vector_metrics(row, ann['gold_field_ids'], ann['orig_field_ids'], f_updated_gold, 'field')
+        if ann.get('is_non_analyzed'):
+            # No gold standard — annotator's choices become the gold.
+            # kw_fn_ids / field_miss_agreed_ids / index_miss_agreed_terms hold the FN
+            # items the annotator manually added; kept + FN = the new annotation gold.
+            kw_gold = ann['kw_kept_ids'] + ann.get('kw_fn_ids', [])
+            f_gold = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
+            i_gold = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
+            add_vector_metrics(row, kw_gold, ann['orig_kw_ids'], kw_gold, 'kw', ignore_list=ignore_kws)
+            add_vector_metrics(row, f_gold, ann['orig_field_ids'], f_gold, 'field')
+            add_vector_metrics(row, i_gold, ann['orig_index_terms'], i_gold, 'index')
+        else:
+            # Analyzed: orig_* = model vs initial gold; mod_* = model vs annotator-updated gold
+            add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], ann['kw_kept_ids'], 'kw',
+                               ignore_list=ignore_kws)
+            f_updated_gold = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
+            add_vector_metrics(row, ann['gold_field_ids'], ann['orig_field_ids'], f_updated_gold, 'field')
+            i_updated_gold = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
+            add_vector_metrics(row, ann['gold_index_terms'], ann['orig_index_terms'], i_updated_gold, 'index')
 
-        # Index: pred = orig_index_terms, updated gold = kept + agreed missed
-        i_updated_gold = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
-        add_vector_metrics(row, ann['gold_index_terms'], ann['orig_index_terms'], i_updated_gold, 'index')
-
-        # Convert lists to strings for CSV
+        # Convert lists to strings
         for key, val in row.items():
             if isinstance(val, list):
                 if key == 'dup_keywords':
@@ -1917,74 +1928,57 @@ def save_results():
 
         export_data.append(row)
 
-    new_df = pd.DataFrame(export_data)
+    # --- Split analyzed vs non-analyzed ---
+    analyzed_rows = [r for r in export_data if not r.get('is_non_analyzed')]
+    non_analyzed_rows = [r for r in export_data if r.get('is_non_analyzed')]
 
-    # try:
-    #     if os.path.exists(filename):
-    #         try:
-    #             existing_df = pd.read_csv(filename, on_bad_lines='warn')
-    #             combined_df = pd.concat([existing_df, new_df], ignore_index=True)
-    #             combined_df = combined_df.fillna('')
-    #             combined_df.to_csv(filename, index=False)
-    #         except Exception as e:
-    #             st.error(f"Error reading existing CSV: {e}. Appending instead.")
-    #             new_df.to_csv(filename, mode='a', header=False, index=False)
-    #     else:
-    #         new_df.to_csv(filename, index=False)
-    #
-    #     st.toast(f"Saved locally to {filename}")
-    # except Exception as e:
-    #     st.error(f"Failed to save local CSV: {e}")
+    def _derive_sheet_name(results_filename):
+        active = st.session_state.get('input_file_basename', '')
+        sheet_name = active.removeprefix("merged_").removesuffix(".json")
+        if sheet_name.startswith('merged_'):
+            sheet_name = sheet_name[len('merged_'):]
+        if "w_en" in results_filename and not sheet_name.startswith("w_en"):
+            sheet_name = "w_en_" + sheet_name
+        return sheet_name
 
-    # --- Google Sheets Read -> Append -> Update ---
-    # Derive sheet name from the active model file (consistent source of truth)
-    active = st.session_state.get('input_file_basename', '')
-    sheet_name = active.removeprefix("merged_").removesuffix(".json")
-
-    # sheet_name = new_df.results_filename.iloc[0].removeprefix("merged_").removesuffix(".json")
-    if sheet_name.startswith('merged_'):
-        sheet_name = sheet_name[len('merged_'):]
-
-    # determine if to add the prefix "w_en" based on whether the original filename had it or not
-    w_en = True if "w_en" in row['results_filename'] else False
-    if w_en and not sheet_name.startswith("w_en"):
-        sheet_name = "w_en_" + sheet_name
-
-    with st.spinner('Syncing with Google Sheets...'):
-        try:
-            if 'conn' not in st.session_state:
-                st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
-
-            ensure_worksheet_exists(st.session_state.conn, DEFAULT_SHEET_URL, sheet_name)
-
-            # 1. Read existing data to prevent overwriting
+    def _write_rows_to_sheet(rows, sheet_name):
+        new_df = pd.DataFrame(rows)
+        with st.spinner(f'Syncing with Google Sheets ({sheet_name})...'):
             try:
-                # ttl=0 ensures we don't get a cached version of the sheet
-                existing_df = st.session_state.conn.read(worksheet=sheet_name, ttl=0)
-                # Ensure we are working with a DataFrame
-                if existing_df is None:
+                if 'conn' not in st.session_state:
+                    st.session_state.conn = st.connection("gsheets", type=GSheetsConnection)
+
+                ensure_worksheet_exists(st.session_state.conn, DEFAULT_SHEET_URL, sheet_name)
+
+                try:
+                    existing_df = st.session_state.conn.read(worksheet=sheet_name, ttl=0)
+                    if existing_df is None:
+                        existing_df = pd.DataFrame()
+                except Exception:
                     existing_df = pd.DataFrame()
-            except Exception:
-                # If sheet is empty or doesn't exist yet
-                existing_df = pd.DataFrame()
 
-            # 2. Combine Data
-            combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+                combined_df = pd.concat([existing_df, new_df], ignore_index=True)
+                st.session_state.conn.update(worksheet=sheet_name, data=combined_df)
 
-            # 3. Write back the FULL dataset
-            st.session_state.conn.update(worksheet=sheet_name, data=combined_df)
+                if 'sheet_cache' in st.session_state and sheet_name in st.session_state.sheet_cache:
+                    del st.session_state.sheet_cache[sheet_name]
 
-            # Invalidate custom cache so subsequent loads fetch fresh data
-            if 'sheet_cache' in st.session_state and sheet_name in st.session_state.sheet_cache:
-                del st.session_state.sheet_cache[sheet_name]
+                st.success(f"Saved to sheet '{sheet_name}' successfully!")
+            except Exception as e:
+                st.error(f"Google Sheet Error ({sheet_name}): {e}")
 
-            st.success("Google Sheet updated successfully!")
+    active = st.session_state.get('input_file_basename', '')
 
-            # Clear the buffer so we don't save these duplicates again next time
-            st.session_state.annotations = []
+    if analyzed_rows:
+        sheet_name = _derive_sheet_name(analyzed_rows[-1].get('results_filename', active))
+        _write_rows_to_sheet(analyzed_rows, sheet_name)
 
-        except Exception as e:
-            st.error(f"Google Sheet Error: {e}")
+    if non_analyzed_rows:
+        base_sheet = _derive_sheet_name(non_analyzed_rows[-1].get('results_filename', active))
+        na_sheet = base_sheet if base_sheet.startswith("non_analyzed_") else f"non_analyzed_{base_sheet}"
+        _write_rows_to_sheet(non_analyzed_rows, na_sheet)
+
+    st.session_state.annotations = []
 
 
 if __name__ == "__main__":
