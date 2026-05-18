@@ -1370,17 +1370,17 @@ def render_index_review_non_analyzed(result, original_row, current_id):
                                    placeholder="Enter missed index terms, one per line")
             index_fn_terms = [t.strip() for t in fn_text.splitlines() if t.strip()]
 
-        st.write("**Index Terms Missing from Hierarchy**")
-        missing_key = f"i_missing_{current_id}"
-        if missing_key not in st.session_state:
-            st.session_state[missing_key] = ""
-        missing_text = st.text_area(
-            "", key=missing_key, label_visibility="collapsed",
-            placeholder="Enter index terms not in the hierarchy, one per line"
-        )
-        user_defined_index_terms = [t.strip() for t in missing_text.splitlines() if t.strip()]
+        # st.write("**Index Terms Missing from Hierarchy**")
+        # missing_key = f"i_missing_{current_id}"
+        # if missing_key not in st.session_state:
+        #     st.session_state[missing_key] = ""
+        # missing_text = st.text_area(
+        #     "", key=missing_key, label_visibility="collapsed",
+        #     placeholder="Enter index terms not in the hierarchy, one per line"
+        # )
+        # user_defined_index_terms = [t.strip() for t in missing_text.splitlines() if t.strip()]
 
-    return index_kept_terms, index_fn_terms, user_defined_index_terms
+    return index_kept_terms, index_fn_terms # user_defined_index_terms
 
 
 def render_index_review(result, original_row, current_id):
@@ -1785,8 +1785,9 @@ def main():
         kw_kept_ids, final_new_kws, kw_fn_ids, user_defined_keywords = render_keywords_review_non_analyzed(
             result, original_row, kw_map, st.session_state.keywords, current_id)
 
-        index_kept_terms, index_fn_terms, user_defined_index_terms = render_index_review_non_analyzed(
+        index_kept_terms, index_fn_terms = render_index_review_non_analyzed(
             result, original_row, current_id)
+        user_defined_index_terms = []
 
         dup_keywords = []
         kw_final_kept = kw_kept_ids
@@ -1885,46 +1886,61 @@ def save_results():
 
     for ann in st.session_state.annotations:
         if ann.get('is_non_analyzed'):
-            # Annotator-built gold = accepted predictions + manually added FN items
+            # Annotator-built gold = accepted predictions + manually added FN items.
+            # Passed as both initial_gold and updated_gold — orig and mod metrics are equal.
             kw_gold = ann['kw_kept_ids'] + ann.get('kw_fn_ids', [])
             f_gold  = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
             i_gold  = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
 
-            kw_p, kw_r, kw_j   = compute_sample_metrics(kw_gold, ann['orig_kw_ids'])
-            f_p,  f_r,  f_j    = compute_sample_metrics(f_gold,  ann['orig_field_ids'])
-            i_p,  i_r,  i_j    = compute_sample_metrics(i_gold,  ann['orig_index_terms'])
+            kw_p, kw_r, kw_j = compute_sample_metrics(kw_gold, ann['orig_kw_ids'])
+            f_p,  f_r,  f_j  = compute_sample_metrics(f_gold,  ann['orig_field_ids'])
+            i_p,  i_r,  i_j  = compute_sample_metrics(i_gold,  ann['orig_index_terms'])
 
             row = {
-                # Metadata
-                'results_filename':  ann['results_filename'],
-                'annotator':         ann['annotator'],
-                'date':              ann['date'],
-                'ref_id':            ann['ref_id'],
-                'source_id':         ann['source_id'],
-                'group':             ann['group'],
-                'name':              ann['name'],
-                'text':              ann['text'],
+                'results_filename':      ann['results_filename'],
+                'annotator':             ann['annotator'],
+                'date':                  ann['date'],
+                'ref_id':                ann['ref_id'],
+                'source_id':             ann['source_id'],
+                'group':                 ann['group'],
+                'name':                  ann['name'],
+                'text':                  ann['text'],
                 # Keywords
-                'pred_kw_ids':       _join(ann['orig_kw_ids']),
-                'gold_kw_ids':       _join(kw_gold),
-                'kw_accepted_new':   _join(ann['kw_accepted_new']),
-                'kw_precision':      round(kw_p, 4),
-                'kw_recall':         round(kw_r, 4),
-                'kw_jaccard':        round(kw_j, 4),
+                'orig_kw_ids':           _join(ann['orig_kw_ids']),
+                'kw_kept_ids':           _join(ann['kw_kept_ids']),
+                'kw_accepted_new':       _join(ann['kw_accepted_new']),
+                'gold_kw_ids':           _join(kw_gold),
+                'kw_orig_p':             round(kw_p, 4),
+                'kw_orig_r':             round(kw_r, 4),
+                'kw_orig_j':             round(kw_j, 4),
+                'kw_mod_p':              round(kw_p, 4),
+                'kw_mod_r':              round(kw_r, 4),
+                'kw_mod_j':              round(kw_j, 4),
                 # Fields
-                'pred_field_ids':    _join(ann['orig_field_ids']),
-                'gold_field_ids':    _join(f_gold),
-                'field_precision':   round(f_p, 4),
-                'field_recall':      round(f_r, 4),
-                'field_jaccard':     round(f_j, 4),
+                'orig_field_ids':        _join(ann['orig_field_ids']),
+                'field_kept_ids':        _join(ann['field_kept_ids']),
+                'field_miss_agreed_ids': _join(ann['field_miss_agreed_ids']),
+                'gold_field_ids':        _join(f_gold),
+                'field_orig_p':          round(f_p, 4),
+                'field_orig_r':          round(f_r, 4),
+                'field_orig_j':          round(f_j, 4),
+                'field_mod_p':           round(f_p, 4),
+                'field_mod_r':           round(f_r, 4),
+                'field_mod_j':           round(f_j, 4),
                 # Index
-                'pred_index':        _join(ann['orig_index_terms']),
-                'gold_index':        _join(i_gold),
-                'index_precision':   round(i_p, 4),
-                'index_recall':      round(i_r, 4),
-                'index_jaccard':     round(i_j, 4),
+                'orig_index_terms':      _join(ann['orig_index_terms']),
+                'index_kept_terms':      _join(ann['index_kept_terms']),
+                'index_miss_agreed_terms': _join(ann['index_miss_agreed_terms']),
+                'gold_index_terms':      _join(i_gold),
+                'index_orig_p':          round(i_p, 4),
+                'index_orig_r':          round(i_r, 4),
+                'index_orig_j':          round(i_j, 4),
+                'index_mod_p':           round(i_p, 4),
+                'index_mod_r':           round(i_r, 4),
+                'index_mod_j':           round(i_j, 4),
                 # Other
-                'annotator_comments': ann['annotator_comments'],
+                'annotator_comments':    ann['annotator_comments'],
+                'dup_keywords':          '',
             }
             non_analyzed_rows.append(row)
 
