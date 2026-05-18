@@ -1875,41 +1875,77 @@ def save_results():
         st.warning("No new annotations to save.")
         return
 
-    # --- Prepare Data ---
-    export_data = []
     kw_map = {str(k.id).strip().lower(): k.full_path for k in st.session_state.keywords}
 
+    def _join(lst):
+        return ", ".join(str(v) for v in lst if str(v).strip())
+
+    analyzed_rows = []
+    non_analyzed_rows = []
+
     for ann in st.session_state.annotations:
-        row = ann.copy()
-
-        def add_vector_metrics(row, initial_gold, pred, updated_gold, prefix, ignore_list=None):
-            if ignore_list is None: ignore_list = []
-            initial_gold = [g for g in initial_gold if str(g).strip().lower() not in ignore_list]
-            pred = [g for g in pred if str(g).strip().lower() not in ignore_list]
-            updated_gold = [g for g in updated_gold if str(g).strip().lower() not in ignore_list]
-            op, or_, oj = compute_sample_metrics(initial_gold, pred)
-            mp, mr, mj = compute_sample_metrics(updated_gold, pred)
-            row[f'{prefix}_orig_p'] = round(op, 4)
-            row[f'{prefix}_orig_r'] = round(or_, 4)
-            row[f'{prefix}_orig_j'] = round(oj, 4)
-            row[f'{prefix}_mod_p'] = round(mp, 4)
-            row[f'{prefix}_mod_r'] = round(mr, 4)
-            row[f'{prefix}_mod_j'] = round(mj, 4)
-
-        ignore_kws = [str(k).strip().lower() for k in ann.get('dup_keywords', [])]
-
         if ann.get('is_non_analyzed'):
-            # No gold standard — annotator's choices become the gold.
-            # kw_fn_ids / field_miss_agreed_ids / index_miss_agreed_terms hold the FN
-            # items the annotator manually added; kept + FN = the new annotation gold.
+            # Annotator-built gold = accepted predictions + manually added FN items
             kw_gold = ann['kw_kept_ids'] + ann.get('kw_fn_ids', [])
-            f_gold = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
-            i_gold = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
-            add_vector_metrics(row, kw_gold, ann['orig_kw_ids'], kw_gold, 'kw', ignore_list=ignore_kws)
-            add_vector_metrics(row, f_gold, ann['orig_field_ids'], f_gold, 'field')
-            add_vector_metrics(row, i_gold, ann['orig_index_terms'], i_gold, 'index')
+            f_gold  = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
+            i_gold  = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
+
+            kw_p, kw_r, kw_j   = compute_sample_metrics(kw_gold, ann['orig_kw_ids'])
+            f_p,  f_r,  f_j    = compute_sample_metrics(f_gold,  ann['orig_field_ids'])
+            i_p,  i_r,  i_j    = compute_sample_metrics(i_gold,  ann['orig_index_terms'])
+
+            row = {
+                # Metadata
+                'results_filename':  ann['results_filename'],
+                'annotator':         ann['annotator'],
+                'date':              ann['date'],
+                'ref_id':            ann['ref_id'],
+                'source_id':         ann['source_id'],
+                'group':             ann['group'],
+                'name':              ann['name'],
+                'text':              ann['text'],
+                # Keywords
+                'pred_kw_ids':       _join(ann['orig_kw_ids']),
+                'gold_kw_ids':       _join(kw_gold),
+                'kw_accepted_new':   _join(ann['kw_accepted_new']),
+                'kw_precision':      round(kw_p, 4),
+                'kw_recall':         round(kw_r, 4),
+                'kw_jaccard':        round(kw_j, 4),
+                # Fields
+                'pred_field_ids':    _join(ann['orig_field_ids']),
+                'gold_field_ids':    _join(f_gold),
+                'field_precision':   round(f_p, 4),
+                'field_recall':      round(f_r, 4),
+                'field_jaccard':     round(f_j, 4),
+                # Index
+                'pred_index':        _join(ann['orig_index_terms']),
+                'gold_index':        _join(i_gold),
+                'index_precision':   round(i_p, 4),
+                'index_recall':      round(i_r, 4),
+                'index_jaccard':     round(i_j, 4),
+                # Other
+                'annotator_comments': ann['annotator_comments'],
+            }
+            non_analyzed_rows.append(row)
+
         else:
-            # Analyzed: orig_* = model vs initial gold; mod_* = model vs annotator-updated gold
+            row = ann.copy()
+
+            def add_vector_metrics(row, initial_gold, pred, updated_gold, prefix, ignore_list=None):
+                if ignore_list is None: ignore_list = []
+                initial_gold = [g for g in initial_gold if str(g).strip().lower() not in ignore_list]
+                pred         = [g for g in pred         if str(g).strip().lower() not in ignore_list]
+                updated_gold = [g for g in updated_gold if str(g).strip().lower() not in ignore_list]
+                op, or_, oj = compute_sample_metrics(initial_gold, pred)
+                mp, mr,  mj = compute_sample_metrics(updated_gold, pred)
+                row[f'{prefix}_orig_p'] = round(op, 4)
+                row[f'{prefix}_orig_r'] = round(or_, 4)
+                row[f'{prefix}_orig_j'] = round(oj, 4)
+                row[f'{prefix}_mod_p']  = round(mp, 4)
+                row[f'{prefix}_mod_r']  = round(mr, 4)
+                row[f'{prefix}_mod_j']  = round(mj, 4)
+
+            ignore_kws = [str(k).strip().lower() for k in ann.get('dup_keywords', [])]
             add_vector_metrics(row, ann['gold_kw_ids'], ann['orig_kw_ids'], ann['kw_kept_ids'], 'kw',
                                ignore_list=ignore_kws)
             f_updated_gold = ann['field_kept_ids'] + ann['field_miss_agreed_ids']
@@ -1917,26 +1953,24 @@ def save_results():
             i_updated_gold = ann['index_kept_terms'] + ann['index_miss_agreed_terms']
             add_vector_metrics(row, ann['gold_index_terms'], ann['orig_index_terms'], i_updated_gold, 'index')
 
-        # Convert lists to strings
-        for key, val in row.items():
-            if isinstance(val, list):
-                if key == 'dup_keywords':
-                    vals = [kw_map.get(str(v).strip().lower(), str(v)) for v in val]
-                    row[key] = ", ".join(vals)
-                else:
-                    row[key] = ", ".join([str(v) for v in val])
+            for key, val in row.items():
+                if isinstance(val, list):
+                    if key == 'dup_keywords':
+                        vals = [kw_map.get(str(v).strip().lower(), str(v)) for v in val]
+                        row[key] = ", ".join(vals)
+                    else:
+                        row[key] = ", ".join([str(v) for v in val])
 
-        export_data.append(row)
-
-    # --- Split analyzed vs non-analyzed ---
-    analyzed_rows = [r for r in export_data if not r.get('is_non_analyzed')]
-    non_analyzed_rows = [r for r in export_data if r.get('is_non_analyzed')]
+            analyzed_rows.append(row)
 
     def _derive_sheet_name(results_filename):
         active = st.session_state.get('input_file_basename', '')
         sheet_name = active.removeprefix("merged_").removesuffix(".json")
         if sheet_name.startswith('merged_'):
             sheet_name = sheet_name[len('merged_'):]
+        # Strip any non_analyzed_ segment from the filename so sheet routing
+        # is determined solely by the Analyzed [y/n] column, not the filename.
+        sheet_name = sheet_name.removeprefix("non_analyzed_")
         if "w_en" in results_filename and not sheet_name.startswith("w_en"):
             sheet_name = "w_en_" + sheet_name
         return sheet_name
@@ -1975,8 +2009,7 @@ def save_results():
 
     if non_analyzed_rows:
         base_sheet = _derive_sheet_name(non_analyzed_rows[-1].get('results_filename', active))
-        na_sheet = base_sheet if base_sheet.startswith("non_analyzed_") else f"non_analyzed_{base_sheet}"
-        _write_rows_to_sheet(non_analyzed_rows, na_sheet)
+        _write_rows_to_sheet(non_analyzed_rows, f"non_analyzed_{base_sheet}")
 
     st.session_state.annotations = []
 
