@@ -22,6 +22,7 @@ Outputs (in results/annotation_report/)
   metrics_avg.csv        – averages across vectors per (sheet, language)
 """
 
+import argparse
 import datetime
 import re
 import sys
@@ -89,6 +90,27 @@ def parse_set(value) -> set | None:
     return {item.strip().lower() for item in re.split(r",\s*", s) if item.strip()}
 
 
+def _ids_to_names(ids: set | None, lookup: dict) -> set[str] | None:
+    """Resolve a set of ID-like strings to lowercase name strings via ``lookup``.
+
+    Falls back to the original token (lowercased) when not in the lookup or
+    not parseable as int. Returns None if ``ids`` is None.
+    """
+    if ids is None:
+        return None
+    out: set[str] = set()
+    for i in ids:
+        i_str = str(i).strip()
+        if not i_str:
+            continue
+        try:
+            resolved = lookup.get(int(i_str), i_str)
+        except (ValueError, TypeError):
+            resolved = i_str
+        out.add(str(resolved).strip().lower())
+    return out
+
+
 def compute_metrics_per_sample(pred: set | None, gold: set | None) -> tuple[float, float, float]:
     """Return (precision, recall, jaccard).
 
@@ -114,32 +136,59 @@ def compute_metrics_per_sample(pred: set | None, gold: set | None) -> tuple[floa
 # Per-sample metric computation
 # ---------------------------------------------------------------------------
 
-def compute_sample_metrics(row: pd.Series) -> dict:
-    """Compute before/after P/R/J for keywords, fields, and index."""
+def compute_sample_metrics(row: pd.Series,
+                            kw_names: dict | None = None,
+                            fi_names: dict | None = None,
+                            external_gold: dict[str, dict[str, set]] | None = None) -> dict:
+    """Compute before/after P/R/J for keywords, fields, and index.
+
+    When ``external_gold`` is provided, the "after" comparison uses the
+    pre-built gold (sets of lowercase names) keyed by ``row["name"]``, and
+    keyword/field predictions are resolved from IDs to names via
+    ``kw_names`` / ``fi_names``. Otherwise, "after" uses the per-sheet
+    kept / miss-agreed columns (the original behavior).
+    """
+    use_external = external_gold is not None
+    ref_id = row["name"]
+
     # --- keywords ---
     pred_kw = parse_set(row["orig_kw_ids"])
     gold_kw = parse_set(row["gold_kw_ids"])
-    kept_kw = parse_set(row["kw_kept_ids"])
     kw_b = compute_metrics_per_sample(pred_kw, gold_kw)
-    kw_a = compute_metrics_per_sample(pred_kw, kept_kw)
+    if use_external:
+        pred_kw_names = _ids_to_names(pred_kw, kw_names or {})
+        kept_kw = external_gold.get(ref_id, {}).get("kw")
+        kw_a = compute_metrics_per_sample(pred_kw_names, kept_kw)
+    else:
+        kept_kw = parse_set(row["kw_kept_ids"])
+        kw_a = compute_metrics_per_sample(pred_kw, kept_kw)
 
     # --- fields ---
     pred_fi = parse_set(row["orig_field_ids"])
     gold_fi = parse_set(row["gold_field_ids"])
-    kept_fi = parse_set(row["field_kept_ids"])
-    miss_fi = parse_set(row["field_miss_agreed_ids"])
-    gold_fi_aft = (kept_fi | miss_fi) if (kept_fi is not None and miss_fi is not None) else None
     fi_b = compute_metrics_per_sample(pred_fi, gold_fi)
-    fi_a = compute_metrics_per_sample(pred_fi, gold_fi_aft)
+    if use_external:
+        pred_fi_names = _ids_to_names(pred_fi, fi_names or {})
+        gold_fi_aft = external_gold.get(ref_id, {}).get("fi")
+        fi_a = compute_metrics_per_sample(pred_fi_names, gold_fi_aft)
+    else:
+        kept_fi = parse_set(row["field_kept_ids"])
+        miss_fi = parse_set(row["field_miss_agreed_ids"])
+        gold_fi_aft = (kept_fi | miss_fi) if (kept_fi is not None and miss_fi is not None) else None
+        fi_a = compute_metrics_per_sample(pred_fi, gold_fi_aft)
 
     # --- index ---
     pred_ix = parse_set(row["orig_index_terms"])
     gold_ix = parse_set(row["gold_index_terms"])
-    kept_ix = parse_set(row["index_kept_terms"])
-    miss_ix = parse_set(row["index_miss_agreed_terms"])
-    gold_ix_aft = (kept_ix | miss_ix) if (kept_ix is not None and miss_ix is not None) else None
     ix_b = compute_metrics_per_sample(pred_ix, gold_ix)
-    ix_a = compute_metrics_per_sample(pred_ix, gold_ix_aft)
+    if use_external:
+        gold_ix_aft = external_gold.get(ref_id, {}).get("ix")
+        ix_a = compute_metrics_per_sample(pred_ix, gold_ix_aft)
+    else:
+        kept_ix = parse_set(row["index_kept_terms"])
+        miss_ix = parse_set(row["index_miss_agreed_terms"])
+        gold_ix_aft = (kept_ix | miss_ix) if (kept_ix is not None and miss_ix is not None) else None
+        ix_a = compute_metrics_per_sample(pred_ix, gold_ix_aft)
 
     return {
         "kw_p_before": kw_b[0], "kw_r_before": kw_b[1], "kw_j_before": kw_b[2],
@@ -165,7 +214,10 @@ def load_and_deduplicate(sheet_name: str) -> tuple[pd.DataFrame, int]:
     return df
 
 
-def process_sheet(sheet_name: str, lang_map: dict) -> pd.DataFrame:
+def process_sheet(sheet_name: str, lang_map: dict,
+                  external_gold: dict | None = None,
+                  kw_names: dict | None = None,
+                  fi_names: dict | None = None) -> pd.DataFrame:
     """Return per-sample DataFrame with computed metrics and language label."""
     df = load_and_deduplicate(sheet_name)
 
@@ -178,7 +230,8 @@ def process_sheet(sheet_name: str, lang_map: dict) -> pd.DataFrame:
 
     records = []
     for _, row in df.iterrows():
-        m = compute_sample_metrics(row)
+        m = compute_sample_metrics(row, kw_names=kw_names, fi_names=fi_names,
+                                    external_gold=external_gold)
         m["ref_id"] = row["name"]
         m["language"] = row["language"]
         records.append(m)
@@ -235,17 +288,74 @@ def _safe_set(value) -> set:
     return result if result is not None else set()
 
 
-def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
+def build_gold_sets(excel_path: Path, model: str | None,
+                    kw_names: dict, fi_names: dict) -> dict[str, dict[str, set]]:
+    """Return {ref_id: {'kw': set, 'fi': set, 'ix': set}} of lowercase name strings.
+
+    'kw'  ← kw_kept_ids resolved via ``kw_names``
+    'fi'  ← (field_kept_ids ∪ field_miss_agreed_ids) resolved via ``fi_names``
+    'ix'  ← (index_kept_terms ∪ index_miss_agreed_terms), already text
+
+    When ``model`` is None, the gold is the union across all model sheets;
+    otherwise it is the union across MODEL_SHEETS[model].
+    """
+    if model is None:
+        sheets = [s for sheets in MODEL_SHEETS.values() for s in sheets]
+    elif model in MODEL_SHEETS:
+        sheets = MODEL_SHEETS[model]
+    else:
+        raise ValueError(f"Unknown model {model!r}. Choose from {sorted(MODEL_SHEETS)}.")
+
+    raw_kw: dict[str, set] = {}
+    raw_fi: dict[str, set] = {}
+    raw_ix: dict[str, set] = {}
+
+    for sheet in sheets:
+        df = pd.read_excel(excel_path, sheet_name=sheet)
+        df["name"] = df["name"].str.strip()
+        df = df.drop_duplicates(subset="name", keep="last")
+        for _, row in df.iterrows():
+            ref_id = row["name"]
+            if pd.isna(ref_id):
+                continue
+            raw_kw[ref_id] = raw_kw.get(ref_id, set()) | _safe_set(row["kw_kept_ids"])
+            raw_fi[ref_id] = (raw_fi.get(ref_id, set())
+                              | _safe_set(row["field_kept_ids"])
+                              | _safe_set(row["field_miss_agreed_ids"]))
+            raw_ix[ref_id] = (raw_ix.get(ref_id, set())
+                              | _safe_set(row["index_kept_terms"])
+                              | _safe_set(row["index_miss_agreed_terms"]))
+
+    gold: dict[str, dict[str, set]] = {}
+    for ref_id in set(raw_kw) | set(raw_fi) | set(raw_ix):
+        gold[ref_id] = {
+            "kw": _ids_to_names(raw_kw.get(ref_id, set()), kw_names),
+            "fi": _ids_to_names(raw_fi.get(ref_id, set()), fi_names),
+            "ix": {str(t).strip().lower() for t in raw_ix.get(ref_id, set()) if str(t).strip()},
+        }
+    return gold
+
+
+def build_gold_annotations(lur_path: Path, excel_path: Path,
+                           model: str | None = None) -> pd.DataFrame:
     """Return a DataFrame [ref_id, text, new_gold_keywords, new_gold_fields, new_gold_index].
 
     new_gold_keywords  = kw_kept_ids  → resolved to keyword names
     new_gold_fields    = field_kept_ids ∪ field_miss_agreed_ids  → resolved to topic names
     new_gold_index     = index_kept_terms ∪ index_miss_agreed_terms  (already text)
 
-    Values are unioned across all sheets (MODEL_SHEETS) per ref_id.
-    Rows follow LUR order and are restricted to Analyzed == 'y' records
-    that appear in at least one sheet.
+    When ``model`` is given, values are unioned across the sheets belonging to
+    that model (MODEL_SHEETS[model]). When ``model`` is None, values are unioned
+    across all model sheets. Rows follow LUR order and are restricted to
+    Analyzed == 'y' records that appear in at least one of the relevant sheets.
     """
+    if model is None:
+        sheets = [s for sheets in MODEL_SHEETS.values() for s in sheets]
+    elif model in MODEL_SHEETS:
+        sheets = MODEL_SHEETS[model]
+    else:
+        raise ValueError(f"Unknown model {model!r}. Choose from {sorted(MODEL_SHEETS)}.")
+
     kw_names = pd.read_csv(KEYWORDS_FILE).set_index("Id")["Keyword"].to_dict()
     fi_names = pd.read_csv(TOPICS_FILE).set_index("Id")["Topic"].to_dict()
 
@@ -259,8 +369,7 @@ def build_gold_annotations(lur_path: Path, excel_path: Path) -> pd.DataFrame:
     ref_text: dict[str, str] = {}
     has_en_translation: set[str] = set()
 
-    all_sheets = [s for sheets in MODEL_SHEETS.values() for s in sheets]
-    for sheet in all_sheets:
+    for sheet in sheets:
         df = pd.read_excel(excel_path, sheet_name=sheet)
         df["name"] = df["name"].str.strip()
         df = df.drop_duplicates(subset="name", keep="last")
@@ -372,6 +481,22 @@ def build_model_comparison(vector_df: pd.DataFrame) -> tuple[pd.DataFrame, pd.Da
 # ---------------------------------------------------------------------------
 
 def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--model",
+        choices=sorted(MODEL_SHEETS),
+        default=None,
+        help="Model whose annotator decisions define the gold standard. "
+             "If omitted (and --flex_gold is not set), gold is the union of all models.",
+    )
+    parser.add_argument(
+        "--flex_gold",
+        action="store_true",
+        help="Build a separate gold annotations file per model "
+             "(in addition to any --model / union gold).",
+    )
+    args = parser.parse_args()
+
     if not INPUT_FILE.exists():
         sys.exit(f"Input file not found: {INPUT_FILE}")
     if not LUR_FILE.exists():
@@ -380,11 +505,32 @@ def main() -> None:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     lang_map = build_language_map(LUR_FILE)
 
+    kw_names = pd.read_csv(KEYWORDS_FILE).set_index("Id")["Keyword"].to_dict()
+    fi_names = pd.read_csv(TOPICS_FILE).set_index("Id")["Topic"].to_dict()
+
+    # Determine which gold each sheet's "after" comparison should use.
+    sheet_to_gold: dict[str, dict | None] = {sheet: None for sheet in SHEETS}
+    if args.flex_gold:
+        print("Building per-model golds for 'after' comparison...")
+        per_model_gold = {
+            m: build_gold_sets(INPUT_FILE, m, kw_names, fi_names) for m in MODEL_SHEETS
+        }
+        for m, sheets in MODEL_SHEETS.items():
+            for sheet in sheets:
+                sheet_to_gold[sheet] = per_model_gold[m]
+    elif args.model:
+        print(f"Building '{args.model}' gold for 'after' comparison...")
+        shared_gold = build_gold_sets(INPUT_FILE, args.model, kw_names, fi_names)
+        for sheet in SHEETS:
+            sheet_to_gold[sheet] = shared_gold
+
     all_vector_rows: list[dict] = []
 
     print("Processing sheets...")
     for sheet in SHEETS:
-        per_sample = process_sheet(sheet, lang_map)
+        per_sample = process_sheet(sheet, lang_map,
+                                    external_gold=sheet_to_gold.get(sheet),
+                                    kw_names=kw_names, fi_names=fi_names)
         n_dedup = len(per_sample)
 
         # All records combined (no language split)
@@ -427,10 +573,22 @@ def main() -> None:
 
     # ---- updated gold annotations ----
     print("\nBuilding updated gold annotations...")
-    gold_df = build_gold_annotations(LUR_FILE, INPUT_FILE)
-    gold_path = OUTPUT_DIR / "gold_annotations.csv"
-    gold_df.to_csv(gold_path, index=False)
-    print(f"Saved: {gold_path} ({len(gold_df)} records)")
+
+    gold_targets: list[str | None] = []
+    if args.flex_gold:
+        gold_targets.extend(MODEL_SHEETS.keys())
+    if args.model and args.model not in gold_targets:
+        gold_targets.append(args.model)
+    if not gold_targets:
+        gold_targets.append(None)  # union of all models
+
+    for target in gold_targets:
+        gold_df = build_gold_annotations(LUR_FILE, INPUT_FILE, target)
+        filename = f"gold_annotations_{target}.csv" if target else "gold_annotations.csv"
+        gold_path = OUTPUT_DIR / filename
+        gold_df.to_csv(gold_path, index=False)
+        scope = target if target else "union"
+        print(f"  Saved: {gold_path} ({len(gold_df)} records, scope={scope})")
 
     # ---- model coverage dataframe ----
     print("\nBuilding model coverage dataframe...")
