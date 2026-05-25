@@ -387,8 +387,6 @@ def build_gold_annotations(lur_path: Path, excel_path: Path,
             if is_en_sheet:
                 has_en_translation.add(ref_id)
 
-    covered = set(gold_kw.keys())
-
     def resolve(ids: set, lookup: dict) -> str:
         names = sorted(lookup.get(int(i), i) for i in ids if str(i).strip())
         return ", ".join(names)
@@ -396,11 +394,12 @@ def build_gold_annotations(lur_path: Path, excel_path: Path,
     records = []
     for _, row in lur.iterrows():
         ref_id = row.get("Reference")
-        if pd.isna(ref_id) or ref_id not in covered:
+        if pd.isna(ref_id):
             continue
+        text = ref_text.get(ref_id) or (str(row["Text"]) if pd.notna(row.get("Text")) else "")
         records.append({
             "ref_id":                  ref_id,
-            "text":                    ref_text.get(ref_id, ""),
+            "text":                    text,
             "language":                row.get("Language", ""),
             "english":                 row.get("English", ""),
             "has_english_translation": ref_id in has_en_translation,
