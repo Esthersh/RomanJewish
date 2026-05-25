@@ -1454,12 +1454,12 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Check if the results directory is sitting right next to the script (server/flat structure)
-    if os.path.exists(os.path.join(script_dir, "results", "prioritized/tosefta")):
-        results_dir = os.path.join(script_dir, "results", "prioritized/tosefta")
+    if os.path.exists(os.path.join(script_dir, "results", "prioritized/to_annotate")):
+        results_dir = os.path.join(script_dir, "results", "prioritized/to_annotate")
     else:
         # Assume the script is inside a subfolder (like src/), so go up one level (local structure)
         project_root = os.path.dirname(script_dir)
-        results_dir = os.path.join(project_root, "results", "prioritized/tosefta")
+        results_dir = os.path.join(project_root, "results", "prioritized/to_annotate")
 
     st.set_page_config(layout="centered",
                        page_title="RomanJewish Legal Classifier - Review")
