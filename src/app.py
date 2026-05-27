@@ -106,7 +106,7 @@ def create_annotation(result, filename,
     gold_index_terms = get_gold_list('Index Terms')
 
     return {
-        "results_filename": result["origin_file"].split("/")[-1],
+        "results_filename": result.get("origin_file", filename or "").split("/")[-1],
         "annotator": st.session_state.get('name', ''),
         "date": date.today().isoformat(),
         # "ref_id": original_row.get("Refference") or original_row.get("ref Code"),
@@ -689,10 +689,61 @@ def get_cached_models_data(results_dir):
     return _load_models_data_cached(results_dir, json_files)
 
 
+def _find_lur_annotations(results_dir):
+    """Walk up from results_dir looking for data/LUR_annotations.csv."""
+    candidate = results_dir
+    for _ in range(5):
+        candidate = os.path.dirname(candidate)
+        path = os.path.join(candidate, "data", "LUR_annotations.csv")
+        if os.path.exists(path):
+            return path
+    return None
+
+
+def _build_lur_lookup(csv_path):
+    """Build a Reference -> row-dict map from LUR_annotations.csv."""
+    if not csv_path:
+        return {}
+    df = pd.read_csv(csv_path, dtype=str)
+    lookup = {}
+    for _, row in df.iterrows():
+        ref = str(row.get("Reference") or "").strip()
+        if not ref:
+            continue
+        lookup[ref] = {k: ("" if pd.isna(v) else v) for k, v in row.to_dict().items()}
+    return lookup
+
+
+def _normalize_new_format(item):
+    """Populate legacy matched_ids / matched_field_ids / suggested_kws keys when the
+    JSON row is in the new keywords/topics dict-of-lists shape."""
+    kws = item.get("keywords")
+    if isinstance(kws, list) and kws and isinstance(kws[0], dict):
+        matched_ids, suggested_kws = [], []
+        for kw in kws:
+            if kw.get("suggested"):
+                if kw.get("keyword"):
+                    suggested_kws.append(kw["keyword"])
+            else:
+                kid = kw.get("keyword_id")
+                if kid is not None:
+                    matched_ids.append(str(kid))
+        item.setdefault("matched_ids", matched_ids)
+        item.setdefault("suggested_kws", suggested_kws)
+
+    topics = item.get("topics")
+    if isinstance(topics, list) and topics and isinstance(topics[0], dict):
+        matched_field_ids = [str(t["field_id"]) for t in topics
+                             if isinstance(t, dict) and t.get("field_id") is not None]
+        item.setdefault("matched_field_ids", matched_field_ids)
+
+
 @st.cache_resource
 def _load_models_data_cached(results_dir, json_files):
     """The actual heavy lifting, cached strictly based on the list of filenames.
     Uses cache_resource (no deep copy) since the data is large and read-only."""
+    lur_lookup = _build_lur_lookup(_find_lur_annotations(results_dir))
+
     all_models_data = {}
     models_by_ref = {}
 
@@ -700,6 +751,13 @@ def _load_models_data_cached(results_dir, json_files):
         try:
             with open(os.path.join(results_dir, fn), 'r', encoding='utf-8') as f:
                 data = json.load(f)
+            for item in data:
+                if not item.get("original_row"):
+                    name = str(item.get("name", "")).strip()
+                    csv_row = lur_lookup.get(name)
+                    if csv_row:
+                        item["original_row"] = csv_row
+                _normalize_new_format(item)
             all_models_data[fn] = data
             for item in data:
                 rid = item.get('ref_id')
@@ -1776,7 +1834,10 @@ def main():
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    is_non_analyzed = str(original_row.get('Analyzed [y/n]', 'y')).strip().lower() == 'n'
+    is_non_analyzed = (
+        not original_row
+        or str(original_row.get('Analyzed [y/n]', '')).strip().lower() == 'n'
+    )
 
     if is_non_analyzed:
         field_kept_ids, field_fn_ids, user_defined_topics = render_fields_review_non_analyzed(
