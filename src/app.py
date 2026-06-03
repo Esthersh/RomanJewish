@@ -22,6 +22,7 @@ from data_loader import DataLoader
 from keyword_manager import KeywordManager
 
 DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1cb4Pmc7SFCZ3C5kJD8kkDFQsuJXdk16a1afoRElJ3L0/edit?gid=0#gid=0"
+RESULTS_DIR = "prioritized/to_annotate"
 
 MODEL_NAMES_ALIASES = {
     "gemini_3_pro": "Gemini",
@@ -1512,12 +1513,12 @@ def main():
     script_dir = os.path.dirname(os.path.abspath(__file__))
 
     # Check if the results directory is sitting right next to the script (server/flat structure)
-    if os.path.exists(os.path.join(script_dir, "results", "prioritized/to_annotate")):
-        results_dir = os.path.join(script_dir, "results", "prioritized/to_annotate")
+    if os.path.exists(os.path.join(script_dir, "results", RESULTS_DIR)):
+        results_dir = os.path.join(script_dir, "results", RESULTS_DIR)
     else:
         # Assume the script is inside a subfolder (like src/), so go up one level (local structure)
         project_root = os.path.dirname(script_dir)
-        results_dir = os.path.join(project_root, "results", "prioritized/to_annotate")
+        results_dir = os.path.join(project_root, "results", RESULTS_DIR)
 
     st.set_page_config(layout="centered",
                        page_title="RomanJewish Legal Classifier - Review")
