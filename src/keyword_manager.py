@@ -21,7 +21,7 @@ import csv
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Optional
+from typing import List, Optional
 
 NEW_ID_START = 10000
 OTHER_CATEGORY_ID = -1
@@ -214,3 +214,29 @@ class KeywordVocabulary:
     @classmethod
     def load_snapshot(cls, path: str | Path) -> "KeywordVocabulary":
         return cls.from_snapshot(json.loads(Path(path).read_text(encoding="utf-8")))
+
+
+class KeywordManager:
+    """Lightweight collector of newly suggested keywords used by the review app
+    (src/app.py). Kept for backward compatibility alongside KeywordVocabulary."""
+
+    def __init__(self):
+        self.new_keywords: List[str] = []
+
+    def update_keywords(self, new_keywords_list: List[str]) -> List[str]:
+        """
+        Validates and adds new keywords.
+        For now, simplistic implementation: just adds unique ones.
+        Returns the list of actually added keywords (not duplicates).
+        """
+        added = []
+        for kw in new_keywords_list:
+            if kw and kw not in self.new_keywords:
+                # Basic validation: ensure it's not empty
+                # No lemmatization as per user request for baseline
+                self.new_keywords.append(kw)
+                added.append(kw)
+        return added
+
+    def get_all_new_keywords(self) -> List[str]:
+        return self.new_keywords
