@@ -31,7 +31,11 @@
       "Bash(python3 scripts/merge_results_0_1.py --results_dir \"results/Hybrid0_1+Keywords0_2\" --keywords-files gemini_KEYWORDS_0_2_SEQ.json --output \"results/Hybrid0_1+Keywords0_2/merged_Hybrid0_1_Keywords0_2.json\")",
       "Bash(git checkout *)",
       "Bash(git add *)",
-      "Bash(git commit -q -m 'snapshot: local work before syncing with origin \\(2026-06-03\\) *)"
+      "Bash(git commit -q -m 'snapshot: local work before syncing with origin \\(2026-06-03\\) *)",
+      "Bash(git merge *)",
+      "Bash(git merge --no-edit -m 'merge: integrate local sequential-keyword work with origin/master *)",
+      "Bash(echo \"merge exit=$?\")",
+      "Bash(git commit -q -m 'chore: capture .claude/settings.json change *)"
     ]
   }
 }
