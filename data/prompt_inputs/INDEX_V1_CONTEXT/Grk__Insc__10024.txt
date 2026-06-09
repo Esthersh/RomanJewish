@@ -1,0 +1,29 @@
+## Objective
+We are building an index for our corpus of legal sources.
+
+## Instructions
+1. Analyze the provided source.
+2. Read the "Broader Context" provided. Use this context strictly to clarify ambiguities, identify underlying themes, or understand references within the Target Text.
+3. Select terms or short phrases that are distinctive to the specific legal issues discussed in the text. 
+4. Exclude very common, high-frequency words and general vocabulary (for instance: "son", "daughter", "man", "day", "house") 
+5. Return the dictionary form (lemma) of the selected terms or phrases.
+
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context (e.g., Full Chapter):
+
+
+Target Source Text, Grk. Insc. 10024 (Greek): 
+[Oἱ] κ̣ατὰ τὴν διαθήκην
+[τ]ὴν Ζωτίχου τετειμη-
+μένοι Γλαύκιππον Ζω-
+τίχου μετὰ τῶν τέκνων
+ἐπιδόντα αὐτοῖς δραχμὰς
+δισχειλίας τῆς εἰς αὐτοὺς
+τειμῆς ἕνεκεν

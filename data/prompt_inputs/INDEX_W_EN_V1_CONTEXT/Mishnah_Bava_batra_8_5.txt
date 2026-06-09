@@ -1,0 +1,58 @@
+## Objective
+We are building an index for our corpus of legal sources.
+
+## Instructions
+1. Analyze the provided source and its English translation.
+2. Read the "Broader Context" provided. Use this context strictly to clarify ambiguities, identify underlying themes, or understand references within the Target Text.
+3. Select terms or short phrases that are distinctive to the specific legal issues discussed in the text. 
+4. Exclude very common, high-frequency words and general vocabulary (for instance: "son", "daughter", "man", "day", "house") 
+5. Return the dictionary form (lemma) of the selected terms or phrases.
+
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context (e.g., Full Chapter):
+יש נוחלין ומנחילין, ויש נוחלין ולא מנחילין, מנחילין ולא נוחלין, לא נוחלין ולא מנחילין. ואלו נוחלין ומנחילין, האב את הבנים והבנים את האב והאחין מן האב, נוחלין ומנחילין. האיש את אמו והאיש את אשתו, ובני אחיות, נוחלין ולא מנחילין. האשה את בניה והאשה את בעלה ואחי האם, מנחילין ולא נוחלין. והאחים מן האם, לא נוחלין ולא מנחילין:
+סדר נחלות כך הוא, (במדבר כז) איש כי ימות ובן אין לו, והעברתם את נחלתו לבתו, בן קודם לבת, וכל יוצאי ירכו של בן קודמין לבת. בת קודמת לאחין. יוצאי ירכה של בת, קודמין לאחין. אחין קודמין לאחי האב. יוצאי ירכן של אחין, קודמין לאחי האב. זה הכלל, כל הקודם בנחלה, יוצאי ירכו קודמין. והאב קודם לכל יוצאי ירכו:
+בנות צלפחד נטלו שלשה חלקים בנחלה. חלק אביהן שהיה עם יוצאי מצרים, וחלקו עם אחיו בנכסי חפר. ושהיה בכור נוטל שני חלקים:
+אחד הבן ואחד הבת בנחלה, אלא שהבן נוטל פי שנים בנכסי האב ואינו נוטל פי שנים בנכסי האם. והבנות נזונות מנכסי האב ואינן נזונות מנכסי האם:
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+האומר זה בני, נאמן. זה אחי, אינו נאמן ונוטל עמו בחלקו. מת, יחזרו נכסים למקומן. נפלו לו נכסים ממקום אחר, יירשו אחיו עמו. מי שמת ונמצאת דיתיקי קשורה על ירכו, הרי זו אינה כלום. זכה בה לאחר, בין מן היורשין בין שאינו מן היורשין, דבריו קימין:
+הכותב נכסיו לבניו, צריך שיכתב מהיום ולאחר מיתה, דברי רבי יהודה. רבי יוסי אומר, אינו צריך. הכותב נכסיו לבנו לאחר מותו, האב אינו יכול למכר, מפני שהן כתובין לבן, והבן אינו יכול למכר, מפני שהן ברשות האב. מכר האב, מכורין עד שימות. מכר הבן, אין ללוקח בהן כלום עד שימות האב. האב תולש ומאכיל לכל מי שירצה. ומה שהניח תלוש, הרי הוא של יורשין. הניח בנים גדולים וקטנים, אין הגדולים מתפרנסים על הקטנים ולא הקטנים נזונין על הגדולים, אלא חולקין בשוה. נשאו הגדולים, ישאו הקטנים. ואם אמרו קטנים הרי אנו נושאים כדרך שנשאתם אתם, אין שומעין להם, אלא מה שנתן להם אביהם נתן:
+הניח בנות גדולות וקטנות, אין הגדולות מתפרנסות על הקטנות ולא הקטנות נזונות על הגדולות, אלא חולקות בשוה. נשאו גדולות, ישאו קטנות. ואם אמרו קטנות, הרי אנו נושאות כדרך שנשאתם אתם, אין שומעין להן. זה חמר בבנות מבבנים, שהבנות נזונות על הבנים ואין נזונות על הבנות:
+
+Target Source Text, Mishnah Bava batra 8:5 (Hebrew): 
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+English Translation: 
+One who says:
+“So-and-so is my firstborn son, [but nonetheless] may not take a double portion”;
+or “So-and-so is my son, [but nonetheless] may not inherit with his brothers”—
+his statement is not valid,76
+for he has stipulated in contradiction to77 what is written in the Torah.78
+One who distributes his property to his sons according to his own determination,79
+if he increased for one, or decreased for one, or made the firstborn equal to them—
+his words are valid.
+But if he said: “As inheritance,”
+his statement is not valid.
+If he wrote: “As a gift, whether at the beginning, or at the middle, or at the end”—
+his words are valid.
+If one says: “So-and-so shall inherit from me,” where there is a daughter;
+or “My daughter shall inherit from me,” where there is a son—
+his statement is not valid,
+for he has stipulated in contradiction to80 what is written in the Torah. One who, in writing, cedes his property to others, and left his sons [with nothing]—
+what he has done is done,
+but the spirit of the Sages82 is uneasy with him.
+Rabban Simeon b. Gamaliel says:
+If his sons did not behave83 properly,
+he is remembered for good.
+R. Yohanan b. Beroqa says:
+If he said this about one who is eligible to inherit—
+his words are valid;
+but if about one who is not eligible to inherit—
+his words are not valid.

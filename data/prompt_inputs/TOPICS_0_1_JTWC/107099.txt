@@ -1,0 +1,295 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Latin legal source. [translation Y/N]
+	a. Interpret the legal meaning of the source, as closely as possible to the specific matters it addresses.
+	b. Take into consideration its provided textual context, as long as it is directly relevant.
+2. Review the provided Judicial Topic Hierarchy.
+3. Identify and return the fields from the Judicial Topic Hierarchy that best match the specific content of the provided text.
+Select the lowest level possible that is relevant; otherwise, choose a relevant field from the level above.
+If none of the fields in the hierarchy adequately cover the source, return an empty list.  
+## Examples
+[1] Mishnah Bava Batra 8:1
+יש נוחלין ומנחילין, ויש נוחלין ולא מנחילין, מנחילין ולא נוחלין, לא נוחלין ולא מנחילין. ואלו נוחלין ומנחילין, האב את הבנים והבנים את האב והאחין מן האב, נוחלין ומנחילין. האיש את אמו והאיש את אשתו, ובני אחיות, נוחלין ולא מנחילין. האשה את בניה והאשה את בעלה ואחי האם, מנחילין ולא נוחלין. והאחים מן האם, לא נוחלין ולא מנחילין:
+Topics: 
+Classes of Heirs, Women Inheritance Rights
+
+[2] Tosefta Bava Batra 7:17
+כתב ירושה מלמטה ומתנה מלמעלה, ירושה מלמעלה ומתנה מלמטה, ירושה מכן ומכן ומתנה באמצע, הואיל והזכיר שום מתנה, דבריו קיימין.
+Topics:
+Deeds of Gift as Wills, Forms of Will
+[3] Ps. Ulpian 20.7
+Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, neque testis libripensve fieri potest. 
+Topics:
+Legal Capacity, Legal Capacity of Women, Mental Disability, Minors, Testaments
+
+## Judicial Topic Hierarchy 
+Courts and Procedure (ID 4)
+Courts and Procedure > Appeal (ID 20)
+Courts and Procedure > Courts (ID 16)
+Courts and Procedure > Courts > Arbitration (ID 100)
+Courts and Procedure > Courts > Choice of Judges (ID 99)
+Courts and Procedure > Evidence (ID 17)
+Courts and Procedure > Evidence > Archiving (ID 109)
+Courts and Procedure > Evidence > Documentary Evidence (ID 102)
+Courts and Procedure > Evidence > Witnesses (ID 101)
+Courts and Procedure > Execution (ID 19)
+Courts and Procedure > Oaths (ID 18)
+Courts and Procedure > Procedure (ID 121)
+Courts and Procedure > Procedure > Confession (ID 122)
+Obligations (ID 3)
+Obligations > Consensual Contract (ID 14)
+Obligations > Consensual Contract > Deposit (ID 79)
+Obligations > Consensual Contract > Deposit > Responsibility of depositee (ID 90)
+Obligations > Consensual Contract > Letting and Hiring (ID 78)
+Obligations > Consensual Contract > Letting and Hiring > Emphyteusis (ID 88)
+Obligations > Consensual Contract > Letting and Hiring > Labour (ID 85)
+Obligations > Consensual Contract > Letting and Hiring > Land Tenancy (ID 86)
+Obligations > Consensual Contract > Letting and Hiring > Misthosis (ID 89)
+Obligations > Consensual Contract > Loan and Pledge (ID 74)
+Obligations > Consensual Contract > Loan and Pledge > Interest (ID 80)
+Obligations > Consensual Contract > Loan and Pledge > Real security (ID 81)
+Obligations > Consensual Contract > Loan and Pledge > Transfer of Debt (ID 82)
+Obligations > Consensual Contract > Mandate (ID 77)
+Obligations > Consensual Contract > Partnership (ID 76)
+Obligations > Consensual Contract > Sale (ID 75)
+Obligations > Consensual Contract > Sale > Fraud (ID 84)
+Obligations > Consensual Contract > Sale > Warrenty (ID 83)
+Obligations > Delicts (ID 15)
+Obligations > Delicts > Damage (ID 93)
+Obligations > Delicts > Damage > Indirect cause (ID 98)
+Obligations > Delicts > Damage > wild Animals (ID 97)
+Obligations > Delicts > Theft (ID 91)
+Obligations > Delicts > Theft > In deposit (ID 96)
+Obligations > Delicts > Theft > Intention (ID 95)
+Obligations > Delicts > Theft > Return of Object (ID 94)
+Obligations > Delicts > Wild Animals (ID 92)
+Obligations > Verbal Contracts (ID 107)
+Obligations > Verbal Contracts > Stipulation (ID 108)
+Property (ID 2)
+Property > Acquisition (ID 10)
+Property > Acquisition > Conveyence (ID 55)
+Property > Acquisition > Conveyence > Classification of Things (ID 60)
+Property > Acquisition > Conveyence > Delivery (ID 62)
+Property > Acquisition > Conveyence > Formal act (ID 61)
+Property > Acquisition > Conveyence > Payment (ID 63)
+Property > Acquisition > Conveyence > Usucapio (ID 64)
+Property > Acquisition > Occupation (ID 56)
+Property > Acquisition > Occupation > Abandoned Property (ID 68)
+Property > Acquisition > Occupation > Accession (ID 69)
+Property > Acquisition > Occupation > From Natural state (ID 65)
+Property > Acquisition > Occupation > Specification (ID 67)
+Property > Acquisition > Occupation > Superficies (ID 66)
+Property > Acquisition > Usufruct (ID 57)
+Property > Neighbors (ID 13)
+Property > Possession (ID 11)
+Property > Servitudes (ID 12)
+Property > Servitudes > Personal (ID 59)
+Property > Servitudes > Personal > Usufruct (ID 73)
+Property > Servitudes > Praedial (ID 58)
+Property > Servitudes > Praedial > Rights of Light (ID 72)
+Property > Servitudes > Praedial > Rights of Water (ID 71)
+Property > Servitudes > Praedial > Rights of Way (ID 70)
+Public Law (ID 110)
+Public Law > Administrative Law (ID 112)
+Public Law > Administrative Law > Archive (ID 114)
+Public Law > Administrative Law > Judiciary (ID 113)
+Public Law > Administrative Law > Municipal Government  (ID 115)
+Public Law > Administrative Law > Provincial Government  (ID 123)
+Public Law > Taxation (ID 111)
+Status (ID 1)
+Status > Citizenship (ID 7)
+Status > Citizenship > Captivity (ID 41)
+Status > Citizenship > Freed Persons (ID 105)
+Status > Citizenship > Naturalization (ID 40)
+Status > Family (ID 5)
+Status > Family > Divorce (ID 22)
+Status > Family > Marital Arrangments (ID 23)
+Status > Family > Marital Arrangments > Dowry (ID 24)
+Status > Family > Marital Arrangments > Property of Women (ID 27)
+Status > Family > Marital Arrangments > Provision for Wife (ID 25)
+Status > Family > Marital Arrangments > Provisions for Children (ID 26)
+Status > Family > Marriage (ID 21)
+Status > Family > Marriage > Acts of Marriage (ID 117)
+Status > Family > Marriage > Legitimate Children (ID 118)
+Status > Inheritance (ID 6)
+Status > Inheritance > Debts and Obligations (ID 119)
+Status > Inheritance > Intestacy (ID 28)
+Status > Inheritance > Intestacy > Classes of Heirs (ID 30)
+Status > Inheritance > Intestacy > Father Inheritance Rights  (ID 103)
+Status > Inheritance > Intestacy > Firstborn Inheritance Rights (ID 104)
+Status > Inheritance > Intestacy > Women Inheritance rights (ID 31)
+Status > Inheritance > Testaments (ID 29)
+Status > Inheritance > Testaments > Accaptance of will (ID 35)
+Status > Inheritance > Testaments > Capacity (ID 34)
+Status > Inheritance > Testaments > Causa Mortis (ID 32)
+Status > Inheritance > Testaments > Deeds of Gift as Wills (ID 37)
+Status > Inheritance > Testaments > Disinheritance (ID 33)
+Status > Inheritance > Testaments > Forms of Will (ID 36)
+Status > Inheritance > Testaments > Legacies (ID 38)
+Status > Inheritance > Testaments > Trust (ID 39)
+Status > Legal Capacity (ID 9)
+Status > Legal Capacity > Adoption (ID 47)
+Status > Legal Capacity > Guardianship (ID 48)
+Status > Legal Capacity > Guardianship > Guardianship over Minors (ID 53)
+Status > Legal Capacity > Guardianship > Guardianship over Women (ID 54)
+Status > Legal Capacity > Infamy (ID 51)
+Status > Legal Capacity > Legal Capcity of Women (ID 120)
+Status > Legal Capacity > Mental Disability (ID 50)
+Status > Legal Capacity > Minors (ID 49)
+Status > Legal Capacity > Paternal Power (ID 46)
+Status > Legal Capacity > Paternal Power > Emanciaption (ID 52)
+Status > Slavery (ID 8)
+Status > Slavery > Manumission (ID 43)
+Status > Slavery > Manumission > Paramone (ID 45)
+Status > Slavery > Manumission > Pseudo Manumissons (ID 44)
+Status > Slavery > Obligations of Slaves (ID 42)
+Status > Slavery > Patronage/Clientela (ID 106)
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the exact data types and structure shown in this example:
+
+[
+  {
+    "field": level_0 > level_1 > level_2,
+    "field_id": 123,
+  },
+  {
+    "field": level_0,
+    "field_id": 38,
+  }
+]
+
+## Input Data
+Broader Context:
+Heredes institui possunt, qui testamenti factionem cum testatore habent.
+"Dediticiorum numero heres institui non potest, quia peregrinus est, cum 
+quo testamenti factio non est."
+"Si quidem mortis testatoris tempore vel intra diem cretionis civis 
+Romanus sit, heres esse potest; quodsi Latinus manserit, lege Iunia 
+capere hereditatem prohibetur. Idem iuris est in persona caelibis propter 
+legem Iuliam."
+"Incerta persona heres institui non potest, velut hoc modo: ""quisquis 
+primus ad funus meum venerit, heres esto""; quoniam certum consilium debet 
+esse testantis."
+"Nec municipia nec municipes heredes institui possunt, quoniam incertum 
+corpus est, et neque cernere universi neque pro herede gerere possunt, ut 
+heredes fiant: senatus consulto tamen concessum est, ut a libertis suis 
+heredes institui possint. Sed fideicommissaria hereditas municipibus 
+restitui potest; denique hoc senatus consulto prospectum est.
+"
+"Deos heredes instituere non possumus praeter eos, quos senatus consulto 
+constitutionibus principum instituere concessum est, sicuti Iovem 
+Tarpeium , Apollinem Didymaeum Mileti, Martem in Gallia, Minervam 
+Iliensem, Herculem Gaditanum, Dianam Efesiam, matrem deorum Sipylenen, 
+Nemesim quae Smyrnae colitur, et Caelestem Salinensem Carthaginis.
+"
+"Servos heredes instituere possumus, nostros cum libertate, alienos sine 
+libertate, communes cum libertate vel sine libertate.
+"
+"Eum servum, qui tantum in bonis noster est, nec cum libertate heredem 
+instituere possumus, quia Latinitatem consequitur, quod non proficit ad 
+hereditatem capiendam."
+"Alienos servos heredes instituere possumus eos tantum, quorum cum 
+dominis testamenti factionem habemus."
+"Communis servus cum libertate recte quidem heres instituitur quasi 
+proprius pro parte nostra; sine libertate autem quasi alienus propter 
+socii partem."
+"Proprius servus cum libertate heres institutus si quidem in eadem causa 
+permanserit, ex testamento liber et heres fit, id est necessarius.
+"
+"Quod si ab ipso testatore vivente manumissus vel alienatus sit, suo 
+arbitrio vel iussu emptoris hereditatem adire potest. Sed si sine 
+libertate sit institutus, omnino non consistit institutio."
+"Alienus servus heres institutus si quidem in ea causa permanserit, iussu 
+domini debet hereditatem adire; quod si vivo testatore manumissus aut 
+alienatus a domino fuerit, aut suo arbitrio aut iussu emptoris poterit 
+adire hereditatem.
+"
+"Sui heredes instituendi sunt vel exheredandi. sui autem heredes sunt 
+liberi, quos in potestate habemus, tam naturales quam adoptivi; item 
+uxor, quae in manu est, et nurus, quae in manu est filii, quem in 
+potestate habemus."
+"Postumi quoque liberi, id est, qui in utero sunt, si tales sunt, ut nati 
+in potestate nostra futuri sint, suorum heredum numero sunt."
+"Ex suis heredibus filius quidem neque heres institutus, neque nominatim 
+exheredatus, non patitur valere testamentum."
+"Reliquae vero personae liberorum, velut filia, nepos, neptis, si 
+praeteritae sint, valet testamentum, scriptis heredibus adcrescunt, suis 
+quidem heredibus in partem virilem, extraneis autem in partem dimidiam."
+"Postumi quoque liberi cuiuscumque sexus omissi, quod valuit testamentum, 
+agnatione rumpunt."
+"Eos, qui in utero sunt, si nati sui heredes nobis futuri sunt, possumus 
+instituere heredes: si quidem post mortem nostram nascantur, ex iure 
+civili; si vero viventibus nobis, ex lege Iunia.
+"
+"Filius, qui in potestate est, si non instituatur heres, nominatim 
+exheredari debet; reliqui sui heredes utriusque sexus aut nominatim aut 
+inter ceteros.
+"
+" Postumus filius nominatim exheredandus est; filia postuma ceteraeque 
+postumae feminae vel nominatim vel inter ceteros; dummodo inter ceteris 
+exheredatis aliquid legetur.
+"
+"Nepotes et pronepotes ceterique masculi postumi praeter filium vel 
+nominatim vel inter ceteros cum adiectione legati sunt exheredandi; sed 
+tutius est tamen nominatim eos exheredari; et id observatur magis."
+"Emancipatos liberos quamvis iure civili neque heredes instituere neque 
+exheredare necesse sit, tamen praetor iubet, si non instituantur heredes, 
+exheredari, masculos omnes nominatim, feminas vel inter ceteros; alioquin 
+contra tabulas bonorum possessionem eis pollicetur."
+"Inter necessarios heredes, id est servos cum libertate heredes scriptos, 
+et suos et necessarios, id est liberos, qui in potestate sunt, iure 
+civili nihil interest: nam utrique etiam inviti heredes sunt. Sed iure 
+praetorio suis et necessariis heredibus abstinere se a parentis 
+hereditate permittitur; necessariis autem tantum heredibus abstinendi 
+potestas non datur."
+"Extraneus heres si quidem cum cretione sit heres institutus, cernendo 
+fit heres; si vero sine cretione, pro herede gerendo."
+"Pro herede gerit, qui rebus hereditariis tamquam dominus utitur, velut 
+qui auctionem rerum hereditariarum facit, aut servis hereditariis cibaria 
+dat."
+"Cretio est certorum dierum spatium, quod datur instituto heredi ad 
+deliberandum, utrum expediat ei adire hereditatem nec ne, velut: "" Titius 
+heres esto cernitoque in diebus centum proximis, quibus scieris 
+poterisque. nisi ita creveris, exheres esto""."
+"""cernere"" est verba cretionis dicere ad hunc modum: ""quod me Maevius 
+heredem instituit, eam hereditatem adeo cernoque""."
+"Sine cretione heres institutus si constituerit, nolle se heredem esse, 
+statim excluditur ab hereditate, et amplius eam adire non potest."
+"Cum cretione vero heres institutus sicut cernendo fit heres, ita non 
+aliter excluditur, quam si intra diem cretionis non creverit: ideoque 
+etiamsi constituerit, nolle se heredem esse, tamen, si supersint dies 
+cretionis, paenitentia actus cernendo heres fieri potest.
+"
+"Cretio aut vulgaris dicitur aut continua: vulgaris, in qua adiciuntur 
+haec verba: ""quibus scieris poterisque""; continua, in qua non 
+adiciuntur.
+"
+"Ei, qui vulgarem cretionem habet, dies illi dumtaxat computantur, quibus 
+scivit, se heredem institutum esse, et potuit cernere; ei vero, qui 
+continuam habet cretionem, etiam illi dies computantur, quibus ignoravit 
+se heredem institutum, aut scivit quidem, sed non potuit cernere.
+"
+"Heredes aut instituti dicuntur aut substituti: instituti, qui primo 
+gradu scripti sunt; substituti, qui secundo gradu vel sequentibus heredes 
+scripti sunt, velut: ""Titius heres esto cernitoque in diebus proximis 
+centum, quibus scies poterisque. nisi ita creveris, exheres esto. tunc 
+Mevius heres esto cernitoque in diebus et reliqua"". similiter et deinceps 
+substitui potest."
+"Si sub inperfecta cretione heres institutus sit, id est non adiectis his 
+verbis: ""si non creveris, exheres esto"", sed si ita: ""si non creveris, 
+tunc Mevius heres esto"", cernendo quidem superior inferiorem excludit; 
+non cernendo autem, sed pro herede gerendo in partem admittit 
+substitutum: sed postea divus Marcus constituit, ut et pro herede gerendo 
+ex asse fiat heres. Quodsi neque creverit, neque pro herede gesserit, 
+ipse excluditur, et substitutus ex asse fit heres."
+
+Source Text, 107099 (Latin):
+Extraneus heres si quidem cum cretione sit heres institutus, cernendo 
+fit heres; si vero sine cretione, pro herede gerendo.
+
+English Translation:
+A foreign heir, if he was appointed with the right to declare his acceptance, becomes the heir by doing so; if, however, he was appointed without it, he will become the heir by acting as such.
+

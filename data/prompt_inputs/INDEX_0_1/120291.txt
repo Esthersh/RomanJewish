@@ -1,0 +1,92 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Latin source.
+ Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it.
+
+2. Select from the provided source legal terminology, or specific words or short phrases that are essential to the specific legal matters, legal principles or legal situations discussed in the text. 
+
+3. Exclude very common, high-frequency words and general vocabulary that are not pertinent to the legal matter at hand (such as particles, adjectives, adverbs, names, objects that are not relevant to the legal matter) 
+
+4. For single words, return the dictionary form (lemma) of the selected term. For fixed phrases return its accepted form (e.g. “in potestate”) 
+
+5. Guardrails:
+Do not return words that don’t appear in the text of the provided source.
+Return only words in the original language of the source.
+
+## Examples
+[1] Hebrew: Mishnah Bava Batra 8:5
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+Index:
+בכור, הכותב נכסיו, מחלק נכסיו, מתנה על מה שכתוב בתורה, ירושה, מתנה, נחלה, נכס, פי שנים, ראוי ליורשו, רוח חכמים נוחה הימנו
+[2] Latin:  Ps. Ulpian 20.10
+Filius familiae testamentum facere non potest, quoniam nihil suum habet, ut testari de eo possit. Sed divus Augustus Marcus constituit, ut filius familiae miles de eo peculio, quod in castris adquisivit, testamentum facere possit.
+
+Index: 
+castra, filius familiae, miles, peculium, testamentum, testari, testor
+
+[3] Greek: Gnomon of Idios Logos 9
+θ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.
+
+Index:
+κληρονομέω, πάτρων, φίσκος, ἀδιάθετος, ἀπελεύθερος, ἀστός, ἄτεκνος, ἐπιδικάζομαι, ἐπιδικάζω 
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context:
+"Condicionum duo sunt genera: aut enim possibilis est, aut impossibilis: 
+possibilis, quae per rerum naturam admitti potest, impossibilis, quae non 
+potest: quarum ex eventu altera expectatur, altera impossibilis 
+submovetur."
+"Condiciones contra leges et decreta principum vel bonos mores adscriptae 
+nullius sunt momenti: veluti si uxorem non duxeris, si filios non 
+susceperis, si homicidium feceris, si larvali habitu processeris et his 
+similia."
+"Quotiens non apparet, qui sit heres institutus, institutio non valet: 
+quod evenit, si testator plures amicos unius nominis habeat."
+"Heredes aut instituti aut substituti dicuntur, instituti primo gradu, 
+substituti secundo vel tertio scripti."
+"Substituere quis et pure et sub condicione potest, et tam suis quam 
+extraneis, tam puberibus quam impuberibus."
+"In quot vult uncias testator hereditatem suam dividere potest. Impleto 
+asse sine parte heredes instituti ad prioris assis semissem aequis 
+portionibus veniunt."
+"Servus alienus cum libertate heres institutus institutionem non 
+infirmat: sed libertas ut alieno supervacue data videtur.
+"
+"Filio et extraneo aequis partibus heredibus institutis si praeterita 
+adcrescat, tantum suo avocabit, quantum extraneo: si vero duo sint filii 
+instituti, suis tertiam, extraneis dimidiam tollet.
+"
+"Talis postumorum institutio: si qui post mortem meam postumi nati 
+fuerint, heredes sunto: si vivo eo nascantur, rumpunt testamentum."
+"Nepos postumus, qui in locum patris succedere potest, ab avo aut heres 
+instituendus est aut nominatim exheredandus, ne agnascendo rumpat 
+testamentum."
+"Filius familias si militet, ut paganus nominatim a patre aut heres 
+scribi aut exheredari debet, iam sublato edicto divi Augusti, quo cautum 
+fuerat, ne pater filium militem exheredet."
+"Qui semel constituit ad se hereditatem pertinere, ac se eius rebus 
+immiscuit, repudiare eam non potest, etiamsi damnosa sit."
+"Pater quotiens filio mandat adire, certus esse debet, an pro parte an ex 
+asse, et an ex institutione an ex substitutione, et an testamento an ab 
+intestato filius suus heres exsistat."
+"Mutus pater vel dominus filio vel servo heredibus institutis magis est 
+ut, si intellectu non careat, nutu iubere possit adire hereditatem, ut ei 
+iure eius commodum quaeri possit: quod facile explicari possit scientia 
+litterarum."
+Mutus servus iussu domini pro herede gerendo obligat dominum hereditati.
+
+Source Text, 120291 (Latin):
+Condicionum duo sunt genera: aut enim possibilis est, aut impossibilis: 
+possibilis, quae per rerum naturam admitti potest, impossibilis, quae non 
+potest: quarum ex eventu altera expectatur, altera impossibilis 
+submovetur.
+

@@ -14,18 +14,30 @@ Example:
 import argparse
 import os
 import sys
+import tomllib
+from pathlib import Path
+
+SECRETS_FILE = Path(__file__).parent.parent / "src" / ".streamlit" / "secrets.toml"
+
+
+def load_api_key_from_secrets() -> str:
+    if not SECRETS_FILE.exists():
+        return ""
+    with open(SECRETS_FILE, "rb") as f:
+        secrets = tomllib.load(f)
+    return secrets.get("api_keys", {}).get("gemini", "")
 
 
 def main():
     parser = argparse.ArgumentParser(description="Run a prompt file through Gemini and print the output")
     parser.add_argument("prompt_file", help="Path to the prompt text file")
-    parser.add_argument("--api_key", default=None, help="Google API key (or set GOOGLE_API_KEY env var)")
-    parser.add_argument("--model", default="gemini-3.1-pro-preview", help="Gemini model name (default: gemini-3.1-pro)")
+    parser.add_argument("--api_key", default=None, help="Google API key (overrides secrets.toml and GOOGLE_API_KEY)")
+    parser.add_argument("--model", default="gemini-2.5-pro", help="Gemini model name")
     args = parser.parse_args()
 
-    api_key = args.api_key or os.environ.get("GOOGLE_API_KEY")
+    api_key = args.api_key or os.environ.get("GOOGLE_API_KEY") or load_api_key_from_secrets()
     if not api_key:
-        print("Error: provide --api_key or set GOOGLE_API_KEY environment variable.", file=sys.stderr)
+        print("Error: no API key found. Add it to src/.streamlit/secrets.toml, set GOOGLE_API_KEY, or pass --api_key.", file=sys.stderr)
         sys.exit(1)
 
     if not os.path.isfile(args.prompt_file):
@@ -46,7 +58,6 @@ def main():
     config = types.GenerateContentConfig(
         temperature=0.0,
         top_p=1.0,
-        thinking_config=types.ThinkingConfig(thinking_level="HIGH"),
     )
 
     print(f"Model:  {args.model}", file=sys.stderr)

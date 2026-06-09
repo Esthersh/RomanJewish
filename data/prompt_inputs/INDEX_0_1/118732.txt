@@ -1,0 +1,55 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Greek source.
+ Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it.
+
+2. Select from the provided source legal terminology, or specific words or short phrases that are essential to the specific legal matters, legal principles or legal situations discussed in the text. 
+
+3. Exclude very common, high-frequency words and general vocabulary that are not pertinent to the legal matter at hand (such as particles, adjectives, adverbs, names, objects that are not relevant to the legal matter) 
+
+4. For single words, return the dictionary form (lemma) of the selected term. For fixed phrases return its accepted form (e.g. “in potestate”) 
+
+5. Guardrails:
+Do not return words that don’t appear in the text of the provided source.
+Return only words in the original language of the source.
+
+## Examples
+[1] Hebrew: Mishnah Bava Batra 8:5
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+Index:
+בכור, הכותב נכסיו, מחלק נכסיו, מתנה על מה שכתוב בתורה, ירושה, מתנה, נחלה, נכס, פי שנים, ראוי ליורשו, רוח חכמים נוחה הימנו
+[2] Latin:  Ps. Ulpian 20.10
+Filius familiae testamentum facere non potest, quoniam nihil suum habet, ut testari de eo possit. Sed divus Augustus Marcus constituit, ut filius familiae miles de eo peculio, quod in castris adquisivit, testamentum facere possit.
+
+Index: 
+castra, filius familiae, miles, peculium, testamentum, testari, testor
+
+[3] Greek: Gnomon of Idios Logos 9
+θ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.
+
+Index:
+κληρονομέω, πάτρων, φίσκος, ἀδιάθετος, ἀπελεύθερος, ἀστός, ἄτεκνος, ἐπιδικάζομαι, ἐπιδικάζω 
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context:
+Τότε μὲν οὖν Καῖσαρ ἀκούσας ἑκατέρων διέλυσε τὸ συνέδριον, μετὰ δʼ ἡμέρας ὀλίγας τὸ μὲν ἥμισυ τῆς βασιλείας Ἀρχελάῳ δίδωσιν ἐθνάρχην προσειπών, ὑποσχόμενος δὲ καὶ βασιλέα ποιήσειν,
+εἰ ἄξιον ἑαυτὸν παράσχοι, τὸ δὲ λοιπὸν ἥμισυ διελὼν εἰς δύο τετραρχίας δυσὶν ἑτέροις παισὶν Ἡρώδου δίδωσιν, τὴν μὲν Φιλίππῳ, τὴν δὲ Ἀντίπᾳ τῷ πρὸς Ἀρχέλαον ἀμφισβητοῦντι περὶ τῆς βασιλείας.
+ἐγένετο δὲ ὑπὸ τούτῳ μὲν ἥ τε Περαία καὶ Γαλιλαία, πρόσοδος διακόσια τάλαντα, Βατανέα δὲ καὶ Τράχων Αὐρανῖτίς τε καὶ μέρη τινὰ τοῦ Ζήνωνος οἴκου τὰ περὶ ἰννάνω, πρόσοδον ἔχοντα ταλάντων ἑκατόν, ὑπὸ Φιλίππῳ τέτακτο.
+τῆς Ἀρχελάου δʼ ἐθναρχίας Ἰδουμαία τε καὶ Ἰουδαία πᾶσα καὶ Σαμαρεῖτις ἦν κεκουφισμένη τετάρτῳ μέρει τῶν φόρων εἰς τιμὴν τοῦ μὴ μετὰ τῶν ἄλλων ἀποστῆναι.
+πόλεις δʼ ὑπηκόους παρέλαβεν Στράτωνος πύργον καὶ Σεβαστὴν καὶ Ἰόππην καὶ Ἱεροσόλυμα· τὰς γὰρ Ἑλληνίδας Γάζαν καὶ Γάδαρα καὶ Ἵππον ἀποτεμόμενος τῆς βασιλείας προσέθηκεν Συρίᾳ. πρόσοδος ἦν τῆς Ἀρχελάῳ δοθείσης χώρας τετρακοσίων ταλάντων.
+Σαλώμη δὲ πρὸς οἷς ὁ βασιλεὺς ἐν ταῖς διαθήκαις κατέλιπεν Ἰαμνείας τε καὶ Ἀζώτου καὶ Φασαηλίδος ἀποδείκνυται δεσπότις, χαρίζεται δʼ αὐτῇ Καῖσαρ καὶ τὰ ἐν Ἀσκάλωνι βασίλεια· συνήγετο δʼ ἐκ πάντων ἑξήκοντα προσόδου τάλαντα· τὸν δὲ οἶκον αὐτῆς ὑπὸ τὴν Ἀρχελάου τοπαρχίαν ἔταξεν.
+τῆς δʼ ἄλλης Ἡρώδου γενεᾶς ἕκαστος τὸ καταλειφθὲν ἐν ταῖς διαθήκαις ἐκομίζετο. δυσὶ δʼ αὐτοῦ θυγατράσι παρθένοις Καῖσαρ ἔξωθεν χαρίζεται πεντήκοντα μυριάδας ἀργυρίου καὶ συνῴκισεν αὐτὰς τοῖς Φερώρα παισίν.
+μετὰ δὲ τὸν οἶκον ἐπιδιένειμεν αὐτοῖς τὴν ἑαυτῷ καταλειφθεῖσαν ὑφʼ Ἡρώδου δωρεὰν οὖσαν χιλίων ταλάντων, εὐτελῆ τινα τῶν κειμηλίων εἰς τὴν τοῦ κατοιχομένου τιμὴν ἐξελόμενος.
+
+Source Text, 118732 (Greek):
+πόλεις δʼ ὑπηκόους παρέλαβεν Στράτωνος πύργον καὶ Σεβαστὴν καὶ Ἰόππην καὶ Ἱεροσόλυμα· τὰς γὰρ Ἑλληνίδας Γάζαν καὶ Γάδαρα καὶ Ἵππον ἀποτεμόμενος τῆς βασιλείας προσέθηκεν Συρίᾳ. πρόσοδος ἦν τῆς Ἀρχελάῳ δοθείσης χώρας τετρακοσίων ταλάντων.
+

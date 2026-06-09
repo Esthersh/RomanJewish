@@ -1,0 +1,416 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the keywords of the sources. For any given source choose the most relevant keywords from the provided List of Keywords below. 
+
+## Detailed Instructions
+1. Analyze the provided Latin legal source and its English translation.
+	a. Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it. Identify the situation, legal issues, legal terms, formulas, legal procedures, parties and significant objects in it.
+	b. Take into consideration the source’s provided textual context, only if the meaning of the source is vague.  
+2. Review the provided List of Keywords.
+3. Identify and return the keywords from the List of Keywords that best match the situation, legal issues, legal terms, formulas, legal procedures, parties and significant objects in the source. 
+*return keywords that may be clearly inferred from the source (by an expert in the field)
+*refrain from returning redundant keywords that have a very similar meaning. Among similar keywords, return the one that is most relevant to the given source. .
+4. If the List of Keywords does not include all relevant keywords, suggest new keywords. 
+* All new keywords MUST be in English, unless it is a widely used latin term.
+*refrain from suggesting redundant keywords that have a very similar meaning.
+* Assign any suggested keyword to the existing category that matches it best. If no existing category fits, use "other" for the category field.
+* For suggested keywords, set the keyword_id to -1. Set the category_id to the ID of the matched category, or -1 if the category is "other".
+
+## Examples
+[1] Mishnah Bava Batra 8:7 
+הכותב נכסיו לבניו, צריך שיכתב מהיום ולאחר מיתה, דברי רבי יהודה. רבי יוסי אומר, אינו צריך. הכותב נכסיו לבנו לאחר מותו, האב אינו יכול למכר, מפני שהן כתובין לבן, והבן אינו יכול למכר, מפני שהן ברשות האב. מכר האב, מכורין עד שימות. מכר הבן, אין ללוקח בהן כלום עד שימות האב. האב תולש ומאכיל לכל מי שירצה. ומה שהניח תלוש, הרי הוא של יורשין. 
+Keywords: 
+bequeathal clause, division of estate before death, father, son, from today and after death, gift after death, heir, inter vivos transfer, power of sale, property, usufructus, attached fruits, gathered fruits, temporary sale.  
+[2] Ps. Ulpian 20.5
+Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter  familiae emptor, alter testis esse non potest, quoniam quod unus ex his mancipio accipit, adquirit patri, cui filius suus testis esse non debet.
+Keywords: 
+brother, buyer, disqualified witnesses, father, mancipatio, mancipatory will, paterfamilias, patria potestas, scale holder, son, testamentum per aes et libram, witnesses
+
+## List of Keywords 
+Category: Explicit legal frameworks (id: 6)
+  - laws of another country (id: 167)
+  - Lex Cornelia (id: 319)
+  - Lex Julia (id: 109)
+  - local religions or customs (id: 82)
+  - practice in province (id: 223)
+  - Senatus Consultum Orfitianum (id: 259)
+
+Category Formula, id: 4
+  - bequeathal clause (id: 83)
+  - cursing (id: 23)
+  - double document (id: 48)
+  - from today and after death (id: 307)
+  - meriteia (id: 243)
+  - oath clauses (id: 18)
+  - penalty clause (id: 63)
+  - testament formula (id: 144)
+  - testamentum per aes et libram (id: 260)
+  - vow (id: 130)
+
+Category: Legal matter (id: 3)
+  - actual possession (id: 238)
+  - adoption (id: 344)
+  - age of legal capacity (id: 170)
+  - agent authority (id: 56)
+  - Agnatic Consanguinity (id: 323)
+  - alimentary rights (id: 96)
+  - archival registration (id: 347)
+  - burial rites (id: 244)
+  - collective acquisition (id: 346)
+  - collective freedom (id: 348)
+  - conditional gift (id: 176)
+  - Creditor Priority (id: 326)
+  - cretio (id: 245)
+  - cumulative legacy (id: 279)
+  - damage of deposit (id: 143)
+  - deathbed statement (id: 229)
+  - degrees of kinship (id: 312)
+  - diminished value (id: 139)
+  - disclaimer of inheritance (id: 235)
+  - disinheritance (id: 281)
+  - disputed inheritance (id: 227)
+  - disputed lineage (id: 262)
+  - division of estate before death (id: 267)
+  - divorce (id: 351)
+  - election of rights (id: 301)
+  - eligibility to Inherit (id: 337)
+  - emancipation (id: 107)
+  - enhancement (id: 234)
+  - estate enhancement (id: 177)
+  - fictive sale (id: 240)
+  - fideicommissum (id: 278)
+  - fifth payment (id: 118)
+  - fraud (id: 52)
+  - general sale (id: 78)
+  - generational rights (id: 239)
+  - Gift vs. Inheritance (id: 328)
+  - grant of citizenship (id: 79)
+  - grave robbery (id: 288)
+  - hereditates fideicommissariae (id: 221)
+  - hypothec (id: 61)
+  - infamy (id: 51)
+  - inheritance conflict (id: 194)
+  - Inheritance priority (id: 173)
+  - inherited claims (id: 86)
+  - inoperative will (id: 342)
+  - intestacy (id: 69)
+  - joint legacy (id: 345)
+  - legal disability (id: 154)
+  - legal eligibility (id: 19)
+  - legitimate children (id: 248)
+  - liened property (id: 103)
+  - lost property (id: 27)
+  - mancipatory will (id: 145)
+  - manumission by testament (id: 277)
+  - marriage conditions (id: 187)
+  - marriage of soldiers (id: 247)
+  - material law (id: 65)
+  - minor’s protection (id: 55)
+  - modes of acquisition (id: 192)
+  - nearest agnate (id: 335)
+  - nullification (id: 71)
+  - nullity (id: 74)
+  - one-fifth payment (id: 134)
+  - order of birth (id: 226)
+  - order of death (id: 196)
+  - order of succession (id: 205)
+  - partial confession (id: 88)
+  - partial manumission (id: 320)
+  - paternal lineage (id: 311)
+  - power of sale (id: 350)
+  - primogeniture (id: 241)
+  - property transfer (id: 340)
+  - prospective estate (id: 237)
+  - proxenia (id: 57)
+  - ransom (id: 285)
+  - recoverable gifts (id: 188)
+  - refusal of gift (id: 338)
+  - refusal of inheritance (id: 343)
+  - relative priority (id: 299)
+  - Relative Priority (id: 313)
+  - renunciation of inheritance (id: 289)
+  - restitution (id: 29)
+  - revocation of citizenship (id: 77)
+  - revocation of will (id: 341)
+  - Right of habitation for the widow (id: 263)
+  - right of representation (id: 95)
+  - sacrilege (id: 355)
+  - Secured Debt (id: 325)
+  - seizure (id: 207)
+  - severability of legacy (id: 303)
+  - shared inheritance (id: 314)
+  - single witness (id: 68)
+  - slaves status (id: 339)
+  - specification of assets (id: 284)
+  - substitutio vulgaris (id: 265)
+  - succession disputes (id: 231)
+  - successive inheritance (id: 317)
+  - successive legacies (id: 349)
+  - supplements to a will (id: 308)
+  - suspected perjurer (id: 92)
+  - Tax collectors (id: 91)
+  - testamentary intent (id: 293)
+  - Testamentary Interpretation (id: 302)
+  - Testamentary Language (id: 327)
+  - testamenti factio activa (id: 217)
+  - testamenti factio passiva (id: 211)
+  - Timing of Intestacy (id: 321)
+  - transfer of inherited property (id: 334)
+  - transformation (id: 135)
+  - tribal division (id: 261)
+  - unwritten marriage (id: 256)
+  - usufructus (id: 266)
+  - verbal instruction (id: 193)
+  - wage dispute (id: 97)
+  - widow's inheritance (id: 179)
+  - Women's Status (id: 324)
+
+Category Legal terms, id: 5
+  - adstipulator (id: 114)
+  - agnatic succession (id: 309)
+  - bona vacantia (id: 220)
+  - bonorum possessio (id: 110)
+  - cession (id: 333)
+  - claim of theft (id: 94)
+  - codicil (id: 276)
+  - cognati (id: 252)
+  - consanguinity (id: 315)
+  - deathbed gift (id: 191)
+  - double portion (id: 233)
+  - emptio bonorum (id: 112)
+  - extortion (id: 120)
+  - extra portionem (id: 294)
+  - female succession (id: 199)
+  - gift after death (id: 305)
+  - heredes legitimi (id: 251)
+  - illegitimate child (id: 250)
+  - immovable property (id: 190)
+  - in iure cessio (id: 113)
+  - incertae personae (id: 218)
+  - intent (id: 356)
+  - intentional transgression (id: 21)
+  - inter vivos transfer (id: 290)
+  - intestate succession (id: 310)
+  - legatum (id: 209)
+  - mancipatio (id: 75)
+  - manus (id: 106)
+  - materfamilias (id: 105)
+  - monetary claim (id: 25)
+  - movable property (id: 189)
+  - next of kin (id: 246)
+  - nuncupation (id: 157)
+  - paterfamilias (id: 104)
+  - patria potestas (id: 9)
+  - perjury (id: 28)
+  - postumus alienus (id: 219)
+  - praescriptio (id: 53)
+  - pre-legacy (id: 295)
+  - Primogeniture (id: 292)
+  - representation in succession (id: 253)
+  - repudiatio hereditatis (id: 236)
+  - secession of property (id: 332)
+  - silence (id: 222)
+  - societas (id: 115)
+  - specificatio (id: 171)
+  - statutory rights (id: 298)
+  - Sworn statement (id: 37)
+  - Testamentary Heir (id: 322)
+  - theft (id: 26)
+  - unintentional transgression (id: 22)
+  - vesting of rights (id: 291)
+
+Category Objects, id: 1
+  - beam (id: 70)
+  - betrothal gifts (id: 186)
+  - boundaries of property (id: 306)
+  - coin (id: 140)
+  - country property (id: 271)
+  - currency (id: 62)
+  - debt (id: 304)
+  - debt document (id: 87)
+  - deposit (id: 122)
+  - donkey (id: 8)
+  - dowry property (id: 198)
+  - gift (id: 73)
+  - gifts of groomsmen (id: 183)
+  - grave (id: 286)
+  - guilt offering (id: 121)
+  - house in the city (id: 268)
+  - livestock (id: 270)
+  - loan (id: 32)
+  - marriage contract (id: 101)
+  - marriage presents (id: 185)
+  - maternal estate (id: 273)
+  - palm grove (id: 72)
+  - paternal estate (id: 330)
+  - peculium (id: 161)
+  - property (id: 60)
+  - public document (id: 213)
+  - slave (id: 59)
+  - statute (id: 80)
+  - tablets (id: 158)
+
+Category Offices and Administration, id: 137
+  - archive for private property (id: 146)
+  - consilium principis (id: 318)
+  - conventus (id: 254)
+  - fiscus (id: 206)
+  - manumission tax (id: 283)
+  - office (id: 81)
+  - opening of testament (id: 282)
+  - public service (id: 182)
+  - taxes (id: 58)
+
+Category Parties, id: 2
+  - adult (id: 181)
+  - bastard (id: 204)
+  - brother (id: 66)
+  - buyer (id: 147)
+  - child (id: 160)
+  - co-heirs (id: 297)
+  - convert (id: 201)
+  - craftsman (id: 142)
+  - creditor (id: 195)
+  - curator (id: 108)
+  - daughter (id: 172)
+  - deaf (id: 152)
+  - dependents (id: 162)
+  - father (id: 150)
+  - firstborn (id: 224)
+  - freedperson (id: 165)
+  - freedperson without citizen rights (id: 168)
+  - grandchild (id: 274)
+  - guardian (id: 242)
+  - heir (id: 178)
+  - illegitimate child (id: 249)
+  - indirect heir (id: 200)
+  - intersex person (id: 175)
+  - Junian Latin (id: 156)
+  - litigant (id: 257)
+  - mentally impaired (id: 153)
+  - minor (id: 180)
+  - mother (id: 272)
+  - mute (id: 164)
+  - partner (id: 184)
+  - peregrine (id: 166)
+  - presumed heir (id: 232)
+  - presumed relatives (id: 331)
+  - presumed slave (id: 230)
+  - presumed son (id: 228)
+  - priest (id: 133)
+  - proper heirs (id: 336)
+  - robber (id: 90)
+  - scale holder (id: 148)
+  - serf (id: 269)
+  - sister (id: 275)
+  - slave (id: 202)
+  - soldier (id: 159)
+  - son (id: 163)
+  - tax collectors (id: 212)
+  - testator (id: 149)
+  - tutor (id: 169)
+  - veteran (id: 280)
+  - ward (id: 155)
+  - wife's heirs (id: 197)
+  - witnesses (id: 99)
+  - woman (id: 151)
+
+Category Places, id: 136
+  - Athens (id: 353)
+  - unknown (id: 354)
+
+Category Procedure, id: 329
+  - claimant's oath (id: 98)
+  - compulsory oath (id: 40)
+  - compulsory testimony (id: 33)
+  - confession (id: 174)
+  - consent-based resolution (id: 47)
+  - court officer (id: 119)
+  - decisory oath (id: 46)
+  - denial of testimony (id: 11)
+  - disqualified witnesses (id: 17)
+  - divorce (id: 352)
+  - false oath (id: 20)
+  - judicial oath (id: 39)
+  - oath (id: 54)
+  - oath of deposit (id: 24)
+  - oath of ignorance (id: 35)
+  - oath of knowledge (id: 34)
+  - oath of orphans (id: 100)
+  - oath of testimony (id: 89)
+  - oath versus judgment (id: 49)
+  - procedural law (id: 64)
+  - procedural oath (id: 45)
+  - proof (id: 255)
+  - refusal of action (id: 50)
+  - refusal to swear (id: 42)
+  - rejection of judges (id: 258)
+  - sworn denial (id: 44)
+  - voluntary oath (id: 38)
+  - witness obligation (id: 13)
+  - witness summons (id: 36)
+  - woman testimony (id: 225)
+
+Category Punishments, id: 138
+  - capital punishment (id: 287)
+  - fine (id: 117)
+  - penalty for breach of will (id: 264)
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the following schema:
+
+[
+  {
+    "category": "Name of the category",
+    "keyword": "Matched or suggested word",
+    "suggested": true/false,
+    "category_id": "ID of the category (or -1)",
+    "keyword_id": "ID of the keyword (or -1)"
+  }
+]
+
+## Input Data
+Broader Context:
+"Testamentum iure factum infirmatur duobus modis, si ruptum aut inritum 
+factum sit."
+"Rumpitur testamentum mutatione, id est, si postea aliud testamentum iure 
+factum sit; item agnatione, id est, si suus heres agnascatur, qui neque 
+heres institutus, neque ut oportet exheredatus sit.
+"
+"Agnascitur suus heres aut agnascendo, aut adoptando, aut in manum 
+conveniendo, aut in locum sui heredis succedendo, velut nepos mortuo 
+filio vel emancipato, aut manumissione, id est, si filius ex prima 
+secundave mancipatione manumissus reversus sit in patris potestatem."
+"Inritum fit testamentum, si testator capite diminutus fuerit, aut si 
+iure facto testamento nemo extiterit heres.
+"
+"Si is, qui testamentum fecit, ab hostibus captus sit, testamentum eius 
+valet, si quidem reversus fuerit, iure postliminii; si vero ibi 
+decesserit, ex lege Cornelia, quae perinde successionem eius confirmat, 
+atque si in civitate decessisset.
+"
+"Si septem signis testium signatum sit testamentum, licet iure civili 
+ruptum vel irritum factum sit, praetor scriptis heredibus iuxta tabulas 
+bonorum possessionem dat, si testator et civis Romanus et suae 
+potestatis, cum moreretur, fuit; quam bonorum possessionem cum re, id est 
+cum effectu, habent, si nemo alius iure heres sit."
+"Liberis inpuberibus in potestate manentibus, tam natis quam postumis, 
+heredes substituere parentes possunt duplici modo, id est aut eo, quo 
+extraneis, ut, si heredes non extiterint liberi, substitutus heres fiat; 
+aut proprio iure, ut si post mortem parentis heredes facti intra 
+pubertatem decesserint, substitutus heres fiat."
+ Etiam exheredatis filiis substituere parentibus licet.
+"Non aliter inpuberi filio substituere quis heredem potest, quam si sibi 
+quis heredem instituerit vel ipsum filium vel quemlibet alium."
+"Milites quomodocumque fecerint testamenta, valent, id est etiam sine 
+legitima observatione. Nam principalibus constitutionibus permissum est 
+illis, quomodocumque vellent, quomodocumque possent, testari. idque 
+testamentum, quod miles contra iuris regulam fecit, ita demum valet, si 
+vel in castris mortuus sit, vel post missionem intra annum."
+
+Source Text, 107110 (Latin):
+Testamentum iure factum infirmatur duobus modis, si ruptum aut inritum 
+factum sit.
+
+English Translation:
+A will legally executed becomes void in two ways, by being broken, or by becoming of no effect.
+

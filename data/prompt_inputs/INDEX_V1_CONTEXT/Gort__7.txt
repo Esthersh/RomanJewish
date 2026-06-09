@@ -1,0 +1,23 @@
+## Objective
+We are building an index for our corpus of legal sources.
+
+## Instructions
+1. Analyze the provided source.
+2. Read the "Broader Context" provided. Use this context strictly to clarify ambiguities, identify underlying themes, or understand references within the Target Text.
+3. Select terms or short phrases that are distinctive to the specific legal issues discussed in the text. 
+4. Exclude very common, high-frequency words and general vocabulary (for instance: "son", "daughter", "man", "day", "house") 
+5. Return the dictionary form (lemma) of the selected terms or phrases.
+
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context (e.g., Full Chapter):
+
+
+Target Source Text, Gort. 7 (Greek): 
+ἐ͂ κ’ ἀποθάνεˉι ἀνὲˉρ ἒˉ γυν ά, αἰ μέν κ’ ἐ͂ι τέκ̣ν̣α ἒˉ ἐς τέ κνοˉν τέκν̣α̣ ἒˉ ἐς τούτοˉν τέ κνα, τούτος ἔκε[ν] τὰ κρέˉμα τα. {²palmula}² αἰ δέ κα̣ μέˉτις ἐ͂ι τούτοˉ ν, ἀ{α}δελπιοὶ {²⁶ἀδελπιοὶ}²⁶ δὲ το͂ ἀποθανόν τος κἐˉκς ἀδε[λ]πιο͂ν τέκν α ἒˉ ἐς τούτοˉν τέκνα, τούτ ος ἔκεν τὰ κρέˉματα. {²palmula}² αἰ δέ κα μέˉτις ἐ͂ι τούτοˉν, ἀδευπιαὶ δ ὲ το͂ ἀποθανόντος κἐˉς ταυτ ᾶν τέκνα ἒˉ ἐς το͂ν τέκνοˉν τέ κνα, τούτος ἔκεν τὰ κρέˉμα τα. {²palmula}² αἰ δέ κα μέˉτις ἐ͂ι τούτοˉν, οἶς κ’ ἐπιβάλλεˉι ὄποˉ κ’ ἐ͂ι τὰ κρ έˉματα̣, τούτος ἀναιλε͂θθα ι. {²palmula}² αἰ δὲ μὲˉ εἶεν ἐπιβάλλοντε ς, τᾶς ϝοικίας οἴτινές κ’ ἴοˉντι ὀ κλᾶρος, τούτονς ἔ κεν τὰ κρέˉματα. vac. αἰ δέ κ’ οἰ ἐπιβάλλοντες οἰ μὲν λεί οˉντι δατε͂θθαι τὰ κρέˉματ α, οἰ δὲ μέˉ, δικάκσαι τὸν δι καστὰν ἐπὶ τοῖλ λείονσι δ ατε͂θθαι ἔˉμεˉν τὰ κρέˉματα π άντα πρίν κα δάττονται. vac. αἰ δέ κα δικάκσαντος το͂ δ ικαστᾶ κάρτει ἐνσείεˉι ἒˉ ἄ γεˉι ἒˉ πέρεˉι, δέκα στατε͂ραν ς καταστασεῖ καὶ το͂ κρέˉι ος διπλεῖ. vac. τνατο͂ν δὲ καὶ καρ πο͂ καὶ ϝέˉμας κἀνπιδέˉμας κ ἐˉπιπολαίοˉν κρεˉμάτοˉν αἴ κα μ ὲˉ λείοˉντι δατέˉ̣θ̣[θαι, τὸ]ν̣ δ̣ [ικαστ]ὰν ὀμνύντα κρῖνα ι πορτὶ τὰ μοˉλιόμενα. vac. [α]ἰ [δ] έ κα κρέˉματα δατιόμενοι μὲˉ συνγιγνόˉσκοˉντι ἀν πὶ τὰν δαῖσιν, ὀˉνε͂ν τὰ κρέˉμ ατα· κὄˉς κα πλεῖστον διδ ο͂ι ἀποδόμενοι τᾶν τιμᾶν δια[λ]ακόντοˉν τὰν ἐπαβο λὰν ϝέκαστος. {²palmula}² δατιομέ νοιδ δὲ κρέˉματα μαίτυρα νς παρέˉμεˉν δρομέανς ἐλε υθέρονς τρίινς ἒˉ πλίανς.

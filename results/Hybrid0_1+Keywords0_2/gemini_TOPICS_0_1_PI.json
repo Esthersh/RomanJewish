@@ -1,0 +1,86 @@
+[
+  {
+    "ref_id": "118119",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments\",\n    \"field_id\": 29\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Deeds of Gift as Wills\",\n    \"field_id\": 37\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118139",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Deeds of Gift as Wills\",\n    \"field_id\": 37\n  },\n  {\n    \"field\": \"Status > Family > Marital Arrangments > Provision for Wife\",\n    \"field_id\": 25\n  },\n  {\n    \"field\": \"Property > Servitudes > Personal > Usufruct\",\n    \"field_id\": 73\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  },\n  {\n    \"field\": \"Property > Servitudes > Praedial > Rights of Water\",\n    \"field_id\": 71\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118161",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Deeds of Gift as Wills\",\n    \"field_id\": 37\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Disinheritance\",\n    \"field_id\": 33\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  },\n  {\n    \"field\": \"Status > Inheritance > Debts and Obligations\",\n    \"field_id\": 119\n  },\n  {\n    \"field\": \"Courts and Procedure > Evidence > Witnesses\",\n    \"field_id\": 101\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118183",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Trust\",\n    \"field_id\": 39\n  },\n  {\n    \"field\": \"Courts and Procedure > Evidence > Witnesses\",\n    \"field_id\": 101\n  },\n  {\n    \"field\": \"Courts and Procedure > Evidence > Archiving\",\n    \"field_id\": 109\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118191",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118194",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments\",\n    \"field_id\": 29\n  },\n  {\n    \"field\": \"Status > Citizenship > Freed Persons\",\n    \"field_id\": 105\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118431",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Accaptance of will\",\n    \"field_id\": 35\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Disinheritance\",\n    \"field_id\": 33\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118439",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Intestacy\",\n    \"field_id\": 28\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Classes of Heirs\",\n    \"field_id\": 30\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118442",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Trust\",\n    \"field_id\": 39\n  },\n  {\n    \"field\": \"Property > Servitudes > Personal > Usufruct\",\n    \"field_id\": 73\n  },\n  {\n    \"field\": \"Courts and Procedure > Evidence > Witnesses\",\n    \"field_id\": 101\n  },\n  {\n    \"field\": \"Courts and Procedure > Evidence > Archiving\",\n    \"field_id\": 109\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118459",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Slavery > Manumission\",\n    \"field_id\": 43\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Disinheritance\",\n    \"field_id\": 33\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Accaptance of will\",\n    \"field_id\": 35\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Trust\",\n    \"field_id\": 39\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Guardianship\",\n    \"field_id\": 48\n  },\n  {\n    \"field\": \"Public Law > Taxation\",\n    \"field_id\": 111\n  },\n  {\n    \"field\": \"Public Law > Administrative Law > Archive\",\n    \"field_id\": 114\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118709",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments\",\n    \"field_id\": 29\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118710",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Classes of Heirs\",\n    \"field_id\": 30\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Women Inheritance rights\",\n    \"field_id\": 31\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Legal Capcity of Women\",\n    \"field_id\": 120\n  },\n  {\n    \"field\": \"Property > Acquisition > Conveyence > Formal act\",\n    \"field_id\": 61\n  },\n  {\n    \"field\": \"Property > Acquisition > Conveyence > Classification of Things\",\n    \"field_id\": 60\n  }\n]\n```"
+  },
+  {
+    "ref_id": "118711",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Women Inheritance rights\",\n    \"field_id\": 31\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Classes of Heirs\",\n    \"field_id\": 30\n  }\n]\n```"
+  },
+  {
+    "ref_id": "120892",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Firstborn Inheritance Rights\",\n    \"field_id\": 104\n  },\n  {\n    \"field\": \"Status > Family > Marriage > Legitimate Children\",\n    \"field_id\": 118\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Women Inheritance rights\",\n    \"field_id\": 31\n  },\n  {\n    \"field\": \"Status > Family > Marriage\",\n    \"field_id\": 21\n  },\n  {\n    \"field\": \"Status > Legal Capacity\",\n    \"field_id\": 9\n  }\n]\n```"
+  },
+  {
+    "ref_id": "120893",
+    "response": "```json\n[\n  {\n    \"field\": \"Courts and Procedure > Procedure\",\n    \"field_id\": 121\n  },\n  {\n    \"field\": \"Status > Inheritance\",\n    \"field_id\": 6\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Disinheritance\",\n    \"field_id\": 33\n  },\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Firstborn Inheritance Rights\",\n    \"field_id\": 104\n  },\n  {\n    \"field\": \"Status > Family > Marriage > Legitimate Children\",\n    \"field_id\": 118\n  }\n]\n```"
+  },
+  {
+    "ref_id": "120894",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Intestacy > Firstborn Inheritance Rights\",\n    \"field_id\": 104\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Paternal Power\",\n    \"field_id\": 46\n  },\n  {\n    \"field\": \"Status > Inheritance > Debts and Obligations\",\n    \"field_id\": 119\n  },\n  {\n    \"field\": \"Public Law > Administrative Law > Judiciary\",\n    \"field_id\": 113\n  }\n]\n```"
+  },
+  {
+    "ref_id": "120895",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Deeds of Gift as Wills\",\n    \"field_id\": 37\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  },\n  {\n    \"field\": \"Status > Inheritance > Debts and Obligations\",\n    \"field_id\": 119\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Guardianship > Guardianship over Women\",\n    \"field_id\": 54\n  },\n  {\n    \"field\": \"Courts and Procedure > Evidence > Witnesses\",\n    \"field_id\": 101\n  }\n]\n```"
+  },
+  {
+    "ref_id": "120896",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments > Capacity\",\n    \"field_id\": 34\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Forms of Will\",\n    \"field_id\": 36\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  },\n  {\n    \"field\": \"Courts and Procedure > Evidence > Witnesses\",\n    \"field_id\": 101\n  }\n]\n```"
+  },
+  {
+    "ref_id": "120897",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance > Testaments\",\n    \"field_id\": 29\n  },\n  {\n    \"field\": \"Status > Inheritance > Testaments > Legacies\",\n    \"field_id\": 38\n  },\n  {\n    \"field\": \"Status > Inheritance > Debts and Obligations\",\n    \"field_id\": 119\n  },\n  {\n    \"field\": \"Property > Servitudes > Personal\",\n    \"field_id\": 59\n  }\n]\n```"
+  },
+  {
+    "ref_id": "120898",
+    "response": "```json\n[\n  {\n    \"field\": \"Status > Inheritance\",\n    \"field_id\": 6\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Guardianship > Guardianship over Women\",\n    \"field_id\": 54\n  },\n  {\n    \"field\": \"Courts and Procedure > Oaths\",\n    \"field_id\": 18\n  },\n  {\n    \"field\": \"Obligations > Verbal Contracts > Stipulation\",\n    \"field_id\": 108\n  }\n]\n```"
+  },
+  {
+    "ref_id": "120899",
+    "response": "```json\n[\n  {\n    \"field\": \"Property > Acquisition > Conveyence\",\n    \"field_id\": 55\n  },\n  {\n    \"field\": \"Property > Servitudes > Praedial > Rights of Water\",\n    \"field_id\": 71\n  },\n  {\n    \"field\": \"Status > Legal Capacity > Guardianship > Guardianship over Women\",\n    \"field_id\": 54\n  },\n  {\n    \"field\": \"Public Law > Taxation\",\n    \"field_id\": 111\n  }\n]\n```"
+  }
+]

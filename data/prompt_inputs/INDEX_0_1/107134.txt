@@ -1,0 +1,151 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Latin source.
+ Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it.
+
+2. Select from the provided source legal terminology, or specific words or short phrases that are essential to the specific legal matters, legal principles or legal situations discussed in the text. 
+
+3. Exclude very common, high-frequency words and general vocabulary that are not pertinent to the legal matter at hand (such as particles, adjectives, adverbs, names, objects that are not relevant to the legal matter) 
+
+4. For single words, return the dictionary form (lemma) of the selected term. For fixed phrases return its accepted form (e.g. “in potestate”) 
+
+5. Guardrails:
+Do not return words that don’t appear in the text of the provided source.
+Return only words in the original language of the source.
+
+## Examples
+[1] Hebrew: Mishnah Bava Batra 8:5
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+Index:
+בכור, הכותב נכסיו, מחלק נכסיו, מתנה על מה שכתוב בתורה, ירושה, מתנה, נחלה, נכס, פי שנים, ראוי ליורשו, רוח חכמים נוחה הימנו
+[2] Latin:  Ps. Ulpian 20.10
+Filius familiae testamentum facere non potest, quoniam nihil suum habet, ut testari de eo possit. Sed divus Augustus Marcus constituit, ut filius familiae miles de eo peculio, quod in castris adquisivit, testamentum facere possit.
+
+Index: 
+castra, filius familiae, miles, peculium, testamentum, testari, testor
+
+[3] Greek: Gnomon of Idios Logos 9
+θ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.
+
+Index:
+κληρονομέω, πάτρων, φίσκος, ἀδιάθετος, ἀπελεύθερος, ἀστός, ἄτεκνος, ἐπιδικάζομαι, ἐπιδικάζω 
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context:
+"Legatum est, quod legis modo, id est imperative, testamento relinquitur. 
+Nam ea, quae precativo modo relinquuntur, fideicommissa vocantur."
+"Legamus autem quattuor modis: per vindicationem, per damnationem, 
+sinendi modo, per praeceptionem."
+"Per vindicationem his verbis legamus: ""do lego, capito, sumito, sibi 
+habeto""."
+"Per damnationem his verbis: ""heres meus damnas esto dare, dato, facito, 
+heredem meum dare iubeo""."
+"Sinendi modo ita: ""heres meus damnas esto sinere Lucium Titium sumere 
+illam rem sibique habere""."
+"Per praeceptionem sic: ""Lucius Titius illam rem praecipito"".
+"
+"Per vindicationem legari possunt res, quae utroque tempore ex iure 
+Quiritium testatoris fuerunt, mortis, et quo testamentum faciebat, 
+praeterquam si pondere, numero, mensura contineantur; in his enim satis 
+est, si vel mortis dumtaxat tempore fuerint ex iure Quiritium.
+"
+"Per damnationem omnes res legari possunt, etiam quae non sunt 
+testatoris, dummodo tales sint, quae dari possint."
+"Liber homo aut res populi aut sacra aut religiosa nec per damnationem 
+legari potest, quoniam dari non potest."
+ Sinendi modo legari possunt res propriae testatoris et heredis eius.
+Per praeceptionem legari possunt res, quae etiam per vindicationem.
+"Si ea res, quae non fuit utroque tempore testatoris ex iure 
+Quiritium, per vindicationem legata sit, licet iure civili non valeat 
+legatum, tamen senatus consulto Neroniano firmatur; quo cautum est, ut 
+quod minus pactis aptis +  verbis legatum est, perinde sit, ac si optimo 
+iure legatum esset: optimum autem ius legati per damnationem est."
+" Si duobus eadem res per vindicationem legata sit, sive coniunctim velut 
+"" Titio hominem Stichum do lego, Seio eundem hominem do lego"", iure 
+civili concursu partes fiebant; non concurrente altero pars eius alteri 
+adcrescebat: sed post legem Papiam Poppaeam non capientis pars caduca 
+fit.
+"
+"Si per damnationem eadem res duobus legata sit, si quidem coniunctim, 
+singulis partes debentur et non capientis pars iure civili in hereditate 
+remanebat, nunc autem caduca fit; quodsi disiunctim, singulis solidum 
+debetur."
+"Optione autem legati per vindicationem data, legatarii electio est, 
+veluti: ""hominem optato, elegito"", idemque est et si tacite ... Hominem 
+... Heres ... Hominem dare, heredis electio est, .... velit dare."
+"Ante heredis institutionem legari non potest, quoniam et potestas 
+testamenti ab heredis institutione incipit.
+"
+"Post mortem heredis legari non potest, ne ab heredis herede legari 
+videatur, quod iuris civilis ratio non patitur. In mortis autem heredis 
+tempus legari potest, velut ""cum heres moriatur""."
+"Poenae causa legari non potest. Poenae autem causa legatur, quod 
+coercendi heredis causa relinquitur, ut faciat quid aut non faciat, non 
+ut ad legatarium pertineat, ut puta hoc modo: ""si filiam tuam in 
+matrimonio Titio conclaveris, decem milia Seio dato.""
+"
+"Incertae personae legari non potest, veluti ""quicumque filio meo filiam 
+suam in matrimonio conlocaverit, ei heres meus tot milia dato."" Sub certa 
+tamen demonstratione incertae personae legari potest, velut ""ex cognatis 
+meis, qui nunc sunt, qui primus ad funus meum venerit, ei heres meus 
+illud dato."""
+"Neque ex falsa demonstratione, neque ex falsa causa legatum infirmatur. 
+falsa demonstratio est velut ""Titio fundum, quem a Titio emi, do lego, ""
+cum is fundus a Titio emptus non sit. falsa causa est velut ""Titio, 
+quoniam negotia mea curavit, fundum do lego, ""ut negotia eius numquam 
+Titius curasset."
+A legatario legari non potest.
+"Legatum ab eo tantum dari potest, qui.... Ideoque filio familiae herede 
+instituto vel servo, neque a patre neque a domino legari potest."
+Heredi a semet ipso legari non potest.
+"Ei, qui in potestate, manu mancipiove est scripti heredis, sub 
+condicione legari potest, ut requiratur, an, quo tempore dies legati 
+cedit, in potestate heredis non sit.
+"
+"Ei, cuius in potestate, manu mancipiove est heres scriptus, legari non 
+potest."
+"Sicut singulae res legari possunt, ita universarum quoque summa legari 
+potest, ut puta hoc modo: ""heres meus cum Titio hereditatem meam 
+partito, dividito;"" quo casu dimidia pars bonorum legata videtur: potest 
+autem et alia pars, velut tertia vel quarta, legari. Quae species ""
+partitio""....."
+"Ususfructus legari potest iure civili earum rerum, quarum salva 
+substantia utendi fruendi potest esse facultas; et tam singularum rerum, 
+quam plurium, id est partis."
+"Senatus consulto cautum est, ut etiamsi earum rerum, quae in abusu 
+continentur, ut puta vini, olei, tritici, ususfructus legatus sit, 
+legatario res tradantur, cautionibus interpositis de restituendis eis, 
+cum ususfructus ad legatarium pertinere desierit."
+"Civitatibus omnibus, quae sub imperio populi Romani sunt, legari potest; 
+idque a divo Nerva introductum, postea a senatu auctore Hadriano 
+diligentius constitutum est.
+"
+"Legatum, quod datum est, adimi potest vel eodem testamento, vel 
+codicillis testamento confirmatis; dum tamen eodem modo adimatur, quo 
+modo datum est."
+"Ad heredem legatarii legata non aliter transeunt, nisi si iam die 
+legatorum cedente legatarius decesserit."
+"Legatorum, quae pure vel in diem certum relicta sunt, dies cedit antiquo 
+quidem iure ex mortis testatoris tempore; per legem autem Papiam Poppaeam 
+ex apertis tabulis testamenti; eorum vero, quae sub condicione relicta 
+sunt, cum conditio extiterit.
+"
+"Lex Falcidia iubet, non plus quam dodrantem totius patrimonii legari, ut 
+omnimodo quadrans integer apud heredem remaneat.
+"
+
+Source Text, 107134 (Latin):
+Si per damnationem eadem res duobus legata sit, si quidem coniunctim, 
+singulis partes debentur et non capientis pars iure civili in hereditate 
+remanebat, nunc autem caduca fit; quodsi disiunctim, singulis solidum 
+debetur.
+

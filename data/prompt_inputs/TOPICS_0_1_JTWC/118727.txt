@@ -1,0 +1,262 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Syriac legal source. [translation Y/N]
+	a. Interpret the legal meaning of the source, as closely as possible to the specific matters it addresses.
+	b. Take into consideration its provided textual context, as long as it is directly relevant.
+2. Review the provided Judicial Topic Hierarchy.
+3. Identify and return the fields from the Judicial Topic Hierarchy that best match the specific content of the provided text.
+Select the lowest level possible that is relevant; otherwise, choose a relevant field from the level above.
+If none of the fields in the hierarchy adequately cover the source, return an empty list.  
+## Examples
+[1] Mishnah Bava Batra 8:1
+יש נוחלין ומנחילין, ויש נוחלין ולא מנחילין, מנחילין ולא נוחלין, לא נוחלין ולא מנחילין. ואלו נוחלין ומנחילין, האב את הבנים והבנים את האב והאחין מן האב, נוחלין ומנחילין. האיש את אמו והאיש את אשתו, ובני אחיות, נוחלין ולא מנחילין. האשה את בניה והאשה את בעלה ואחי האם, מנחילין ולא נוחלין. והאחים מן האם, לא נוחלין ולא מנחילין:
+Topics: 
+Classes of Heirs, Women Inheritance Rights
+
+[2] Tosefta Bava Batra 7:17
+כתב ירושה מלמטה ומתנה מלמעלה, ירושה מלמעלה ומתנה מלמטה, ירושה מכן ומכן ומתנה באמצע, הואיל והזכיר שום מתנה, דבריו קיימין.
+Topics:
+Deeds of Gift as Wills, Forms of Will
+[3] Ps. Ulpian 20.7
+Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, neque testis libripensve fieri potest. 
+Topics:
+Legal Capacity, Legal Capacity of Women, Mental Disability, Minors, Testaments
+
+## Judicial Topic Hierarchy 
+Courts and Procedure (ID 4)
+Courts and Procedure > Appeal (ID 20)
+Courts and Procedure > Courts (ID 16)
+Courts and Procedure > Courts > Arbitration (ID 100)
+Courts and Procedure > Courts > Choice of Judges (ID 99)
+Courts and Procedure > Evidence (ID 17)
+Courts and Procedure > Evidence > Archiving (ID 109)
+Courts and Procedure > Evidence > Documentary Evidence (ID 102)
+Courts and Procedure > Evidence > Witnesses (ID 101)
+Courts and Procedure > Execution (ID 19)
+Courts and Procedure > Oaths (ID 18)
+Courts and Procedure > Procedure (ID 121)
+Courts and Procedure > Procedure > Confession (ID 122)
+Obligations (ID 3)
+Obligations > Consensual Contract (ID 14)
+Obligations > Consensual Contract > Deposit (ID 79)
+Obligations > Consensual Contract > Deposit > Responsibility of depositee (ID 90)
+Obligations > Consensual Contract > Letting and Hiring (ID 78)
+Obligations > Consensual Contract > Letting and Hiring > Emphyteusis (ID 88)
+Obligations > Consensual Contract > Letting and Hiring > Labour (ID 85)
+Obligations > Consensual Contract > Letting and Hiring > Land Tenancy (ID 86)
+Obligations > Consensual Contract > Letting and Hiring > Misthosis (ID 89)
+Obligations > Consensual Contract > Loan and Pledge (ID 74)
+Obligations > Consensual Contract > Loan and Pledge > Interest (ID 80)
+Obligations > Consensual Contract > Loan and Pledge > Real security (ID 81)
+Obligations > Consensual Contract > Loan and Pledge > Transfer of Debt (ID 82)
+Obligations > Consensual Contract > Mandate (ID 77)
+Obligations > Consensual Contract > Partnership (ID 76)
+Obligations > Consensual Contract > Sale (ID 75)
+Obligations > Consensual Contract > Sale > Fraud (ID 84)
+Obligations > Consensual Contract > Sale > Warrenty (ID 83)
+Obligations > Delicts (ID 15)
+Obligations > Delicts > Damage (ID 93)
+Obligations > Delicts > Damage > Indirect cause (ID 98)
+Obligations > Delicts > Damage > wild Animals (ID 97)
+Obligations > Delicts > Theft (ID 91)
+Obligations > Delicts > Theft > In deposit (ID 96)
+Obligations > Delicts > Theft > Intention (ID 95)
+Obligations > Delicts > Theft > Return of Object (ID 94)
+Obligations > Delicts > Wild Animals (ID 92)
+Obligations > Verbal Contracts (ID 107)
+Obligations > Verbal Contracts > Stipulation (ID 108)
+Property (ID 2)
+Property > Acquisition (ID 10)
+Property > Acquisition > Conveyence (ID 55)
+Property > Acquisition > Conveyence > Classification of Things (ID 60)
+Property > Acquisition > Conveyence > Delivery (ID 62)
+Property > Acquisition > Conveyence > Formal act (ID 61)
+Property > Acquisition > Conveyence > Payment (ID 63)
+Property > Acquisition > Conveyence > Usucapio (ID 64)
+Property > Acquisition > Occupation (ID 56)
+Property > Acquisition > Occupation > Abandoned Property (ID 68)
+Property > Acquisition > Occupation > Accession (ID 69)
+Property > Acquisition > Occupation > From Natural state (ID 65)
+Property > Acquisition > Occupation > Specification (ID 67)
+Property > Acquisition > Occupation > Superficies (ID 66)
+Property > Acquisition > Usufruct (ID 57)
+Property > Neighbors (ID 13)
+Property > Possession (ID 11)
+Property > Servitudes (ID 12)
+Property > Servitudes > Personal (ID 59)
+Property > Servitudes > Personal > Usufruct (ID 73)
+Property > Servitudes > Praedial (ID 58)
+Property > Servitudes > Praedial > Rights of Light (ID 72)
+Property > Servitudes > Praedial > Rights of Water (ID 71)
+Property > Servitudes > Praedial > Rights of Way (ID 70)
+Public Law (ID 110)
+Public Law > Administrative Law (ID 112)
+Public Law > Administrative Law > Archive (ID 114)
+Public Law > Administrative Law > Judiciary (ID 113)
+Public Law > Administrative Law > Municipal Government  (ID 115)
+Public Law > Administrative Law > Provincial Government  (ID 123)
+Public Law > Taxation (ID 111)
+Status (ID 1)
+Status > Citizenship (ID 7)
+Status > Citizenship > Captivity (ID 41)
+Status > Citizenship > Freed Persons (ID 105)
+Status > Citizenship > Naturalization (ID 40)
+Status > Family (ID 5)
+Status > Family > Divorce (ID 22)
+Status > Family > Marital Arrangments (ID 23)
+Status > Family > Marital Arrangments > Dowry (ID 24)
+Status > Family > Marital Arrangments > Property of Women (ID 27)
+Status > Family > Marital Arrangments > Provision for Wife (ID 25)
+Status > Family > Marital Arrangments > Provisions for Children (ID 26)
+Status > Family > Marriage (ID 21)
+Status > Family > Marriage > Acts of Marriage (ID 117)
+Status > Family > Marriage > Legitimate Children (ID 118)
+Status > Inheritance (ID 6)
+Status > Inheritance > Debts and Obligations (ID 119)
+Status > Inheritance > Intestacy (ID 28)
+Status > Inheritance > Intestacy > Classes of Heirs (ID 30)
+Status > Inheritance > Intestacy > Father Inheritance Rights  (ID 103)
+Status > Inheritance > Intestacy > Firstborn Inheritance Rights (ID 104)
+Status > Inheritance > Intestacy > Women Inheritance rights (ID 31)
+Status > Inheritance > Testaments (ID 29)
+Status > Inheritance > Testaments > Accaptance of will (ID 35)
+Status > Inheritance > Testaments > Capacity (ID 34)
+Status > Inheritance > Testaments > Causa Mortis (ID 32)
+Status > Inheritance > Testaments > Deeds of Gift as Wills (ID 37)
+Status > Inheritance > Testaments > Disinheritance (ID 33)
+Status > Inheritance > Testaments > Forms of Will (ID 36)
+Status > Inheritance > Testaments > Legacies (ID 38)
+Status > Inheritance > Testaments > Trust (ID 39)
+Status > Legal Capacity (ID 9)
+Status > Legal Capacity > Adoption (ID 47)
+Status > Legal Capacity > Guardianship (ID 48)
+Status > Legal Capacity > Guardianship > Guardianship over Minors (ID 53)
+Status > Legal Capacity > Guardianship > Guardianship over Women (ID 54)
+Status > Legal Capacity > Infamy (ID 51)
+Status > Legal Capacity > Legal Capcity of Women (ID 120)
+Status > Legal Capacity > Mental Disability (ID 50)
+Status > Legal Capacity > Minors (ID 49)
+Status > Legal Capacity > Paternal Power (ID 46)
+Status > Legal Capacity > Paternal Power > Emanciaption (ID 52)
+Status > Slavery (ID 8)
+Status > Slavery > Manumission (ID 43)
+Status > Slavery > Manumission > Paramone (ID 45)
+Status > Slavery > Manumission > Pseudo Manumissons (ID 44)
+Status > Slavery > Obligations of Slaves (ID 42)
+Status > Slavery > Patronage/Clientela (ID 106)
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the exact data types and structure shown in this example:
+
+[
+  {
+    "field": level_0 > level_1 > level_2,
+    "field_id": 123,
+  },
+  {
+    "field": level_0,
+    "field_id": 38,
+  }
+]
+
+## Input Data
+Broader Context:
+"ܐ܂ ܕܪܓܐ ܩܕܡܝܐ ܕܝܪܬܘܬܐ. ܐܢ ܡܿܐܬ ܓܒܪܐ ܘܠܐ ܟܬܒ ܕܝܐܬܝܩܝ/ܕܝܬܩܝ#2#/܃ ܘܢܿܪܦܐ ܒܢ̈ܝܐ
+ܕܟܪ̈ܐ ܘܢܩܒ̈ܬܐ܃ ܝܿܪܬܝܢ ܫܘܝܐܝܬ܂ ܐܢܕܝܢ ܢܨܒܐ ܕܢܟܬܘܒ ܕܝܐܬܝܩܝ܃ ܡܘܪܬ ܠܒܢ̈ܘܗܝ ܐܝܟ ܨܒܝܢܗ܂  ܘܠܒܢ̈ܬܐ ܝܗܿܒ ܟܠ ܚܕܐ ܡܢܗܝܢ ܦܪܢܝܬܗܿ܂ ܡܘܢ ܕܐܿܬܐ ܠܟܠ ܚܕܐ ܡܢܗܝܢ/ܘܒܗܝܢ ܡܼܢ ܬܠܿܬ ܐܘ̈ܢܝܩܝܣ ܕܩܢܝܢܗ܂ ܡܼܢ ܗܠܝܢ ܓܝܪ ܬܠܿܬ ܐܘ̈ܢܝܩܘܣ܃ ܠܟܠܗܘܢ ܒܢܘ̈ܗܝ ܕܓܒܪܐ ܡܼܢ
+ܢܡܘܣܐ ܡܬܦܠܓܝܢ܂ ܘܒܗܠܝܢ ܬܫ̈ܥ ܡܩܝܡ ܝܪ̈ܘܬܐ ܠܒܢ̈ܘܗܝ ܐܝܟ ܕܨܒܿܐ܂ ܐܢܕܝܢ ܠܝܬܝܪܐ ܡܕܡ ܨܒܿܐ ܕܢܬܠ ܠܒܢ̈ܘܗܝ ܫܠܝܛ ܗܼܘ܂ ܐܢܕܝܢ ܠܝܬ ܠܗ ܒܢ̈ܝܐ ܕܟܪ̈ܐ܂ ܒܢ̈ܬܐ ܐܘܿ ܒܪܬܐ ܝܿܪܬܢ ܠܗ ܠܓܒܪܐ܂ ܐܢܕܝܢ ܠܝܬ ܠܗ ܒܢ̈ܝܐ܂ ܫܠܝܛ ܗܼܘ ܕܢܘܪܬ ܠܟܠ ܕܨܒܿܐ܂ ܐܢܕܝܢ ܡܢܫܠܝ ܢܡܘܬ ܟܕ ܒܪܐ ܠܝܬ ܠܗ܃ ܘܠܐ ܢܟܬܘܒ  ܕܝܐܬܝܩܝ܃ ܝܿܪܬ ܠܗ܂ ܐܢ ܩܝܡ ܐܒܘܗܝ ܕܓܒܪܐ܂ ܐܢܕܝܢ ܠܐ ܩܝܡ ܐܒܘܗܝ܃ ܝܿܪܬܝܢ ܠܗ ܐܚܘ̈ܗܝ ܘܐܦ ܐܚܘ̈ܬܗ  ܫܘܝܐܝܬ܂ ܘܐܢ ܩܿܝܡܐ ܐܦ ܐܡܗ܃ ܐܦ ܗܼܝ ܡܬܡܢܝܐ ܐܝܟ ܚܕ ܡܼܢ ܒܢ̈ܝܗܿ ܫܘܝܐܝܬ ܒܝܪܬܘܬܐ ܕܒܪܗܿ܂ ܐܢܕܝܢ ܢܡܘܬ ܓܒܪܐ ܡܢܫܝܠ ܟܕ ܠܐ ܢܟܬܘܒ ܕܝܐܬܝܩܝ܃ ܘܠܐ ܐܝܬ ܠܗ ܠܐ ܐܒܐ ܘܠܐ ܐܡܐ ܘܠܐ ܒܢ̈ܝܐ܃ ܘܐܝܬ ܠܗ ܕ̈ܕܐ܃ ܝܿܪܬܝܢ ܒܢ̈ܝ ܕ̈ܕܐ܂ ܘܐܢ ܓܡܪܬ ܠܗܿ ܫܪܒܬܐ ܕܐܒܐ ܘܕܕ̈ܕܐ܃ ܘܡܬܩܪܝܐ ܫܪܒܬܐ ܕܒܢ̈ܝ ܚܬܐ܃ ܐܘܿ ܕܒܢ̈ܝ ܐܚܘ̈ܬܐ܂ ܘܐܢ ܓܡܪܬ ܠܗܿ ܐܦ ܗܕܐ ܫܪܒܬܐ܃ ܡ֯ܬܩܪܝܐ ܫܪܒܬܐ ܕܥ̈ܡܬܐ ܗܢܘ ܕܝܢ ܕܒܢ̈ܝܗܝܢ ܕܟܪ̈ܐ܂ ܘܐܢ ܠܝܬ ܠܗܝܢ ܕܟܪ̈ܐ܃ ܗܝܕܝܢ ܥ̈ܐܠܢ ܢܩܒ̈ܬܐ܂ ܗܟܢܐ ܗܘܿܐ ܝܘܒܠܐ ܕܝܪܬܘܬܐ ܕܪ̈ܝܢ ܕܪ̈ܝܢ܂ ܒܕܪܓܐ ܓܝܪ ܩܕܡܝܐ ܒܠܚܘܕ ܡܫܬܘ̈ܝܢ ܕܢܐܪ̈ܬܢ ܢܩܒ̈ܬܐ ܥܡ ܕܟܪ̈ܐ ܡܼܢ ܕܪܓܐ ܕܬܪ̈ܝܢ ܐܘܿ ܕܬܠܿܬܐ ܐܘܿ ܕܫܪܟܐ ܕܡܢ̈ܝܢܐ܃ ܡܬܪ̈ܚܩܢ  ܠܗܝܢ ܢܫ̈ܐ ܘܒܢ̈ܝܗܝܢ ܕܠܐ ܢܐܪ̈ܬܢ ܥܡ ܐܚܝ̈ܗܝܢ ܐܘܿ ܥܡ ܒܢ̈ܝ
+ܐܚܝ̈ܗܝܢ܂ ܐܝܬ ܠܗܝܢ ܓܝܪ ܝܪܬܘܬܐ ܠܢܫ̈ܐ ܕܢܐܪ̈ܬܢ ܥܡ ܐܚܝ̈ܗܝܢ ܘܥܡ ܐܚܘ̈ܬܗܝܢ܃ ܐܢ ܢܡܘܬܘܢ  ܕܠܐ ܕܝܐܬܝ̈ܩܐܣ ܠܐܢܫܝ̈ܗܝܢ ܘܠܐܚܝ̈ܗܝܢ ܘܠܐܚܘ̈ܬܗܝܢ܂         ܗܢܘ ܕܪܓܐ ܩܕܡܝܐ܂ ܢܡܘ̈ܣܐ ܓܝܪ ܙܪܥܐ ܕܟܝܐ ܡܒܥܪܝܢ܂ ܘܐܝܢܐ ܕܩܪܝܒ ܠܗܢܐ ܡܩܪܒܝܢ ܠܝܪܬܘܬܐ ܕܡܬܩܪܝܐ ܪܗܘܡܐܝܬ ܐܢܘܓܢܛܘܣ/ܐܢܕܓܢܛܘܣ#2#/ ܕܡܬܬܪܓܡ ܓܢܣܐ ܩܪܝܒܐ܂ ܐܢ ܓܡܿܪ ܕܝܢ ܓܢܣܐ ܩܪܝܒܐ܃ ܡܬܩܪܒ ܓܢܣܐ         ܕܢܫ̈ܐ܂ ܕܐܝܬܘܗܝ ܒܕܡܘܬ ܐܪܥܐ/ܙܪܥܐ ^ܟܕ ܐܪܥܐ^#2#/܂ ܕܡܬܩܪܝܐ ܪܗܘܡܐܝܬ ܩܘܢܓܢܛܘܣ܂ ܕܡܬܬܪܓܡ ܓܢܣܐ ܕܒܬܪ ܓܢܣܐ ܩܪܝܒܐ܂ ܐܢܕܝܢ ܩܝܡ ܐܒܘܗܝ ܕܓܒܪܐ ܟܕ ܗܼܘ ܡܿܐܬ܂ ܠܐ ܫܠܝܛ ܠܗ ܕܢܟܬܘܒ ܕܝܐܬܝܩܝ ܟܕ ܐܒܘܗܝ ܩܝܡ܂ ܐܦܢ ܐܝܬ ܠܗ ܒ̈ܢܝܐ܃ ܬܚܝܬ ܫܘܥܒܕܐ ܐܢܘܢ ܕܐܒܐ         ܕܐܒܘܗܘܢ܂ ܘܡܕܡ ܕܩܢܝܢ ܒܢ̈ܝܐ ܒܟܠ ܦܘܪ̈ܣܝܢ ܒܝܘ̈ܡܝ ܚܝ̈ܝ ܐܒܘܗܘܢ܂ ܐܘܿ ܕܐܒܘܗܝ ܕܐܒܘܗܘܢ܂ ܡܫܥܒܕ ܗܘܼ ܠܐܒܘܗܘܢ
+"
+"ܒ܂ ܐܫܬܐܠܘ ܢܡܘܣܐ܃ ܕܐܢ ܐܝܠܝܢ ܕܛܠܝܢ ܒܫܢ̈ܝܐ܃
+ܡܨܝܢ ܥܒܿܕܝܢ ܕܝܐܬܝ̈ܩܐܣ܃ ܘܒܢ̈ܝ ܟܡܐ ܫܢ̈ܝܢ ܡܨܝܢ ܥܒܿܕܝܢ܂
+ܛܠܝܬܐ ܕܝܢ ܥܕܡܐ ܕܗܘܿܝܐ ܒܪܬ ܬܪܬܥܣܪ̈ܐ ܫܢ̈ܝܢ ܬܚܝܬ
+ܐܝܕܐ ܗܝ ܕܐܦܝܛܪܘܦܐ ܗܿܝ ܕܡܬܬܪܓܡ ܦܩܘܕܐ܂ ܘܠܐ ܡܨܝܐ
+ܕܬܥܒܕ ܕܝܐܬܝܩܝ܂
+ܡܐ ܕܥܒܪܬ ܕܝܢ ܠܬܪܬܥܣܪ̈ܐ ܫܢ̈ܝܢ܃ ܥܒܪܐ ܠܗܿ ܡܼܢ
+ܫܘܥܒܕܐ ܕܐܦܝܛܪܘܦܐ܃ ܘܗܘܿܝܐ ܠܗܿ ܬܚܝܬ ܫܘܥܒܕܐ
+ܕܩܘܪܛܘܪ܂ ܕܡܬܬܪܓܡ ܒܨܘܝܐ܂
+ܘܡܼܢ ܙܒܢܐ ܕܗܘܿܝܐ ܛܠܝܬܐ ܒܫܘܥܒܕܐ ܕܩܘܪܛܘܪ܂ ܫܠܝܛܐ
+ܕܬܥܒܕ ܕܝܐܬܝܩܝ܂
+ܗܟܢܐ ܐܦ ܛܠܝܐ ܥܕܡܐ ܠܐܪܒܥܣܪ̈ܐ ܫܢ̈ܝܢ ܬܚܝܬ
+ܫܘܥܒܕܐ ܗܘ ܕܐܦܝܛܪܘܦܐ܃ ܘܠܐ ܡܨܐ ܟܬܿܒ ܕܝܐܬܝܩܝ܂ ܡܼܢ
+ܐܪܒܥܣܪ̈ܐ ܫܢ̈ܝܢ ܕܝܢ ܘܠܥܠ܃ ܗܘܿܐ ܠܗ ܬܚܝܬ ܫܘܥܒܕܐ
+ܕܩܘܪܛܘܪ܂
+ܗܘ̈ܝܢ ܕܝܢ ܐܝܠܝܢ ܕܛܠܝ̈ܢ ܬܚܝܬ ܫܘܥܒܕܐ ܕܩܘܘܪܛܘܪ܃
+ܥܕܡܐ ܠܫܢ̈ܝܐ ܥܣܪ̈ܝܢ ܘܚܡ̈ܫ܂
+ܘܡܼܢ ܥܣܪ̈ܝܢ ܘܚܡ̈ܫ ܫܢ̈ܝܢ ܘܠܥܠ܃ ܗܘܿܐ ܠܗ ܛܠܝܐ ܓܒܪܐ
+ܫܠܡܐ܃ ܘܛܠܝܬܐ ܐܢܬܬܐ ܡܫܡܠܬܐ/ܡܫܟܠܠܬܐ#2#/܀
+"
+"܂ ܐܢ ܡܨܐ ܐܒܘܗܿ ܕܐܢܬܬܐ ܕܡܿܐܬ ܒܥܠܗܿ ܡܦܪܢܣ
+ܒܢ̈ܝܗܿ܂ ܐܢ ܝܗܿܒ ܥܪ̈ܒܐ ܡܨܐ ܗܘ ܡܦܪ̈ܢܣ܀
+"
+"ܕ܂ ܐܢ ܢܡܘܬ ܓܒܪܐ ܘܢܫܒܘܩ ܒܢ̈ܝܐ ܝܬܡ̈ܐ܃ ܘܢܥܒܕ
+ܕܝܐܬܝܩܝ ܘܢܟܬܘܒ ܐܦܝܛܪܘܦܐ ܥܠ ܒܢ̈ܘܗܝ ܐܘܿ ܩܘܪܛܘܪ܂
+ܡܦܪܢܣܝܢ ܠܝܬܡ̈ܐ ܟܕ ܠܐ ܝܗܿܒܝܢ ܥܪ̈ܒܐ܂
+ܐܢܕܝܢ ܠܐ ܢܥܒܕ ܕܝܐܬܝܩܝ ܓܒܪܐ ܘܢܡܘܬ܃ ܘܢܫܒܘܩ ܒܢ̈ܝܐ
+ܘܐܝܬ ܒܗܘܢ ܒܒܢ̈ܘܗܝ ܕܗܘܘ ܒܢ̈ܝ ܥܣܪ̈ܝܢ ܘܚܡ̈ܫ ܫܢ̈ܝܢ܂
+ܡܦܪܢܣܝܢ ܠܐܚܝ̈ܗܘܢ ܟܕ ܠܐ ܝܗܿܒܝܢ ܥܪ̈ܒܐ܂
+ܐܢܕܝܢ ܢܡܘܬ ܓܒܪܐ ܟܕ ܠܐ ܢܥܒܕ ܕܝܐܬܝܩܝ܃ ܘܢܪܦܐ ܒܢ̈ܝܐ
+ܕܛܠܝܢ܃ ܘܐܝܬ ܠܗ ܐܚܐ ܐܘܿ ܐܚ̈ܐ܃ ܠܚܕ ܡܼܢ ܐܚܘ̈ܗܝ܂ ܦܩܿܕ
+ܢܡܘܣܐ ܕܢܗܘܐ ܩܘܪܛܘܪ ܐܘܿ ܐܦܝܛܪܘܦܐ܂
+ܘܢܦܪܢܣ ܠܒܢ̈ܝ ܐܚܘܗܝ܂ ܟܕ ܥܠ ܐܝܕ̈ܝ ܡܟܬܒ̈ܢܐ ܟܬܒܝܢ
+ܟܠܡܕܡ ܕܐܝܬ ܠܝܬܡ̈ܐ ܘܡܦܪܢܣ ܒܘܠܝܬܐ܂
+ܐܢܕܝܢ ܠܝܬ ܠܗ ܐܚ̈ܐ܃ ܘܐܝܬ ܠܗ ܒܪ ܐܚܐ ܡܫܡܠܝܐ/ܡܫܟܠܠܐ#2#/܃
+ܢܗܘܐ ܒܗܿ ܒܕܡܘܬܐ ܐܦܝܛܪܘܦܐ ܐܘܿ ܩܘܪܛܘܪ ܠܒܢ̈ܝ ܕܕܗ܂
+ܐܢܕܝܢ ܢܡܘܬ ܓܒܪܐ ܘܢܪܦܐ ܒܢ̈ܝܐ ܕܛܠܝܢ܃ ܘܐܝܬ ܠܗ
+ܐܢܬܬܐ ܘܠܐ ܟܬܒ ܕܝܐܬܝܩܝ܃ ܘܠܐ ܐܝܬ ܠܗ ܐܚ̈ܐ܃ ܘܨܿܒܝܐ
+ܐܢܬܬܗ ܐܡܗܘܢ ܕܝܬܡ̈ܐ ܕܬܦܪܢܣ ܐܢܘܢ܃ ܘܿܠܐ ܠܗܿ
+ܕܬܘܕܥ ܠܕܝܿܢܐ/ܠܕܐܚܕ#2#/ ܕܐܬܪܐ܃ ܘܬܩܝܡ ܩܝܡܐ ܩܕܡܘܗܝ
+ܕܠܓܒܪܐ ܐܚܪܢܐ ܠܐ ܗܘܿܝܐ ܥܕܡܐ ܕܡܫܡܠܝܐ ܝܪܬܘܬܐ
+ܕܝܬܡ̈ܐ ܕܐܬܗܝܡܢܬ܂
+ܐܢܕܝܢ ܐܦܠܐ ܐܢܬܬܐ ܨܒܿܝܐ ܕܬܣܒܝ܂ ܛܠܝܐ/ܛܥܢܐ#2#/ ܕܒܢ̈ܝܗܿ
+ܝܬܡ̈ܐ܂ ܢܡܘܣܐ ܦܩܿܕ ܠܐܣܛܪ̈ܛܝܓܐ ܕܡܕܝܢܬܐ ܕܐܝܬܝܗܘܢ
+ܪ̈ܝܫܢܐ܃ ܕܗܢܘܢ ܢܫܡܗܘܢ ܠܗܘܢ ܠܝܬܡ̈ܐ ܐܦܝܛܪܘܦܐ
+ܐܘܿ ܩܘܪܛܘܪ܂ ܟܕ ܝܗܿܒܝܢ ܠܗܘܢ ܐܓܪܐ ܝܕܝܥܐ ܠܘܩܒܠ ܚܝܠܐ
+ܕܩܢܝܢܐ܂
+ܢܡܘ̈ܣܐ ܕܝܢ ܦܩܿܕܝܢ܃ ܕܟܠܢܫ ܕܗܘܿܐ ܥܠ ܝܬܡ̈ܐ
+ܐܦܝܛܪܘܦܐ܃ ܥܪܒܐ ܢܗܘܐ ܝܗܿܒ ܕܢܿܛܪ ܒܟܠ ܦܘܪ̈ܣܝܢ
+ܢܟܣ̈ܝܗܘܢ ܘܩܢܝܢܗܘܢ ܕܝܬܡ̈ܐ܂ ܟܕ ܡܫܠܡ ܠܗܘܢ ܩܢܝܢܗܘܢ
+ܡܐ ܕܗܘܘ ܐܢܫܐ܂
+ܐܝܠܝܢ ܕܝܢ ܕܒܕܝܐܬܝ̈ܩܐܣ ܡܬܟܬܒܝܢ ܐܦܝܛܪ̈ܘܦܐ ܐܘܿ
+ܩܘܪ̈ܛܘܪܣ ܦܩܿܕ ܢܡܘܣܐ܂ ܕܠܐ ܢܬܠܘܢ ܥܪ̈ܒܐ܂ ܡܛܠ
+ܕܡܪ̈ܝܗܘܢ ܕܩܢ̈ܝܢܐ ܓܒܘ ܘܐܩܝܡܘ ܐܢܘܢ ܡܦܪ̈ܢܣܢܐ
+"
+
+Source Text, 118727 (Syriac):
+ܒ܂ ܐܫܬܐܠܘ ܢܡܘܣܐ܃ ܕܐܢ ܐܝܠܝܢ ܕܛܠܝܢ ܒܫܢ̈ܝܐ܃
+ܡܨܝܢ ܥܒܿܕܝܢ ܕܝܐܬܝ̈ܩܐܣ܃ ܘܒܢ̈ܝ ܟܡܐ ܫܢ̈ܝܢ ܡܨܝܢ ܥܒܿܕܝܢ܂
+ܛܠܝܬܐ ܕܝܢ ܥܕܡܐ ܕܗܘܿܝܐ ܒܪܬ ܬܪܬܥܣܪ̈ܐ ܫܢ̈ܝܢ ܬܚܝܬ
+ܐܝܕܐ ܗܝ ܕܐܦܝܛܪܘܦܐ ܗܿܝ ܕܡܬܬܪܓܡ ܦܩܘܕܐ܂ ܘܠܐ ܡܨܝܐ
+ܕܬܥܒܕ ܕܝܐܬܝܩܝ܂
+ܡܐ ܕܥܒܪܬ ܕܝܢ ܠܬܪܬܥܣܪ̈ܐ ܫܢ̈ܝܢ܃ ܥܒܪܐ ܠܗܿ ܡܼܢ
+ܫܘܥܒܕܐ ܕܐܦܝܛܪܘܦܐ܃ ܘܗܘܿܝܐ ܠܗܿ ܬܚܝܬ ܫܘܥܒܕܐ
+ܕܩܘܪܛܘܪ܂ ܕܡܬܬܪܓܡ ܒܨܘܝܐ܂
+ܘܡܼܢ ܙܒܢܐ ܕܗܘܿܝܐ ܛܠܝܬܐ ܒܫܘܥܒܕܐ ܕܩܘܪܛܘܪ܂ ܫܠܝܛܐ
+ܕܬܥܒܕ ܕܝܐܬܝܩܝ܂
+ܗܟܢܐ ܐܦ ܛܠܝܐ ܥܕܡܐ ܠܐܪܒܥܣܪ̈ܐ ܫܢ̈ܝܢ ܬܚܝܬ
+ܫܘܥܒܕܐ ܗܘ ܕܐܦܝܛܪܘܦܐ܃ ܘܠܐ ܡܨܐ ܟܬܿܒ ܕܝܐܬܝܩܝ܂ ܡܼܢ
+ܐܪܒܥܣܪ̈ܐ ܫܢ̈ܝܢ ܕܝܢ ܘܠܥܠ܃ ܗܘܿܐ ܠܗ ܬܚܝܬ ܫܘܥܒܕܐ
+ܕܩܘܪܛܘܪ܂
+ܗܘ̈ܝܢ ܕܝܢ ܐܝܠܝܢ ܕܛܠܝ̈ܢ ܬܚܝܬ ܫܘܥܒܕܐ ܕܩܘܘܪܛܘܪ܃
+ܥܕܡܐ ܠܫܢ̈ܝܐ ܥܣܪ̈ܝܢ ܘܚܡ̈ܫ܂
+ܘܡܼܢ ܥܣܪ̈ܝܢ ܘܚܡ̈ܫ ܫܢ̈ܝܢ ܘܠܥܠ܃ ܗܘܿܐ ܠܗ ܛܠܝܐ ܓܒܪܐ
+ܫܠܡܐ܃ ܘܛܠܝܬܐ ܐܢܬܬܐ ܡܫܡܠܬܐ/ܡܫܟܠܠܬܐ#2#/܀
+
+
+English Translation:
+Inquiry has been made about the law1 whether minors can make a testament2 and at which age they can do so.
+
+Now, a girl until she has become twelve years of age is under the hand of an ’ epitrupa 3, which is being translated «superintendent»4, and cannot make a testament.
+
+If she has exceeded twelve years, she has exceeded the domination of the * epitrupa and is under the domination of a curator5 translated «inquirer»6.
+And from the time the girl comes under the domination of the curator, she is unable to make a testament.
+
+In this manner also a boy is, until the fourteenth year, under the domination of the ’ epitrupa and cannot write a testament. Beginning with the fourteenth year and higher, he is under the domination of a curator.
+
+Minors are under the domination of a curator until the twenty-fifth year of age.
+
+From the twenty-fifth year of age and higher, a boy becomes a full man and a girl a full woman.
+
+
+

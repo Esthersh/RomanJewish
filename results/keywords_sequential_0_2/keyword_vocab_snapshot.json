@@ -1,0 +1,3944 @@
+{
+  "next_id": 10252,
+  "categories": {
+    "6": "Explicit legal frameworks",
+    "4": "Formula",
+    "3": "Legal matter",
+    "5": "Legal terms",
+    "1": "Objects",
+    "137": "Offices and Administration",
+    "2": "Parties",
+    "136": "Places",
+    "329": "Procedure",
+    "138": "Punishments"
+  },
+  "keywords": [
+    {
+      "id": 167,
+      "name": "laws of another country",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": false
+    },
+    {
+      "id": 319,
+      "name": "Lex Cornelia",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": false
+    },
+    {
+      "id": 109,
+      "name": "Lex Julia",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": false
+    },
+    {
+      "id": 82,
+      "name": "local religions or customs",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": false
+    },
+    {
+      "id": 223,
+      "name": "practice in province",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": false
+    },
+    {
+      "id": 259,
+      "name": "Senatus Consultum Orfitianum",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": false
+    },
+    {
+      "id": 83,
+      "name": "bequeathal clause",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 23,
+      "name": "cursing",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 48,
+      "name": "double document",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 307,
+      "name": "from today and after death",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 243,
+      "name": "meriteia",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 18,
+      "name": "oath clauses",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 63,
+      "name": "penalty clause",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 144,
+      "name": "testament formula",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 260,
+      "name": "testamentum per aes et libram",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 130,
+      "name": "vow",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": false
+    },
+    {
+      "id": 238,
+      "name": "actual possession",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 344,
+      "name": "adoption",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 170,
+      "name": "age of legal capacity",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 56,
+      "name": "agent authority",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 323,
+      "name": "Agnatic Consanguinity",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 96,
+      "name": "alimentary rights",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 347,
+      "name": "archival registration",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 244,
+      "name": "burial rites",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 346,
+      "name": "collective acquisition",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 348,
+      "name": "collective freedom",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 176,
+      "name": "conditional gift",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 326,
+      "name": "Creditor Priority",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 245,
+      "name": "cretio",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 279,
+      "name": "cumulative legacy",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 143,
+      "name": "damage of deposit",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 229,
+      "name": "deathbed statement",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 312,
+      "name": "degrees of kinship",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 139,
+      "name": "diminished value",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 235,
+      "name": "disclaimer of inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 281,
+      "name": "disinheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 227,
+      "name": "disputed inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 262,
+      "name": "disputed lineage",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 267,
+      "name": "division of estate before death",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 351,
+      "name": "divorce",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 301,
+      "name": "election of rights",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 337,
+      "name": "eligibility to Inherit",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 107,
+      "name": "emancipation",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 234,
+      "name": "enhancement",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 177,
+      "name": "estate enhancement",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 240,
+      "name": "fictive sale",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 278,
+      "name": "fideicommissum",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 118,
+      "name": "fifth payment",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 52,
+      "name": "fraud",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 78,
+      "name": "general sale",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 239,
+      "name": "generational rights",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 328,
+      "name": "Gift vs. Inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 79,
+      "name": "grant of citizenship",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 288,
+      "name": "grave robbery",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 221,
+      "name": "hereditates fideicommissariae",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 61,
+      "name": "hypothec",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 51,
+      "name": "infamy",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 194,
+      "name": "inheritance conflict",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 173,
+      "name": "Inheritance priority",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 86,
+      "name": "inherited claims",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 342,
+      "name": "inoperative will",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 69,
+      "name": "intestacy",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 345,
+      "name": "joint legacy",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 154,
+      "name": "legal disability",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 19,
+      "name": "legal eligibility",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 248,
+      "name": "legitimate children",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 103,
+      "name": "liened property",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 27,
+      "name": "lost property",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 145,
+      "name": "mancipatory will",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 277,
+      "name": "manumission by testament",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 187,
+      "name": "marriage conditions",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 247,
+      "name": "marriage of soldiers",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 65,
+      "name": "material law",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 55,
+      "name": "minor’s protection",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 192,
+      "name": "modes of acquisition",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 335,
+      "name": "nearest agnate",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 71,
+      "name": "nullification",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 74,
+      "name": "nullity",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 134,
+      "name": "one-fifth payment",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 226,
+      "name": "order of birth",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 196,
+      "name": "order of death",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 205,
+      "name": "order of succession",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 88,
+      "name": "partial confession",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 320,
+      "name": "partial manumission",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 311,
+      "name": "paternal lineage",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 350,
+      "name": "power of sale",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 241,
+      "name": "primogeniture",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 340,
+      "name": "property transfer",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 237,
+      "name": "prospective estate",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 57,
+      "name": "proxenia",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 285,
+      "name": "ransom",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 188,
+      "name": "recoverable gifts",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 338,
+      "name": "refusal of gift",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 343,
+      "name": "refusal of inheritence",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 299,
+      "name": "relative priority",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 313,
+      "name": "Relative Priority",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 289,
+      "name": "renunciation of inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 29,
+      "name": "restitution",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 77,
+      "name": "revocation of citizenship",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 341,
+      "name": "revocation of will",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 263,
+      "name": "Right of habitation for the widow",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 95,
+      "name": "right of representation",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 355,
+      "name": "sacrilege",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 325,
+      "name": "Secured Debt",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 207,
+      "name": "seizure",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 303,
+      "name": "severability of legacy",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 314,
+      "name": "shared inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 68,
+      "name": "single witness",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 339,
+      "name": "slaves status",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 284,
+      "name": "specification of assets",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 265,
+      "name": "substitutio vulgaris",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 231,
+      "name": "succession disputes",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 317,
+      "name": "successive inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 349,
+      "name": "successive legacies",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 308,
+      "name": "supplements to a will",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 92,
+      "name": "suspected perjurer",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 91,
+      "name": "Tax collectors",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 293,
+      "name": "testamentary intent",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 302,
+      "name": "Testamentary Interpretation",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 327,
+      "name": "Testamentary Language",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 217,
+      "name": "testamenti factio activa",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 211,
+      "name": "testamenti factio passiva",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 321,
+      "name": "Timing of Intestacy",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 334,
+      "name": "transfer of inherited property",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 135,
+      "name": "transformation",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 261,
+      "name": "tribal division",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 256,
+      "name": "unwritten marriage",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 266,
+      "name": "usufructus",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 193,
+      "name": "verbal instruction",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 97,
+      "name": "wage dispute",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 179,
+      "name": "widow's inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 324,
+      "name": "Women's Status",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": false
+    },
+    {
+      "id": 114,
+      "name": "adstipulator",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 309,
+      "name": "agnatic succession",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 220,
+      "name": "bona vacantia",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 110,
+      "name": "bonorum possessio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 333,
+      "name": "cession",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 94,
+      "name": "claim of theft",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 276,
+      "name": "codicil",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 252,
+      "name": "cognati",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 315,
+      "name": "consanguinity",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 191,
+      "name": "deathbed gift",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 233,
+      "name": "double portion",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 112,
+      "name": "emptio bonorum",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 120,
+      "name": "extortion",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 294,
+      "name": "extra portionem",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 199,
+      "name": "female succession",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 305,
+      "name": "gift after death",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 251,
+      "name": "heredes legitimi",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 250,
+      "name": "illegitimate child",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 190,
+      "name": "immovable property",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 113,
+      "name": "in iure cessio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 218,
+      "name": "incertae personae",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 356,
+      "name": "intent",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 21,
+      "name": "intentional transgression",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 290,
+      "name": "inter vivos transfer",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 310,
+      "name": "intestate succession",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 209,
+      "name": "legatum",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 75,
+      "name": "mancipatio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 106,
+      "name": "manus",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 105,
+      "name": "materfamilias",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 25,
+      "name": "monetary claim",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 189,
+      "name": "movable property",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 246,
+      "name": "next of kin",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 157,
+      "name": "nuncupation",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 104,
+      "name": "paterfamilias",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 9,
+      "name": "patria potestas",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 28,
+      "name": "perjury",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 219,
+      "name": "postumus alienus",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 53,
+      "name": "praescriptio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 295,
+      "name": "pre-legacy",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 292,
+      "name": "Primogeniture",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 253,
+      "name": "representation in succession",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 236,
+      "name": "repudiatio hereditatis",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 332,
+      "name": "secession of property",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 222,
+      "name": "silence",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 115,
+      "name": "societas",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 171,
+      "name": "specificatio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 298,
+      "name": "statutory rights",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 37,
+      "name": "Sworn statement",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 322,
+      "name": "Testamentary Heir",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 26,
+      "name": "theft",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 22,
+      "name": "unintentional transgression",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 291,
+      "name": "vesting of rights",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": false
+    },
+    {
+      "id": 70,
+      "name": "beam",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 186,
+      "name": "betrothal gifts",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 306,
+      "name": "boundaries of property",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 140,
+      "name": "coin",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 271,
+      "name": "country property",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 62,
+      "name": "currency",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 304,
+      "name": "debt",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 87,
+      "name": "debt document",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 122,
+      "name": "deposit",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 8,
+      "name": "donkey",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 198,
+      "name": "dowry property",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 73,
+      "name": "gift",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 183,
+      "name": "gifts of groomsmen",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 286,
+      "name": "grave",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 121,
+      "name": "guilt offering",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 268,
+      "name": "house in the city",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 270,
+      "name": "livestock",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 32,
+      "name": "loan",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 101,
+      "name": "marriage contract",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 185,
+      "name": "marriage presents",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 273,
+      "name": "maternal estate",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 72,
+      "name": "palm grove",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 330,
+      "name": "paternal estate",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 161,
+      "name": "peculium",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 60,
+      "name": "property",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 213,
+      "name": "public document",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 59,
+      "name": "slave",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 80,
+      "name": "statute",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 158,
+      "name": "tablets",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": false
+    },
+    {
+      "id": 146,
+      "name": "archive for private property",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": false
+    },
+    {
+      "id": 318,
+      "name": "consilium principis",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": false
+    },
+    {
+      "id": 254,
+      "name": "conventus",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": false
+    },
+    {
+      "id": 206,
+      "name": "fiscus",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": false
+    },
+    {
+      "id": 283,
+      "name": "manumission tax",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": false
+    },
+    {
+      "id": 81,
+      "name": "office",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": false
+    },
+    {
+      "id": 282,
+      "name": "opening of testament",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": false
+    },
+    {
+      "id": 182,
+      "name": "public service",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": false
+    },
+    {
+      "id": 58,
+      "name": "taxes",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": false
+    },
+    {
+      "id": 181,
+      "name": "adult",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 204,
+      "name": "bastard",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 66,
+      "name": "brother",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 147,
+      "name": "buyer",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 160,
+      "name": "child",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 297,
+      "name": "co-heirs",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 201,
+      "name": "convert",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 142,
+      "name": "craftsman",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 195,
+      "name": "creditor",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 108,
+      "name": "curator",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 172,
+      "name": "daughter",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 152,
+      "name": "deaf",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 162,
+      "name": "dependents",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 150,
+      "name": "father",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 224,
+      "name": "firstborn",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 165,
+      "name": "freedperson",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 168,
+      "name": "freedperson without citizen rights",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 274,
+      "name": "grandchild",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 242,
+      "name": "guardian",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 178,
+      "name": "heir",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 249,
+      "name": "illegitimate child",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 200,
+      "name": "indirect heir",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 175,
+      "name": "intersex person",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 156,
+      "name": "Junian Latin",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 257,
+      "name": "litigant",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 153,
+      "name": "mentally impaired",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 180,
+      "name": "minor",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 272,
+      "name": "mother",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 164,
+      "name": "mute",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 184,
+      "name": "partner",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 166,
+      "name": "peregrine",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 232,
+      "name": "presumed heir",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 331,
+      "name": "presumed relatives",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 230,
+      "name": "presumed slave",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 228,
+      "name": "presumed son",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 133,
+      "name": "priest",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 336,
+      "name": "proper heirs",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 90,
+      "name": "robber",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 148,
+      "name": "scale holder",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 269,
+      "name": "serf",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 275,
+      "name": "sister",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 202,
+      "name": "slave",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 159,
+      "name": "soldier",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 163,
+      "name": "son",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 212,
+      "name": "tax collectors",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 149,
+      "name": "testator",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 169,
+      "name": "tutor",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 280,
+      "name": "veteran",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 155,
+      "name": "ward",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 197,
+      "name": "wife's heirs",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 99,
+      "name": "witnesses",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 151,
+      "name": "woman",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": false
+    },
+    {
+      "id": 353,
+      "name": "Athens",
+      "category_id": 136,
+      "category_name": "Places",
+      "suggested": false
+    },
+    {
+      "id": 354,
+      "name": "unknown",
+      "category_id": 136,
+      "category_name": "Places",
+      "suggested": false
+    },
+    {
+      "id": 98,
+      "name": "claimant's oath",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 40,
+      "name": "compulsory oath",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 33,
+      "name": "compulsory testimony",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 174,
+      "name": "confession",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 47,
+      "name": "consent-based resolution",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 119,
+      "name": "court officer",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 46,
+      "name": "decisory oath",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 11,
+      "name": "denial of testimony",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 17,
+      "name": "disqualified witnesses",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 352,
+      "name": "divorce",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 20,
+      "name": "false oath",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 39,
+      "name": "judicial oath",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 54,
+      "name": "oath",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 24,
+      "name": "oath of deposit",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 35,
+      "name": "oath of ignorance",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 34,
+      "name": "oath of knowledge",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 100,
+      "name": "oath of orphans",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 89,
+      "name": "oath of testimony",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 49,
+      "name": "oath versus judgment",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 64,
+      "name": "procedural law",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 45,
+      "name": "procedural oath",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 255,
+      "name": "proof",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 50,
+      "name": "refusal of action",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 42,
+      "name": "refusal to swear",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 258,
+      "name": "rejection of judges",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 44,
+      "name": "sworn denial",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 38,
+      "name": "voluntary oath",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 13,
+      "name": "witness obligation",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 36,
+      "name": "witness summons",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 225,
+      "name": "woman testimony",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": false
+    },
+    {
+      "id": 287,
+      "name": "capital punishment",
+      "category_id": 138,
+      "category_name": "Punishments",
+      "suggested": false
+    },
+    {
+      "id": 117,
+      "name": "fine",
+      "category_id": 138,
+      "category_name": "Punishments",
+      "suggested": false
+    },
+    {
+      "id": 264,
+      "name": "penalty for breach of will",
+      "category_id": 138,
+      "category_name": "Punishments",
+      "suggested": false
+    },
+    {
+      "id": 10000,
+      "name": "Transmission of inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10001,
+      "name": "Testament",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10002,
+      "name": "equal division",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10003,
+      "name": "marriage expenses",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10004,
+      "name": "Asset-based distribution",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10005,
+      "name": "commorientes",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10006,
+      "name": "lineal descendants",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10007,
+      "name": "Groom",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10008,
+      "name": "Bride",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10009,
+      "name": "Betrothal",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10010,
+      "name": "burden of proof",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10011,
+      "name": "midwife",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10012,
+      "name": "dying person",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10013,
+      "name": "healthy person",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10014,
+      "name": "refusal of appointment",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10015,
+      "name": "manumission",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10016,
+      "name": "pious causes",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10017,
+      "name": "Judicial authorization",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10018,
+      "name": "Accountability",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10019,
+      "name": "Hierarchy of assets",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10020,
+      "name": "Division by lot",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10021,
+      "name": "Divine sanction",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10022,
+      "name": "Legal fiction",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10023,
+      "name": "tutela",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10024,
+      "name": "auctoritas",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10025,
+      "name": "Testamentary freedom",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10026,
+      "name": "agnate",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10027,
+      "name": "gentiles",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10028,
+      "name": "spendthrift",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10029,
+      "name": "cura",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10030,
+      "name": "patron",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10031,
+      "name": "actio familiae erciscundae",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10032,
+      "name": "testamentum calatis comitiis",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10033,
+      "name": "testamentum in procinctu",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10034,
+      "name": "familiae emptor",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10035,
+      "name": "Roman citizen",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10036,
+      "name": "aes et libra",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10037,
+      "name": "Quirites",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10038,
+      "name": "peculium castrense",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10039,
+      "name": "Lex Junia",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10040,
+      "name": "soldier's will",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10041,
+      "name": "ius civile",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10042,
+      "name": "Senatus Consultum",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10043,
+      "name": "sui iuris",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10044,
+      "name": "coemptio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10045,
+      "name": "institutio heredis",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10046,
+      "name": "praetor",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10047,
+      "name": "ius honorarium",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10048,
+      "name": "Praetorian will",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10049,
+      "name": "exceptio doli mali",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10050,
+      "name": "tutela legitima",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10051,
+      "name": "testamenti factio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10052,
+      "name": "Uncertainty of status",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10053,
+      "name": "dediticii",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10054,
+      "name": "unmarried person",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10055,
+      "name": "Imperial Constitutions",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10056,
+      "name": "deity",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10057,
+      "name": "bonitarian ownership",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10058,
+      "name": "posthumous heir",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10059,
+      "name": "disinheritance by name",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10060,
+      "name": "bonorum possessio contra tabulas",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10061,
+      "name": "pro herede gestio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10062,
+      "name": "extraneus heres",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10063,
+      "name": "Revocation of refusal",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10064,
+      "name": "cretio vulgaris",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10065,
+      "name": "cretio continua",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10066,
+      "name": "time limit",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10067,
+      "name": "knowledge",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10068,
+      "name": "substitutio pupillaris",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10069,
+      "name": "legatum per vindicationem",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10070,
+      "name": "legatee",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10071,
+      "name": "ius accrescendi",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10072,
+      "name": "lapsed legacy",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10073,
+      "name": "Lex Papia Poppaea",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10074,
+      "name": "ius liberorum",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10075,
+      "name": "man",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10076,
+      "name": "puberty",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10077,
+      "name": "eunuch",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10078,
+      "name": "blind person",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10079,
+      "name": "lucid interval",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10080,
+      "name": "bonis interdictio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10081,
+      "name": "Praetorian formula",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": true
+    },
+    {
+      "id": 10082,
+      "name": "postliminium",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10083,
+      "name": "prisoner of war",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10084,
+      "name": "Relegatio",
+      "category_id": 138,
+      "category_name": "Punishments",
+      "suggested": true
+    },
+    {
+      "id": 10085,
+      "name": "Damnatio in opus publicum",
+      "category_id": 138,
+      "category_name": "Punishments",
+      "suggested": true
+    },
+    {
+      "id": 10086,
+      "name": "Surplusage",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10087,
+      "name": "sick person",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10088,
+      "name": "prevailing sex",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10089,
+      "name": "witness attestation",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10090,
+      "name": "Impossible condition",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10091,
+      "name": "Possible condition",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10092,
+      "name": "bonos mores",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10093,
+      "name": "Pretermission",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10094,
+      "name": "ruptio testamenti",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10095,
+      "name": "Hereditas damnosa",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10096,
+      "name": "aditio hereditatis",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10097,
+      "name": "iussum",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10098,
+      "name": "non-verbal command",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10099,
+      "name": "wife",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10100,
+      "name": "mortis causa acquisition",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10101,
+      "name": "division by unciae",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10102,
+      "name": "Inheritance tax",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": true
+    },
+    {
+      "id": 10103,
+      "name": "Jurist",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10104,
+      "name": "Prohibition of alienation",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10105,
+      "name": "Legal translation",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10106,
+      "name": "citizen",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10107,
+      "name": "Lex Aelia Sentia",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10108,
+      "name": "dolus malus",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10109,
+      "name": "Reservation of lifetime rights",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10110,
+      "name": "modus",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10111,
+      "name": "catoecic land",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10112,
+      "name": "illiterate party",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10113,
+      "name": "scribe",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10114,
+      "name": "Seal",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10115,
+      "name": "Right of habitation",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10116,
+      "name": "Collation",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10117,
+      "name": "Boundary description waiver",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10118,
+      "name": "Bilingual document",
+      "category_id": -1,
+      "category_name": "other",
+      "suggested": true
+    },
+    {
+      "id": 10119,
+      "name": "stipulatio",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": true
+    },
+    {
+      "id": 10120,
+      "name": "settlement",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10121,
+      "name": "water rights",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10122,
+      "name": "deed of gift",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10123,
+      "name": "husband",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10124,
+      "name": "donatio mortis causa",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10125,
+      "name": "waiver of claim",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10126,
+      "name": "future property",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10127,
+      "name": "king",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10128,
+      "name": "bequeathal of kingdom",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10129,
+      "name": "political alliance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10130,
+      "name": "posthumous honor",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10131,
+      "name": "Judge",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10132,
+      "name": "Auction",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10133,
+      "name": "Double penalty",
+      "category_id": 138,
+      "category_name": "Punishments",
+      "suggested": true
+    },
+    {
+      "id": 10134,
+      "name": "Enforcement of judgment",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10135,
+      "name": "Inheritance of office",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10136,
+      "name": "revenue",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": true
+    },
+    {
+      "id": 10137,
+      "name": "Administrative jurisdiction",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10138,
+      "name": "Stipulation against statutory law",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10139,
+      "name": "Unworthy heir",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10140,
+      "name": "temporary sale",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10141,
+      "name": "attached fruits",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10142,
+      "name": "gathered fruits",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10143,
+      "name": "sufficiency of assets",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10144,
+      "name": "Partnership property",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10145,
+      "name": "Personal liability",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10146,
+      "name": "Partnership liability",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10147,
+      "name": "Unenforceable gift",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10148,
+      "name": "a fortiori argument",
+      "category_id": -1,
+      "category_name": "other",
+      "suggested": true
+    },
+    {
+      "id": 10149,
+      "name": "traditio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10150,
+      "name": "usucapio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10151,
+      "name": "Presumption of status",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10152,
+      "name": "Land allotment",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10153,
+      "name": "Reversion of property",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10154,
+      "name": "Duress",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10155,
+      "name": "Testamentary guardian",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10156,
+      "name": "Court-appointed guardian",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10157,
+      "name": "Court",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": true
+    },
+    {
+      "id": 10158,
+      "name": "Forfeiture of inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10159,
+      "name": "Legal interpretation",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10160,
+      "name": "Prohibited marriage",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10161,
+      "name": "Legal definition of birth",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10162,
+      "name": "Temporal restrictions on legal acts",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10163,
+      "name": "Paternal declaration of status",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10164,
+      "name": "Arbiter",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10165,
+      "name": "municipality",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10166,
+      "name": "servus communis",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10167,
+      "name": "heres necessarius",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10168,
+      "name": "master",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10169,
+      "name": "daughter-in-law",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10170,
+      "name": "capacity to act",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10171,
+      "name": "substitute heir",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10172,
+      "name": "imperfect cretio",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10173,
+      "name": "capitis deminutio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10174,
+      "name": "legatum per damnationem",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10175,
+      "name": "legatum sinendi modo",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10176,
+      "name": "legatum per praeceptionem",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10177,
+      "name": "ius Quiritium",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10178,
+      "name": "fungible goods",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10179,
+      "name": "extra commercium",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10180,
+      "name": "Public property",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10181,
+      "name": "Sacred property",
+      "category_id": 1,
+      "category_name": "Objects",
+      "suggested": true
+    },
+    {
+      "id": 10182,
+      "name": "Senatus Consultum Neronianum",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10183,
+      "name": "poenae causa",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10184,
+      "name": "demonstratio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10185,
+      "name": "falsa demonstratio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10186,
+      "name": "falsa causa",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10187,
+      "name": "Burden of legacy",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10188,
+      "name": "mancipium",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10189,
+      "name": "partition of inheritance",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10190,
+      "name": "quasi-usufructus",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10191,
+      "name": "security",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10192,
+      "name": "Conditional legacy",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10193,
+      "name": "Unconditional legacy",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10194,
+      "name": "Lex Falcidia",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10195,
+      "name": "quarta Falcidia",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10196,
+      "name": "condictio indebiti",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10197,
+      "name": "natural obligation",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10198,
+      "name": "precatory words",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": true
+    },
+    {
+      "id": 10199,
+      "name": "fideicommissary",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10200,
+      "name": "unconfirmed codicil",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10201,
+      "name": "consul",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10202,
+      "name": "provincial governor",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10203,
+      "name": "cognitio",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10204,
+      "name": "Senatus Consultum Trebellianum",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10205,
+      "name": "Senatus Consultum Pegasianum",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10206,
+      "name": "Transfer of actions",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10207,
+      "name": "stipulatio partis et pro parte",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": true
+    },
+    {
+      "id": 10208,
+      "name": "secret trust",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10209,
+      "name": "incapax",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10210,
+      "name": "manumissio fideicommissaria",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10211,
+      "name": "Law of the Twelve Tables",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10212,
+      "name": "per stirpes",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10213,
+      "name": "per capita",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10214,
+      "name": "No succession of degrees",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10215,
+      "name": "Senatus Consultum Tertullianum",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10216,
+      "name": "ascendants",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10217,
+      "name": "heredis loco",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10218,
+      "name": "inoperative possession",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10219,
+      "name": "patroness",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10220,
+      "name": "institutio ex re certa",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10221,
+      "name": "Subauditur",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10222,
+      "name": "Conditional institution",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10223,
+      "name": "servus alienus",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10224,
+      "name": "Change of heir status",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10225,
+      "name": "suus heres",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10226,
+      "name": "potestative condition",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10227,
+      "name": "Lex Velleia",
+      "category_id": 6,
+      "category_name": "Explicit legal frameworks",
+      "suggested": true
+    },
+    {
+      "id": 10228,
+      "name": "media tempora non nocere",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10229,
+      "name": "Ademption",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10230,
+      "name": "orcinus heres",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10231,
+      "name": "interdictum de tabulis exhibendis",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10232,
+      "name": "vindicatio",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10233,
+      "name": "authenticity",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10234,
+      "name": "donor",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10235,
+      "name": "donee",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10236,
+      "name": "literary example",
+      "category_id": -1,
+      "category_name": "other",
+      "suggested": true
+    },
+    {
+      "id": 10237,
+      "name": "imminent danger",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10238,
+      "name": "property of another",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10239,
+      "name": "revocation of gift",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10240,
+      "name": "querela inofficiosi testamenti",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10241,
+      "name": "portio legitima",
+      "category_id": 5,
+      "category_name": "Legal terms",
+      "suggested": true
+    },
+    {
+      "id": 10242,
+      "name": "centumviri",
+      "category_id": 137,
+      "category_name": "Offices and Administration",
+      "suggested": true
+    },
+    {
+      "id": 10243,
+      "name": "supplement of legitimate portion",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10244,
+      "name": "children already born",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10245,
+      "name": "funerary formula",
+      "category_id": 4,
+      "category_name": "Formula",
+      "suggested": true
+    },
+    {
+      "id": 10246,
+      "name": "inventory of property",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10247,
+      "name": "magistrate",
+      "category_id": 2,
+      "category_name": "Parties",
+      "suggested": true
+    },
+    {
+      "id": 10248,
+      "name": "honorarium",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10249,
+      "name": "claim of inheritance",
+      "category_id": 329,
+      "category_name": "Procedure",
+      "suggested": true
+    },
+    {
+      "id": 10250,
+      "name": "division with fiscus",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    },
+    {
+      "id": 10251,
+      "name": "Annexation",
+      "category_id": 3,
+      "category_name": "Legal matter",
+      "suggested": true
+    }
+  ]
+}

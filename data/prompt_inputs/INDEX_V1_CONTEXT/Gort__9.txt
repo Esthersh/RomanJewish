@@ -1,0 +1,23 @@
+## Objective
+We are building an index for our corpus of legal sources.
+
+## Instructions
+1. Analyze the provided source.
+2. Read the "Broader Context" provided. Use this context strictly to clarify ambiguities, identify underlying themes, or understand references within the Target Text.
+3. Select terms or short phrases that are distinctive to the specific legal issues discussed in the text. 
+4. Exclude very common, high-frequency words and general vocabulary (for instance: "son", "daughter", "man", "day", "house") 
+5. Return the dictionary form (lemma) of the selected terms or phrases.
+
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context (e.g., Full Chapter):
+
+
+Target Source Text, Gort. 9 (Greek): 
+ἐ͂ κ’ ἀποθάνεˉι ἀνὲˉρ ἒˉ γυνά, αἰ μέν κ’ ἐ͂ι τέκ̣ν̣α ἒˉ ἐς τέκνοˉν τέκν̣α̣ ἒˉ ἐς τούτοˉν τέκνα, τούτος ἔκε[ν] τὰ κρέˉματα. {²palmula}² αἰ δέ κα̣ μέˉτις ἐ͂ι τούτοˉν, ἀ{α}δελπιοὶ {²⁶ἀδελπιοὶ}²⁶ δὲ το͂ ἀποθανόντος κἐˉκς ἀδε[λ]πιο͂ν τέκνα ἒˉ ἐς τούτοˉν τέκνα, τούτος ἔκεν τὰ κρέˉματα. {²palmula}² αἰ δέ κα μέˉτις ἐ͂ι τούτοˉν, ἀδευπιαὶ δὲ το͂ ἀποθανόντος κἐˉς ταυτᾶν τέκνα ἒˉ ἐς το͂ν τέκνοˉν τέκνα, τούτος ἔκεν τὰ κρέˉματα. {²palmula}² αἰ δέ κα μέˉτις ἐ͂ι τούτοˉν, οἶς κ’ ἐπιβάλλεˉι ὄποˉ κ’ ἐ͂ι τὰ κρέˉματα̣, τούτος ἀναιλε͂θθαι. {²palmula}² αἰ δὲ μὲˉ εἶεν ἐπιβάλλοντες, τᾶς ϝοικίας οἴτινές κ’ ἴοˉντι ὀ κλᾶρος, τούτονς ἔκεν τὰ κρέˉματα. vac. αἰ δέ κ’ οἰ ἐπιβάλλοντες οἰ μὲν λείοˉντι δατε͂θθαι τὰ κρέˉματα, οἰ δὲ μέˉ, δικάκσαι τὸν δικαστὰν ἐπὶ τοῖλ λείονσι δατε͂θθαι ἔˉμεˉν τὰ κρέˉματα πάντα πρίν κα δάττονται. vac. αἰ δέ κα δικάκσαντος το͂ δικαστᾶ κάρτει ἐνσείεˉι ἒˉ ἄγεˉι ἒˉ πέρεˉι, δέκα στατε͂ρανς καταστασεῖ καὶ το͂ κρέˉιος διπλεῖ. vac. τνατο͂ν δὲ καὶ καρπο͂ καὶ ϝέˉμας κἀνπιδέˉμας κἐˉπιπολαίοˉν κρεˉμάτοˉν αἴ κα μὲˉ λείοˉντι δατέˉ̣θ̣[θαι, τὸ]ν̣ δ̣[ικαστ]ὰν ὀμνύντα κρῖναι πορτὶ τὰ μοˉλιόμενα. vac. [α]ἰ [δ]έ κα κρέˉματα δατιόμενοι μὲˉ συνγιγνόˉσκοˉντι ἀνπὶ τὰν δαῖσιν, ὀˉνε͂ν τὰ κρέˉματα· κὄˉς κα πλεῖστον διδο͂ι ἀποδόμενοι τᾶν τιμᾶν δια[λ]ακόντοˉν τὰν ἐπαβολὰν ϝέκαστος. {²palmula}² δατιομένοιδ δὲ κρέˉματα μαίτυρανς παρέˉμεˉν δρομέανς ἐλευθέρονς τρίινς ἒˉ πλίανς. 

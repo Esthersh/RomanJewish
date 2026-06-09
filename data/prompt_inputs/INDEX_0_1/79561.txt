@@ -1,0 +1,77 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Latin source.
+ Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it.
+
+2. Select from the provided source legal terminology, or specific words or short phrases that are essential to the specific legal matters, legal principles or legal situations discussed in the text. 
+
+3. Exclude very common, high-frequency words and general vocabulary that are not pertinent to the legal matter at hand (such as particles, adjectives, adverbs, names, objects that are not relevant to the legal matter) 
+
+4. For single words, return the dictionary form (lemma) of the selected term. For fixed phrases return its accepted form (e.g. “in potestate”) 
+
+5. Guardrails:
+Do not return words that don’t appear in the text of the provided source.
+Return only words in the original language of the source.
+
+## Examples
+[1] Hebrew: Mishnah Bava Batra 8:5
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+Index:
+בכור, הכותב נכסיו, מחלק נכסיו, מתנה על מה שכתוב בתורה, ירושה, מתנה, נחלה, נכס, פי שנים, ראוי ליורשו, רוח חכמים נוחה הימנו
+[2] Latin:  Ps. Ulpian 20.10
+Filius familiae testamentum facere non potest, quoniam nihil suum habet, ut testari de eo possit. Sed divus Augustus Marcus constituit, ut filius familiae miles de eo peculio, quod in castris adquisivit, testamentum facere possit.
+
+Index: 
+castra, filius familiae, miles, peculium, testamentum, testari, testor
+
+[3] Greek: Gnomon of Idios Logos 9
+θ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.
+
+Index:
+κληρονομέω, πάτρων, φίσκος, ἀδιάθετος, ἀπελεύθερος, ἀστός, ἄτεκνος, ἐπιδικάζομαι, ἐπιδικάζω 
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context:
+"Tabularum testamenti instrumentum non est unius hominis, hoc est 
+heredis, sed universorum, quibus quid illic adscriptum est: quin potius 
+publicum est instrumentum."
+" Testamentum autem proprie illud dicitur, quod iure perfectum est: sed 
+abusive testamenta ea quoque appellamus, quae falsa sunt vel iniusta vel 
+irrita vel rupta: itemque inperfecta solemus testamenta dicere."
+" Ad causam autem testamenti pertinere videtur id quodcumque quasi ad 
+testamentum factum sit, in quacumque materia fuerit scriptum, quod 
+contineat supremam voluntatem: et tam principales quam secundae tabulae 
+edicto continentur.
+"
+"Si plura sint testamenta, quae quis exhiberi desideret, universorum ei 
+facultas facienda est.
+"
+"Si dubitetur, utrum vivat an decesserit is, cuius quis quod ad causam 
+testamenti pertinet inspici describique postulat, dicendum est praetorem 
+causa cognita statuere id debere, ut, si liquerit eum vivere, non 
+permittat.
+Inspici tabulas est, ut ipsam scripturam quis inspiciat et sigilla et 
+quid aliud ex tabulis velit spectare."
+ Inspectio tabularum etiam lectionem earum indicat.
+Diem autem et consulem tabularum non patitur praetor describi vel 
+ inspici idcirco, ne quid falsi fiat: namque etiam inspectio materiam 
+ falso fabricando instruere potest.
+ Utrum autem in continenti potestatem inspiciendi vel describendi iubet 
+ an desideranti tempus dabit ad exhibitionem? et magis est, ut dari debeat 
+ secundum locorum angustias seu prolixitates.
+ Si quis non negans apud se tabulas esse non patiatur inspici et  describi, omnimodo ad hoc compelletur: si tamen neget penes se tabulas  esse, dicendum est ad interdictum rem mitti quod est de tabulis  exhibendis.
+
+Source Text, 79561 (Latin):
+Diem autem et consulem tabularum non patitur praetor describi vel 
+ inspici idcirco, ne quid falsi fiat: namque etiam inspectio materiam 
+ falso fabricando instruere potest.
+

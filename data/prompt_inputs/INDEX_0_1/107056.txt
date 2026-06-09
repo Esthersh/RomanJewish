@@ -1,0 +1,106 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Latin source.
+ Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it.
+
+2. Select from the provided source legal terminology, or specific words or short phrases that are essential to the specific legal matters, legal principles or legal situations discussed in the text. 
+
+3. Exclude very common, high-frequency words and general vocabulary that are not pertinent to the legal matter at hand (such as particles, adjectives, adverbs, names, objects that are not relevant to the legal matter) 
+
+4. For single words, return the dictionary form (lemma) of the selected term. For fixed phrases return its accepted form (e.g. “in potestate”) 
+
+5. Guardrails:
+Do not return words that don’t appear in the text of the provided source.
+Return only words in the original language of the source.
+
+## Examples
+[1] Hebrew: Mishnah Bava Batra 8:5
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+Index:
+בכור, הכותב נכסיו, מחלק נכסיו, מתנה על מה שכתוב בתורה, ירושה, מתנה, נחלה, נכס, פי שנים, ראוי ליורשו, רוח חכמים נוחה הימנו
+[2] Latin:  Ps. Ulpian 20.10
+Filius familiae testamentum facere non potest, quoniam nihil suum habet, ut testari de eo possit. Sed divus Augustus Marcus constituit, ut filius familiae miles de eo peculio, quod in castris adquisivit, testamentum facere possit.
+
+Index: 
+castra, filius familiae, miles, peculium, testamentum, testari, testor
+
+[3] Greek: Gnomon of Idios Logos 9
+θ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.
+
+Index:
+κληρονομέω, πάτρων, φίσκος, ἀδιάθετος, ἀπελεύθερος, ἀστός, ἄτεκνος, ἐπιδικάζομαι, ἐπιδικάζω 
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context:
+"Testamentum est mentis nostrae iusta contestatio in id sollemniter 
+facta, ut post mortem nostram valeat.
+"
+"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, 
+quod in procinctu, tertium, quod per aes et libram appellatum est. His 
+duobus testamentis abolitis hodie solum in usu est, quod per aes et 
+libram fit, id est per mancipationem imaginariam. In quo testamento 
+libripens adhibetur et familiae emptor et non minus quam quinque testes, 
+cum quibus testamenti factio est."
+"Qui in potestate testatoris est aut familiae emptoris, testis aut 
+libripens adhiberi non potest, quoniam familiae mancipatio inter 
+testatorem et familiae emptorem fit, et ob id domestici testes adhibendi 
+non sunt."
+Filio familiam emente pater eius testis esse non potest.
+"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter 
+familiae emptor, alter testis esse non potest, quoniam quod unus ex his 
+mancipio accipit, adquirit patri, cui filius suus testis esse non debet.
+"
+"Pater et filius +  qui in potestate eius est, item duo fratres, qui in 
+eiusdem patris potestate sunt, testes utrique, vel alter testis, alter 
+libripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una 
+domo plures testes alieno negotio adhiberi."
+"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, 
+neque testis libripensve fieri potest."
+"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, 
+quoniam cum eo testamenti factio est."
+"In testamento, quod per aes et libram fit, duae res aguntur, familiae 
+mancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc 
+modum: tabulas testamenti testator tenens ita dicit: ""haec ut in his 
+tabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, 
+Quirites, testimonium perhibetote"". Quae nuncupatio et ""testatio"" 
+vocatur."
+"Filius familiae testamentum facere non potest, quoniam nihil suum habet, 
+ut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut 
+filius familiae miles de eo peculio, quod in castris adquisivit, 
+testamentum facere possit."
+"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, 
+se sui iuris esse, testamentum facere non potest.
+"
+"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam 
+nondum plenum iudicium animi habet."
+"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, 
+testamentum facere non possunt: mutus, quoniam verba nuncupationis loqui 
+non potest; surdus, quoniam verba familiae emptoris exaudire non potest; 
+furiosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, 
+quoniam commercium in illi interdictum est, et ob id familiam mancipare 
+non potest."
+"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum 
+facere non potest: Latinus quidem, quoniam nominatim lege Iunia 
+prohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi 
+civis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, 
+quoniam nullius certae civitatis civis est, ut secundum leges civitatis 
+suae testetur."
+"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore 
+auctore, donec in tutela sunt."
+"Servus publicus populi Romani partis dimidiae testamenti faciendi habet 
+ius."
+
+Source Text, 107056 (Latin):
+Testamentum est mentis nostrae iusta contestatio in id sollemniter 
+facta, ut post mortem nostram valeat.
+
+

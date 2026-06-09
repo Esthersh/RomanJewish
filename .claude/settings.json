@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c ' *)",
+      "Bash(pkill -f \"run_batch_gemini.py\")",
+      "Bash(python3 scripts/run_batch_gemini.py --prompt-type INDEX_0_1_JTWC --model gemini-2.5-flash --delay 2)",
+      "Bash(python3 scripts/run_batch_gemini.py --prompt-type INDEX_0_1 --model gemini-2.5-flash --delay 2)",
+      "Bash(pkill -f \"INDEX_0_1\")",
+      "Bash(pkill -f \"KEYWORDS_0_1_JTWC\")",
+      "Bash(python3 scripts/run_batch_gemini.py --prompt-type TOPICS_0_1_JTWC --model gemini-2.5-flash --delay 2)",
+      "Bash(python3 scripts/run_batch_gemini.py --prompt-type TOPICS_0_1_PI --model gemini-2.5-flash --delay 2)",
+      "Bash(pkill -f \"TOPICS_0_1_JTWC\")",
+      "Bash(python3 /private/tmp/test_runner.py)",
+      "Bash(python3 -m py_compile prompts/all_vectors.py src/keyword_manager.py scripts/run_keywords_sequential.py scripts/generate_prompt_inputs.py)",
+      "Bash(python3 scripts/run_keywords_sequential.py --dataset gold --limit 1 --dry-run)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(sed -n '1,30p' /tmp/dryrun_prompt.txt)",
+      "Bash(grep -nE '^KEYWORDS_0_1_\\(JTWC|PI\\) = |^\\\\{keyword_list\\\\}$|^## List of Keywords' prompts/all_vectors.py)",
+      "Bash(awk 'NR>=775 && NR<=792' prompts/all_vectors.py)",
+      "Bash(python3 scripts/run_keywords_sequential.py --dataset samples2update --max-jtwc 30)",
+      "Bash(awk 'NR<=1484 && /^[A-Za-z0-9_]+ = \"\"\"/{ln=NR; name=$0} END{print \"nearest header above 1484: line \"ln\": \"name}' prompts/all_vectors.py)",
+      "Bash(git -C /Users/davidfram/RomanJewish status --short prompts/all_vectors.py)",
+      "Bash(python3 -m py_compile scripts/run_keywords_sequential.py)",
+      "Bash(python3 scripts/run_keywords_sequential.py --dataset samples2update --prompt-version 0.2 --dry-run)",
+      "Bash(python3 scripts/run_keywords_sequential.py)",
+      "Bash(chmod +x scripts/auto_resume_keywords.sh)",
+      "Bash(bash scripts/auto_resume_keywords.sh)",
+      "Bash(echo \"last write: $\\(python3 -c \"import os,time;print\\(int\\(time.time\\(\\)-os.path.getmtime\\('/tmp/seq_0_2_auto.log'\\)\\)\\)\"\\)s ago\")",
+      "Bash(pkill -f run_keywords_sequential)",
+      "Bash(pkill -f auto_resume_keywords)",
+      "Bash(python3 scripts/merge_results_0_1.py --results_dir \"results/Hybrid0_1+Keywords0_2\" --keywords-files gemini_KEYWORDS_0_2_SEQ.json --output \"results/Hybrid0_1+Keywords0_2/merged_Hybrid0_1_Keywords0_2.json\")",
+      "Bash(git checkout *)",
+      "Bash(git add *)",
+      "Bash(git commit -q -m 'snapshot: local work before syncing with origin \\(2026-06-03\\) *)"
+    ]
+  }
+}

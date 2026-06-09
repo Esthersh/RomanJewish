@@ -1,0 +1,42 @@
+[
+  {
+    "ref_id": "Dig__28__5__1__1",
+    "response": "[\"testor\", \"heres\", \"institutio\", \"testamentum\", \"exheredatio\", \"nominatim\", \"rescribo\", \"filius\"]"
+  },
+  {
+    "ref_id": "Dig__28__5__1__2",
+    "response": "[\"heres\", \"instituo\", \"nuncupatus\", \"scriptus\"]"
+  },
+  {
+    "ref_id": "Dig__28__5__1__3",
+    "response": "[\"mutus\", \"surdus\", \"heres\", \"instituo\", \"recte\"]"
+  },
+  {
+    "ref_id": "Dig__28__5__1__4",
+    "response": "[\"exheredaturus\", \"heres\", \"legaturus\", \"scriptura\", \"testamentum\", \"testor\"]"
+  },
+  {
+    "ref_id": "Dig__28__5__1__5",
+    "response": "[\"detraho\", \"fundus\", \"instituo\", \"institutio\", \"mentio\", \"valeo\"]"
+  },
+  {
+    "ref_id": "Dig__28__5__1__6",
+    "response": "[\"heres\", \"sum\", \"nuncupo\", \"scribo\", \"procedo\", \"portio\", \"distribuo\", \"pars\", \"rescribo\", \"valeo\", \"institutio\"]"
+  },
+  {
+    "ref_id": "Dig__28__5__1__7",
+    "response": "[\"divus Pius\", \"rescribo\", \"uxor\", \"institutio\", \"valeo\", \"heres\"]"
+  },
+  {
+    "ref_id": "Dig__28__5__2__1",
+    "response": "[\"condicio\", \"digesta\", \"heres\", \"heres institutus\", \"heres scribo\", \"institutio\", \"pars\", \"voluntas defuncti\"]"
+  },
+  {
+    "ref_id": "Dig__28__5__3__1",
+    "response": "[\"heres\", \"instituo\", \"libertas\", \"pro parte\", \"servus alienus\", \"totus\"]"
+  },
+  {
+    "ref_id": "Dig__28__5__3__2",
+    "response": "[\"condicio\", \"differo\", \"heres\", \"institutio\", \"liber\", \"libertas\", \"purus\", \"scribo\", \"servus\"]"
+  }
+]

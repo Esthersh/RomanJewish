@@ -1,0 +1,233 @@
+## Objective
+Match the provided legal source to the most relevant judicial fields from the hierarchy provided below. 
+
+## Instructions
+1. Analyze the provided Aramaic legal text.
+2.Read the "Broader Context" provided. Use this context strictly to clarify ambiguities, identify underlying themes, or understand references within the Target Text.
+3. Review the provided judicial field hierarchy.
+4. Identify and return the fields from the hierarchy that best match the text.
+5. Select the lowest level possible that is relevant; otherwise, choose a relevant field from the level above.
+6. If none of the fields in the hierarchy adequately cover the source, return an empty list. 
+
+## Judicial Topic Hierarchy 
+Courts and Procedure (ID 4)
+Courts and Procedure > Appeal (ID 20)
+Courts and Procedure > Courts (ID 16)
+Courts and Procedure > Courts > Arbitration (ID 100)
+Courts and Procedure > Courts > Choice of Judges (ID 99)
+Courts and Procedure > Evidence (ID 17)
+Courts and Procedure > Evidence > Archiving (ID 109)
+Courts and Procedure > Evidence > Documentary Evidence (ID 102)
+Courts and Procedure > Evidence > Witnesses (ID 101)
+Courts and Procedure > Execution (ID 19)
+Courts and Procedure > Oaths (ID 18)
+Courts and Procedure > Procedure (ID 121)
+Courts and Procedure > Procedure > Confession (ID 122)
+Obligations (ID 3)
+Obligations > Consensual Contract (ID 14)
+Obligations > Consensual Contract > Deposit (ID 79)
+Obligations > Consensual Contract > Deposit > Responsibility of depositee (ID 90)
+Obligations > Consensual Contract > Letting and Hiring (ID 78)
+Obligations > Consensual Contract > Letting and Hiring > Emphyteusis (ID 88)
+Obligations > Consensual Contract > Letting and Hiring > Labour (ID 85)
+Obligations > Consensual Contract > Letting and Hiring > Land Tenancy (ID 86)
+Obligations > Consensual Contract > Letting and Hiring > Misthosis (ID 89)
+Obligations > Consensual Contract > Loan and Pledge (ID 74)
+Obligations > Consensual Contract > Loan and Pledge > Interest (ID 80)
+Obligations > Consensual Contract > Loan and Pledge > Real security (ID 81)
+Obligations > Consensual Contract > Loan and Pledge > Transfer of Debt (ID 82)
+Obligations > Consensual Contract > Mandate (ID 77)
+Obligations > Consensual Contract > Partnership (ID 76)
+Obligations > Consensual Contract > Sale (ID 75)
+Obligations > Consensual Contract > Sale > Fraud (ID 84)
+Obligations > Consensual Contract > Sale > Warrenty (ID 83)
+Obligations > Delicts (ID 15)
+Obligations > Delicts > Damage (ID 93)
+Obligations > Delicts > Damage > Indirect cause (ID 98)
+Obligations > Delicts > Damage > wild Animals (ID 97)
+Obligations > Delicts > Theft (ID 91)
+Obligations > Delicts > Theft > In deposit (ID 96)
+Obligations > Delicts > Theft > Intention (ID 95)
+Obligations > Delicts > Theft > Return of Object (ID 94)
+Obligations > Delicts > Wild Animals (ID 92)
+Obligations > Verbal Contracts (ID 107)
+Obligations > Verbal Contracts > Stipulation (ID 108)
+Property (ID 2)
+Property > Acquisition (ID 10)
+Property > Acquisition > Conveyance (ID 55)
+Property > Acquisition > Conveyance > Classification of Things (ID 60)
+Property > Acquisition > Conveyance > Delivery (ID 62)
+Property > Acquisition > Conveyance > Formal act (ID 61)
+Property > Acquisition > Conveyance > Payment (ID 63)
+Property > Acquisition > Conveyance > Usucapio (ID 64)
+Property > Acquisition > Occupation (ID 56)
+Property > Acquisition > Occupation > Abandoned Property (ID 68)
+Property > Acquisition > Occupation > Accession (ID 69)
+Property > Acquisition > Occupation > From Natural state (ID 65)
+Property > Acquisition > Occupation > Specification (ID 67)
+Property > Acquisition > Occupation > Superficies (ID 66)
+Property > Acquisition > Usufruct (ID 57)
+Property > Neighbors (ID 13)
+Property > Possession (ID 11)
+Property > Servitudes (ID 12)
+Property > Servitudes > Personal (ID 59)
+Property > Servitudes > Personal > Usufruct (ID 73)
+Property > Servitudes > Praedial (ID 58)
+Property > Servitudes > Praedial > Rights of Light (ID 72)
+Property > Servitudes > Praedial > Rights of Water (ID 71)
+Property > Servitudes > Praedial > Rights of Way (ID 70)
+Public Law (ID 110)
+Public Law > Administrative Law (ID 112)
+Public Law > Administrative Law > Archive (ID 114)
+Public Law > Administrative Law > Judiciary (ID 113)
+Public Law > Administrative Law > Municipal Government  (ID 115)
+Public Law > Administrative Law > Provincial Government  (ID 123)
+Public Law > Taxation (ID 111)
+Status (ID 1)
+Status > Citizenship (ID 7)
+Status > Citizenship > Captivity (ID 41)
+Status > Citizenship > Freed Persons (ID 105)
+Status > Citizenship > Naturalization (ID 40)
+Status > Family (ID 5)
+Status > Family > Divorce (ID 22)
+Status > Family > Marital Arrangements (ID 23)
+Status > Family > Marital Arrangements > Dowry (ID 24)
+Status > Family > Marital Arrangements > Property of Women (ID 27)
+Status > Family > Marital Arrangements > Provision for Wife (ID 25)
+Status > Family > Marital Arrangements > Provisions for Children (ID 26)
+Status > Family > Marriage (ID 21)
+Status > Family > Marriage > Acts of Marriage (ID 117)
+Status > Family > Marriage > Legitimate Children (ID 118)
+Status > Inheritance (ID 6)
+Status > Inheritance > Debts and Obligations (ID 119)
+Status > Inheritance > Intestacy (ID 28)
+Status > Inheritance > Intestacy > Classes of Heirs (ID 30)
+Status > Inheritance > Intestacy > Father Inheritance Rights  (ID 103)
+Status > Inheritance > Intestacy > Firstborn Inheritance Rights (ID 104)
+Status > Inheritance > Intestacy > Women Inheritance Rights (ID 31)
+Status > Inheritance > Testaments (ID 29)
+Status > Inheritance > Testaments > Acceptance of will (ID 35)
+Status > Inheritance > Testaments > Capacity (ID 34)
+Status > Inheritance > Testaments > Causa Mortis (ID 32)
+Status > Inheritance > Testaments > Deeds of Gift as Wills (ID 37)
+Status > Inheritance > Testaments > Disinheritance (ID 33)
+Status > Inheritance > Testaments > Forms of Will (ID 36)
+Status > Inheritance > Testaments > Legacies (ID 38)
+Status > Inheritance > Testaments > Trust (ID 39)
+Status > Legal Capacity (ID 9)
+Status > Legal Capacity > Adoption (ID 47)
+Status > Legal Capacity > Guardianship (ID 48)
+Status > Legal Capacity > Guardianship > Guardianship over Minors (ID 53)
+Status > Legal Capacity > Guardianship > Guardianship over Women (ID 54)
+Status > Legal Capacity > Infamy (ID 51)
+Status > Legal Capacity > Legal Capacity of Women (ID 120)
+Status > Legal Capacity > Mental Disability (ID 50)
+Status > Legal Capacity > Minors (ID 49)
+Status > Legal Capacity > Paternal Power (ID 46)
+Status > Legal Capacity > Paternal Power > Emanciaption (ID 52)
+Status > Slavery (ID 8)
+Status > Slavery > Manumission (ID 43)
+Status > Slavery > Manumission > Paramone (ID 45)
+Status > Slavery > Manumission > Pseudo Manumissions (ID 44)
+Status > Slavery > Obligations of Slaves (ID 42)
+Status > Slavery > Patronage/Clientela (ID 106)
+
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the exact data types and structure shown in this example:
+
+[
+  {
+    "field": level_0 > level_1 > level_2,
+    "field_id": 123
+  },
+  {
+    "field": level_0,
+    "field_id": 38
+  }
+]
+
+## Input Data
+Broader Context (e.g., Full Chapter):
+
+
+Target Source Text, N.E. P. 1000 (Aramaic): 
+על הפטית ליקיס קטוליס סורס תנינותא/תניניתא/ ומרקס אורליס אנטונינס שנת תלת לאוטקרטור קסר טרינס הדרינס סבסטס ועל מנין
+הפרכיה דא בעשרין וארבעה בתמוז שנת עשר וחמש במחוז עגלתין יהב ומקים במלה קימה מתנת עלם די לא תעדה מן רעותי
+אנה שמעון בר מנחם די עמר במחוזא לכי אנתי מרים אנתתי ברת יוסף בר מנשה ית כל מה די איתי לי במחוזא מן בתין ודרו֗ן ושפלין ועליין
+ומאני בי וחרוף ועללהי וגני תמרין וארע ואילן כלה כדי <כ>ת<י>בין אתריא בלחוד בש֗טרא דנה ושאר כל מנדעם די איתי לי די לא וציף עם כל די
+אקנא ויהוא לי מן כען יהבת לכי מתנת עלם ואלין שמהת אתרי מתנתא דא ג֗[נ]ת תמריא די לי ש֗פירא וכל די בה תחומיה למדנחא מדברא
+ולמערבא ירת֗י֗ יוסף בר דרמנס ולצפונא ארע וערת [ד]י לירתי מנחם ואחרנין ולדרומא ירתי יוסף בר בבא וענימוהי עם יר֗ת֗י יוסף בר דרמנס לילא
+חמ֗ש֗א֗ בש֗ב֗ה֗ שעה ופ֗לג֗ מן֗ שעין תלת וכות מת֗נא֗ א֗חרי ית אתרא די מ֗תק֗רא כרבא נציב תמרין תחומוהי למד֗נחא גרמאלה בר
+ערהזו ו֗ל֗מ֗ע֗ר֗ב֗א֗ נ֗הר֗א ר֗ב֗א ו֗י֗ר֗ת֗י֗ [יוחנ]ן בר בבא לדרומא ולצפונא מנ֗לס בר עותאלה וענימוהי כדי חזה וגנתא חד֗תא ד֗י֗ בני טבירוס וסחר
+לי מן [ש]מ֗ע֗ו֗ן֗ ה֗ב֗ג֗ד֗ ת֗ח֗ומיה למדנחא ולד֗ר֗ומא גרמאלה בר ערהזו ולמערבא שמוע בר מנחם ו֗א֗ח֗ר֗נ֗י֗ן֗ ולצ֗פ֗ו֗נא נהרא דכ֗ר֗א֗ וארחא <ועני>מיה יום
+[חד בשבה פלגות שעה מן מי ודיא] ע[ם י]ר֗ת֗י֗ ה֗ב֗ג֗[ד ויום תרין פלגות שעה מן תלת קיסמא וכות] א֗ר֗ע֗א חורתא ותמריא
+[תחומ]יה למדנחא י[רתי יוסף בר ]בבא ٠٠٠٠٠ ו[ל]מער[ב]א ש[מוע ]בר מנחם ולצפונא אתריא ד֗[י] ל֗י[רתי יוסף בר ערתי] די פלגין ל٠٠٠ּ[ ולדרומא יו]חנה
+[ברת מכותא ענימיה יום ארבעה בשבה שעה חדה ולי]ל ארבעה בשבה שעה עם ירתי יוסף בר בבא [ועם] זבד֗יו֗ן֗ [ו]ח֗ב֗ר֗ו֗ה֗י֗ [וכות] מתנה אחרי כ֗ל תמרין
+[ואילן מבדרין דילי במ]ח֗ו֗ז֗א֗ [על שקיא וכות] מ֗ת֗נ֗ה֗ אחר֗י ד֗ר֗ת֗א֗ ובתיא דילי במחוזא ועליהום [ושפלהום] וכל די בהום עם כל די עלא כדי חזא לי בהון
+٠٠٠ּ ٠٠ ٠٠٠٠٠٠٠٠٠ ٠٠ וכ֗ו֗ת֗ [מנעל ומ]נ֗פק [וע]נימ[י]ן֗ כלא י֗הבת לכי אנתי מרים אנתתי מתנת עלם על אסרה די אהוא אכל ומחסן ופרע
+פ֗ר֗ע֗ו֗ן֗ מל֗כ֗ה֗ו֗ן֗ ו֗ע֗מ֗ר֗ ו֗מ֗ע֗מ֗ר֗ ב֗ד֗ר֗תא וב֗ת֗י֗א כל י֗ו֗מ֗י֗ ח֗י֗י֗ וכדי אהך לבית עלמי תהוין ר֗שיה ושליטה באתרי מתנתא דא או במ֗ה די
+[א]ש֗ב֗וק֗ מנהו֗ן֗ וד[י לא אשתרהן] ול֗א֗ אתז֗בן לפרנוס נפשי֗ מן באתר דנה ובכל נכ֗ס֗ין ודמי נכסין ומ֗א֗ני בי וכל מנדעם זעיר וסגיא די יהוא
+לי מן כע֗ן [ועד עלם] די וציף בשטר מתנתא דנה למקנא ולמזבנו ולמנחל ולמורתו ולמרהן ולמנתן ולמזרע ולמנצב ולמבנא ולמפרוע
+פרענהון ולמעבד ב֗ה֗ו֗ן כל די תצבין אנתי ובניכי וירתיכי ומן די יחסן מן ידכי מן יום די אהך לבית עלמי ועד עלם ונדר ומומא ואסר
+ושבועה לא איתי לבני ולירתי ולאנוש כלה בשמי לא עליכי ולא על ירתיכי ולא על מן די יחסן מן ידכי מתנתא דא או מן קצתה מנדעם
+על כל די איתי לי וציף ודי לא וציף ואיתוהי ויהוא לי מן כען כלא יהוא לכי בנזק/בנוף/ מתנתא דא ורשיה ושליטה למעבד כל די תצבין
+מן יום די אהך לבית עלמי ועד עלם ודין ודבב ומומא כלה לא איתי לירתי ואצדקי ואנוש כלה בשמי עליכי ולא על ירתיכי על כל די עלא
+ועל כל די אשבוק קדמיכי כדי אהך לבית עלמי מן כלא כתבת מבר֗[א] יתכי וית כל ולד די תלדין מני מן כען וית כל אצדק וירת
+ואנוש די יחסן מן ידכי מתנתא דא או מן קצתה מנדעם מן נדר ומומא כלה מן כל אנוש בשמי אצדק וירת ורחיק וקריב
+בחיי ומן די אהך לבית עלמי ועד עלם כחליקת מתנתא ובראוניא די מתכתבין לעלם בלחוד די קים יהוה לבבתא ברתנה
+די הן תתארמל ולא יהוא לה בעל די תהוא עמרה בבית אוריא די מן קצת אתרי מתנתא דא ועללה ונפקה עמכי בדרתא ה^י^
+לבית**אוריא כל יומין די תהוא ארמלה די לא בעל ולא רשיה ולא שליטה תהוא למנעלו לביתא הו בעל כדנה מן רעותי כתבת ואברית
+יתכי מן ירתי ומן אנוש בשמי על כל די עלא כתיב מן נדר ומומא ודין ודבב ומן עלת כל מנד[ע]ם ז֗ע֗יר וסגיא [ב]ח֗יי ומן י֗ו֗ם֗ [די אהך
+לבית עלמי ועד עלם על די כדן לקבל דך מתנתא דא יהבת לכי֗ ע֗ל֗ א֗ס֗ר֗ ד֗י֗ ת֗ה֗[וי]ן֗ [א]נ֗ת֗[תי כדי] מן קדם דנה ומשמשה [יתי
+מן ק֗צ֗ת֗ מ֗ת֗נ֗תא֗ דא֗ [כדי מן קדם דנה וקים כל די עלא כתיב ל[קבל ד]ך֗
+[ע]ל[ הפטית ]ל[יקיס קט]ל[יס סורס תנינותא/תניניתא/ ומרקס אורליס אנטונינס שנת ת]ל[ת לאוטקרטור
+[קסר טרינס הדרינס סבס]ט֗ס֗ ו֗ע֗[ל מנין הפרכיה דא בעשרין וארבעה בתמוז שנת
+[עשר וחמש במחוז ע]ג֗לתין יהב֗ ו֗מ֗ק֗י֗ם֗ [במלה קימה מתנת על]ם די לא תע֗[דה מן רעותי
+[אנה שמעון בר מנ]ח֗ם֗ ד֗י֗ עמר במח[וזא לכי ]א֗נתי מ֗רים אנתתי ברת יו֗ס֗[ף
+בר מנשה י֗ת֗ כ֗ל֗[ אר]ע ואילן[ כלה כדי כתיבין אתריא בלחוד בשטרא דנה
+[ושאר כל מנד]ע֗ם֗ ד֗[י לא וציף די] איתי לי [או די אקנא ויהוא לי מן כע]ן כלא יהב[ת לכי מתנת
+[עלם אלין שמהת אתרי מתנתא דא גנת תמריא די לי שפיר]א֗ וכל די בה תח[ומיה למדנחא מדברא
+[ולמערבא] ירת֗[י י]וסף ב֗ר דורמנס ו֗לצפונא א[רע ו]ע֗רת די לירתי מנחם ואחרנין ולדרומא
+ירתי יוסף֗ בר בבא וע֗נ֗ימיה עם ירתי יוסף בר [דו]רמ֗נס מין שעה ופלג מן שעין תלת
+וכות אתרא די מתקרא כרבא נציב תמרין תחומוהי למד[נ]חא [ג]רמאלה בר ערהזו ולמ[ערבא
+[נ]ה֗רה דכ[ר]א֗ [וירתי יו]חנן בר בבא ולד֗ר֗ומ֗א ולצ[פו]נ֗א֗[ מ]נ֗ל֗ס בר עותלה וענימיה כדי חזא
+וכות גנתא חד[תא די בני טבירו]ס֗ וסחר לי מן שמעון הבגר תחומיה למדנחא
+[ו]ל֗[ד]רומא גרמלה בר ערהזו ולמערבא שמוע בר מנחם ואחרנין ולצפונא נהרא דכ֗ר֗א֗
+וארחא ענימיה חד בשבה פלגות שעה מן מי ודיא עם ירתי הבגר ויום תרין
+[פ]לגות שעה מ[ן ]ת֗לת קיסמא וכות ארעא חורתא ותמריא די בה תחומיה למדנחא
+[יר]ת֗י יוסף[ בר בבא ٠٠٠ּ] ע[٠٠٠ ו]למ֗[ערבא שמוע ]בר מנחם ולצפונא אתריא די ליר֗ת֗[י י]ו֗סף
+בר עתרי די פלגין לי֗[٠٠٠ּ ולדרומא יו]חנה ברת מכותא ענימיה יום ארבעה בשבה
+ש֗עה חדה ולילא ארבעה בשבה שעה חדה עם ירתי יוסף בר בבא ועם זבדיון
+[ו]חברוהי וכות כל תמרין ואילן מבדרין די לי במחוזא על שקיא וכות מתנה אח֗ר֗י֗
+דרתא ובת[יא די] לי במחוזא ועליהון ושפלהון וכל די בהון עם כל ד[י ע]ל[א] כ֗ת֗י֗ב֗ [כ]די חזא
+[לי ב]הון ש[٠٠٠] ٠٠٠ּ[٠٠] ٠٠לל٠٠٠٠٠٠٠٠[ מנע]ל ו[מנ]פק ועני כלא יהבת לכי֗ א֗נתי מרים
+אנתתי ברת יוסף[ מתנ]ת֗ ע֗ל֗ם[ על ]א֗סר֗ה די אהוא אכל ומחסן ופרע פרעון מלכהון
+[וע]מר ומעמר בדרתא ובתיא אנון כל יומי חיי וכדי אהך לבית עלמי תהוין
+רשיה ושליטה באתרי מתנתא דא או במה די אשבוק מנהון כדי א֗ה֗ך֗
+[ל]בית עלמי די לא אתזבן ולא אשתרהן לחשחות נפשי מן באתר֗[ דנה ובכ]ל֗ נ֗כ֗[סין
+ודמי נכ[סין ומאני ]בי וכל מנדעם זעיר[ ו]סגיא די יהוא לי מן כע[ן ועד ע]ל֗[ם
+[ד]י וצ֗[יף בשטר מתנת]א֗ ד[נה] ל֗[מ]קנא ולמזבנו ולמנחל ולמורתו ולמרהן ולמנתן ולמזרע֗
+[ו]ל֗מ֗נצב ולמבנא ולמפרוע פרענהון ולמעבד בהון כל די תצבין אנתי ובניכי די יהו[ון
+לכי מני מן כען וירתיכי מן די יחסן מן ידכי מתנתא דא או מן קצתה מנדעם[ מ]ן
+יום די אהך לבית עלמ֗י֗ ועד עלם ונדר ומומא ואסר ושבועה֗ ל֗[א א]י֗ת֗[י] ל֗ב֗[ני
+ויר֗ת֗י֗ ו֗א֗נוש ב֗שמי רחיק וקריב לא על[י]כי ולא על ירתיכי ולא על [מ]ן֗[ די יחס[ן֗ מ֗ן֗[ ידכי
+[בחיי ומן די] אהך לבית עלמי על די כדן לעלם כדנה מן רעותי כתבת לכי
+מתנתא דא כדי עלא די תהוין אנתתי כקדמיתא ומשמשה יתי מן קצתה מתנתא֗
+דא עד יום די אהך לבית עלמי ותהוין רשיה ושליטה בכל די אש[בוק
+כדי עלא מן יום די אהך֗ לבית עלמי ועד עלם די לא דין ולא ד֗[בב ו]ל[א] מ֗ו֗מ֗[א ולא נדר
+כחל֗י֗ק֗ת֗ מת֗נתא ובראוניא די מתכתב֗ין לעלם בלחוד די קים י֗[ה]וא [ל]בב[תא
+ב֗ר֗[תנה ד]י ה֗ן֗ ת֗ת֗[א]ר֗מל ולא יהוא לה בעל די תהוא עמרה בבית אוריא די מן
+קצת מתנתא דא ועללה ונפק֗[ה ע]מ֗כ֗י֗ בדרתא הי לבית אוריא כ֗ל יומ֗[ין
+די תה֗ו֗א֗ א֗[רמ]ל֗[ה די לא ]ב֗ע֗ל֗ ולא רשיה ולא שליטה תהוא למנ֗[ע]לו֗[ לביתא
+[ה]ו֗ בעל כ֗[דנה מן רעו]ת֗י כתבת ואברית יתכ֗י מ֗[ן ירתי ומן כל אנוש
+[בשמי על כל די עלא כתיב מן נדר ומומא ודין ודבב ומן
+[כל על]ת֗ מ֗[נדעם ז]ע֗יר וסגיא [בחיי ומן יום די ]א֗ה֗ך֗ ל֗ב֗י֗ת֗ ע֗ל֗מ֗י֗
+ועד עלם על די כד֗ן֗[ ל]קבל דך
+[שמעון] ב֗ר֗ מ[נ]ח֗ם על נפשה כתבה
+[٠٠٠] ٠٠ [٠٠٠ שה]ד
+[٠٠٠ ב]ר֗ מ[נ]חם֗ שהד
+[٠٠٠] ٠٠٠٠٠ [שה]ד֗
+[٠٠٠]ּיה[٠٠٠]שיפונא מן בית עש֗הו֗
+[٠٠٠]٠٠٠שה[٠٠
+[٠٠٠]שמעון[٠٠٠

@@ -1,0 +1,67 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Greek source.
+ Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it.
+
+2. Select from the provided source legal terminology, or specific words or short phrases that are essential to the specific legal matters, legal principles or legal situations discussed in the text. 
+
+3. Exclude very common, high-frequency words and general vocabulary that are not pertinent to the legal matter at hand (such as particles, adjectives, adverbs, names, objects that are not relevant to the legal matter) 
+
+4. For single words, return the dictionary form (lemma) of the selected term. For fixed phrases return its accepted form (e.g. “in potestate”) 
+
+5. Guardrails:
+Do not return words that don’t appear in the text of the provided source.
+Return only words in the original language of the source.
+
+## Examples
+[1] Hebrew: Mishnah Bava Batra 8:5
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+Index:
+בכור, הכותב נכסיו, מחלק נכסיו, מתנה על מה שכתוב בתורה, ירושה, מתנה, נחלה, נכס, פי שנים, ראוי ליורשו, רוח חכמים נוחה הימנו
+[2] Latin:  Ps. Ulpian 20.10
+Filius familiae testamentum facere non potest, quoniam nihil suum habet, ut testari de eo possit. Sed divus Augustus Marcus constituit, ut filius familiae miles de eo peculio, quod in castris adquisivit, testamentum facere possit.
+
+Index: 
+castra, filius familiae, miles, peculium, testamentum, testari, testor
+
+[3] Greek: Gnomon of Idios Logos 9
+θ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.
+
+Index:
+κληρονομέω, πάτρων, φίσκος, ἀδιάθετος, ἀπελεύθερος, ἀστός, ἄτεκνος, ἐπιδικάζομαι, ἐπιδικάζω 
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Source Text, 120896 (Greek):
+[ἔτους - ca.38 - Σε]β̣αστ̣ο̣ῦ̣ μη̣ν̣ὸ̣[ς Νέου] Σεβαστοῦ ιγ ἐν Ὀξ(υρύγχων) πόλει τῆς Θηβαίδο̣ς ἀγαθῇ τύχηι. ⁦ vac. ? ⁩
+[τάδε διέθετο νοῶν καὶ φρονῶν Ἀχιλλᾶς Ἡρακλείου τοῦ Θ]έ̣ωνος μητ̣ρ[ὸ]ς̣ Τ̣[απ]ο̣ντῶτος Νααρω̣οῦτος(*) ἀπὸ Ὀξυρύγχων πόλεως ἐν ἀγυι̣ᾷ. ἐφʼ ὃν μὲν πε̣ρίειμι χρό̣ν̣ον ἔ̣χ̣ειν̣ με
+[τὴν τῶν ἰδίων ἐξουσίαν ὃ ἐὰν βούλωμαι ἐπιτελεῖν καὶ μεταδια]τ̣ί̣θ̣ε̣σ̣θ̣α̣ι καὶ ἀκυ̣ρ̣οῦν̣ τὴν διαθήκ̣η̣ν τα̣ύτην, ὃ δʼ ἂν ἐπιτελέσω κ̣ύ̣ριο̣ν̣ ὑπ̣ά̣ρχειν. ἐὰν δʼ ἐπὶ τῇδε τῇ διαθήκῃ̣
+[τελευτήσω καταλείπω κληρονόμους ἃ ἐὰν ἔχω τέκνα καὶ] Ἀ̣μόιν καὶ Ζωίλον ἀμφοτ̣έ̣ρους Ἁτρέως τ̣οῦ Ἀλεξᾶτος̣ [μ]ητρὸ̣ς Ἡρακλοῦτο̣ς Ἀρχίου [ἀπ]ὸ τῆς αὐ̣τ̣ῆ̣[ς]
+5[πόλεως - ca.13 - ἐξ ἴσου ἑκάτερον δʼ αὐτῶν ἐὰν] ζ̣ῇ, εἰ δὲ μὴ τὰ τούτου τέκνα, ἐ̣ὰν δὲ μὴ ἔχω τέκνα μόνους τοὺς προγεγραμμ̣έ̣ν̣ο̣υ̣ς̣ [Ἀ]μόιν̣
+[καὶ Ζωίλον ἢ τὸν ἀπʼ αὐτῶν περιόντα πάντων ὧν ἐὰν ἀπολίπ]ω̣ καθʼ ὁνδηποτοῦν τρόπον, ἐπὶ τῷ τοὺς διαδεξαμένους(*) τὰ ἡμέτερα δοῦναι μεθʼ(*) ἐνιαυ-
+[τὸν ἕνα τῆς τελευτῆς μου - ca.16 - ἃς δι]ατάσσω αὐτῷ ἀργυρίου δραχμὰς εἴκοσι , οὐκ οὔσης οὐδενὶ τῷ καθόλου ἐξουσ̣ίας παραβαίνειν, τὸν
+[δὲ παραβησόμενον ἀποτίνειν τῷ ἐμμένοντι τό τε β]λάβος καὶ ἐπίτιμ̣ον ἀργυρίου δραχμὰς πεντακοσίας καὶ εἰς τὸ δημόσιο̣ν τὰς ἴσας καὶ μηδὲν ἧσσον
+[κύρια μένειν τὰ προκείμενα. ἡ διαθήκη κυρία. (hand 2) Ἀχιλλ]ᾶς Ἡρακλεί̣ου τοῦ Θέωνος πεποίημαι τὴν διαθήκην καὶ μετὰ τε-
+10[λευτήν μου καταλείπω κληρονόμους ἃ ἐὰν] ἔχω τέκνα καὶ Ἀμόιν καὶ Ζωίλον ἀμφοτέρους Ἁτρέως ἐξ ἴσου, ἐὰν
+[δὲ μὴ ἔχω τέκνα μόνους τοὺς Ἀμόιν καὶ Ζωίλ]ο̣ν ἢ τὸν ἀπʼ αὐτῶν περιόντα πάντων(*) ὧν ἐὰν ἀπολίπω καθʼ ὁν-
+[δηποτοῦν τρόπον, ἐπὶ τῷ τοὺς διαδεξα]μένους τὰ ἡμέτερα δοῦναι μεθʼ(*) ἐνιαυτὸν ἕνα τ̣ῆς τε̣λε\υ/-
+[τῆς μου - ca.12 - ἀργυρίου δραχμὰς] εἴκοσι ὡς πρόκιται(*). εἰμὶ (ἐτῶν) μδ(*) ο(ὐλὴ) παρʼ ὦμον ἀριστερ̣ὸν καὶ
+[ἔστιν μου ἡ σφραγὶς - ca.14 -]  ̣  ̣ο̣λ(  ) τοῦ Γλ[α]υ̣κίου μητρὸς Σαμβοῦτος(*) ἔγραψα ὑπὲρ τοῦ ἐξα-
+15[νεψίου μου μὴ εἰδότος γράμματα καὶ εἰ]μὶ (ἐτῶν) ν ἄσημος. (hand 3) Θομ̣ο̣ῆρις Θομοήριος τοῦ Θομοήριος μητρὸς Δημαρο̣ῦτος ἀπὸ τῆς α(ὐτῆς)
+[πόλεως μαρτυρῶ τῇ τοῦ Ἀχιλλᾶτος διαθήκῃ καὶ εἰμὶ ἐτ]ῶν ἑξήκοντα τεσσάρων οὐλὴ πορʼ(*) ὀφρύι ἀριστερᾷ καὶ ἔστιν μου ἡ σφραγὶς προδομὴ(*) Σαράπιδος. (hand 4) Ἑκά-
+[των ⁦ -ca.?- ⁩]μ̣μωνίου ἀπὸ τῆς αὐτῆς πόλεως μαρτυρῶ τῇ τοῦ Ἀχιλλᾶτος διαθήκῃ καὶ εἰμὶ ἐτῶν
+[⁦ -ca.?- ⁩ (hand 5) ]θ̣ο̣ν  ̣[  ̣]  ̣[  ̣]  ̣  ̣[  ̣  ̣]ν̣ης̣ Ε̣[ὐ]δ̣αίμονος τ̣οῦ Διογενοῦς μητρὸς Ἰσιδώρας ἀπὸ̣ τ̣[ῆς αὐτῆς πόλεως]
+[μαρτυρῶ τῇ τοῦ Ἀχιλλᾶτος διαθήκῃ καὶ εἰμὶ ἐτῶν ⁦ -ca.?- ⁩]  ̣  ̣[  ̣  ̣  ̣  ̣  ̣  ̣  ̣ ἀρισ]τ̣ερῷ καὶ ἔστιν μου ἡ σφρ̣[αγὶς]
+-- -- -- -- -- -- -- -- -- --
+20[⁦ -ca.?- ⁩ (hand 6) ]  ̣  ̣  ̣  ̣  ̣[  ̣  ̣  ̣  ̣  ̣]  ̣  ̣  ̣[  ̣]  ̣[⁦ -ca.?- ⁩]
+[⁦ -ca.?- ⁩ (hand 7) καὶ] ες̣  ̣  ̣ μ[ο]υ̣ ἡ̣ σ̣φραγὶς̣ Ἑ̣ρ̣μ̣οῦ̣ [⁦ -ca.?- ⁩]
+[⁦ -ca.?- ⁩ (hand 8) μαρτυρῶ τῇ τοῦ Ἀχιλ]λ̣ᾶτος διαθήκῃ καὶ εἰμὶ ἐτῶν [⁦ -ca.?- ⁩]
+

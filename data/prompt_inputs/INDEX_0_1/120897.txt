@@ -1,0 +1,84 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Greek source.
+ Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it.
+
+2. Select from the provided source legal terminology, or specific words or short phrases that are essential to the specific legal matters, legal principles or legal situations discussed in the text. 
+
+3. Exclude very common, high-frequency words and general vocabulary that are not pertinent to the legal matter at hand (such as particles, adjectives, adverbs, names, objects that are not relevant to the legal matter) 
+
+4. For single words, return the dictionary form (lemma) of the selected term. For fixed phrases return its accepted form (e.g. “in potestate”) 
+
+5. Guardrails:
+Do not return words that don’t appear in the text of the provided source.
+Return only words in the original language of the source.
+
+## Examples
+[1] Hebrew: Mishnah Bava Batra 8:5
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+Index:
+בכור, הכותב נכסיו, מחלק נכסיו, מתנה על מה שכתוב בתורה, ירושה, מתנה, נחלה, נכס, פי שנים, ראוי ליורשו, רוח חכמים נוחה הימנו
+[2] Latin:  Ps. Ulpian 20.10
+Filius familiae testamentum facere non potest, quoniam nihil suum habet, ut testari de eo possit. Sed divus Augustus Marcus constituit, ut filius familiae miles de eo peculio, quod in castris adquisivit, testamentum facere possit.
+
+Index: 
+castra, filius familiae, miles, peculium, testamentum, testari, testor
+
+[3] Greek: Gnomon of Idios Logos 9
+θ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.
+
+Index:
+κληρονομέω, πάτρων, φίσκος, ἀδιάθετος, ἀπελεύθερος, ἀστός, ἄτεκνος, ἐπιδικάζομαι, ἐπιδικάζω 
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Source Text, 120897 (Greek):
+[⁦ -ca.?- ⁩ Αὐτοκ]ρ[ά]τορος Καίσαρος Τίτου Αἰλίου Ἁδριανοῦ Ἀ̣ν̣[τ]ω[νί-]
+[νου ⁦ -ca.?- ⁩] τῆς δὲ Καί[σα]ρος(*) θεοῦ Σεβαστοῦ ενακ  ̣τω[⁦ -ca.?- ⁩]
+[⁦ -ca.?- ⁩]ιων ἐπ̣ι̣[  ̣  ̣  ̣]σ̣ι̣ων(*) Λ̣ουκίου Αἰλίου Κομμ[ό-]
+[δου ⁦ -ca.?- ⁩]ν̣[  ̣]η̣ς θ  ̣[  ̣  ̣] κ̣αὶ̣ θεοῦ̣ Σεβαστοῦ̣   ̣  ̣  ̣[  ̣  ̣  ̣  ̣]
+5[⁦ -ca.?- ⁩ Ἀντ]ωνείνου Σεβαστο[ῦ] Εὐσ[εβοῦ]ς(*) [  ̣]  ̣τ̣[  ̣  ̣]  ̣
+[⁦ -ca.?- ⁩] Ἀντιο̣χ̣έως(*) κατὰ δὲ τ̣ὸ̣ν̣ π̣ρότερον ἀριθμ[ὸ]ν
+[⁦ -ca.?- ⁩ Ὑ]π[ε]ρβερεταίου \(ἔτους(?))/ σκ(*) ἐπὶ τῶν σφραγιστῶν μετὰ
+[⁦ -ca.?- ⁩]μ  ̣  ̣κ̣ουτ̣ων   ̣  ̣  ̣επιδων(*) γνωστεύσαντος αὐτὴν
+[⁦ -ca.?- ⁩ Ἀ]πο̣λ̣λ̣ο̣δώρο̣υ̣ φυλῆς Ἀστάρτης τοῦ ἑαυτῆς γαμβροῦ
+10[⁦ -ca.?- ⁩ π]ροσώπου ἀπολείπουσαν [εἰ]ς̣ τὴν ἑαυτῆς τελευτὴν
+[⁦ -ca.?- ⁩]υ̣  ̣  ̣κελλαθεω̣αθ̣ω(*) μαντείῳ εἰς μανιακὴν
+[⁦ -ca.?- ⁩]  ̣σιῳ Ἀσπασίου τοῦ̣ Ἔρωτος φ[υ]λῆς. τῷ ἑαυτῆς
+[⁦ -ca.?- ⁩ τῆς μετα]διαθεμένης̣ κληρονό[μ]οις ἃ(*) ἔχει τῆς μεταδια-
+[θεμένης ⁦ -ca.?- ⁩] ν(*) χ̣ρ̣υσ̣ο̣ῦν ἀργυρίου δηνά[ρ]ια διακόσια · ἐὰν δὲ
+15[⁦ -ca.?- ⁩]  ̣μ̣ενη δ[  ̣  ̣]  ̣  ̣  ̣[  ̣]  ̣  ̣[  ̣  ̣]  ̣τοπλα̣ῳ ἀδελφῷ τοῦ
+[⁦ -ca.?- ⁩ μεταδιαθε]μένης κ[λ]ηρονόμου(*) ἣν̣ ἔχει τῆς μεταδιαθεμ[έ]ν̣η̣[ς]
+[⁦ -ca.?- ⁩]ου συνγραφῆς [ἀργυρ]είου(*) δηναρίων πεντήκοντα
+[⁦ -ca.?- ⁩ μεταδιαθε]μένη ὑπολογητῆναι̣(*) ὑπὸ τῶν ὑπογεγραμμέν[ων]
+[⁦ -ca.?- ⁩ δηνά]ρ̣ι̣α̣ εἴκοσι ὀκτὼ ἃ(*) ἔχει αὐτηι̣(*) πίστει ἀγραφεῖ, ἐὰν δὲ
+20[⁦ -ca.?- ⁩ π]ρ̣[ον]οήσεται αὐτῷ καὶ̣ ἄλ̣λ̣α ἐκ τῶν ἀπολελιμ[μ]ένων(*)
+[⁦ -ca.?- ⁩]  ̣  ̣τ̣  ̣  ̣μ̣ον παρακαλεῖ ἡ μεταδιαθεμένη συνχωρ[ῆσ]αι
+[⁦ -ca.?- ⁩]ν  ̣  ̣  ̣ τῶν ὑπογεγραμμένων α[ὐ]τῆς θυ[γ]ατέρων λ̣α̣[  ̣  ̣]δ̣η
+[⁦ -ca.?- ⁩]  ̣[  ̣  ̣]  ̣  ̣νον ἐνοικεῖν ἀμίσθῳ ἐν οἴκῳ   ̣[  ̣]τα[  ̣]χ̣ε̣κ̣α̣  ̣  ̣[  ̣]τι
+[τ]ῷ προδηλουμέν[ῳ] τ̣ο̣υ  ̣ακ  ̣  ̣αιερω̣[  ̣]ε  ̣  ̣  ̣β̣α  ̣η συνχω-
+25[ρῆσαι ⁦ -ca.?- ⁩]  ̣[  ̣  ̣]η ἑκάστης̣ αὐτῶν δηνά[ρι]α ἑκατ[ὸ]ν ἑβ[ο]κμήκ[ο]ντα
+[⁦ -ca.?- ⁩]  ̣[  ̣  ̣]τα  ̣μ̣[  ̣  ̣]  ̣α̣ ὑπάρχοντα τῇ μετα[δ]ιαθεμένῃ
+[⁦ -ca.?- ⁩]  ̣ ο̣ὖν αὐτῇ προσγένη[τ]αι καὶ τὰ καθήκ[ο]ντα κα[  ̣]  ̣[  ̣]ι
+[⁦ -ca.?- ⁩]  ̣ντη[  ̣  ̣] οἵῳ δήποτε οὖν τρόπῳ Ἑλενίῳ τ̣ῇ̣ καὶ Ἐμμανω
+[⁦ -ca.?- ⁩]με̣  ̣η[  ̣  ̣]  ̣αι  ̣  ̣ κ[α]ὶ Περσί[δι](*) τῇ καὶ Μαροέμμᾳ ἀμφοτέραις
+30[⁦ -ca.?- ⁩]  ̣  ̣  ̣[  ̣  ̣  ̣]ε̣ποπν̣  ̣[  ̣μ]ερε̣ι̣ζομέναις(*) ἐξ ἴσο̣υ̣ ἐ̣π̣ὶ̣ τῷ ὑ̣π̣ο̣[λογ]η̣θ̣ῆ[ναι](*)
+30a[⁦ -ca.?- ⁩]εξ ἃ ἔχει ἐμ̣(*) δανί[ῳ](*) ἀγραφεῖ, παρὰ τῆς μεταδιαθεμένης   ̣[  ̣  ̣  ̣]α̣ις
+[⁦ -ca.?- ⁩] τῇ Περσείδι(*) τοῖς ἀπολελιμμένοις(*) αὐταῖς ὑπὸ
+[⁦ -ca.?- ⁩] βεβαιῶ ὡς   ̣ατ̣  ̣  ̣ τῆς μεταδιαθεμένης
+[⁦ -ca.?- ⁩]  ̣η ὁποτέρα τῶν τῆς μεταδιαθεμένης υ̣ἱ̣ῶ[ν](*)
+[⁦ -ca.?- ⁩]  ̣ αὐτῶν ἀποθανεῖν ὑπάρξει τὸ ἀπολελιμ-
+35μένον(*)[⁦ -ca.?- ⁩]  ̣ιονη μ̣έρος τῆς κληρονομίας πρὸς ἥ[μι(?)]συ(?)(*)
+[⁦ -ca.?- ⁩ τ]ὰ δὲ ἀπολελ[ι]μμένα(*) ὑπὸ τῆς μεταδιαθεμέ[ν]η[ς]
+[⁦ -ca.?- ⁩ τῶν τῆς μετ]αδια[θ]εμένης θυγατέ[ρ]ων καὶ κληρονό[μων]
+[⁦ -ca.?- ⁩]την τῆς μεταδι[α]θεμένης
+[⁦ -ca.?- ⁩]ε̣ι̣σιτα̣ις παρὰ τοῖς σφραγισταῖς γράψαντος αὐτῇ.
+

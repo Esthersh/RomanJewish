@@ -1,0 +1,620 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the keywords of the sources. For any given source choose the most relevant keywords from the provided List of Keywords below. 
+
+## Detailed Instructions
+1. Analyze the provided Latin legal source and its English translation.
+	a. Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it. Identify the situation, legal issues, legal terms, formulas, legal procedures, parties and significant objects in it.
+	b. Take into consideration the source’s provided textual context, only if the meaning of the source is vague.  
+2. Review the provided List of Keywords.
+3. Identify and return the keywords from the List of Keywords that best match the situation, legal issues, legal terms, formulas, legal procedures, parties and significant objects in the source. 
+*return keywords that may be clearly inferred from the source (by an expert in the field)
+*refrain from returning redundant keywords that have a very similar meaning. Among similar keywords, return the one that is most relevant to the given source. .
+4. If the List of Keywords does not include all relevant keywords, suggest new keywords. 
+* All new keywords MUST be in English, unless it is a widely used latin term.
+*refrain from suggesting redundant keywords that have a very similar meaning.
+* Assign any suggested keyword to the existing category that matches it best. If no existing category fits, use "other" for the category field.
+* For suggested keywords, set the keyword_id to -1. Set the category_id to the ID of the matched category, or -1 if the category is "other".
+
+## Examples
+[1] Mishnah Bava Batra 8:7 
+הכותב נכסיו לבניו, צריך שיכתב מהיום ולאחר מיתה, דברי רבי יהודה. רבי יוסי אומר, אינו צריך. הכותב נכסיו לבנו לאחר מותו, האב אינו יכול למכר, מפני שהן כתובין לבן, והבן אינו יכול למכר, מפני שהן ברשות האב. מכר האב, מכורין עד שימות. מכר הבן, אין ללוקח בהן כלום עד שימות האב. האב תולש ומאכיל לכל מי שירצה. ומה שהניח תלוש, הרי הוא של יורשין. 
+Keywords: 
+bequeathal clause, division of estate before death, father, son, from today and after death, gift after death, heir, inter vivos transfer, power of sale, property, usufructus, attached fruits, gathered fruits, temporary sale.  
+[2] Ps. Ulpian 20.5
+Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter  familiae emptor, alter testis esse non potest, quoniam quod unus ex his mancipio accipit, adquirit patri, cui filius suus testis esse non debet.
+Keywords: 
+brother, buyer, disqualified witnesses, father, mancipatio, mancipatory will, paterfamilias, patria potestas, scale holder, son, testamentum per aes et libram, witnesses
+
+## List of Keywords 
+Category: Explicit legal frameworks (id: 6)
+  - laws of another country (id: 167)
+  - Lex Cornelia (id: 319)
+  - Lex Julia (id: 109)
+  - local religions or customs (id: 82)
+  - practice in province (id: 223)
+  - Senatus Consultum Orfitianum (id: 259)
+
+Category Formula, id: 4
+  - bequeathal clause (id: 83)
+  - cursing (id: 23)
+  - double document (id: 48)
+  - from today and after death (id: 307)
+  - meriteia (id: 243)
+  - oath clauses (id: 18)
+  - penalty clause (id: 63)
+  - testament formula (id: 144)
+  - testamentum per aes et libram (id: 260)
+  - vow (id: 130)
+
+Category: Legal matter (id: 3)
+  - actual possession (id: 238)
+  - adoption (id: 344)
+  - age of legal capacity (id: 170)
+  - agent authority (id: 56)
+  - Agnatic Consanguinity (id: 323)
+  - alimentary rights (id: 96)
+  - archival registration (id: 347)
+  - burial rites (id: 244)
+  - collective acquisition (id: 346)
+  - collective freedom (id: 348)
+  - conditional gift (id: 176)
+  - Creditor Priority (id: 326)
+  - cretio (id: 245)
+  - cumulative legacy (id: 279)
+  - damage of deposit (id: 143)
+  - deathbed statement (id: 229)
+  - degrees of kinship (id: 312)
+  - diminished value (id: 139)
+  - disclaimer of inheritance (id: 235)
+  - disinheritance (id: 281)
+  - disputed inheritance (id: 227)
+  - disputed lineage (id: 262)
+  - division of estate before death (id: 267)
+  - divorce (id: 351)
+  - election of rights (id: 301)
+  - eligibility to Inherit (id: 337)
+  - emancipation (id: 107)
+  - enhancement (id: 234)
+  - estate enhancement (id: 177)
+  - fictive sale (id: 240)
+  - fideicommissum (id: 278)
+  - fifth payment (id: 118)
+  - fraud (id: 52)
+  - general sale (id: 78)
+  - generational rights (id: 239)
+  - Gift vs. Inheritance (id: 328)
+  - grant of citizenship (id: 79)
+  - grave robbery (id: 288)
+  - hereditates fideicommissariae (id: 221)
+  - hypothec (id: 61)
+  - infamy (id: 51)
+  - inheritance conflict (id: 194)
+  - Inheritance priority (id: 173)
+  - inherited claims (id: 86)
+  - inoperative will (id: 342)
+  - intestacy (id: 69)
+  - joint legacy (id: 345)
+  - legal disability (id: 154)
+  - legal eligibility (id: 19)
+  - legitimate children (id: 248)
+  - liened property (id: 103)
+  - lost property (id: 27)
+  - mancipatory will (id: 145)
+  - manumission by testament (id: 277)
+  - marriage conditions (id: 187)
+  - marriage of soldiers (id: 247)
+  - material law (id: 65)
+  - minor’s protection (id: 55)
+  - modes of acquisition (id: 192)
+  - nearest agnate (id: 335)
+  - nullification (id: 71)
+  - nullity (id: 74)
+  - one-fifth payment (id: 134)
+  - order of birth (id: 226)
+  - order of death (id: 196)
+  - order of succession (id: 205)
+  - partial confession (id: 88)
+  - partial manumission (id: 320)
+  - paternal lineage (id: 311)
+  - power of sale (id: 350)
+  - primogeniture (id: 241)
+  - property transfer (id: 340)
+  - prospective estate (id: 237)
+  - proxenia (id: 57)
+  - ransom (id: 285)
+  - recoverable gifts (id: 188)
+  - refusal of gift (id: 338)
+  - refusal of inheritance (id: 343)
+  - relative priority (id: 299)
+  - Relative Priority (id: 313)
+  - renunciation of inheritance (id: 289)
+  - restitution (id: 29)
+  - revocation of citizenship (id: 77)
+  - revocation of will (id: 341)
+  - Right of habitation for the widow (id: 263)
+  - right of representation (id: 95)
+  - sacrilege (id: 355)
+  - Secured Debt (id: 325)
+  - seizure (id: 207)
+  - severability of legacy (id: 303)
+  - shared inheritance (id: 314)
+  - single witness (id: 68)
+  - slaves status (id: 339)
+  - specification of assets (id: 284)
+  - substitutio vulgaris (id: 265)
+  - succession disputes (id: 231)
+  - successive inheritance (id: 317)
+  - successive legacies (id: 349)
+  - supplements to a will (id: 308)
+  - suspected perjurer (id: 92)
+  - Tax collectors (id: 91)
+  - testamentary intent (id: 293)
+  - Testamentary Interpretation (id: 302)
+  - Testamentary Language (id: 327)
+  - testamenti factio activa (id: 217)
+  - testamenti factio passiva (id: 211)
+  - Timing of Intestacy (id: 321)
+  - transfer of inherited property (id: 334)
+  - transformation (id: 135)
+  - tribal division (id: 261)
+  - unwritten marriage (id: 256)
+  - usufructus (id: 266)
+  - verbal instruction (id: 193)
+  - wage dispute (id: 97)
+  - widow's inheritance (id: 179)
+  - Women's Status (id: 324)
+
+Category Legal terms, id: 5
+  - adstipulator (id: 114)
+  - agnatic succession (id: 309)
+  - bona vacantia (id: 220)
+  - bonorum possessio (id: 110)
+  - cession (id: 333)
+  - claim of theft (id: 94)
+  - codicil (id: 276)
+  - cognati (id: 252)
+  - consanguinity (id: 315)
+  - deathbed gift (id: 191)
+  - double portion (id: 233)
+  - emptio bonorum (id: 112)
+  - extortion (id: 120)
+  - extra portionem (id: 294)
+  - female succession (id: 199)
+  - gift after death (id: 305)
+  - heredes legitimi (id: 251)
+  - illegitimate child (id: 250)
+  - immovable property (id: 190)
+  - in iure cessio (id: 113)
+  - incertae personae (id: 218)
+  - intent (id: 356)
+  - intentional transgression (id: 21)
+  - inter vivos transfer (id: 290)
+  - intestate succession (id: 310)
+  - legatum (id: 209)
+  - mancipatio (id: 75)
+  - manus (id: 106)
+  - materfamilias (id: 105)
+  - monetary claim (id: 25)
+  - movable property (id: 189)
+  - next of kin (id: 246)
+  - nuncupation (id: 157)
+  - paterfamilias (id: 104)
+  - patria potestas (id: 9)
+  - perjury (id: 28)
+  - postumus alienus (id: 219)
+  - praescriptio (id: 53)
+  - pre-legacy (id: 295)
+  - Primogeniture (id: 292)
+  - representation in succession (id: 253)
+  - repudiatio hereditatis (id: 236)
+  - secession of property (id: 332)
+  - silence (id: 222)
+  - societas (id: 115)
+  - specificatio (id: 171)
+  - statutory rights (id: 298)
+  - Sworn statement (id: 37)
+  - Testamentary Heir (id: 322)
+  - theft (id: 26)
+  - unintentional transgression (id: 22)
+  - vesting of rights (id: 291)
+
+Category Objects, id: 1
+  - beam (id: 70)
+  - betrothal gifts (id: 186)
+  - boundaries of property (id: 306)
+  - coin (id: 140)
+  - country property (id: 271)
+  - currency (id: 62)
+  - debt (id: 304)
+  - debt document (id: 87)
+  - deposit (id: 122)
+  - donkey (id: 8)
+  - dowry property (id: 198)
+  - gift (id: 73)
+  - gifts of groomsmen (id: 183)
+  - grave (id: 286)
+  - guilt offering (id: 121)
+  - house in the city (id: 268)
+  - livestock (id: 270)
+  - loan (id: 32)
+  - marriage contract (id: 101)
+  - marriage presents (id: 185)
+  - maternal estate (id: 273)
+  - palm grove (id: 72)
+  - paternal estate (id: 330)
+  - peculium (id: 161)
+  - property (id: 60)
+  - public document (id: 213)
+  - slave (id: 59)
+  - statute (id: 80)
+  - tablets (id: 158)
+
+Category Offices and Administration, id: 137
+  - archive for private property (id: 146)
+  - consilium principis (id: 318)
+  - conventus (id: 254)
+  - fiscus (id: 206)
+  - manumission tax (id: 283)
+  - office (id: 81)
+  - opening of testament (id: 282)
+  - public service (id: 182)
+  - taxes (id: 58)
+
+Category Parties, id: 2
+  - adult (id: 181)
+  - bastard (id: 204)
+  - brother (id: 66)
+  - buyer (id: 147)
+  - child (id: 160)
+  - co-heirs (id: 297)
+  - convert (id: 201)
+  - craftsman (id: 142)
+  - creditor (id: 195)
+  - curator (id: 108)
+  - daughter (id: 172)
+  - deaf (id: 152)
+  - dependents (id: 162)
+  - father (id: 150)
+  - firstborn (id: 224)
+  - freedperson (id: 165)
+  - freedperson without citizen rights (id: 168)
+  - grandchild (id: 274)
+  - guardian (id: 242)
+  - heir (id: 178)
+  - illegitimate child (id: 249)
+  - indirect heir (id: 200)
+  - intersex person (id: 175)
+  - Junian Latin (id: 156)
+  - litigant (id: 257)
+  - mentally impaired (id: 153)
+  - minor (id: 180)
+  - mother (id: 272)
+  - mute (id: 164)
+  - partner (id: 184)
+  - peregrine (id: 166)
+  - presumed heir (id: 232)
+  - presumed relatives (id: 331)
+  - presumed slave (id: 230)
+  - presumed son (id: 228)
+  - priest (id: 133)
+  - proper heirs (id: 336)
+  - robber (id: 90)
+  - scale holder (id: 148)
+  - serf (id: 269)
+  - sister (id: 275)
+  - slave (id: 202)
+  - soldier (id: 159)
+  - son (id: 163)
+  - tax collectors (id: 212)
+  - testator (id: 149)
+  - tutor (id: 169)
+  - veteran (id: 280)
+  - ward (id: 155)
+  - wife's heirs (id: 197)
+  - witnesses (id: 99)
+  - woman (id: 151)
+
+Category Places, id: 136
+  - Athens (id: 353)
+  - unknown (id: 354)
+
+Category Procedure, id: 329
+  - claimant's oath (id: 98)
+  - compulsory oath (id: 40)
+  - compulsory testimony (id: 33)
+  - confession (id: 174)
+  - consent-based resolution (id: 47)
+  - court officer (id: 119)
+  - decisory oath (id: 46)
+  - denial of testimony (id: 11)
+  - disqualified witnesses (id: 17)
+  - divorce (id: 352)
+  - false oath (id: 20)
+  - judicial oath (id: 39)
+  - oath (id: 54)
+  - oath of deposit (id: 24)
+  - oath of ignorance (id: 35)
+  - oath of knowledge (id: 34)
+  - oath of orphans (id: 100)
+  - oath of testimony (id: 89)
+  - oath versus judgment (id: 49)
+  - procedural law (id: 64)
+  - procedural oath (id: 45)
+  - proof (id: 255)
+  - refusal of action (id: 50)
+  - refusal to swear (id: 42)
+  - rejection of judges (id: 258)
+  - sworn denial (id: 44)
+  - voluntary oath (id: 38)
+  - witness obligation (id: 13)
+  - witness summons (id: 36)
+  - woman testimony (id: 225)
+
+Category Punishments, id: 138
+  - capital punishment (id: 287)
+  - fine (id: 117)
+  - penalty for breach of will (id: 264)
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the following schema:
+
+[
+  {
+    "category": "Name of the category",
+    "keyword": "Matched or suggested word",
+    "suggested": true/false,
+    "category_id": "ID of the category (or -1)",
+    "keyword_id": "ID of the keyword (or -1)"
+  }
+]
+
+## Input Data
+Broader Context:
+Non solum autem proprietas per eos, quos in potestate habemus, 
+adquiritur nobis, sed etiam possessio: cuius enim rei possessionem adepti 
+fuerint, id nos possidere videmur; unde etiam per eos usucapio procedit.
+
+ Per eas vero personas, quas in manu mancipiove habemus, proprietas 
+quidem adquiritur nobis ex omnibus causis sicut per eos, qui in potestate 
+nostra sunt; an autem possessio adquiratur, quaeri solet, quia ipsas non 
+possidemus.
+
+ De his autem servis, in quibus tantum usumfructum habemus, ita placuit, 
+ut quidquid ex re nostra vel ex operis suis adquirant, id nobis 
+adquiratur; quod vero extra eas causas, id ad dominum proprietatis 
+pertineat. itaque si iste servus heres institutus sit legatumve quod ei 
+datum fuerit, non mihi sed domino proprietatis adquiritur.
+
+
+ Idem placet de eo, qui a nobis bona fide possidetur, sive liber sit sive 
+alienus servus: quod enim placuit de usufructuario, idem probatur etiam 
+de bonae fidei possessore. itaque quod extra duas istas causas 
+adquiritur, id vel ad ipsum pertinet, si liber est, vel ad dominum, si 
+servus sit.
+
+ Sed bonae fidei possessor cum usucepit servum, quia eo modo dominus fit, 
+ex omni causa per eum sibi adquirere potest. usufructuarius vero 
+usucapere non potest: primum quia non possidet, sed habet ius utendi /et 
+/fruendi, deinde quia scit alienum servum esse.
+
+
+ De illo quaeritur, an per eum servum, in quo usumfructum habemus, 
+possidere aliquam rem et usucapere possimus, quia ipsum non possidemus. 
+per eum vero, quem bona fide possidemus, sine dubio et possidere et 
+usucapere possumus. loquimur autem in utrisque personis secundum 
+definitionem, quam proxume exposuimus; id est si quid ex re nostra vel ex 
+operis suis adquirant /, id nobis adquiritur /.
+
+ Ex iis apparet per liberos homines, quos neque iuri nostro subiectos 
+habemus neque bona fide possidemus, item per alienos servos, in quibus 
+neque usumfructum habemus neque iustam possessionem, nulla ex causa nobis 
+adquiri posse. et hoc est, quod vulgo dicitur per extraneam personam 
+nobis adquiri non posse. tantum de possessione quaeritur, an per 
+procuratorem nobis adquiratur.
+
+ In summa sciendum est his, qui in potestate manu mancipiove sunt, nihil 
+in iure cedi posse: cum enim istarum personarum nihil suum esse possit, 
+conveniens est scilicet, ut nihil suum esse /posse /in iure vindicare 
+possint.
+
+ Hactenus tantisper admonuisse sufficit, quemadmodum singulae res nobis 
+adquirantur: nam legatorum ius, quo et ipso singulas res adquirimus, 
+opportunius alio loco referemus. videamus itaque nunc, quibus modis per 
+universitatem res nobis adquirantur.
+
+ Si cui heredes facti sumus sive cuius bonorum possessionem petierimus 
+sive cuius bona emerimus sive quem adoptaverimus sive quam in manum ut 
+uxorem receperimus, eius res ad nos transeunt.
+
+" Ac prius de hereditatibus dispiciamus, quarum duplex condicio est: nam 
+vel ex testamento vel ab intestato ad nos pertinent.
+"
+Et prius est, ut de his dispiciamus, quae nobis ex testamento obveniunt.
+"estamentorum autem genera initio duo fuerunt: nam aut calatis comitiis 
+testamentum faciebant, quae comitia bis in anno testamentis faciendis 
+destinata erant, aut in procinctu, id est cum belli causa arma sumebant: 
+procinctus est enim expeditus et armatus exercitus. alterum itaque in 
+pace et in otio faciebant, alterum in proelium exituri."
+"Accessit deinde tertium genus testamenti, quod per aes et libram agitur: 
+qui neque calatis comitiis neque in procinctu testamentum fecerat, is si 
+subita morte urguebatur, amico familiam suam, id est patrimonium suum, 
+mancipio dabat eumque rogabat, quid cuique post mortem suam dari vellet. 
+quod testamentum dicitur per aes et libram, scilicet quia per 
+mancipationem peragitur."
+"Sed illa quidem duo genera testamentorum in desuetudinem abierunt; hoc 
+vero solum, quod per aes et libram fit, in usu retentum est. sane nunc 
+aliter ordinatur quam olim solebat. namque olim familiae emptor, id est 
+qui a testatore familiam accipiebat mancipio, heredis locum optinebat, et 
+ob id ei mandabat testator, quid cuique post mortem suam dari vellet; 
+nunc vero alius heres testamento instituitur, a quo etiam legata 
+relinquantur, alius dicis gratia propter veteris iuris imitationem 
+familiae emptor adhibetur."
+"Eaque res ita agitur: qui facit testamentum, adhibitis, sicut in ceteris 
+mancipationibus, V testibus civibus Romanis puberibus et libripende, 
+postquam tabulas testamenti scripserit, mancipat alicui dicis gratia 
+familiam suam. in qua re his verbis familiae emptor utitur: familiam 
+pecuniamque tuam endo mandatela custodelaque mea esse aio, eaque, quo tu 
+iure testamentum facere possis secundum legem publicam, hoc aere, et ut 
+quidam adiciunt, aeneaque libra, esto mihi empta; deinde aere percutit 
+libram idque aes dat testatori velut pretii loco. deinde testator tabulas 
+testamenti tenens ita dicit: haec ita ut in his tabulis cerisque scripta 
+sunt, ita do ita lego ita testor itaque vos, Quirites testimonium mihi 
+perhibetote; et hoc dicitur nuncupatio: nuncupare est enim palam 
+nominare, et sane quae testator specialiter in tabulis testamenti 
+scripserit, ea videtur generali sermone nominare atque confirmare."
+"In testibus autem non debet is esse, qui in potestatem est aut familiae 
+emptoris aut ipsius testatoris, quia propter veteris iuris imitationem 
+totum hoc negotium, quod agitur testamenti ordinandi gratia, creditur 
+inter familiae emptorem agi et testatorem; quippe olim, ut proxime 
+diximus, is qui familiam testatoris mancipio accipiebat, heredis loco 
+erat; itaque reprobatum est in ea re domesticum testimonium."
+"Unde et si is, qui in potestate patris est, familiae emptor adhibitus 
+sit, pater eius testis esse non potest; ac ne is quidem, qui in eadem 
+potestate est, velut frater eius. sed si filius familias ex castrensi 
+peculio post missionem faciat testamentum, nec pater eius recte testis 
+adhibetur nec is qui in potestate patris sit.
+"
+"De libripende eadem, quae et de testibus dicta esse intellegemus: nam et 
+is testium numero est."
+"Is vero qui in potestate heredis aut legatarii est, cuiusve heres ipse 
+aut legatarius in potestatem est, quique in eiusdem potestate est, adeo 
+testis et libripens adhiberi potest, ut ipse quoque heres aut legatarius 
+iure adhibeantur. sed tamen quod ad heredem pertinet, quique in eius 
+potestate est, cuiusve is in potestate erit, minime hoc iure uti debemus. 
+/de testamentis militum. /"
+"Sed haec diligens observatio in ordinandis testamentis militibus propter 
+nimiam inperitiam constitutionibus principum remissa est: nam quamvis 
+neque legitimum numerum testium adhibuerint neque vendiderint familiam 
+neque nuncupaverint testamentum, recte nihilo minus testantur."
+"Praeterea permissum est iis et peregrinos et Latinos instituere heredes 
+vel iis legare, cum alioquin peregrini quidem ratione civili prohibeantur 
+capere hereditatem legataque, Latini vero per legem Iuniam."
+"Caelibes quoque, qui lege Iulia hereditatem legataque capere vetantur, 
+item orbi, id est qui liberos non habent, quos lex .....(48,0) ...... 
+(21, 0)...."
+". ...ex auctoritate divi Hadriani senatus consultum factum est, quo 
+permissum est sui iuris feminis etiam sine coemptione testamentum facere, 
+si modo non minores essent annorum xii, scilicet ut quae tutela liberatae 
+non essent, tutore auctore testari deberent. "
+"Videntur ergo melioris condicionis esse feminae quam masculi: nam 
+masculus minor annorum XIIII testamentum facere non potest, etiamsi 
+tutore auctore testamentum facere velit, femina vero potest: nam statim 
+ut maior est ? XII annorum testamenti faciundi ius nanciscitur."
+"Igitur si quaeramus, an valeat testamentum, inprimis advertere debemus, 
+an is quid id fecerit, habuerit testamenti factionem; deinde si habuerit, 
+requiremus, an secundum iuris civilis regulam testatus sit, exceptis 
+militibus, quibus propter nimiam imperitiam, ut diximus, quomodo velint 
+vel quomodo possint, permittitur testamentum facere."
+"Non tamen ut iure civili valeat testamentum, sufficit ea observatio, 
+quam supra exposuimus de familiae venditione et de testibus et de 
+nuncupationibus."
+"Ante omnia requirendum est, an institutio heredis sollemni more facta 
+sit: nam aliter facta institutione nihil proficit familiam testatoris ita 
+venire testesque ita adhibere aut ita nuncupare testamentum, ut supra 
+diximus."
+"Sollemnis autem institutio haec est: Titius heres esto; sed et illa iam 
+conprobata videtur : Titium heredem esse iubeo; at illa non est 
+conprobata: Titium heredem esse volo; sed et illae a plerisque inprobatae 
+sunt: Titium heredem instituo, item heredem facio."
+"Observandum praeterea est, ut si mulier, quae in tutela est, faciat 
+testamentum, tutore auctore facere debeat: alioquin inutiliter iure 
+civili testabitur."
+"Praetor tamen, si septem signis testium signatum sit testamentum, 
+scriptis heredibus secundum tabulas testamenti bonorum possessionem 
+pollicetur, si nemo sit, ad quem ab intestato iure legitimo pertineat 
+hereditas, velut frater eodem patre natus aut patruus aut fratris filius. 
+et ita poterunt scripti heredes retinere hereditatem: nam idem iuris est 
+et si alia ex causa testamentum non valeat, velut quod familia non 
+venierit aut nuncupationis verba testator locutus non sit."
+"Sed videamus, an etiam si frater aut patruus extent, potiores scriptis 
+heredibus habeantur: rescripto enim imperatoris Antonini significatur 
+eos, qui secundum tabulas testamenti non iure factas bonorum possessionem 
+petierint, posse adversus eos, qui ab intestato vindicant hereditatem, 
+defendere se per exceptionem doli mali."
+"Quod sane quidem ad masculorum testamenta pertinere certum est; item ad 
+feminarum, quae ideo non utiliter testatae sunt, quod verbi gratia 
+familiam non vendiderint aut nuncupationis verba locutae non sint. an 
+autem et ad ea testamenta feminarum, quae sine tutoris auctoritate 
+fecerint, haec constitutio pertineat, videbimus."
+"Loquimur autem de his scilicet feminis, quae non in legitima parentium 
+aut patronorum tutela sunt, sed /de his quae ? /alterius generis 
+tutores habent, qui etiam inviti coguntur auctores fieri. alioquin 
+parentem et patronum sine auctoritate eius facto testamento non summoveri 
+palam est."
+
+Item qui filium in potestate habet, curare debet, ut eum vel heredem 
+instituat vel nominatim exheredet; alioquin si eum silentio praeterierit, 
+inutiliter testabitur, adeo quidem ut nostri praeceptores existiment, 
+etiamsi vivo patre filius defunctus sit, neminem heredem ex eo testamento 
+existere posse, scilicet quia statim ab initio non constiterit 
+institutio. sed diversae scholae auctores, si quidem filius mortis patris 
+tempore vivat, sane impedimento eum esse scriptis heredibus et illum ab 
+intestato heredem fieri confitentur; si vero ante mortem patris 
+interceptus sit, posse ex testamento hereditatem adiri putant, nullo iam 
+filio impedimento; quia scilicet existimant non statim ab initio 
+inutiliter fieri testamentum filio praeterito.
+
+ Ceteras vero liberorum personas si praeterierit testator, valet 
+testamentum. sed praeteritae istae personae scriptis heredibus in partem 
+accrescunt, si sui heredes sint, in virilem, si extranei, in dimidiam; id 
+est si quis tres verbi gratia filios, heredes instituerit et filiam 
+praeterierit, filia adcrescendo pro quarta parte fit heres et ea ratione 
+id consequitur, quod ab intestato patre mortuo habitura esset; at si 
+extraneos ille heredes instituerit et filiam praeterierit, filia 
+adcrescendo ex dimidia parte fit heres. quae de filia diximus, eadem et 
+de nepote deque omnibus liberorum personis seu masculini seu feminini 
+sexus dicta intellegemus.
+
+ Quid ergo est? licet hae secundum ea, quae diximus, scriptis heredibus 
+dimidiam partem detrahant, tamen praetor eis contra tabulas bonorum 
+possessionem promittit; qua ratione extranei heredes a tota hereditate 
+repelluntur et efficiuntur sine re heredes.
+
+ Et hoc iure utebamur, quasi nihil inter feminas et masculos interesset. 
+sed nuper imperator Antoninus significavit rescripto suo non plus 
+nancisci feminas per bonorum possessionem, quam quod iure adcrescendi 
+consequerentur. quod in emancipatarum quoque persona observandum est, ut 
+hae quoque quod adcrescendi iure habiturae essent, si in potestate 
+fuissent, id ipsum etiam per bonorum possessionem habeant.
+
+ Sed si quidem filius a patre exheredetur, nominatim exheredari debet; 
+alioquin non potest satis exheredari. nominatim autem exheredari videtur, 
+sive ita exheredetur: Titius filius meus exheres esto; sive ita: filius 
+meus exheres esto, non adiecto proprio nomine.
+
+ Ceterae vero liberorum personae vel feminini sexus vel masculini satis 
+inter ceteros exheredantur, id est his verbis : ceteri omnes exheredes 
+sunto, quae verba statim post institutionem heredum adici solent. sed hoc 
+ita est iure civili.
+
+ Nam praetor omnes virilis sexus liberorum personas, id est nepotes 
+quoque et pronepotes ....(2, 33)...
+
+ Postumi quoque liberi vel heredes institui debent vel exheredari.
+
+ Et in eo par omnium condicio est, quod et in filio postumo et in 
+quolibet ex ceteris liberis sive feminini sexus sive masculini praeterito 
+valet quidem testamentum, sed postea agnatione postumi sive postumae 
+rumpitur, et ea ratione totum infirmatur. itaque si mulier ex qua 
+postumus aut postuma sperabatur, abortum fecerit, nihil impedimento est 
+scriptis heredibus ad hereditatem adeundam.
+
+ Sed feminini quidem sexus personae vel nominatim exheredari solent vel 
+inter ceteros, dum tamen si inter ceteros exheredentur, aliquid eis 
+legetur, ne videantur per oblivionem praeteritae esse. masculini vero 
+sexus personas placuit non aliter recte exheredari, quam si nominatim 
+exheredentur, hoc scilicet modo: quicumque mihi filius genitus fuerit 
+exheres esto. .....(8, 0).....
+
+Source Text, 105534 (Latin):
+Sed illa quidem duo genera testamentorum in desuetudinem abierunt; hoc 
+vero solum, quod per aes et libram fit, in usu retentum est. sane nunc 
+aliter ordinatur quam olim solebat. namque olim familiae emptor, id est 
+qui a testatore familiam accipiebat mancipio, heredis locum optinebat, et 
+ob id ei mandabat testator, quid cuique post mortem suam dari vellet; 
+nunc vero alius heres testamento instituitur, a quo etiam legata 
+relinquantur, alius dicis gratia propter veteris iuris imitationem 
+familiae emptor adhibetur.
+
+English Translation:
+The first two modes have fallen into desuetude, and that by bronze and balance, which alone survives, has undergone a transformation. In former times the vendee of the estate, the alienee by mancipation from the testator, held the place of heir, and received the testator’s instructions respecting the disposition of his property after his death. At the present day, the person who is instituted heir, and who is charged with the bequests, is different from the person who, for form’s sake, and in imitation of the ancient law, represents the purchaser.

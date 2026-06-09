@@ -1,0 +1,430 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the keywords of the sources. For any given source choose the most relevant keywords from the provided list of topics below. 
+
+## Instructions
+1. Analyze the provided Hebrew legal source. [translation Y/N]
+Divide source into its main sections. Consider standard documentary structures. 
+Interpret the legal meaning of each section, as closely as possible to the specific matters addressed. Identify the situation, legal issues, legal terms, formulas, legal procedures, parties (not personal names) and significant objects in it.
+Consider the possible judicial reality within which the source functioned.
+2. Review the provided List of Keywords.
+3. Identify and return the keywords from the List of Keywords that best match the situation, legal issues, legal terms, formulas, legal procedures, parties and significant objects in the source. 
+*return keywords that may be clearly inferred from the source (by an expert in the field)
+*refrain from returning redundant keywords that have a very similar meaning. Among similar keywords, return the one that is most relevant to the given source. .
+4. If the List of Keywords does not include all relevant keywords, suggest new keywords. 
+* All new keywords MUST be in English, unless it is a widely used latin term..
+*refrain from suggesting redundant keywords that have a very similar meaning.
+* Assign any suggested keyword to the existing category that matches it best. If no existing category fits, use "other" for the category field.
+* For suggested keywords, set the keyword_id to -1. Set the category_id to the ID of the matched category, or -1 if the category is "other".
+
+## Examples
+[1] Egyptian papyri TM 20764
+[ἔτους ̣ ̣ Αὐτοκράτορος Καίσαρος Τραιανοῦ Ἁδρια]νοῦ Σεβαστοῦ, Τῦβι ιγ, ἐν Ὀξυρύγχων πόλει τῆς Θηβαίδος, ἀγαθῇ τύχηι.
+[τάδε διέθετο νοῶν καὶ φρονῶν Πεκῦσις Ἑρμοῦ τοῦ Π]εκύσιος μητρὸς Διδύμης τῆς Φιλώτου τῶν ἀπʼ Ὀξυρύγχων πόλεως ἐν ἀγυιᾷ· ἐφʼ ὃν μὲν περίειμι χρόνον ἔχειν με τὴν κατὰ τῶν ἐμῶν ἐξουσίαν
+[- ca.37 - κ]α̣ὶ μεταδιατίθεσθαι. ἐὰν δὲ ἐπὶ ταύτῃ τελευτήσω τῇ διαθήκῃ, κληρονόμον ἀπολείπω τὴν θυγατέρα(*) μου Ἀμμωνοῦν μητρὸς Πτολεμᾶς, ἐὰν ζῇ, ε[ἰ δὲ]
+[μή, τὴν ταύτης γενεάν, τῶν ὑπαρχόντων μοι] ἐπʼ ἀμφόδου Κρητικοῦ μερῶν κοινωνικῆς(*) οἰκίας καὶ αὐλῆς καὶ καμαρῶν. τὰ δὲ ὑπʼ ἐμοῦ ἀπολειφθησόμενα σκεύη καὶ ἔπιπλα καὶ ἐνδομενείαν καὶ εἴ τι ἄλλ[ο]
+5[ἐὰν ἔχω, πάντα καταλείπω τῇ τῶν μὲν ἐμῶν τέκνω]ν μητρὶ ἐμοῦ δὲ γυναικὶ Πτολέμᾳ, ἀπελευθέρᾳ Δημητρίου Ἑρμίππου, ἐπὶ τῷ αὐτὴν ἔχειν ἐπὶ τὸν τῆς ζωῆς αὐτῆς χρόνον τὴν χρῆσιν καὶ ἐνοίκησιν καὶ ἐνοι-
+[κίων ἀποφορὰν τῶν μερῶν](*)[ οἰκίας καὶ αὐλῆς καὶ καμ]αρῶν. ἐὰν δὲ συμβῇ τὴν Ἀμμωνοῦν ἄτεκνον καὶ ἀδιάθετον τελευτῆσαι, ἔσται τὰ μέρη τῶν ἐνγαίων τοῦ ὁμομητρίου αὐτῆς ἀδελφοῦ Ἀντᾶτος, ἐὰν ζῇ, εἰ δὲ μή,
+[- ca.20 - καὶ μὴ ἐξεῖναι μηδενὶ ἄλλῳ π]α̣ρ̣ενχιρεῖν(*) τοῖς ὑπʼ ἐμοῦ διατεταγμένοις, ἢ τὸν παραβάντα τι τούτων ἀποτίνειν τῇ θυγατρὶ μου καὶ κληρονόμῳ Ἀμμωνοῦτι ἐπιτίμου δραχμὰς χειλίας(*) καὶ
+[- ca.37 -] (hand 2) Πεκῦσις Ἑρμοῦ τοῦ Πεκύσιος καταλείπω μετὰ τελευτήν μου κληρονόμον τὴν θυγατέρα
+[μου Ἀμμωνοῦν τῶν ἐπʼ ἀμφόδου Κρητι]κοῦ μερῶν οἰκίας καὶ αὐλῆς καὶ καμαρῶν· τῇ δὲ γυναικί μου Πτολέμᾳ καταλείπω πάν-
+10[τα τὰ σκεύη μου καὶ ἔπιπλα καὶ ἐ]νδομενείαν καὶ εἴ τι ἄλλο αἰὰν(*) χω(*), καὶ ἐφʼ ὅσον ζῇ τὴν ἐνοίκησιν τῶν μερῶν τῆς οἰκ-
+[ίας καὶ αὐλῆς καὶ καμαρῶν. ἐὰν δ]ὲ ἡ Ἀμμωνοῦς ἄτεκνος καὶ ἀδιάθετος τελευτήσῃ, ἔστω τὰ μέρη τῶν ἐνγαίων τοῦ
+[ὁμομητρίου αὐτῆς ἀδελφοῦ Ἀ]ν[τ]ᾶτος ὡς πρόκιται. εἰμὶ ἐτῶν τεσσαράκοντα τεσσάρων , οὐλὴ τραχήλῳ ἐξ ἀριστερῶν,
+[καὶ ἔστι μου ἡ σφραγὶς Ἄμ]μωνος.(*). (hand 3) Σαραπίων Σαραπίωνος τοῦ Διονυσίου ἀπὸ τῆς αὐτῆς πόλεως μαρτυρῶ τῇ τοῦ Πεκυσις(*) διαθήκῃ, καὶ
+[εἰμὶ ἐτῶν ̣ ̣, οὐλὴ ̣ ̣ ̣ ̣ ̣ ̣, καὶ ἔστι μου ἡ σφ]ραγὶς Διονύσου. (hand 4) Ἑκάτων Σαραπίωνος τοῦ Ἑκάτωνος ἀπὸ τῆς αὐτῆς πόλεως μαρτυρῶ τῇ τοῦ Πεκύσιος διαθήκῃ, καὶ εἰμὶ
+15[ἐτῶν ̣ ̣, οὐλὴ - ca.13 - , καὶ ἔστι μο]υ ἡ σφραγὶς Σαράπιδος. (hand 5) Παποντὼς Διογένους τοῦ Παποντῶτος ἀπὸ τῆς αὐτῆς πόλεως μαρτυρῶ τῇ τοῦ Πεκύσιος
+[διαθήκῃ, καὶ εἰμὶ ἐτῶν ̣ ̣ ̣ ̣ ̣ ̣ ̣, καὶ] ἔστιν μου ἡ σφραγὶς Διὸς ἐπʼ ἀέτῳ(*). (hand 6) Ζωίλος Ζωίλου τοῦ Πανεχώτου τῶν ἀπὸ τῆς αὐτ-
+[ῆς πόλεως μαρτυρῶ τῇ τοῦ Π]εκύσεος διαθήκῃ, καὶ ἰμὶ(*) ἐτῶν τεσσαράκοντα ὀκτὼ , \οὐλὴ/ πήχι(*) ἀριστερῷ, ἡ
+[δὲ σφραγίς μού ἐστιν ̣ ̣ ̣ ̣ ̣ ̣ Ἁ]ρποκράτου ἐπὶ κιβωρτωι. (hand 7) Ἡρᾶς ὁ καὶ Σάιος Ζηνᾶτος τοῦ Ἡρᾶτος ἀπὸ τῆς αὐτῆς πόλεως μαρτυρῶι(*) τῇ τοῦ Πεκύσιος
+[διαθήκῃ, καὶ εἰμὶ ἐτῶν - ca.10 -, οὐλὴ ἀντικνημ]ίωι δεξιῶι, καὶ ἔστι μου ἡ σφραγὶ[ς π]ρ[ο]τομὴ(*) φιλ[ο]σόφου. (hand 8) Διονύσιος Διον[υσ]ίου τ[ο]ῦ Διογένους ἀπὸ τῆς αὐτῆ[ς] πόλεως μαρτ[υ]ρῶ
+20[τῇ τοῦ Πεκύσιος διαθήκῃ, καὶ εἰμὶ] ἐτῶν τεσσαράκοντα ἕξ , οὐλὴ παρὰ κρόταφον δεξιόν, καὶ ἔστι μου ἡ σφραγὶς Διονυσοπλάτωνος. (hand 9) μν̣η̣μ̣(ονείου)(*) Ὀξυρ(ύγχων) πόλ(εως).
+[ἔτους ̣ ̣ Αὐτοκράτορος Καί]σαρος Τραιανοῦ Ἁδριανοῦ Σεβαστοῦ(*), Τῦβι ιγ.
+[⁦ -ca.?- ⁩ διαθήκη Πεκύσιος Ἑρ]μοῦ τοῦ Πεκύσιος μητρὸ(ς) Διδύμης Φιλώτου ἀπʼ Ὀξ(υρύγχων) π[ό]λ(εως).
+Translation: The ... year of the Emperor Trajanus Hadrianus Augustus, Tybi 13, at Oxyrhynchus in the Thebaid; for good luck. This is the will, made in the street, of Pekusis, son of Hermes and Didyme, daughter of Philotas, an inhabitant of Oxyrhynchus, being sane and in his right mind. So long as I survive, I am to have power over my property, to ... and to alter my will. But if I die with this will unchanged, I leave my daughter Ammonous whose mother is Ptolema, if she survive me, but if not, then her children, heir to my shares in the common house, court and rooms situated in the Cretan quarter. All the furniture, movables and household stock and other property whatsoever that I shall leave, I bequeath to the mother of my children and my wife, Ptolema, the freedwoman of Demetrius, son of Hermippus, with the condition that she shall have for her lifetime the right of using, dwelling in, and building in the said house, court and rooms. If Ammonous should die without children and intestate, the share of the fixtures shall belong to her half-brother on the mother’s side, Antas, if he survive, but if not, to.... No one shall violate the terms of this my will under pain of paying to my daughter and heir Ammonous a fine of 1000 drachmae and (to the treasury an equal sum?) 
+Keywords: 
+Right of habitation for the widow, testamentary heir, bequeathal clause, currency, daughter, fine, freedperson, heir, house in the city, immovable property, movable property, penalty clause, penalty for breach of will, property, specification of assets, substitutio vulgaris, ordinary substitution, testament formula, testator, usufructus, witnesses, woman
+[2] Greek Inscription SEG 9.7 (Will of Ptolemy VIII Euergetes II)
+Ἔτους πεντεκαιδεκάτου, μηνὸς Λώιου.Ἀγαθῆι τύχηι. Τάδε διέθετο βασιλεὺς
+Πτολεμαῖος βασιλέως Πτολεμαίου
+καὶ βασιλίσσης Κλεοπάτρας, θεῶν
+Ἐπιφανῶν, ὁ νεώτερος· ὧν καὶ τὰ ἀντίγραφα
+εἰς Ῥώμην ἐξαπέσταλται. — Εἴη μέν μοι
+μετὰ τῆς τῶν θεῶν εὐμενείας μετελθεῖν
+καταξίως τοὺς συστησαμένους ἐπί με
+τὴν ἀνόσιον ἐπιβουλὴν καὶ προελομένους
+μὴ μόνον ⟦oν⟧ τῆς βασιλείας, ἀλλὰ καὶ
+τοῦ ζῆν στερῆσαί με· ἐὰν δέ τι συμβαίνηι
+τῶν κατ’ ἄνθρωπον πρότερον ἢ διαδόχους
+ἀπολιπεῖν τῆς βασιλείας, καταλείπω
+Ῥωμαίοις τὴν καθήκουσάν μοι βασιλείαν,
+οἷς ἀπ’ ἀρχῆς τήν τε φιλίαν καὶ τὴν
+συμμαχίαν γνησίως συντετήρηκα·
+τοῖς δ’ αὐτοῖς παρακατατίθεμαι τὰ πράγματα
+συντηρεῖν, ἐνευχόμενος κατά τε τῶν θεῶν
+πάντων καὶ τῆς ἑαυτῶν εὐδοξίας, ἐάν τινες
+ἐπίωσιν ἢ ταῖς πόλεσιν ἢ τῆι χώραι, βοηθεῖν
+κατὰ τὴν ψιλίαν καὶ συμμαχίαν τὴν ⟦πρὸς⟧
+πρὸς ἀλλήλους ἡμῖν γενομένην καὶ τὸ
+δίκαιον παντὶ σθένει.
+— Μάρτυρας δὲ τούτων ποιοῦμαι Δία τε τὸν
+Καπετώλιον καὶ τοὺς Μεγάλους θεοὺς
+καὶ τὸν Ἥλιον καὶ τὸν Ἀρχηγέτην Ἀπόλλωνα,
+παρ’ ὧι καὶ τὰ περὶ τούτων ἀνιέρωται γράμματα.
+Τύχηι τῆι ἀγαθῆι
+Keywords: 
+king, testamentary heir, deposit, heir, oath clauses, property, public document, testament formula, conditional bequeathal, testamentary intent, witnesses, bequeathal of kingdom, political alliance, divine witnesses. 
+
+## List of Keywords 
+Category: Explicit legal frameworks (id: 6)
+  - laws of another country (id: 167)
+  - Lex Cornelia (id: 319)
+  - Lex Julia (id: 109)
+  - local religions or customs (id: 82)
+  - practice in province (id: 223)
+  - Senatus Consultum Orfitianum (id: 259)
+
+Category Formula, id: 4
+  - bequeathal clause (id: 83)
+  - cursing (id: 23)
+  - double document (id: 48)
+  - from today and after death (id: 307)
+  - meriteia (id: 243)
+  - oath clauses (id: 18)
+  - penalty clause (id: 63)
+  - testament formula (id: 144)
+  - testamentum per aes et libram (id: 260)
+  - vow (id: 130)
+
+Category: Legal matter (id: 3)
+  - actual possession (id: 238)
+  - adoption (id: 344)
+  - age of legal capacity (id: 170)
+  - agent authority (id: 56)
+  - Agnatic Consanguinity (id: 323)
+  - alimentary rights (id: 96)
+  - archival registration (id: 347)
+  - burial rites (id: 244)
+  - collective acquisition (id: 346)
+  - collective freedom (id: 348)
+  - conditional gift (id: 176)
+  - Creditor Priority (id: 326)
+  - cretio (id: 245)
+  - cumulative legacy (id: 279)
+  - damage of deposit (id: 143)
+  - deathbed statement (id: 229)
+  - degrees of kinship (id: 312)
+  - diminished value (id: 139)
+  - disclaimer of inheritance (id: 235)
+  - disinheritance (id: 281)
+  - disputed inheritance (id: 227)
+  - disputed lineage (id: 262)
+  - division of estate before death (id: 267)
+  - divorce (id: 351)
+  - election of rights (id: 301)
+  - eligibility to Inherit (id: 337)
+  - emancipation (id: 107)
+  - enhancement (id: 234)
+  - estate enhancement (id: 177)
+  - fictive sale (id: 240)
+  - fideicommissum (id: 278)
+  - fifth payment (id: 118)
+  - fraud (id: 52)
+  - general sale (id: 78)
+  - generational rights (id: 239)
+  - Gift vs. Inheritance (id: 328)
+  - grant of citizenship (id: 79)
+  - grave robbery (id: 288)
+  - hereditates fideicommissariae (id: 221)
+  - hypothec (id: 61)
+  - infamy (id: 51)
+  - inheritance conflict (id: 194)
+  - Inheritance priority (id: 173)
+  - inherited claims (id: 86)
+  - inoperative will (id: 342)
+  - intestacy (id: 69)
+  - joint legacy (id: 345)
+  - legal disability (id: 154)
+  - legal eligibility (id: 19)
+  - legitimate children (id: 248)
+  - liened property (id: 103)
+  - lost property (id: 27)
+  - mancipatory will (id: 145)
+  - manumission by testament (id: 277)
+  - marriage conditions (id: 187)
+  - marriage of soldiers (id: 247)
+  - material law (id: 65)
+  - minor’s protection (id: 55)
+  - modes of acquisition (id: 192)
+  - nearest agnate (id: 335)
+  - nullification (id: 71)
+  - nullity (id: 74)
+  - one-fifth payment (id: 134)
+  - order of birth (id: 226)
+  - order of death (id: 196)
+  - order of succession (id: 205)
+  - partial confession (id: 88)
+  - partial manumission (id: 320)
+  - paternal lineage (id: 311)
+  - power of sale (id: 350)
+  - primogeniture (id: 241)
+  - property transfer (id: 340)
+  - prospective estate (id: 237)
+  - proxenia (id: 57)
+  - ransom (id: 285)
+  - recoverable gifts (id: 188)
+  - refusal of gift (id: 338)
+  - refusal of inheritance (id: 343)
+  - relative priority (id: 299)
+  - Relative Priority (id: 313)
+  - renunciation of inheritance (id: 289)
+  - restitution (id: 29)
+  - revocation of citizenship (id: 77)
+  - revocation of will (id: 341)
+  - Right of habitation for the widow (id: 263)
+  - right of representation (id: 95)
+  - sacrilege (id: 355)
+  - Secured Debt (id: 325)
+  - seizure (id: 207)
+  - severability of legacy (id: 303)
+  - shared inheritance (id: 314)
+  - single witness (id: 68)
+  - slaves status (id: 339)
+  - specification of assets (id: 284)
+  - substitutio vulgaris (id: 265)
+  - succession disputes (id: 231)
+  - successive inheritance (id: 317)
+  - successive legacies (id: 349)
+  - supplements to a will (id: 308)
+  - suspected perjurer (id: 92)
+  - Tax collectors (id: 91)
+  - testamentary intent (id: 293)
+  - Testamentary Interpretation (id: 302)
+  - Testamentary Language (id: 327)
+  - testamenti factio activa (id: 217)
+  - testamenti factio passiva (id: 211)
+  - Timing of Intestacy (id: 321)
+  - transfer of inherited property (id: 334)
+  - transformation (id: 135)
+  - tribal division (id: 261)
+  - unwritten marriage (id: 256)
+  - usufructus (id: 266)
+  - verbal instruction (id: 193)
+  - wage dispute (id: 97)
+  - widow's inheritance (id: 179)
+  - Women's Status (id: 324)
+
+Category Legal terms, id: 5
+  - adstipulator (id: 114)
+  - agnatic succession (id: 309)
+  - bona vacantia (id: 220)
+  - bonorum possessio (id: 110)
+  - cession (id: 333)
+  - claim of theft (id: 94)
+  - codicil (id: 276)
+  - cognati (id: 252)
+  - consanguinity (id: 315)
+  - deathbed gift (id: 191)
+  - double portion (id: 233)
+  - emptio bonorum (id: 112)
+  - extortion (id: 120)
+  - extra portionem (id: 294)
+  - female succession (id: 199)
+  - gift after death (id: 305)
+  - heredes legitimi (id: 251)
+  - illegitimate child (id: 250)
+  - immovable property (id: 190)
+  - in iure cessio (id: 113)
+  - incertae personae (id: 218)
+  - intent (id: 356)
+  - intentional transgression (id: 21)
+  - inter vivos transfer (id: 290)
+  - intestate succession (id: 310)
+  - legatum (id: 209)
+  - mancipatio (id: 75)
+  - manus (id: 106)
+  - materfamilias (id: 105)
+  - monetary claim (id: 25)
+  - movable property (id: 189)
+  - next of kin (id: 246)
+  - nuncupation (id: 157)
+  - paterfamilias (id: 104)
+  - patria potestas (id: 9)
+  - perjury (id: 28)
+  - postumus alienus (id: 219)
+  - praescriptio (id: 53)
+  - pre-legacy (id: 295)
+  - Primogeniture (id: 292)
+  - representation in succession (id: 253)
+  - repudiatio hereditatis (id: 236)
+  - secession of property (id: 332)
+  - silence (id: 222)
+  - societas (id: 115)
+  - specificatio (id: 171)
+  - statutory rights (id: 298)
+  - Sworn statement (id: 37)
+  - Testamentary Heir (id: 322)
+  - theft (id: 26)
+  - unintentional transgression (id: 22)
+  - vesting of rights (id: 291)
+
+Category Objects, id: 1
+  - beam (id: 70)
+  - betrothal gifts (id: 186)
+  - boundaries of property (id: 306)
+  - coin (id: 140)
+  - country property (id: 271)
+  - currency (id: 62)
+  - debt (id: 304)
+  - debt document (id: 87)
+  - deposit (id: 122)
+  - donkey (id: 8)
+  - dowry property (id: 198)
+  - gift (id: 73)
+  - gifts of groomsmen (id: 183)
+  - grave (id: 286)
+  - guilt offering (id: 121)
+  - house in the city (id: 268)
+  - livestock (id: 270)
+  - loan (id: 32)
+  - marriage contract (id: 101)
+  - marriage presents (id: 185)
+  - maternal estate (id: 273)
+  - palm grove (id: 72)
+  - paternal estate (id: 330)
+  - peculium (id: 161)
+  - property (id: 60)
+  - public document (id: 213)
+  - slave (id: 59)
+  - statute (id: 80)
+  - tablets (id: 158)
+
+Category Offices and Administration, id: 137
+  - archive for private property (id: 146)
+  - consilium principis (id: 318)
+  - conventus (id: 254)
+  - fiscus (id: 206)
+  - manumission tax (id: 283)
+  - office (id: 81)
+  - opening of testament (id: 282)
+  - public service (id: 182)
+  - taxes (id: 58)
+
+Category Parties, id: 2
+  - adult (id: 181)
+  - bastard (id: 204)
+  - brother (id: 66)
+  - buyer (id: 147)
+  - child (id: 160)
+  - co-heirs (id: 297)
+  - convert (id: 201)
+  - craftsman (id: 142)
+  - creditor (id: 195)
+  - curator (id: 108)
+  - daughter (id: 172)
+  - deaf (id: 152)
+  - dependents (id: 162)
+  - father (id: 150)
+  - firstborn (id: 224)
+  - freedperson (id: 165)
+  - freedperson without citizen rights (id: 168)
+  - grandchild (id: 274)
+  - guardian (id: 242)
+  - heir (id: 178)
+  - illegitimate child (id: 249)
+  - indirect heir (id: 200)
+  - intersex person (id: 175)
+  - Junian Latin (id: 156)
+  - litigant (id: 257)
+  - mentally impaired (id: 153)
+  - minor (id: 180)
+  - mother (id: 272)
+  - mute (id: 164)
+  - partner (id: 184)
+  - peregrine (id: 166)
+  - presumed heir (id: 232)
+  - presumed relatives (id: 331)
+  - presumed slave (id: 230)
+  - presumed son (id: 228)
+  - priest (id: 133)
+  - proper heirs (id: 336)
+  - robber (id: 90)
+  - scale holder (id: 148)
+  - serf (id: 269)
+  - sister (id: 275)
+  - slave (id: 202)
+  - soldier (id: 159)
+  - son (id: 163)
+  - tax collectors (id: 212)
+  - testator (id: 149)
+  - tutor (id: 169)
+  - veteran (id: 280)
+  - ward (id: 155)
+  - wife's heirs (id: 197)
+  - witnesses (id: 99)
+  - woman (id: 151)
+
+Category Places, id: 136
+  - Athens (id: 353)
+  - unknown (id: 354)
+
+Category Procedure, id: 329
+  - claimant's oath (id: 98)
+  - compulsory oath (id: 40)
+  - compulsory testimony (id: 33)
+  - confession (id: 174)
+  - consent-based resolution (id: 47)
+  - court officer (id: 119)
+  - decisory oath (id: 46)
+  - denial of testimony (id: 11)
+  - disqualified witnesses (id: 17)
+  - divorce (id: 352)
+  - false oath (id: 20)
+  - judicial oath (id: 39)
+  - oath (id: 54)
+  - oath of deposit (id: 24)
+  - oath of ignorance (id: 35)
+  - oath of knowledge (id: 34)
+  - oath of orphans (id: 100)
+  - oath of testimony (id: 89)
+  - oath versus judgment (id: 49)
+  - procedural law (id: 64)
+  - procedural oath (id: 45)
+  - proof (id: 255)
+  - refusal of action (id: 50)
+  - refusal to swear (id: 42)
+  - rejection of judges (id: 258)
+  - sworn denial (id: 44)
+  - voluntary oath (id: 38)
+  - witness obligation (id: 13)
+  - witness summons (id: 36)
+  - woman testimony (id: 225)
+
+Category Punishments, id: 138
+  - capital punishment (id: 287)
+  - fine (id: 117)
+  - penalty for breach of will (id: 264)
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the following schema:
+
+[
+  {
+    "category": "Name of the category",
+    "keyword": "Matched or suggested word",
+    "suggested": true/false,
+    "category_id": "ID of the category (or -1)",
+    "keyword_id": "ID of the keyword (or -1)"
+  }
+]
+
+## Input Data
+Source Text, 118710 (Hebrew):
+לאלה תחלק הארץ בנחלה במספר שמות. הכל במשמע: ישראל כהנים ולוים גרים נשים ועבדים וטומטום ואנדרוגינוס במשמע. (במדבר י״ח:כ׳) ויאמר ה' אל אהרן בארצם לא תנחל – יצאו כהנים. ובתוך בני ישראל לא ינחלו נחלה – יצאו לוים. לשמות מטות אבותם תתנחלו – יצאו גרים ועבדים. איש לפי פקודיו – יצאו נשים וטומטום ואנדרוגינוס. רבי יאשיה אומר: ליוצאי מצרים נתחלקה הארץ, שנאמר לשמות מטות אבותם תתנחלו. מה ת"ל לאלה תחלק הארץ? – מפני קטנים. ר' יונתן אומר: לבאי הארץ נתחלקה הארץ, שנאמר לאלה תחלק הארץ. ומה ת"ל לשמות מטות אבותם? שינה המקום נחלה זו מכל נחלות שבתורה; שבכל נחלות שבתורה – חיים יורשים את המתים, וכאן מתים יורשים את החיים! רבי אומר: משל למה הדבר דומה? לב' אחים כהנים שהיו בעיר, לזה בן אחד ולזה ג' בנים. יצאו לגורן, זה נטל סאה ואלו נטלו ג' סאים, והורישו את אבותיהם – וחזרו וחלקו בשוה; וירשו מתים את החיים – וחזרו וחלקו בשוה. ר' שמעון בן אלעזר אומר: זה נטל חלקו וחלק אביו, וזה נטל חלקו וחלק אביו! נמצאת מקיים לאלה תחלק הארץ בנחלה, ונמצאת מקיים לשמות מטות אבותם תתנחלו: לרב תרבו נחלתו ולמעט תמעיט נחלתו – הרי שהיו לו בשעת יציאת מצרים ה' בנים, ובכניסתו לארץ י'; קורא אני למעט תמעיט נחלתו. הרי שיצאו עמו י' בנים ממצרים, ובכניסתם לארץ נמצאו ה'; קוראני עליהם לרב תרבו נחלתו: איש. יצאו עבדים ונשים וטומטום ואנדרוגינוס: לפי פקודיו. מלמד שלא נתחלקה ארץ ישראל אלא לכל שבט ושבט לפי מה שהוא, וכן הוא אומר (יהושע יז) וידברו בני יוסף את יהושע, ואומר אני עם רב אשר עד כה ברכני ה', ואומר ויאמר להם יהושע אם עם רב אתם עלה לך היערה ובראת לך שם בארץ הפריזי והרפאים כי אץ לך הר אפרים: יותן נחלתו – שומע אני מעורבבים? ת"ל בגורל. אי בגורל, יכול שומע אני בינו לבין עצמו? ת"ל על פי נחלתו. שומע אני בינו לבין עצמו? ת"ל (יהושע יט) על פי ה'. מגיד שלא נתחלקה ארץ ישראל אלא ברוח הקודש: אך. יצאו כלב ויהושע. וכן הוא אומר (שופטים א) ויתנו לכלב את חברון כאשר דבר משה, ואומר (יהושע יט) ויתנו בני ישראל נחלתם ליהושע בן נון בתוכם על פי ה' נתנו לו את עיר אשר שאל את תמנת סרח: לשמות מטות אבותם – יצאו גרים ועבדים על פי הגורל תחלק – מגיד שלא נתחלקה ארץ ישראל אלא בשמיון. בית כור כנגד בית סאה, ובית סאה כנגד בית כור:
+
+English Translation:
+ "To these shall the land be apportioned as an inheritance according to the number of names": I would understand that all are included — Israelites, Cohanim, Levites, proselytes, women, bondsmen, tumtumim (those of indeterminate sex), and hermaphrodites. It is, therefore, written (Ibid. 18:20) "And the L-rd said to Aaron: In their land you shall not inherit" — to exclude Cohanim. (Ibid. 24) "In the midst of the children of Israel they shall not have an inheritance" — to exclude Levites. (Ibid. 26:55) "By the names of the tribes of their fathers shall they inherit" — to exclude proselytes and bondsmen. (Ibid. 59) "To a man, according to his numbers, shall his inheritance be given" — to exclude women, tumtumim, and hermaphrodites. R. Yoshiyah says: The land was apportioned to those who left Egypt, as it is written "By the names of the tribes of their fathers shall they inherit." What, then, is the intent of "To these shall the land be apportioned"? (To such as these,) to exclude minors (below the age of twenty). R. Yonathan says: The land was apportioned according to those who came to the land, as it is written "To these shall the land be apportioned." And what is the intent of "By the names of the tribes of their fathers"? The L-rd changed this inheritance from all the inheritances in the Torah. For in all the inheritances in the Torah the living inherit the dead, whereas here, the dead inherit the living. Rebbi says: An analogy: Two brothers, Cohanim, were in a city. One had one son; the other, three. They go to the granary (to take their portion.) The first takes one sa'ah; the others, three, after which they go to their fathers' father and share equally. R. Shimon b. Elazar says: The land was apportioned to these and to these. How so? If they were of those who left Egypt, they took a share with those who left Egypt. If they were of those who entered the land, they took a share with those who entered the land. If they were both of these and of the others, they took a share of both — so that both verses are satisfied. "To the (more) numerous (tribe) you shall increase its inheritance, and to the less (numerous) you shall decrease its inheritance." If one had five sons when he left Egypt, and ten sons when he entered the land, I apply to them "To the numerous you shall increase its inheritance." If he had ten sons when he left Egypt, and five when he entered the land, I apply to them "and to the less you shall decrease its inheritance." "To a man": to exclude women, tumtumim, and hermaphrodites. "according to its numbers": We are hereby taught that Eretz Yisrael was apportioned to each tribe according to its (head-count). And thus is it written (Joshua 17:14-15) "And the children of Joseph said to Joshua: Why have you given me a single allotment as an inheritance, when we are a great multitude whom the L-rd had thus far blessed? And Joshua said to them: If you are a great multitude, go up to the forest country and clear an area for yourselves there in the land of the Perizzi and the Rephaim, the mountain of Ephraim constricting you." "shall his inheritance be given": I would understand this to mean (that each tribe took) indiscriminately. It is, therefore, written (55) "by allotment." If "by allotment," I would understand, by themselves (i.e., by their own lottery.) It is, therefore, written (56) "By the word (of the lottery"), whereby we are apprised that Eretz Yisrael was apportioned by the Holy Spirit. I might think, by himself (i.e., the high-priest, by means of the urim vetumim). It is, therefore, written "shall its inheritance be divided," (connoting in the presence of the entire tribe).
+ "Only by lot shall the land be divided": ("Only") — excluding Joshua and Calev (who received special portions.) And thus is it written (Judges 15:13) "And to Calev ben Yefuneh was given a portion in the midst of the children by word of the L-rd to Joshua," and (Judges 1:20) "And they gave Chevron to Calev as Moses had spoken," and (Joshua 19:49-50) "And the children of Israel gave a portion to Joshua the son of Nun in their midst. By word of the L-rd they gave him the city that he asked for, Timnath Serach."
+ "By the names of the tribes of their fathers": to exclude proselytes and bondsmen. (56) "between the large and the small": We are hereby apprised that Eretz Yisrael was apportioned by estimate — beth-kor (a large measure [of relatively inferior land]) against a beth-sa'ah (a small measure [of relatively superior land]) and vice versa. 
+
+
+

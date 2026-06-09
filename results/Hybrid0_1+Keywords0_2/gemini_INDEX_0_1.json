@@ -1,0 +1,1606 @@
+[
+  {
+    "ref_id": "105530",
+    "response": "```json\n[\"hereditas\", \"condicio\", \"ex testamento\", \"ab intestato\"]\n```"
+  },
+  {
+    "ref_id": "105531",
+    "response": "```json\n[\"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "105532",
+    "response": "```json\n[\"testamentum\", \"calatis comitiis\", \"in procinctu\"]\n```"
+  },
+  {
+    "ref_id": "105533",
+    "response": "```json\n[\"testamentum\", \"per aes et libram\", \"calatis comitiis\", \"in procinctu\", \"mors\", \"familia\", \"patrimonium\", \"mancipium\", \"rogo\", \"mancipatio\"]\n```"
+  },
+  {
+    "ref_id": "105534",
+    "response": "```json\n[\"desuetudo\", \"dicis gratia\", \"familia\", \"familiae emptor\", \"heres\", \"instituere\", \"legatum\", \"mandare\", \"mancipium\", \"per aes et libram\", \"testamentum\", \"testator\", \"vetus ius\"]\n```"
+  },
+  {
+    "ref_id": "105535",
+    "response": "```json\n[\n  \"aes\",\n  \"do\",\n  \"dicis gratia\",\n  \"familia\",\n  \"familiae emptor\",\n  \"lego\",\n  \"libra\",\n  \"libripens\",\n  \"mancipatio\",\n  \"mancipo\",\n  \"nuncupatio\",\n  \"nuncupo\",\n  \"tabulae testamenti\",\n  \"testamentum\",\n  \"testator\",\n  \"testimonium\",\n  \"testis\",\n  \"testor\"\n]\n```"
+  },
+  {
+    "ref_id": "105536",
+    "response": "```json\n[\"domesticum testimonium\", \"familiae emptor\", \"heres\", \"in potestate\", \"mancipium\", \"negotium\", \"testamentum\", \"testator\", \"testis\", \"veteris iuris imitatio\"]\n```"
+  },
+  {
+    "ref_id": "105537",
+    "response": "```json\n[\n  \"in potestate\",\n  \"pater\",\n  \"familiae emptor\",\n  \"testis\",\n  \"filius familias\",\n  \"peculium castrense\",\n  \"missio\",\n  \"testamentum\"\n]\n```"
+  },
+  {
+    "ref_id": "105538",
+    "response": "```json\n[\"libripens\", \"testis\", \"numerus\"]\n```"
+  },
+  {
+    "ref_id": "105539",
+    "response": "```json\n[\"heres\", \"in potestate\", \"ius\", \"legatarius\", \"libripens\", \"miles\", \"testamentum\", \"testis\"]\n```"
+  },
+  {
+    "ref_id": "105540",
+    "response": "```json\n[\"constitutio\", \"familia\", \"inperitia\", \"miles\", \"nuncupo\", \"observatio\", \"princeps\", \"testamentum\", \"testis\", \"testor\", \"vendo\"]\n```"
+  },
+  {
+    "ref_id": "105541",
+    "response": "```json\n[\"capio\", \"civilis\", \"heres\", \"hereditas\", \"instituo\", \"Latinus\", \"legatum\", \"lego\", \"lex\", \"peregrinus\", \"prohibeo\"]\n```"
+  },
+  {
+    "ref_id": "105542",
+    "response": "```json\n[\"caelebs\", \"capio\", \"hereditas\", \"legatum\", \"lex\", \"lex Iulia\", \"liberi\", \"orbus\", \"veto\"]\n```"
+  },
+  {
+    "ref_id": "105543",
+    "response": "```json\n[\"auctoritas\", \"senatus consultum\", \"sui iuris\", \"femina\", \"coemptio\", \"testamentum\", \"minor\", \"tutela\", \"tutor\", \"auctor\", \"testor\"]\n```"
+  },
+  {
+    "ref_id": "105544",
+    "response": "```json\n[\n\"annus\",\n\"auctor\",\n\"condicio\",\n\"femina\",\n\"ius\",\n\"masculus\",\n\"minor\",\n\"nanciscor\",\n\"testamentum\",\n\"testamentum facere\",\n\"tutor\"\n]\n```"
+  },
+  {
+    "ref_id": "105545",
+    "response": "```json\n[\"valeo\", \"testamentum\", \"testamenti factio\", \"ius civile\", \"testor\", \"miles\", \"imperitia\"]\n```"
+  },
+  {
+    "ref_id": "105546",
+    "response": "```json\n[\"familiae venditio\", \"ius civile\", \"nuncupatio\", \"observatio\", \"testamentum\", \"testis\", \"valeo\"]\n```"
+  },
+  {
+    "ref_id": "105547",
+    "response": "```json\n[\"familia\", \"heres\", \"institutio heredis\", \"nuncupo\", \"sollemnis\", \"testamentum\", \"testator\", \"testis\"]\n```"
+  },
+  {
+    "ref_id": "105548",
+    "response": "```json\n[\"conprobo\", \"facio\", \"heres\", \"heres esto\", \"inprobo\", \"institutio\", \"instituo\", \"iubeo\", \"sollemnis\", \"volo\"]\n```"
+  },
+  {
+    "ref_id": "105549",
+    "response": "[\"in tutela\", \"inutiliter\", \"ius civile\", \"mulier\", \"testamentum\", \"testor\", \"tutor\", \"auctor\"]"
+  },
+  {
+    "ref_id": "105550",
+    "response": "```json\n[\"ab intestato\", \"bonorum possessio\", \"familia\", \"hereditas\", \"ius legitimum\", \"nuncupatio\", \"praetor\", \"scriptus heres\", \"signum\", \"tabulae testamenti\", \"testamentum\", \"testator\", \"testis\", \"veneo\"]\n```"
+  },
+  {
+    "ref_id": "105551",
+    "response": "```json\n[\n  \"ab intestato\",\n  \"bonorum possessio\",\n  \"exceptio doli mali\",\n  \"hereditas\",\n  \"non iure factus\",\n  \"peto\",\n  \"rescriptum\",\n  \"scriptus heres\",\n  \"tabulae testamenti\",\n  \"vindico\"\n]\n```"
+  },
+  {
+    "ref_id": "105552",
+    "response": "```json\n[\"auctoritas\", \"constitutio\", \"familia\", \"femina\", \"masculus\", \"nuncupatio\", \"testamentum\", \"testor\", \"tutor\", \"utiliter\", \"vendo\"]\n```"
+  },
+  {
+    "ref_id": "105553",
+    "response": "```json\n[\n\"auctor\",\n\"auctoritas\",\n\"cogo\",\n\"femina\",\n\"invitus\",\n\"legitima tutela\",\n\"parens\",\n\"patronus\",\n\"summoveo\",\n\"testamentum\",\n\"tutela\",\n\"tutor\"\n]\n```"
+  },
+  {
+    "ref_id": "106775",
+    "response": "```json\n[\"uirgo Vestalis\", \"tutela\", \"liber\"]\n```"
+  },
+  {
+    "ref_id": "106776",
+    "response": "```json\n[\"auctor\", \"mulier\", \"tutor\"]\n```"
+  },
+  {
+    "ref_id": "106777",
+    "response": "```json\n[\"familia\", \"ius\", \"lego\", \"pecunia\", \"tutela\"]\n```"
+  },
+  {
+    "ref_id": "106778",
+    "response": "```json\n[\"agnatus proximus\", \"familia\", \"habeo\", \"intestato\", \"morior\", \"pecunia\", \"suus heres\"]\n```"
+  },
+  {
+    "ref_id": "106779",
+    "response": "```json\n[\"agnatus\", \"gentilis\", \"familia\", \"pecunia\", \"habeo\"]\n```"
+  },
+  {
+    "ref_id": "106780",
+    "response": "```json\n[\"tutor\", \"agnatus proximus\", \"tutela\"]\n```"
+  },
+  {
+    "ref_id": "106781",
+    "response": "```json\n[\n  \"agnatus\",\n  \"familia\",\n  \"furiosus\",\n  \"gentilis\",\n  \"pecunia\",\n  \"potestas\",\n  \"prodigus\"\n]\n```"
+  },
+  {
+    "ref_id": "106782",
+    "response": "```json\n[\"libertus\", \"familia\"]\n```"
+  },
+  {
+    "ref_id": "106783",
+    "response": "```json\n[\"arbiter\", \"ercisco\", \"familia\", \"iudex\", \"peto\", \"postulo\"]\n```"
+  },
+  {
+    "ref_id": "106784",
+    "response": "```json\n[\"familia\", \"ercisco\", \"cieo\", \"peto\", \"iudex\", \"arbiter\", \"postulo\"]\n```"
+  },
+  {
+    "ref_id": "107056",
+    "response": "```json\n[\"testamentum\", \"mens\", \"iustus\", \"contestatio\", \"sollemniter\", \"post mortem\", \"valeo\"]\n```"
+  },
+  {
+    "ref_id": "107057",
+    "response": "```json\n[\"testamentum\", \"calatis comitiis\", \"in procinctu\", \"per aes et libram\", \"mancipatio imaginaria\", \"libripens\", \"familiae emptor\", \"testis\", \"testamenti factio\"]\n```"
+  },
+  {
+    "ref_id": "107058",
+    "response": "```json\n[\"domesticus testis\", \"familiae emptor\", \"familiae mancipatio\", \"in potestate\", \"libripens\", \"testator\", \"testis\"]\n```"
+  },
+  {
+    "ref_id": "107059",
+    "response": "```json\n[\"filius\", \"familia\", \"emo\", \"pater\", \"testis\"]\n```"
+  },
+  {
+    "ref_id": "107060",
+    "response": "```json\n[\"frater\", \"pater\", \"in potestate\", \"familiae emptor\", \"testis\", \"mancipium\", \"accipio\", \"adquiro\", \"filius\"]\n```"
+  },
+  {
+    "ref_id": "107061",
+    "response": "```json\n[\n  \"pater\",\n  \"filius\",\n  \"in potestate\",\n  \"frater\",\n  \"testis\",\n  \"libripens\",\n  \"familia\",\n  \"emo\",\n  \"domus\",\n  \"negotium\"\n]\n```"
+  },
+  {
+    "ref_id": "107062",
+    "response": "```json\n[\"mutus\", \"surdus\", \"furiosus\", \"pupillus\", \"femina\", \"familiae emptor\", \"testis\", \"libripens\"]\n```"
+  },
+  {
+    "ref_id": "107063",
+    "response": "```json\n[\"Latinus Iunianus\", \"familiae emptor\", \"testis\", \"libripens\", \"testamenti factio\"]\n```"
+  },
+  {
+    "ref_id": "107064",
+    "response": "```json\n[\"do\", \"familiae mancipatio\", \"lego\", \"nuncupatio\", \"per aes et libram\", \"tabula\", \"testamentum\", \"testatio\", \"testator\", \"testimonium perhibeo\", \"testor\"]\n```"
+  },
+  {
+    "ref_id": "107065",
+    "response": "```json\n[\"castra\", \"filius familiae\", \"miles\", \"peculium\", \"testamentum\", \"testor\", \"testari\"]\n```"
+  },
+  {
+    "ref_id": "107066",
+    "response": "```json\n[\n\"status\",\n\"pater\",\n\"morior\",\n\"ignoro\",\n\"sui iuris\",\n\"testamentum\",\n\"incertus\"\n]\n```"
+  },
+  {
+    "ref_id": "107067",
+    "response": "```json\n[\"inpubes\", \"sui iuris\", \"testamentum\", \"iudicium\"]\n```"
+  },
+  {
+    "ref_id": "107068",
+    "response": "```json\n[\n\"bona\",\n\"commercium\",\n\"familia\",\n\"familiae emptor\",\n\"furiosus\",\n\"interdico\",\n\"mancipo\",\n\"mens\",\n\"mutus\",\n\"nuncupatio\",\n\"prodigus\",\n\"surdus\",\n\"testamentum\",\n\"testor\"\n]\n```"
+  },
+  {
+    "ref_id": "107069",
+    "response": "```json\n[\"Latinus Iunianus\", \"dediticii\", \"testamentum\", \"lex Iunia\", \"civis Romanus\", \"testor\", \"peregrinus\", \"civis\", \"civitas\"]\n```"
+  },
+  {
+    "ref_id": "107070",
+    "response": "```json\n[\"femina\", \"aetas\", \"testamentum\", \"tutor\", \"auctor\", \"in tutela\"]\n```"
+  },
+  {
+    "ref_id": "107071",
+    "response": "```json\n[\"servus publicus\", \"populus Romanus\", \"pars\", \"testamentum\", \"facio\", \"ius\"]\n```"
+  },
+  {
+    "ref_id": "107073",
+    "response": "[\"facio\", \"heres\", \"inprobo\", \"institutio\", \"instituo\", \"iubeo\", \"recte\", \"sum\", \"verbum\"]"
+  },
+  {
+    "ref_id": "107075",
+    "response": "```json\n[\"heres\", \"instituo\", \"testamenti factio\", \"testator\"]\n```"
+  },
+  {
+    "ref_id": "107076",
+    "response": "```json\n[\"dediticius\", \"heres\", \"instituo\", \"peregrinus\", \"testamenti factio\"]\n```"
+  },
+  {
+    "ref_id": "107077",
+    "response": "```json\n[\"mors\", \"testator\", \"cretio\", \"civis Romanus\", \"heres\", \"Latinus\", \"lex Iunia\", \"capio\", \"hereditas\", \"prohibeo\", \"ius\", \"persona\", \"caelebs\", \"lex Iulia\"]\n```"
+  },
+  {
+    "ref_id": "107078",
+    "response": "```json\n[\"incerta persona\", \"heres\", \"instituere\", \"certum consilium\", \"testans\"]\n```"
+  },
+  {
+    "ref_id": "107079",
+    "response": "```json\n[\"cerno\", \"fideicommissaria hereditas\", \"heres\", \"incertum corpus\", \"instituo\", \"libertus\", \"municeps\", \"municipium\", \"pro herede gerere\", \"restituo\", \"senatus consultum\"]\n```"
+  },
+  {
+    "ref_id": "107080",
+    "response": "```json\n[\"constitutio principis\", \"deus\", \"heres instituere\", \"senatus consultum\"]\n```"
+  },
+  {
+    "ref_id": "107081",
+    "response": "```json\n[\"servus\", \"heres\", \"instituo\", \"libertas\", \"alienus\", \"communis\"]\n```"
+  },
+  {
+    "ref_id": "107082",
+    "response": "```json\n[\"servus\", \"in bonis\", \"cum libertate\", \"heres\", \"instituo\", \"Latinitas\", \"hereditas\", \"capio\"]\n```"
+  },
+  {
+    "ref_id": "107083",
+    "response": "```json\n[\"dominus\", \"heres\", \"instituo\", \"servus alienus\", \"testamenti factio\"]\n```"
+  },
+  {
+    "ref_id": "107084",
+    "response": "```json\n[\"alienus\", \"communis servus\", \"cum libertate\", \"heres\", \"instituo\", \"pars\", \"proprius\", \"sine libertate\", \"socius\"]\n```"
+  },
+  {
+    "ref_id": "107085",
+    "response": "```json\n[\n\"causa\",\n\"heres\",\n\"instituo\",\n\"liber\",\n\"libertas\",\n\"necessarius\",\n\"servus\",\n\"testamentum\"\n]\n```"
+  },
+  {
+    "ref_id": "107086",
+    "response": "```json\n[\n  \"testator\",\n  \"manumitto\",\n  \"alieno\",\n  \"arbitrium\",\n  \"iussus\",\n  \"emptor\",\n  \"hereditatem adire\",\n  \"sine libertate\",\n  \"instituo\",\n  \"institutio\"\n]\n```"
+  },
+  {
+    "ref_id": "107087",
+    "response": "```json\n[\"alieno\", \"alienus servus\", \"emptor\", \"hereditatem adire\", \"heres institutus\", \"iussus domini\", \"manumitto\", \"suo arbitrio\", \"testator\"]\n```"
+  },
+  {
+    "ref_id": "107088",
+    "response": "```json\n[\"sui heredes\", \"instituo\", \"exheredo\", \"liberi\", \"in potestate\", \"naturalis\", \"adoptivus\", \"uxor\", \"in manu\", \"nurus\"]\n```"
+  },
+  {
+    "ref_id": "107089",
+    "response": "```json\n[\"postumus\", \"liber\", \"in utero\", \"nascor\", \"in potestate\", \"suus heres\"]\n```"
+  },
+  {
+    "ref_id": "107090",
+    "response": "[\"exheredo\", \"filius\", \"heres institutus\", \"nominatim\", \"suus heres\", \"testamentum\", \"valeo\"]"
+  },
+  {
+    "ref_id": "107091",
+    "response": "```json\n[\"adcresco\", \"extraneus\", \"filia\", \"liberi\", \"nepos\", \"neptis\", \"pars dimidia\", \"pars virilis\", \"praetereo\", \"scriptus heres\", \"sui heredes\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "107092",
+    "response": "```json\n[\"agnatio\", \"liber\", \"omitto\", \"postumus\", \"rumpo\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "107093",
+    "response": "```json\n[\"heres\", \"in utero\", \"instituo\", \"ius civile\", \"lex Iunia\", \"post mortem\", \"suus heres\"]\n```"
+  },
+  {
+    "ref_id": "107094",
+    "response": "```json\n[\"filius\", \"in potestate\", \"instituo\", \"heres\", \"nominatim\", \"exheredo\", \"sui heredes\", \"inter ceteros\"]\n```"
+  },
+  {
+    "ref_id": "107095",
+    "response": "```json\n[\"exheredo\", \"filia postuma\", \"inter ceteros\", \"lego\", \"nominatim\", \"postumus filius\"]\n```"
+  },
+  {
+    "ref_id": "107096",
+    "response": "```json\n[\n\"adiectio\",\n\"exheredo\",\n\"filius\",\n\"inter ceteros\",\n\"legatum\",\n\"masculus\",\n\"nepos\",\n\"nominatim\",\n\"postumus\",\n\"pronepos\"\n]\n```"
+  },
+  {
+    "ref_id": "107097",
+    "response": "```json\n[\n\"bonorum possessio\",\n\"contra tabulas\",\n\"emancipatus\",\n\"exheredo\",\n\"heres\",\n\"instituo\",\n\"inter ceteros\",\n\"ius civile\",\n\"liber\",\n\"nominatim\",\n\"praetor\"\n]\n```"
+  },
+  {
+    "ref_id": "107098",
+    "response": "```json\n[\"abstinere\", \"heres\", \"hereditas\", \"in potestate\", \"invitus\", \"ius civile\", \"ius praetorium\", \"liber\", \"libertas\", \"necessarius heres\", \"parens\", \"potestas\", \"servus\", \"suus et necessarius\"]\n```"
+  },
+  {
+    "ref_id": "107099",
+    "response": "[\"cretio\", \"cerno\", \"extraneus\", \"heres\", \"instituo\", \"pro herede gerendo\"]"
+  },
+  {
+    "ref_id": "107100",
+    "response": "```json\n[\"pro herede gerere\", \"res hereditaria\", \"dominus\", \"utor\", \"auctio\", \"servus hereditarius\", \"cibaria\", \"heres\"]\n```"
+  },
+  {
+    "ref_id": "107101",
+    "response": "```json\n[\"cretio\", \"spatium\", \"heres\", \"institutus\", \"delibero\", \"adire hereditatem\", \"cerno\", \"exheres\", \"hereditas\"]\n```"
+  },
+  {
+    "ref_id": "107102",
+    "response": "```json\n[\"cerno\", \"cretio\", \"heres\", \"hereditas\", \"instituo\", \"adeo\"]\n```"
+  },
+  {
+    "ref_id": "107103",
+    "response": "```json\n[\"adeo\", \"constituo\", \"cretio\", \"excludo\", \"hereditas\", \"heres\", \"instituo\", \"nolo\"]\n```"
+  },
+  {
+    "ref_id": "107104",
+    "response": "```json\n[\"cerno\", \"constituo\", \"cretio\", \"dies cretionis\", \"excludo\", \"heres\", \"instituo\", \"nolo\", \"paenitentia actus\"]\n```"
+  },
+  {
+    "ref_id": "107105",
+    "response": "```json\n[\"cretio\", \"vulgaris\", \"continuus\", \"verbum\"]\n```"
+  },
+  {
+    "ref_id": "107106",
+    "response": "```json\n[\"cerno\", \"computo\", \"cretio continua\", \"cretio vulgaris\", \"dies\", \"heres institutus\", \"ignoro\", \"possum\", \"scio\"]\n```"
+  },
+  {
+    "ref_id": "107107",
+    "response": "```json\n[\"cerno\", \"exheres\", \"gradus\", \"heres\", \"instituo\", \"scribo\", \"substituo\"]\n```"
+  },
+  {
+    "ref_id": "107108",
+    "response": "```json\n[\"cretio inperfecta\", \"heres institutus\", \"exheres esto\", \"cerno\", \"superior\", \"inferior\", \"excludo\", \"pro herede gerendo\", \"in partem admitto\", \"substitutus\", \"constituo\", \"ex asse heres\", \"heres\"]\n```"
+  },
+  {
+    "ref_id": "107110",
+    "response": "```json\n[\"infirmo\", \"inritus\", \"iure factum\", \"rumpo\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "107111",
+    "response": "```json\n[\"agnascor\", \"agnatio\", \"exheredo\", \"heres institutus\", \"iure factum\", \"mutatio\", \"rumpo\", \"suus heres\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "107112",
+    "response": "```json\n[\n\"agnascor\",\n\"suus heres\",\n\"adopto\",\n\"in manum conventio\",\n\"succedo\",\n\"nepos\",\n\"emancipo\",\n\"manumissio\",\n\"filius\",\n\"mancipatio\",\n\"manumitto\",\n\"in patris potestatem\"\n]\n```"
+  },
+  {
+    "ref_id": "107113",
+    "response": "```json\n[\"inritus\", \"testamentum\", \"testator\", \"capite deminutus\", \"iure factum\", \"heres\"]\n```"
+  },
+  {
+    "ref_id": "107114",
+    "response": "```json\n[\n\"testamentum\",\n\"hostis\",\n\"capio\",\n\"valeo\",\n\"ius postliminii\",\n\"decedo\",\n\"lex Cornelia\",\n\"successio\",\n\"confirmo\",\n\"civitas\"\n]\n```"
+  },
+  {
+    "ref_id": "107115",
+    "response": "```json\n[\n\"bonorum possessio\",\n\"bonorum possessio cum re\",\n\"civis Romanus\",\n\"heres\",\n\"heres scriptus\",\n\"irritus\",\n\"ius civile\",\n\"iuxta tabulas\",\n\"praetor\",\n\"ruptus\",\n\"signum\",\n\"suae potestatis\",\n\"testamentum\",\n\"testator\",\n\"testis\"\n]\n```"
+  },
+  {
+    "ref_id": "107116",
+    "response": "```json\n[\n\"decedo\",\n\"extraneus\",\n\"heres\",\n\"impubes\",\n\"in potestate\",\n\"liberi\",\n\"mors\",\n\"natus\",\n\"parens\",\n\"postumus\",\n\"proprio iure\",\n\"pubertas\",\n\"substituo\",\n\"substitutus\"\n]\n```"
+  },
+  {
+    "ref_id": "107117",
+    "response": "```json\n[\"exheredo\", \"filius\", \"licet\", \"parens\", \"substituo\"]\n```"
+  },
+  {
+    "ref_id": "107118",
+    "response": "```json\n[\"filius\", \"heres\", \"heres instituo\", \"inpubes\", \"substituo\"]\n```"
+  },
+  {
+    "ref_id": "107119",
+    "response": "```json\n[\n\"castra\",\n\"constitutio principalis\",\n\"contra iuris regulam\",\n\"intra annum\",\n\"legitima observatio\",\n\"miles\",\n\"missio\",\n\"testamentum\",\n\"testor\",\n\"valeo\"\n]\n```"
+  },
+  {
+    "ref_id": "107121",
+    "response": "```json\n[\"legatum\", \"legis modo\", \"imperative\", \"testamentum\", \"relinquo\", \"precativo modo\", \"fideicommissum\"]\n```"
+  },
+  {
+    "ref_id": "107122",
+    "response": "```json\n[\"lego\", \"per vindicationem\", \"per damnationem\", \"sinendi modo\", \"per praeceptionem\"]\n```"
+  },
+  {
+    "ref_id": "107123",
+    "response": "```json\n[\"per vindicationem\", \"lego\", \"do\", \"capio\", \"sumo\", \"habeo\"]\n```"
+  },
+  {
+    "ref_id": "107124",
+    "response": "```json\n[\n  \"damnatio\",\n  \"verbum\",\n  \"heres\",\n  \"damnas esto\",\n  \"do\",\n  \"facio\",\n  \"iubeo\"\n]\n```"
+  },
+  {
+    "ref_id": "107125",
+    "response": "```json\n[\"sinendi modo\", \"heres\", \"damno\", \"sino\", \"sumo\", \"habeo\"]\n```"
+  },
+  {
+    "ref_id": "107126",
+    "response": "```json\n[\"per praeceptionem\", \"praecipio\", \"res\"]\n```"
+  },
+  {
+    "ref_id": "107127",
+    "response": "```json\n[\n  \"ius Quiritium\",\n  \"lego\",\n  \"mensura\",\n  \"mors\",\n  \"numerus\",\n  \"per vindicationem\",\n  \"pondus\",\n  \"res\",\n  \"testamentum\",\n  \"testator\",\n  \"utroque tempore\"\n]\n```"
+  },
+  {
+    "ref_id": "107128",
+    "response": "```json\n[\"per damnationem\", \"res\", \"lego\", \"testator\", \"do\"]\n```"
+  },
+  {
+    "ref_id": "107129",
+    "response": "```json\n[\n  \"liber homo\",\n  \"res populi\",\n  \"sacer\",\n  \"religiosus\",\n  \"per damnationem\",\n  \"lego\",\n  \"do\"\n]\n```"
+  },
+  {
+    "ref_id": "107130",
+    "response": "```json\n[\"heres\", \"lego\", \"res propria\", \"sinendi modo\", \"testator\"]\n```"
+  },
+  {
+    "ref_id": "107131",
+    "response": "```json\n[\"lego\", \"per praeceptionem\", \"per vindicationem\", \"res\"]\n```"
+  },
+  {
+    "ref_id": "107132",
+    "response": "```json\n[\n\"res\",\n\"testator\",\n\"ex iure Quiritium\",\n\"per vindicationem\",\n\"lego\",\n\"ius civile\",\n\"valeo\",\n\"legatum\",\n\"senatus consultum Neronianum\",\n\"firmo\",\n\"caveo\",\n\"verbum\",\n\"optimum ius\",\n\"per damnationem\"\n]\n```"
+  },
+  {
+    "ref_id": "107133",
+    "response": "```json\n[\"adcresco\", \"caducus\", \"capio\", \"coniunctim\", \"concursus\", \"do lego\", \"ius civile\", \"lego\", \"lex Papia Poppaea\", \"pars\", \"per vindicationem\"]\n```"
+  },
+  {
+    "ref_id": "107134",
+    "response": "```json\n[\n\"per damnationem\",\n\"res\",\n\"lego\",\n\"coniunctim\",\n\"pars\",\n\"debeo\",\n\"capio\",\n\"ius civile\",\n\"hereditas\",\n\"caducus\",\n\"disiunctim\",\n\"solidum\"\n]\n```"
+  },
+  {
+    "ref_id": "107135",
+    "response": "```json\n[\"optio\", \"legatum\", \"per vindicationem\", \"legatarius\", \"electio\", \"opto\", \"eligo\", \"heres\", \"do\"]\n```"
+  },
+  {
+    "ref_id": "107136",
+    "response": "```json\n[\"heres\", \"heredis institutio\", \"lego\", \"potestas\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "107137",
+    "response": "```json\n[\n  \"heres\",\n  \"ius civile\",\n  \"lego\",\n  \"mors\",\n  \"post mortem\",\n  \"tempus\"\n]\n```"
+  },
+  {
+    "ref_id": "107138",
+    "response": "```json\n[\n  \"coercendi heredis causa\",\n  \"heres\",\n  \"legatarius\",\n  \"lego\",\n  \"matrimonium\",\n  \"poenae causa\"\n]\n```"
+  },
+  {
+    "ref_id": "107139",
+    "response": "```json\n[\"incerta persona\", \"lego\", \"heres\", \"certa demonstratio\", \"cognatus\"]\n```"
+  },
+  {
+    "ref_id": "107140",
+    "response": "```json\n[\"legatum\", \"infirmo\", \"falsa demonstratio\", \"falsa causa\", \"do lego\", \"fundus\", \"emo\", \"negotium\", \"curo\"]\n```"
+  },
+  {
+    "ref_id": "107141",
+    "response": "```json\n[\"legatarius\", \"lego\"]\n```"
+  },
+  {
+    "ref_id": "107142",
+    "response": "```json\n[\"legatum\", \"do\", \"filius familiae\", \"heres\", \"instituo\", \"servus\", \"pater\", \"dominus\", \"lego\"]\n```"
+  },
+  {
+    "ref_id": "107143",
+    "response": "```json\n[\"heres\", \"lego\"]\n```"
+  },
+  {
+    "ref_id": "107144",
+    "response": "```json\n[\"condicio\", \"dies cedit\", \"heres\", \"in potestate\", \"legatum\", \"lego\", \"mancipium\", \"manus\"]\n```"
+  },
+  {
+    "ref_id": "107145",
+    "response": "```json\n[\"in potestate\", \"manus\", \"mancipium\", \"heres scriptus\", \"lego\"]\n```"
+  },
+  {
+    "ref_id": "107146",
+    "response": "```json\n[\"bona\", \"divido\", \"heres\", \"hereditas\", \"lego\", \"pars\", \"partior\", \"partitio\", \"singulae res\"]\n```"
+  },
+  {
+    "ref_id": "107147",
+    "response": "```json\n[\n\"frui\",\n\"ius civile\",\n\"lego\",\n\"pars\",\n\"res\",\n\"substantia\",\n\"ususfructus\",\n\"utor\"\n]\n```"
+  },
+  {
+    "ref_id": "107148",
+    "response": "```json\n[\n\"senatus consultum\",\n\"in abusu\",\n\"ususfructus\",\n\"lego\",\n\"legatarius\",\n\"trado\",\n\"cautio\",\n\"restituo\"\n]\n```"
+  },
+  {
+    "ref_id": "107149",
+    "response": "```json\n[\"civitas\", \"imperium\", \"populus Romanus\", \"lego\", \"senatus\", \"constituo\"]\n```"
+  },
+  {
+    "ref_id": "107150",
+    "response": "```json\n[\"adimo\", \"codicillus\", \"confirmo\", \"legatum\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "107151",
+    "response": "```json\n[\"heres\", \"legatarius\", \"legatum\", \"transeo\", \"dies cedere\", \"decedo\"]\n```"
+  },
+  {
+    "ref_id": "107152",
+    "response": "```json\n[\n  \"legatum\",\n  \"pure\",\n  \"in diem certum\",\n  \"relinquo\",\n  \"dies cedit\",\n  \"antiquo iure\",\n  \"mors\",\n  \"testator\",\n  \"lex Papia Poppaea\",\n  \"apertae tabulae\",\n  \"testamentum\",\n  \"sub condicione\",\n  \"condicio\"\n]\n```"
+  },
+  {
+    "ref_id": "107153",
+    "response": "```json\n[\"Lex Falcidia\", \"dodrans\", \"patrimonium\", \"lego\", \"quadrans\", \"heres\"]\n```"
+  },
+  {
+    "ref_id": "107154",
+    "response": "```json\n[\"legatum\", \"solvo\", \"repetitio\"]\n```"
+  },
+  {
+    "ref_id": "107156",
+    "response": "```json\n[\n\"Fideicommissum\",\n\"civilis\",\n\"verbum\",\n\"precative\",\n\"relinquo\",\n\"rigor\",\n\"ius civile\",\n\"proficiscor\",\n\"voluntas\",\n\"relinquens\"\n]\n```"
+  },
+  {
+    "ref_id": "107157",
+    "response": "```json\n[\"fideicommissum\", \"fideicommitto\", \"peto\", \"volo dari\"]\n```"
+  },
+  {
+    "ref_id": "107158",
+    "response": "```json\n[\"fideicommissum\", \"in usu receptum\", \"nutus\", \"relinquo\"]\n```"
+  },
+  {
+    "ref_id": "107159",
+    "response": "```json\n[\"fideicommissum\", \"intestatus\", \"moriturus\", \"relinquo\", \"testamentum\", \"testamentum facere\"]\n```"
+  },
+  {
+    "ref_id": "107160",
+    "response": "```json\n[\"res\", \"fideicommissum\", \"relinquo\", \"damnatio\", \"lego\"]\n```"
+  },
+  {
+    "ref_id": "107161",
+    "response": "```json\n[\"fideicommissum\", \"lego\"]\n```"
+  },
+  {
+    "ref_id": "107162",
+    "response": "```json\n[\"Latini Iuniani\", \"fideicommissum\", \"capio\", \"legatum\"]\n```"
+  },
+  {
+    "ref_id": "107163",
+    "response": "```json\n[\n  \"fideicommissum\",\n  \"heres\",\n  \"institutio\",\n  \"mors\",\n  \"codicillus\",\n  \"testamentum\",\n  \"do\",\n  \"lego\",\n  \"posse\"\n]\n```"
+  },
+  {
+    "ref_id": "107164",
+    "response": "```json\n[\"fideicommissum\", \"Graece\", \"legatum\", \"scribo\", \"valeo\"]\n```"
+  },
+  {
+    "ref_id": "107165",
+    "response": "```json\n[\"filius\", \"in potestate\", \"servus\", \"heres\", \"instituo\", \"legatum\", \"pars\", \"dominus\", \"fideicommitto\", \"lego\"]\n```"
+  },
+  {
+    "ref_id": "107166",
+    "response": "```json\n[\"testamentum\", \"heres\", \"instituo\", \"codicillus\", \"confirmo\", \"rogo\", \"hereditas\", \"restituo\", \"directo\"]\n```"
+  },
+  {
+    "ref_id": "107167",
+    "response": "```json\n[\"fideicommissum\", \"per formulam\", \"peto\", \"legatum\", \"cognitio\", \"consul\", \"praetor\", \"fideicommissarius\", \"provincia\", \"praeses\"]\n```"
+  },
+  {
+    "ref_id": "107168",
+    "response": "```json\n[\"fideicommissum\", \"incerta persona\", \"poenae causa\"]\n```"
+  },
+  {
+    "ref_id": "107169",
+    "response": "```json\n[\"actio\", \"dodrans\", \"heres\", \"hereditas\", \"legatarius\", \"lex Falcidia\", \"pars quarta\", \"restituo\", \"rogo\", \"senatus consultum Pegasianum\", \"senatus consultum Trebellianum\"]\n```"
+  },
+  {
+    "ref_id": "107170",
+    "response": "```json\n[\n\"commodum\",\n\"communico\",\n\"damnum\",\n\"heres\",\n\"hereditas\",\n\"incommodum\",\n\"legatarius\",\n\"lucrum\",\n\"partior\",\n\"restituo\",\n\"senatus consultum Pegasianum\",\n\"stipulatio\",\n\"stipulatio partis et pro parte\"\n]\n```"
+  },
+  {
+    "ref_id": "107171",
+    "response": "```json\n[\"heres\", \"damnosa hereditas\", \"cogo\", \"praetor\", \"adeo\", \"restituo\", \"hereditas\", \"actio\", \"senatus consultum Trebellianum\"]\n```"
+  },
+  {
+    "ref_id": "107172",
+    "response": "```json\n[\"accommodo\", \"caducum\", \"capio\", \"censeo\", \"deduco\", \"fideicommissum\", \"fides\", \"fraus\", \"liberi\", \"quadrans\", \"restituo\", \"senatus\", \"tacitus\", \"testamentum\", \"vindico\"]\n```"
+  },
+  {
+    "ref_id": "107173",
+    "response": "```json\n[\"fideicommissum\", \"libertas\"]\n```"
+  },
+  {
+    "ref_id": "107175",
+    "response": "```json\n[\n  \"agnatus\",\n  \"cognatus\",\n  \"consanguineus\",\n  \"familia\",\n  \"hereditas\",\n  \"in potestate\",\n  \"ingenuus\",\n  \"intestatus\",\n  \"lex duodecim tabularum\",\n  \"liberi\",\n  \"morior\",\n  \"suus heres\"\n]\n```"
+  },
+  {
+    "ref_id": "107176",
+    "response": "```json\n[\n\"defunctus\",\n\"filius\",\n\"hereditas\",\n\"in capita\",\n\"in stirpes\",\n\"nepos\",\n\"pars\",\n\"pater\",\n\"succedo\"\n]\n```"
+  },
+  {
+    "ref_id": "107177",
+    "response": "[\"agnatus\", \"defunctus\", \"filius\", \"heres\", \"hostis\", \"locus\", \"praegnans\", \"spero\", \"suus heres\", \"uxor\"]"
+  },
+  {
+    "ref_id": "107178",
+    "response": "```json\n[\"agnatus\", \"hereditas\", \"divido\", \"in capita\", \"frater\", \"filius\", \"liberi\", \"persona\", \"portio\", \"capio\"]\n```"
+  },
+  {
+    "ref_id": "107179",
+    "response": "```json\n[\n  \"adeo\",\n  \"adcresco\",\n  \"agnatus\",\n  \"decedo\",\n  \"ex lege\",\n  \"gradus\",\n  \"hereditas\",\n  \"legitima hereditas\",\n  \"pars\",\n  \"successio\",\n  \"transmitto\"\n]\n```"
+  },
+  {
+    "ref_id": "107180",
+    "response": "```json\n[\"consanguineus\", \"femina\", \"frater\", \"gradus\", \"heres\", \"legitima hereditas\", \"pertineo\", \"soror\"]\n```"
+  },
+  {
+    "ref_id": "107181",
+    "response": "```json\n[\"agnatus\", \"consanguineus\", \"femina\", \"filius\", \"hereditas\", \"in manum conventio\", \"intestatus\", \"legitima hereditas\", \"lex duodecim tabularum\", \"liberi\", \"mater\", \"oratio\", \"senatus\", \"suus heres\"]\n```"
+  },
+  {
+    "ref_id": "107182",
+    "response": "```json\n[\n\"bonorum possessio\",\n\"bonorum possessio cum re\",\n\"frater consanguineus\",\n\"hereditas\",\n\"ingenua\",\n\"intestatus\",\n\"ius liberorum\",\n\"legitima heres\",\n\"lex duodecim tabularum\",\n\"libertina\",\n\"mater\",\n\"pater\",\n\"praetor\",\n\"senatus consultum Tertullianum\",\n\"soror consanguinea\",\n\"suus heres\"\n]\n```"
+  },
+  {
+    "ref_id": "107185",
+    "response": "```json\n[\"hereditas\", \"heres\", \"intestatus\", \"liberi\", \"libertus\", \"patrona\", \"patronus\", \"pertineo\"]\n```"
+  },
+  {
+    "ref_id": "107186",
+    "response": "```json\n[\"filius\", \"hereditas\", \"patronus\", \"pertineo\"]\n```"
+  },
+  {
+    "ref_id": "107187",
+    "response": "```json\n[\"filius\", \"nepos\", \"obsto\", \"patronus\"]\n```"
+  },
+  {
+    "ref_id": "107188",
+    "response": "```json\n[\"defunctus\", \"divido\", \"hereditas\", \"in capita\", \"in stirpes\", \"liberi\", \"patronus\"]\n```"
+  },
+  {
+    "ref_id": "107189",
+    "response": "[\"legitima hereditas\", \"ius\", \"lex duodecim tabularum\", \"capitis minutio\", \"amitto\", \"descendo\"]"
+  },
+  {
+    "ref_id": "107191",
+    "response": "```json\n[\"bonorum possessio\", \"contra tabulas\", \"intestatus\", \"secundum tabulas\", \"tabula\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "107192",
+    "response": "```json\n[\n\"bonorum possessio\",\n\"contra tabulas\",\n\"emancipatus\",\n\"hereditas\",\n\"legitimus\",\n\"liber\",\n\"praetereo\",\n\"testamentum\"\n]\n```"
+  },
+  {
+    "ref_id": "107193",
+    "response": "```json\n[\"bonorum possessio\", \"contra tabulas\", \"liberi\", \"naturalis\", \"adoptivus\", \"emancipatus\", \"adoptiva familia\", \"in potestate\"]\n```"
+  },
+  {
+    "ref_id": "107194",
+    "response": "```json\n[\n  \"bonorum possessio\",\n  \"bonum\",\n  \"caveo\",\n  \"confero\",\n  \"edictum\",\n  \"emancipatus\",\n  \"frater\",\n  \"in potestate\",\n  \"liberi\",\n  \"pater\"\n]\n```"
+  },
+  {
+    "ref_id": "107195",
+    "response": "```json\n[\"bonorum possessio\", \"competo\", \"contra tabulas\", \"do\", \"heres\", \"nolo\", \"peto\", \"scribo\", \"secundum tabulas\"]\n```"
+  },
+  {
+    "ref_id": "107196",
+    "response": "```json\n[\n  \"bonorum possessio\",\n  \"civis Romanus\",\n  \"familiae mancipatio\",\n  \"ius civile\",\n  \"nuncupatio\",\n  \"signum\",\n  \"testamentum\",\n  \"testis\"\n]\n```"
+  },
+  {
+    "ref_id": "107197",
+    "response": "```json\n[\n\"bonorum possessio\",\n\"bona\",\n\"capio\",\n\"cognatus\",\n\"defero\",\n\"gradus\",\n\"heres\",\n\"intestatus\",\n\"ius\",\n\"legitimus\",\n\"lex Furia\",\n\"lex Iulia caducaria\",\n\"liber\",\n\"manumissor\",\n\"patrona\",\n\"patronus\",\n\"populus\",\n\"uxor\",\n\"vir\"\n]\n```"
+  },
+  {
+    "ref_id": "107198",
+    "response": "```json\n[\"liber\", \"bonorum possessio\", \"in potestate\", \"mors\", \"emancipatus\", \"adoptivus\", \"in adoptionem dare\"]\n```"
+  },
+  {
+    "ref_id": "107199",
+    "response": "```json\n[\n\"agnatio\",\n\"agnatus\",\n\"bonorum possessio\",\n\"capitis minutio\",\n\"cognatus\",\n\"ius legitimum\",\n\"natura\",\n\"persona\",\n\"proximus cognatus\"\n]\n```"
+  },
+  {
+    "ref_id": "107200",
+    "response": "```json\n[\"bonorum possessio\", \"parens\", \"liber\", \"annus\", \"peto\", \"centum dies\"]\n```"
+  },
+  {
+    "ref_id": "107201",
+    "response": "```json\n[\"admitto\", \"bonorum possessio\", \"gradus\", \"peto\", \"superior\", \"tempus\"]\n```"
+  },
+  {
+    "ref_id": "107202",
+    "response": "```json\n[\n\"actio ficticia\",\n\"ago\",\n\"beneficium\",\n\"bonorum possessio\",\n\"constituo\",\n\"edictum successorium\",\n\"fingo\",\n\"heres\",\n\"heredis loco\",\n\"praetor\"\n]\n```"
+  },
+  {
+    "ref_id": "107203",
+    "response": "```json\n[\n  \"bonorum possessio\",\n  \"bonum\",\n  \"cum re\",\n  \"effectus\",\n  \"evinco\",\n  \"hereditas\",\n  \"intestatus\",\n  \"ius civile\",\n  \"ius legitimum\",\n  \"retineo\",\n  \"sine re\",\n  \"suus heres\"\n]\n```"
+  },
+  {
+    "ref_id": "107205",
+    "response": "```json\n[\n\"adoptivus filius\",\n\"bona\",\n\"bonorum possessio\",\n\"contra suos heredes\",\n\"contra tabulas testamenti\",\n\"decedo\",\n\"edictum praetoris\",\n\"hereditas\",\n\"in manu\",\n\"intestatus\",\n\"lex duodecim tabularum\",\n\"liberi\",\n\"libertus\",\n\"naturalis\",\n\"patronus\",\n\"relinquo\",\n\"successor\",\n\"suus heres\",\n\"testamentum\",\n\"testatus\",\n\"uxor\"\n]\n```"
+  },
+  {
+    "ref_id": "107206",
+    "response": "```json\n[\n\"bona\",\n\"edictum\",\n\"hereditas\",\n\"heres\",\n\"intestatus\",\n\"ius\",\n\"liber\",\n\"liberta\",\n\"mater\",\n\"patronus\",\n\"sui heredes\"\n]\n```"
+  },
+  {
+    "ref_id": "107207",
+    "response": "```json\n[\n\"Lex Papia Poppaea\",\n\"liberta\",\n\"ius liberorum\",\n\"tutela\",\n\"patronus\",\n\"libero\",\n\"auctoritas\",\n\"testor\",\n\"supersum\",\n\"virilis pars\",\n\"debeo\"\n]\n```"
+  },
+  {
+    "ref_id": "107208",
+    "response": "```json\n[\"in bonis\", \"ius\", \"liber\", \"libertus\", \"parens\", \"patronus\", \"virilis sexus\"]\n```"
+  },
+  {
+    "ref_id": "107209",
+    "response": "```json\n[\n  \"ab intestato\",\n  \"bonorum possessio\",\n  \"competo\",\n  \"contra tabulas testamenti\",\n  \"femina\",\n  \"ius\",\n  \"ius trium liberorum\",\n  \"lex duodecim tabularum\",\n  \"lex Papia Poppaea\",\n  \"liberi\",\n  \"libertus\",\n  \"masculus\",\n  \"naturalis\",\n  \"patronus\",\n  \"suus heres\",\n  \"testamentum\"\n]\n```"
+  },
+  {
+    "ref_id": "107210",
+    "response": "```json\n[\"bona\", \"ex edicto\", \"ingenua\", \"ius\", \"lex Papia\", \"lex duodecim tabularum\", \"liberi\", \"libertina\", \"libertus\", \"patrona\", \"patronus\"]\n```"
+  },
+  {
+    "ref_id": "107211",
+    "response": "```json\n[\"ingenua\", \"ius\", \"lex\", \"liberi\", \"patronus\"]\n```"
+  },
+  {
+    "ref_id": "118119",
+    "response": "```json\n[\n  \"βέβαιος\",\n  \"βοτανάω\",\n  \"γείτων\",\n  \"γράφω\",\n  \"διαθήκη\",\n  \"διατίθημι\",\n  \"διὰ δημοσίων\",\n  \"διοικέω\",\n  \"κτάομαι\",\n  \"κύριος\",\n  \"μάρτυς\",\n  \"οἰκοδομέω\",\n  \"παραγγέλλω\",\n  \"πωλέω\",\n  \"σκάπτω\",\n  \"τελευτάω\",\n  \"τευχίζω\",\n  \"ὑπάρχοντα\",\n  \"ὑπεραίρω\",\n  \"ὑψόω\",\n  \"χράομαι\"\n]\n```"
+  },
+  {
+    "ref_id": "118139",
+    "response": "```json\n[\n  \"מתנה\",\n  \"שטר\",\n  \"נכס\",\n  \"ירת\",\n  \"אנתתא\",\n  \"בעל\",\n  \"שהד\",\n  \"רשאי\",\n  \"שליט\",\n  \"חסן\",\n  \"בית עלמי\",\n  \"שבק\",\n  \"דין ודבב\",\n  \"ברא\",\n  \"זבן\",\n  \"רהן\",\n  \"נחל\",\n  \"ארמל\",\n  \"תחום\",\n  \"נדר\",\n  \"מומא\",\n  \"שבועה\",\n  \"אסר\"\n]\n```"
+  },
+  {
+    "ref_id": "118161",
+    "response": "```json\n[\n  \"ἀδικέω\",\n  \"διαθήκη\",\n  \"διατάσσω\",\n  \"ἐξ ἴσου\",\n  \"ἐξουσία\",\n  \"γραφεῖον\",\n  \"καταλείπω\",\n  \"κληρονόμος\",\n  \"λῆγατον\",\n  \"μάρτυς\",\n  \"οἰκονομέω\",\n  \"ὁμολογέω\",\n  \"συγχωρέω\",\n  \"σφραγίζω\",\n  \"τελευτή\",\n  \"ὑπάρχοντα\",\n  \"ὑπογραφεύς\",\n  \"χρέος\"\n]\n```"
+  },
+  {
+    "ref_id": "118183",
+    "response": "```json\n[\"βασιλεία\", \"διατίθημι\", \"διάδοχος\", \"δίκαιον\", \"καταλείπω\", \"μάρτυς\", \"παρακατατίθημι\", \"συμμαχία\", \"φιλία\"]\n```"
+  },
+  {
+    "ref_id": "118191",
+    "response": "```json\n[\"διαθήκη\", \"δραχμή\", \"ἐπιδίδωμι\", \"τέκνον\", \"τιμάω\", \"τιμή\"]\n```"
+  },
+  {
+    "ref_id": "118194",
+    "response": "```json\n[\"heres\", \"liberta\"]\n```"
+  },
+  {
+    "ref_id": "118202",
+    "response": "```json\n[\"τελευτάω\", \"ἀδιαθέτως\", \"κατὰ νόμους\", \"κληρονόμος\", \"ὑπάρχοντα\", \"φίσκος\", \"προσκρίνω\"]\n```"
+  },
+  {
+    "ref_id": "118203",
+    "response": "```json\n[\"Ἀλεξανδρεύς\", \"διατάσσω\", \"δύναμαι\", \"ἐπιδικάζομαι\", \"κατὰ νόμους\", \"κληρονομέω\", \"προσήκω\", \"χωρέω\"]\n```"
+  },
+  {
+    "ref_id": "118204",
+    "response": "```json\n[\"Ἀλεξανδρεύς\", \"διατάσσω\", \"ἔξεστι\", \"γενεά\", \"γυνή\", \"μέρος\", \"μερίζω\", \"περιουσία\", \"τέκνον\", \"υἱός\"]\n```"
+  },
+  {
+    "ref_id": "118205",
+    "response": "```json\n[\"διαθήκη\", \"δημόσιος χρηματισμός\", \"ἄκυρος\"]\n```"
+  },
+  {
+    "ref_id": "118206",
+    "response": "```json\n[\n  \"διαθήκη\",\n  \"διατάσσω\",\n  \"ἔξεστι\",\n  \"Ἑλληνικός\",\n  \"γράφω\",\n  \"κύριος\",\n  \"παραδεκτέος\",\n  \"πινακίς\",\n  \"πρόσκειμαι\",\n  \"Ῥωμαικός\",\n  \"Ῥωμαῖος\"\n]\n```"
+  },
+  {
+    "ref_id": "118207",
+    "response": "```json\n[\"κληρονομέω\", \"πάτρων\", \"φίσκος\", \"ἀδιάθετος\", \"ἀπελεύθερος\", \"ἀστός\", \"ἄτεκνος\", \"ἐπιδικάζομαι\"]\n```"
+  },
+  {
+    "ref_id": "118208",
+    "response": "```json\n[\"ἀναλαμβάνω\", \"ἀπελεύθερος\", \"διατάσσω\", \"τάξις\"]\n```"
+  },
+  {
+    "ref_id": "118209",
+    "response": "```json\n[\n  \"γυνή\",\n  \"Κρηναῖος\",\n  \"τέκνον\",\n  \"κληρονομέω\"\n]\n```"
+  },
+  {
+    "ref_id": "118210",
+    "response": "```json\n[\n  \"Κρηνέα\",\n  \"γίγνομαι\",\n  \"γονεύς\",\n  \"κληρονομέω\",\n  \"τέκνον\",\n  \"ξένος\"\n]\n```"
+  },
+  {
+    "ref_id": "118211",
+    "response": "```json\n[\"ἀστή\", \"ξένος\", \"τέκνον\", \"κληρονομέω\", \"μήτηρ\"]\n```"
+  },
+  {
+    "ref_id": "118212",
+    "response": "```json\n[\"ἔξεστι\", \"ἀστός\", \"ἀπελεύθερος\", \"διατάσσω\"]\n```"
+  },
+  {
+    "ref_id": "118213",
+    "response": "```json\n[\n  \"ἔξεστι\",\n  \"ἀπελευθέρα\",\n  \"ἀστός\",\n  \"διατίθημι\",\n  \"ἀστή\"\n]\n```"
+  },
+  {
+    "ref_id": "118214",
+    "response": "```json\n[\"ἀναλαμβάνω\", \"ἀπελεύθερος\", \"διατάσσω\", \"διάταξις\", \"ἐκλείπω\", \"ἔγγονος\"]\n```"
+  },
+  {
+    "ref_id": "118215",
+    "response": "```json\n[\"καταλείπω\", \"θυσία\", \"κατοίχομαι\", \"ἐπιμελέομαι\", \"ἀναλαμβάνω\"]\n```"
+  },
+  {
+    "ref_id": "118216",
+    "response": "```json\n[\"κατὰ πίστιν\", \"κληρονομία\", \"Ἕλλην\", \"Ῥωμαῖος\", \"ἀναλαμβάνω\", \"πίστις\", \"ἐξομολογέομαι\", \"ἥμισυς\"]\n```"
+  },
+  {
+    "ref_id": "118217",
+    "response": "```json\n[\"διατάσσω\", \"ἀπελεύθερος\", \"νόμιμος\", \"ἀπελευθέρωσις\", \"ἀναλαμβάνω\", \"ἀπελευθερόω\"]\n```"
+  },
+  {
+    "ref_id": "118218",
+    "response": "```json\n[\"δοῦλος\", \"ἐν δεσμοῖς\", \"ἀπελευθερόω\", \"τριάκοντα ἐτῶν\", \"διατάσσω\", \"ἀναλαμβάνω\"]\n```"
+  },
+  {
+    "ref_id": "118431",
+    "response": "```json\n[\n\"διαθήκη\",\n\"κληρονόμος\",\n\"ἀποκληρόνομος\",\n\"κατάδικος\",\n\"δόλος πονηρός\",\n\"κληρονομία\",\n\"ἀποφαίνω\",\n\"μαρτύρομαι\",\n\"δευτέρῳ τόπῳ\",\n\"δίδωμι\",\n\"καταλείπω\",\n\"κωδίκιλλος\",\n\"βέβαιος\",\n\"πρίαμαι\",\n\"ζυγοστάτης\",\n\"συνεξελεύθερος\"\n]\n```"
+  },
+  {
+    "ref_id": "118439",
+    "response": "[\"χρεοφυλάκιον\", \"τελευτάω\", \"κληρονομία\", \"ἀποδίδωμι\", \"ἄγχιστα γένους\", \"ἀγχιστεύς\", \"τέκνον\", \"υἱοποιέω\", \"κατὰ τὸν νόμον\", \"πατήρ\", \"μήτηρ\", \"συνοικέω\", \"ἀδελφοὶ ὁμοπάτριοι\", \"ἀδελφαὶ ὁμοπάτριοι\", \"ἀνεψιός\", \"βασιλικός\", \"οὐσία\", \"ἀγχιστεία\"]"
+  },
+  {
+    "ref_id": "118442",
+    "response": "```json\n[\n  \"διαθήκη\",\n  \"διατίθημι\",\n  \"ἐξουσία\",\n  \"ἐπίτιμον\",\n  \"καταλείπω\",\n  \"κληρονόμος\",\n  \"μαρτυρέω\",\n  \"μεταδιατίθημι\",\n  \"νοῶν καὶ φρονῶν\",\n  \"παραβαίνω\",\n  \"σφραγίς\",\n  \"χρῆσις\",\n  \"ἀδιάθετος\",\n  \"ἀπολείπω\",\n  \"ἄτεκνος\",\n  \"γενεά\",\n  \"ἔγγαια\",\n  \"ἐνοίκησις\"\n]\n```"
+  },
+  {
+    "ref_id": "118459",
+    "response": "```json\n[\n\"ἑρμηνεία\",\n\"διαθήκη\",\n\"οὐετρανός\",\n\"ἐλεύθερος\",\n\"δοῦλος\",\n\"κληρονόμος\",\n\"ἀποκληρόνομος\",\n\"κληρονομία\",\n\"μέρος\",\n\"πιπράσκω\",\n\"ὑποτίθημι\",\n\"καταντάω\",\n\"ὑπεύθυνος\",\n\"πίστις\",\n\"παρακατατίθημι\",\n\"δίδωμι\",\n\"καταλείπω\",\n\"δόλος πονηρός\",\n\"πρίαμαι\",\n\"ζυγοστατέω\",\n\"ἀντιμαρτύρομαι\",\n\"εἰκοστὴ τῶν κληρονομιῶν καὶ ἐλευθεριῶν\",\n\"σφραγιστής\",\n\"κωδίκιλλοι\",\n\"ἐπίτροπος\",\n\"νομικὸς Ῥωμαικός\"\n]\n```"
+  },
+  {
+    "ref_id": "118482",
+    "response": "```json\n[\"βασιλεία\", \"βασιλεύς\", \"συνέδριον\", \"ὑπισχνέομαι\", \"ἐθνάρχης\"]\n```"
+  },
+  {
+    "ref_id": "118483",
+    "response": "```json\n[\n  \"ἀποδείκνυμι\",\n  \"βασίλειον\",\n  \"βασιλεύς\",\n  \"δεσπότις\",\n  \"διαθήκη\",\n  \"καταλείπω\",\n  \"οἶκος\",\n  \"πρόσοδος\",\n  \"τάσσω\",\n  \"τοπαρχία\",\n  \"χαρίζομαι\"\n]\n```"
+  },
+  {
+    "ref_id": "118484",
+    "response": "```json\n[\"γενεά\", \"διαθήκη\", \"θυγάτηρ\", \"καταλείπω\", \"κομίζομαι\", \"συνοικίζω\", \"χαρίζομαι\"]\n```"
+  },
+  {
+    "ref_id": "118485",
+    "response": "```json\n[\n  \"δωρεά\",\n  \"ἐπιδιανέμω\",\n  \"καταλείπω\",\n  \"κατοίχομαι\",\n  \"κειμήλιον\",\n  \"οἶκος\"\n]\n```"
+  },
+  {
+    "ref_id": "118486",
+    "response": "```json\n[\"βασιλεία\", \"δίδωμι\", \"διαιρέω\", \"παῖς\", \"τετραρχία\", \"ἀμφισβητέω\"]\n```"
+  },
+  {
+    "ref_id": "118487",
+    "response": "```json\n[\n  \"πρόσοδος\",\n  \"οἶκος\",\n  \"τάσσω\"\n]\n```"
+  },
+  {
+    "ref_id": "118495",
+    "response": "```json\n[\n\"ἀποδατέομαι\",\n\"ἀποθνῄσκω\",\n\"ἀτάω\",\n\"δατέομαι\",\n\"ἐπάναγκον\",\n\"γράφω\",\n\"θυγάτηρ\",\n\"καρταίπους\",\n\"καρτερός\",\n\"λαγχάνω\",\n\"μήτηρ\",\n\"μητρῷος\",\n\"μοῖρα\",\n\"πατήρ\",\n\"πατρῷος\",\n\"πόλις\",\n\"πρόβατον\",\n\"στέγη\",\n\"τέκνον\",\n\"υἱός\",\n\"ϝοικεύς\",\n\"χρῆμα\"\n]\n```"
+  },
+  {
+    "ref_id": "118496",
+    "response": "[\"ἀδελφός\", \"ἀπολαγχάνω\", \"γυνή\", \"δίδωμι\", \"ἔνδικος\", \"ἐπισπένδω\", \"κατὰ τὰ γεγραμμένα\", \"ὀπυίω\", \"πατήρ\", \"πατρῷος\", \"χρῆμα\"]"
+  },
+  {
+    "ref_id": "118497",
+    "response": "[\"ἀδελφιά\", \"ἀδελφιός\", \"ἀναιρέομαι\", \"ἀποδίδωμι\", \"ἀποθνῄσκω\", \"δατέομαι\", \"διαλαγχάνω\", \"δικάζω\", \"δικαστής\", \"δρομεύς\", \"ἐλεύθερος\", \"ἐπιβάλλω\", \"ἐπιβολή\", \"καθίστημι\", \"κλῆρος\", \"κρίνω\", \"μάρτυς\", \"οἰκία\", \"ὄμνυμι\", \"στατήρ\", \"τέκνον\", \"τιμή\", \"χρῆμα\"]"
+  },
+  {
+    "ref_id": "118709",
+    "response": "```json\n[\"διαθήκη\", \"πατήρ\", \"τέκνον\"]\n```"
+  },
+  {
+    "ref_id": "118710",
+    "response": "```json\n[\n  \"נחלה\",\n  \"חלק\",\n  \"יורש\",\n  \"גורל\",\n  \"מטה\",\n  \"כהן\",\n  \"לוי\",\n  \"גר\",\n  \"עבד\",\n  \"טומטום\",\n  \"אנדרוגינוס\",\n  \"יוצאי מצרים\",\n  \"באי הארץ\",\n  \"מתים יורשים את החיים\",\n  \"חיים יורשים את המתים\",\n  \"לרב תרבו נחלתו\",\n  \"למעט תמעיט נחלתו\",\n  \"לשמות מטות אבותם\",\n  \"איש לפי פקודיו\",\n  \"שמיון\",\n  \"רוח הקודש\"\n]\n```"
+  },
+  {
+    "ref_id": "118711",
+    "response": "```json\n[\n  \"אחוזה\",\n  \"בן\",\n  \"בת\",\n  \"זכר\",\n  \"חלק\",\n  \"ירש\",\n  \"משפט\",\n  \"מוחזק\",\n  \"נחל\",\n  \"נחלה\",\n  \"נקבה\",\n  \"עדה\",\n  \"פרשת נחלות\",\n  \"ראוי\",\n  \"תבע\"\n]\n```"
+  },
+  {
+    "ref_id": "118712",
+    "response": "```json\n[\"consilium\", \"exheredatio\", \"exheredo\", \"gradus\", \"heres\", \"ius\", \"scribo\", \"testamentum\", \"testator\"]\n```"
+  },
+  {
+    "ref_id": "118714",
+    "response": "```json\n[\"pater familias\", \"filius\", \"instituo\", \"substituo\", \"filia\", \"exheredo\", \"exheredatio\", \"gradus\", \"heres\"]\n```"
+  },
+  {
+    "ref_id": "118715",
+    "response": "[\"aequis portionibus\", \"avus\", \"exheredo\", \"heres\", \"hereditas\", \"in locum\", \"in potestate\", \"instituo\", \"lex Vellaea\", \"nominatim\", \"noverca\", \"pater\", \"rumpo\", \"succedo\", \"testamentum\"]"
+  },
+  {
+    "ref_id": "118716",
+    "response": "```json\n[\n  \"alienus\",\n  \"exheredo\",\n  \"filius\",\n  \"praetereo\",\n  \"sensus\",\n  \"substantia\",\n  \"testator\",\n  \"verborum interpretatio\"\n]\n```"
+  },
+  {
+    "ref_id": "118717",
+    "response": "```json\n[\"ab intestato\", \"exheredo\", \"filia\", \"filius\", \"ius\", \"iura civilia\", \"lex\", \"nepos\", \"praetor\", \"successio\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "118718",
+    "response": "```json\n[\n\"bonorum possessio\",\n\"constitutio\",\n\"contra tabulas\",\n\"everto\",\n\"filia\",\n\"filius\",\n\"ipso iure\",\n\"ius adcrescendi\",\n\"ius vetus\",\n\"legatum\",\n\"pater\",\n\"praetereo\",\n\"praetor\",\n\"scribo\",\n\"testamentum\"\n]\n```"
+  },
+  {
+    "ref_id": "118719",
+    "response": "```json\n[\"centumviri\", \"exheredatus\", \"filius\", \"inter ceteros\"]\n```"
+  },
+  {
+    "ref_id": "118720",
+    "response": "```json\n[\"compositor\", \"edictum\", \"iniquitas\", \"ius\", \"praetor\", \"quaestor\", \"vitium\"]\n```"
+  },
+  {
+    "ref_id": "118721",
+    "response": "```json\n[\n\"adiutorium\",\n\"compello\",\n\"contra tabulas bonorum possessio\",\n\"dodrans\",\n\"filia exheredata\",\n\"filia praeterita\",\n\"ius adcrescendi\",\n\"legatum\",\n\"portio\",\n\"praesto\",\n\"querella inofficiosi\",\n\"semis\",\n\"sescuncia\",\n\"substantia\",\n\"successio\"\n]\n```"
+  },
+  {
+    "ref_id": "118722",
+    "response": "```json\n[\"constitutio\", \"emendatio\", \"exheredo\", \"iniuria\", \"institutio\", \"pater\", \"praetereo\", \"quadrans\", \"quarta pars\", \"relinquo\", \"repletio\", \"substantia\", \"supplementum\", \"taciturnitas\", \"vitium\"]\n```"
+  },
+  {
+    "ref_id": "118723",
+    "response": "```json\n[\"ab intestato\", \"bonorum possessio\", \"contra tabulas\", \"emancipo\", \"everto\", \"exheredatio\", \"filius suus\", \"ipso iure\", \"nominatim\", \"praetereo\", \"sancio\", \"successio\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "118724",
+    "response": "```json\n[\"censeo\", \"deinceps\", \"filia\", \"masculus\", \"nepos\", \"neptis\", \"observo\", \"progigno\"]\n```"
+  },
+  {
+    "ref_id": "118725",
+    "response": "```json\n[\"datio\", \"exheredo\", \"filia\", \"filius\", \"ius\", \"legatum\", \"natus\", \"nominatim\", \"postumus\", \"sancio\", \"vitium\"]\n```"
+  },
+  {
+    "ref_id": "118726",
+    "response": "```json\n[\"ܝܪܬܘܬܐ\", \"ܕܝܐܬܝܩܝ\", \"ܝܪܬ\", \"ܦܪܢܝܬܐ\", \"ܩܢܝܢܐ\", \"ܢܡܘܣܐ\", \"ܫܘܥܒܕܐ\", \"ܐܢܘܓܢܛܘܣ\", \"ܩܘܢܓܢܛܘܣ\", \"ܓܢܣܐ\", \"ܕܪܓܐ\", \"ܐܒܐ\", \"ܒܪܐ\", \"ܒܪܬܐ\"]\n```"
+  },
+  {
+    "ref_id": "118727",
+    "response": "```json\n[\n  \"ܢܡܘܣܐ\",\n  \"ܕܝܐܬܝܩܝ\",\n  \"ܛܠܝܐ\",\n  \"ܛܠܝܬܐ\",\n  \"ܐܦܝܛܪܘܦܐ\",\n  \"ܫܘܥܒܕܐ\",\n  \"ܩܘܪܛܘܪ\",\n  \"ܓܒܪܐ ܫܠܡܐ\",\n  \"ܐܢܬܬܐ ܡܫܡܠܬܐ\"\n]\n```"
+  },
+  {
+    "ref_id": "118728",
+    "response": "```json\n[\n  \"ܐܒܐ\",\n  \"ܐܢܬܬܐ\",\n  \"ܒܥܠܐ\",\n  \"ܒܪܐ\",\n  \"ܦܪܢܣ\",\n  \"ܥܪܒܐ\",\n  \"ܡܘܬ\"\n]\n```"
+  },
+  {
+    "ref_id": "118729",
+    "response": "```json\n[\n  \"ܐܓܪܐ\",\n  \"ܐܣܛܪܛܓܐ\",\n  \"ܐܦܝܛܪܘܦܐ\",\n  \"ܥܪܒܐ\",\n  \"ܕܘܟ\",\n  \"ܕܝܢ\",\n  \"ܕܝܐܬܝܩܝ\",\n  \"ܝܬܡܐ\",\n  \"ܝܪܬܘܬܐ\",\n  \"ܡܪܐ\",\n  \"ܢܟܣܐ\",\n  \"ܢܡܘܣܐ\",\n  \"ܦܪܢܣ\",\n  \"ܩܘܪܛܘܪ\",\n  \"ܩܝܡ\",\n  \"ܩܢܝܢܐ\"\n]\n```"
+  },
+  {
+    "ref_id": "118731",
+    "response": "```json\n[\"ἐθναρχία\", \"κουφίζω\", \"τιμή\", \"φόρος\", \"ἀφίστημι\"]\n```"
+  },
+  {
+    "ref_id": "118732",
+    "response": "```json\n[\"βασιλεία\", \"δίδωμι\", \"πόλις\", \"πρόσοδος\", \"προστίθημι\", \"ὑπήκοος\", \"χώρα\", \"ἀποτέμνω\"]\n```"
+  },
+  {
+    "ref_id": "120273",
+    "response": "```json\n[\"annus\", \"femina\", \"masculus\", \"testamentum\", \"testamentum facere\"]\n```"
+  },
+  {
+    "ref_id": "120274",
+    "response": "```json\n[\"spado\", \"testamentum facere\", \"pubesco\"]\n```"
+  },
+  {
+    "ref_id": "120275",
+    "response": "```json\n[\"castra\", \"filius familias\", \"militia\", \"milito\", \"peculium castrense\", \"proprio iure\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "120276",
+    "response": "```json\n[\"caecus\", \"testamentum facere\", \"testis\", \"testimonium\", \"accio\", \"audio\", \"testimonium perhibeo\"]\n```"
+  },
+  {
+    "ref_id": "120277",
+    "response": "```json\n[\"manus\", \"scribo\", \"testamentum facere\"]\n```"
+  },
+  {
+    "ref_id": "120278",
+    "response": "```json\n[\"furiosus\", \"furor\", \"intermitto\", \"testamentum\", \"testamentum facere\"]\n```"
+  },
+  {
+    "ref_id": "120279",
+    "response": "```json\n[\"bona\", \"interdico\", \"luxuriose\", \"mulier\"]\n```"
+  },
+  {
+    "ref_id": "120280",
+    "response": "```json\n[\"mos\", \"praetor\", \"bonum\", \"interdico\", \"nequitia\", \"disperdo\", \"liberi\", \"egestas\", \"commercium\"]\n```"
+  },
+  {
+    "ref_id": "120281",
+    "response": "```json\n[\"beneficium\", \"captivitas\", \"captus\", \"hereditas\", \"hostis\", \"ius postliminii\", \"legitima tutela\", \"lex Cornelia\", \"servus\", \"testamentum\", \"valeo\"]\n```"
+  },
+  {
+    "ref_id": "120282",
+    "response": "```json\n[\"relegatus\", \"opus publicum\", \"ad tempus\", \"damnatus\", \"civitas\", \"testamentum\", \"capio\"]\n```"
+  },
+  {
+    "ref_id": "120283",
+    "response": "```json\n[\"adhibeo\", \"ius\", \"noceo\", \"prosum\", \"superflua facta\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "120284",
+    "response": "```json\n[\"adversus\", \"corpus\", \"mente captus\", \"testamentum\", \"testamentum facere\", \"valetudo\"]\n```"
+  },
+  {
+    "ref_id": "120285",
+    "response": "```json\n[\"adhibeo\", \"boni mores\", \"prodigus\", \"sanitas\", \"sollemnia\", \"testamentum\", \"testamentum facere\"]\n```"
+  },
+  {
+    "ref_id": "120286",
+    "response": "[\"testamentum\", \"adhibeo\", \"intersum\", \"vitio\"]"
+  },
+  {
+    "ref_id": "120287",
+    "response": "```json\n[\"repetundae\", \"damnatus\", \"testamentum\", \"testimonium\", \"adhibeo\"]\n```"
+  },
+  {
+    "ref_id": "120288",
+    "response": "```json\n[\"adhibeo\", \"hermaphroditus\", \"incalesco\", \"qualitas\", \"sexus\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "120289",
+    "response": "```json\n[\"adhibeo\", \"adnoto\", \"chirographum\", \"signo\", \"testamentum\", \"testis\"]\n```"
+  },
+  {
+    "ref_id": "120291",
+    "response": "```json\n[\"condicio\", \"eventus\", \"genus\", \"impossibilis\", \"possibilis\", \"rerum natura\", \"submoveo\"]\n```"
+  },
+  {
+    "ref_id": "120292",
+    "response": "```json\n[\n  \"adscribo\",\n  \"boni mores\",\n  \"condicio\",\n  \"decretum\",\n  \"filius\",\n  \"homicidium\",\n  \"lex\",\n  \"nullius momenti\",\n  \"princeps\",\n  \"suscipio\",\n  \"uxor\"\n]\n```"
+  },
+  {
+    "ref_id": "120293",
+    "response": "```json\n[\"heres institutus\", \"institutio\", \"testator\", \"valeo\"]\n```"
+  },
+  {
+    "ref_id": "120294",
+    "response": "```json\n[\"heres\", \"instituo\", \"substituo\", \"gradus\", \"scribo\"]\n```"
+  },
+  {
+    "ref_id": "120295",
+    "response": "```json\n[\"extraneus\", \"impubes\", \"pubes\", \"pure\", \"sub condicione\", \"substituo\", \"suus\"]\n```"
+  },
+  {
+    "ref_id": "120296",
+    "response": "[\"aequus\", \"as\", \"divido\", \"heres institutus\", \"hereditas\", \"pars\", \"portio\", \"semis\", \"testator\", \"uncia\"]"
+  },
+  {
+    "ref_id": "120297",
+    "response": "[\"alienus\", \"heres institutus\", \"infirmo\", \"institutio\", \"libertas\", \"servus alienus\", \"supervacue\"]"
+  },
+  {
+    "ref_id": "120298",
+    "response": "[\"adcresco\", \"aequis partibus\", \"extraneus\", \"filius\", \"heres\", \"instituo\", \"praetereo\", \"suus\"]"
+  },
+  {
+    "ref_id": "120299",
+    "response": "```json\n[\"heres\", \"institutio\", \"nascor\", \"post mortem\", \"postumus\", \"rumpo\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "120300",
+    "response": "```json\n[\n\"agnascor\",\n\"avus\",\n\"exheredo\",\n\"heres\",\n\"instituo\",\n\"nepos postumus\",\n\"nominatim\",\n\"rumpo\",\n\"succedo\",\n\"testamentum\"\n]\n```"
+  },
+  {
+    "ref_id": "120301",
+    "response": "[\"edictum\", \"exheredo\", \"filius familias\", \"heres\", \"miles\", \"nominatim\", \"paganus\", \"pater\"]"
+  },
+  {
+    "ref_id": "120302",
+    "response": "```json\n[\"constituo\", \"damnosus\", \"hereditas\", \"immisceo\", \"repudio\"]\n```"
+  },
+  {
+    "ref_id": "120303",
+    "response": "```json\n[\"ab intestato\", \"adeo\", \"ex asse\", \"ex institutione\", \"ex substitutione\", \"filius\", \"heres\", \"mando\", \"pater\", \"pro parte\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "120304",
+    "response": "```json\n[\n\"adire hereditatem\",\n\"commodum\",\n\"dominus\",\n\"filius\",\n\"hereditas\",\n\"heres institutus\",\n\"intellectus\",\n\"iubeo\",\n\"ius\",\n\"mutus\",\n\"nutus\",\n\"pater\",\n\"servus\"\n]\n```"
+  },
+  {
+    "ref_id": "120305",
+    "response": "[\"dominus\", \"gero\", \"hereditas\", \"heres\", \"iussus\", \"mutus\", \"obligo\", \"servus\"]"
+  },
+  {
+    "ref_id": "120892",
+    "response": "[\"אנדרוגינוס\", \"אנוסה\", \"ארוסה\", \"אשה\", \"אהובה\", \"בכור\", \"בכורה\", \"בן\", \"בת\", \"גרושה\", \"הויה\", \"ולדות\", \"חלוצה\", \"טומטום\", \"יבמה\", \"יוצא דופן\", \"כרת\", \"מיתת בית דין\", \"מפותה\", \"נחלה\", \"נכרית\", \"ספק\", \"ערוה\", \"שנואה\", \"שפחה\"]"
+  },
+  {
+    "ref_id": "120893",
+    "response": "```json\n[\n  \"נחלה\",\n  \"ראוי\",\n  \"מוחזק\",\n  \"בכר\",\n  \"בכורה\",\n  \"בכור\",\n  \"רשאי\",\n  \"בן האהובה\",\n  \"בן השנואה\"\n]\n```"
+  },
+  {
+    "ref_id": "120894",
+    "response": "```json\n[\"בכור\", \"בן גרושה\", \"בן חלוצה\", \"בכורה\", \"דיין\", \"מוחזק\", \"משפט הבכורה\", \"נאמן\", \"נחל\", \"נחלה\", \"נכס\", \"פי שנים\", \"ראוי\", \"ראשית אונו\"]\n```"
+  },
+  {
+    "ref_id": "120895",
+    "response": "```json\n[\n\"κλῆρος κατοικικός\",\n\"κύριος\",\n\"κοινῶς\",\n\"μάρτυς\",\n\"μεταδιατάσσω\",\n\"οἰκονομέω\",\n\"παραχωρέω\",\n\"περιών\",\n\"πωλέω\",\n\"συνχωρέω\",\n\"τελευτή\",\n\"τέκνον\",\n\"ὑπάρχοντα\",\n\"ὑποτίθημι\",\n\"ἀδιάθετος\",\n\"ἄτεκνος\",\n\"ἐξ ἴσου\",\n\"ἐξουσία\",\n\"ἐπίπλοα\",\n\"ὁμολογέω\"\n]\n```"
+  },
+  {
+    "ref_id": "120896",
+    "response": "```json\n[\"διαθήκη\", \"διατίθημι\", \"ἐξουσία\", \"μεταδιατίθημι\", \"ἀκυρόω\", \"κύριος\", \"τελευτάω\", \"καταλείπω\", \"κληρονόμος\", \"τέκνον\", \"διατάσσω\", \"παραβαίνω\", \"βλάβος\", \"ἐπίτιμον\", \"δημόσιον\", \"μαρτυρέω\", \"σφραγίς\", \"μὴ εἰδὼς γράμματα\"]\n```"
+  },
+  {
+    "ref_id": "120897",
+    "response": "```json\n[\n  \"γνωστεύω\",\n  \"δάνειον\",\n  \"ἐξ ἴσου\",\n  \"ἐνοικέω\",\n  \"καθήκοντα\",\n  \"κληρονομία\",\n  \"κληρονόμος\",\n  \"μερίζω\",\n  \"μεταδιατίθημι\",\n  \"μέρος\",\n  \"πίστις\",\n  \"προνοέω\",\n  \"προσγίγνομαι\",\n  \"συνγραφή\",\n  \"συνχωρέω\",\n  \"σφραγιστής\",\n  \"τελευτή\",\n  \"ὑπάρχοντα\",\n  \"ὑπολογέομαι\",\n  \"ἀδελφός\",\n  \"ἄγραφος\",\n  \"ἄμισθος\",\n  \"ἀπολείπω\",\n  \"βεβαιόω\",\n  \"γαμβρός\",\n  \"θυγάτηρ\",\n  \"υἱός\",\n  \"φυλή\"\n]\n```"
+  },
+  {
+    "ref_id": "120898",
+    "response": "```json\n[\n\"ἀμφισβήτησις\",\n\"ἀνήρ\",\n\"ἀνθομολογέομαι\",\n\"ἐξομολογέω\",\n\"ἐπερωτάω\",\n\"ἐπίτροπος\",\n\"καταλείπω\",\n\"κληρονόμος\",\n\"λόγος\",\n\"ὁμολογέω\",\n\"ὅρκος\",\n\"συγγράφω\",\n\"σύμβιος\",\n\"ὕπατος\"\n]\n```"
+  },
+  {
+    "ref_id": "120899",
+    "response": "```json\n[\n  \"δόσις\",\n  \"δόσις αἰώνιος\",\n  \"διοικέω\",\n  \"εἴσοδος\",\n  \"ἐνέχω\",\n  \"ἔξοδος\",\n  \"ἐπίτροπος\",\n  \"ἔχω\",\n  \"κατοχή\",\n  \"κληρονόμος\",\n  \"κυριακός\",\n  \"κυρίως καὶ βεβαίως\",\n  \"ὁμολογέω\",\n  \"συγκύροντα\",\n  \"ὑπάρχοντα\",\n  \"ὕδωρ\",\n  \"φίσκος\"\n]\n```"
+  },
+  {
+    "ref_id": "55393",
+    "response": "```json\n[\"נוחלין\", \"מנחילין\", \"אב\", \"בן\", \"אחין מן האב\", \"איש\", \"אם\", \"אשה\", \"בני אחיות\", \"בעל\", \"אחי האם\", \"אחים מן האם\"]\n```"
+  },
+  {
+    "ref_id": "55394",
+    "response": "```json\n[\"נחלה\", \"בן\", \"בת\", \"יוצאי ירכו\", \"קדם\", \"אח\", \"אחי האב\", \"כלל\", \"אב\"]\n```"
+  },
+  {
+    "ref_id": "55395",
+    "response": "```json\n[\"אב\", \"אח\", \"בכור\", \"בת\", \"חלק\", \"נטל\", \"נחלה\", \"נכס\", \"שני חלקים\"]\n```"
+  },
+  {
+    "ref_id": "55396",
+    "response": "```json\n[\"נחלה\", \"בן\", \"בת\", \"פי שנים\", \"נכס\", \"אב\", \"אם\", \"ניזון\"]\n```"
+  },
+  {
+    "ref_id": "55397",
+    "response": "```json\n[\"בכור\", \"הכותב נכסיו\", \"מחלק נכסיו\", \"מתנה על מה שכתוב בתורה\", \"ירושה\", \"מתנה\", \"נכס\", \"פי שנים\", \"ראוי ליורשו\", \"רוח חכמים נוחה הימנו\"]\n```"
+  },
+  {
+    "ref_id": "55398",
+    "response": "```json\n[\"אח\", \"אינו כלום\", \"בן\", \"דבריו קימין\", \"דיתיקי\", \"זכה\", \"חלק\", \"יורש\", \"ירש\", \"נאמן\", \"נכס\", \"נטל\"]\n```"
+  },
+  {
+    "ref_id": "55399",
+    "response": "```json\n[\n  \"הכותב נכסיו\",\n  \"חלק\",\n  \"יורש\",\n  \"לוקח\",\n  \"לאחר מותו\",\n  \"מהיום ולאחר מיתה\",\n  \"מכר\",\n  \"נתן\",\n  \"זן\",\n  \"פרנס\",\n  \"רשות\",\n  \"תלש\"\n]\n```"
+  },
+  {
+    "ref_id": "55400",
+    "response": "```json\n[\"בן\", \"בת\", \"גדול\", \"התפרנס\", \"חולקות בשוה\", \"חומר\", \"נשא\", \"ניזון\", \"קטן\"]\n```"
+  },
+  {
+    "ref_id": "55402",
+    "response": "```json\n[\"בן\", \"בת\", \"זכר\", \"זון\", \"ירש\", \"מות\", \"נוח\", \"נכס\"]\n```"
+  },
+  {
+    "ref_id": "55403",
+    "response": "```json\n[\"הניח\", \"בן\", \"בת\", \"טמטום\", \"נכס\", \"זכר\", \"נקבה\", \"אמר\", \"ילד\", \"אשה\", \"נטל\", \"מנה\", \"יורש\"]\n```"
+  },
+  {
+    "ref_id": "55404",
+    "response": "```json\n[\n  \"אב\",\n  \"אשה\",\n  \"בעל\",\n  \"בן\",\n  \"גדול\",\n  \"הניח\",\n  \"לאמצע\",\n  \"לעצמן\",\n  \"נכס\",\n  \"קטן\",\n  \"שבח\"\n]\n```"
+  },
+  {
+    "ref_id": "55405",
+    "response": "```json\n[\"אח\", \"שותף\", \"אומנות\", \"אמצע\", \"עצמו\", \"שושבינות\", \"אב\", \"גבה\", \"בית דין\", \"גמילות חסדים\"]\n```"
+  },
+  {
+    "ref_id": "55406",
+    "response": "```json\n[\"סבלונות\", \"בית חמיו\", \"סעודת חתן\", \"גבה\", \"בית בעלה\", \"בית אביה\"]\n```"
+  },
+  {
+    "ref_id": "55407",
+    "response": "```json\n[\"שכיב מרע\", \"כתב\", \"נכס\", \"שייר\", \"קרקע\", \"מתנה\", \"קיים\", \"בריא\", \"ראיה\", \"המוציא מחברו עליו הראיה\"]\n```"
+  },
+  {
+    "ref_id": "55408",
+    "response": "```json\n[\"מחלק נכסיו\", \"בריא\", \"מסכן\", \"נכס\", \"אחריות\", \"קנה\", \"כסף\", \"שטר\", \"חזקה\", \"משיכה\", \"חולה\", \"דבריו קימין\", \"שבת\", \"כתב\", \"קל וחמר\", \"זכה\", \"קטן\", \"גדול\"]\n```"
+  },
+  {
+    "ref_id": "55409",
+    "response": "```json\n[\n  \"נפל הבית\",\n  \"מוריש\",\n  \"כתבת אשה\",\n  \"בעל חוב\",\n  \"יורש\",\n  \"בית שמאי\",\n  \"חלק\",\n  \"בית הלל\",\n  \"נכסים בחזקתן\"\n]\n```"
+  },
+  {
+    "ref_id": "55410",
+    "response": "```json\n[\n\"אב\",\n\"אשה\",\n\"בעל\",\n\"חזקה\",\n\"חלק\",\n\"יורש\",\n\"כתבה\",\n\"נכסים\",\n\"נכסים בחזקתן\",\n\"נכסים הנכנסים והיוצאין\"\n]\n```"
+  },
+  {
+    "ref_id": "55411",
+    "response": "```json\n[\"נפל הבית\", \"חלק\", \"הודה\", \"נכס\", \"חזקה\", \"שוה\"]\n```"
+  },
+  {
+    "ref_id": "61810",
+    "response": "```json\n[\"נחלה\", \"נחל\", \"ירש\", \"ממזר\", \"גוי\", \"עבד\", \"גיר\", \"שחרר\", \"נכס\", \"גר\", \"עבד משוחרר\", \"זכה\", \"קדם\"]\n```"
+  },
+  {
+    "ref_id": "61811",
+    "response": "```json\n[\"נאמן\", \"חיה\", \"יצא ראשון\", \"ערער\", \"הוחזק\", \"עמדה\"]\n```"
+  },
+  {
+    "ref_id": "61812",
+    "response": "```json\n[\"מוחזק\", \"בכור\", \"מתנה\", \"נאמן\", \"מיתה\", \"בן\", \"אח\", \"עבד\", \"מוכס\"]\n```"
+  },
+  {
+    "ref_id": "61813",
+    "response": "```json\n[\"אב\", \"בכור\", \"זרוע\", \"חכר\", \"לחי\", \"מיתה\", \"נכס\", \"נטל\", \"פי שנים\", \"קיבה\", \"שבח\", \"שכר\"]\n```"
+  },
+  {
+    "ref_id": "61814",
+    "response": "```json\n[\n  \"בכור\",\n  \"בניין\",\n  \"בכל אשר ימצא לו\",\n  \"יתום\",\n  \"מיתה\",\n  \"נטל\",\n  \"נטיעה\",\n  \"פי שנים\",\n  \"פלפל\"\n]\n```"
+  },
+  {
+    "ref_id": "61815",
+    "response": "```json\n[\n\"אי אפשי\",\n\"בכור\",\n\"ירש\",\n\"פי שנים\",\n\"רשות\",\n\"שטר חוב\"\n]\n```"
+  },
+  {
+    "ref_id": "61816",
+    "response": "```json\n[\"בכור\", \"מוחזק\", \"נכס\", \"נטל\", \"פי שנים\", \"ראוי\"]\n```"
+  },
+  {
+    "ref_id": "61817",
+    "response": "```json\n[\"חלק\", \"יוצאי מצרים\", \"ירש\", \"נחלה\", \"נתחלק\", \"ראוי לו\", \"שבט\"]\n```"
+  },
+  {
+    "ref_id": "61818",
+    "response": "```json\n[\"אב\", \"אח\", \"בן\", \"העומדים בערבות מואב\", \"הוריש\", \"המרגלים\", \"המתלוננים\", \"זכות\", \"חלק\", \"יוצאי מצרים\", \"ירש\", \"נחלה\", \"עדתו של קרח\"]\n```"
+  },
+  {
+    "ref_id": "61819",
+    "response": "```json\n[\"חלק\", \"נחל\", \"בן\", \"בת\", \"נכס\", \"אב\", \"אם\", \"קודם\", \"שוין\"]\n```"
+  },
+  {
+    "ref_id": "61820",
+    "response": "```json\n[\"בכור\", \"זכה\", \"בחיי האב\", \"נטל\", \"נכס\", \"פי שנים\"]\n```"
+  },
+  {
+    "ref_id": "61821",
+    "response": "```json\n[\"אמר\", \"בכור\", \"בכורה\", \"ידו על העליונה\", \"כראוי לו\", \"נטל\", \"פי שנים\"]\n```"
+  },
+  {
+    "ref_id": "61822",
+    "response": "```json\n[\"אמר\", \"נתן\", \"שדה\", \"אשה\", \"בראוי לה\", \"נטל\", \"כתובה\", \"בכתובתה\", \"ידה על העליונה\"]\n```"
+  },
+  {
+    "ref_id": "61823",
+    "response": "```json\n[\"אמר\", \"בעל חוב\", \"בראוי לו\", \"דינר\", \"חוב\", \"נטל\"]\n```"
+  },
+  {
+    "ref_id": "61824",
+    "response": "```json\n[\"הפותיקי\", \"כתובה\", \"בעל חוב\", \"חוב\", \"יד על העליונה\"]\n```"
+  },
+  {
+    "ref_id": "61825",
+    "response": "```json\n[\"בכורה\", \"בן\", \"דבריו קיימין\", \"חלק\", \"ירש\", \"נכס\", \"פי שנים\"]\n```"
+  },
+  {
+    "ref_id": "61826",
+    "response": "```json\n[\n  \"ירושה\",\n  \"מתנה\",\n  \"דבריו קיימין\"\n]\n```"
+  },
+  {
+    "ref_id": "61827",
+    "response": "```json\n[\n  \"ראוי ליורשו\",\n  \"אינו ראוי ליורשו\",\n  \"ירש\",\n  \"דבריו קיימין\",\n  \"אין דבריו קיימין\",\n  \"לא אמר כלום\",\n  \"בת הבן\",\n  \"בן הבת\",\n  \"בת\",\n  \"בן\",\n  \"אח\"\n]\n```"
+  },
+  {
+    "ref_id": "61831",
+    "response": "```json\n[\"הכותב נכסיו\", \"כהן\", \"עבד\", \"תרומה\", \"אי איפשי\", \"זכה\", \"יורש\"]\n```"
+  },
+  {
+    "ref_id": "61832",
+    "response": "```json\n[\"הכותב נכסיו\", \"זכה\", \"ערך\"]\n```"
+  },
+  {
+    "ref_id": "61833",
+    "response": "```json\n[\n  \"עבד\",\n  \"בן חורין\",\n  \"ערכיים\",\n  \"זכה\",\n  \"יצא\",\n  \"מוציא\"\n]\n```"
+  },
+  {
+    "ref_id": "61834",
+    "response": "```json\n[\"אוכל פירות\", \"אכילת פירות\", \"יורש\", \"מוכר\", \"נכס\", \"נותן\", \"פירות\", \"קרקע\"]\n```"
+  },
+  {
+    "ref_id": "61835",
+    "response": "```json\n[\"ירש\", \"משא ומתן\", \"אחוה\", \"מדינת הים\"]\n```"
+  },
+  {
+    "ref_id": "61836",
+    "response": "```json\n[\"אח\", \"חלק\", \"שתות\", \"נטל\", \"נתן\"]\n```"
+  },
+  {
+    "ref_id": "61837",
+    "response": "```json\n[\"אב\", \"בן\", \"חזקה\", \"מות\", \"מדינת הים\", \"נכס\", \"זקן\"]\n```"
+  },
+  {
+    "ref_id": "61838",
+    "response": "```json\n[\"כתב\", \"דייתיקי\", \"ירא\", \"יורש\"]\n```"
+  },
+  {
+    "ref_id": "61839",
+    "response": "```json\n[\"בריא\", \"דייתיקי\", \"דבריו קיימין\", \"זכה\", \"כתב\", \"לא עשה כלום\", \"מתנה\", \"נכס\", \"שכיב מרע\"]\n```"
+  },
+  {
+    "ref_id": "61840",
+    "response": "```json\n[\"דייתיקי\", \"חזר\", \"מתנה\", \"נכס\", \"אם מתי\", \"מן היום\"]\n```"
+  },
+  {
+    "ref_id": "61841",
+    "response": "```json\n[\"דיותיקי\", \"זכה\", \"חזר בו\"]\n```"
+  },
+  {
+    "ref_id": "61842",
+    "response": "```json\n[\"אפוטרופוס\", \"החזיק\", \"חזר\", \"יתום\", \"נכס\"]\n```"
+  },
+  {
+    "ref_id": "61843",
+    "response": "```json\n[\"אפטרופוס\", \"אבי יתומין\", \"בית דין\", \"נושא שכר\", \"שבע\"]\n```"
+  },
+  {
+    "ref_id": "61844",
+    "response": "```json\n[\"אפטרופוס\", \"בן חורין\", \"דמים\", \"הוציא\", \"יתום\", \"מכר\", \"נכס\", \"עבד\", \"פדה\"]\n```"
+  },
+  {
+    "ref_id": "61845",
+    "response": "```json\n[\n  \"אפוטרופוס\",\n  \"בית דין\",\n  \"דון\",\n  \"הניח\",\n  \"זכות\",\n  \"חוב\",\n  \"חשב\",\n  \"יתום\",\n  \"לקח\",\n  \"מכר\",\n  \"רשות\"\n]\n```"
+  },
+  {
+    "ref_id": "61846",
+    "response": "```json\n[\"מכר\", \"עבד\", \"לקח\", \"קרקע\"]\n```"
+  },
+  {
+    "ref_id": "61847",
+    "response": "```json\n[\"אב\", \"אפטרופוס\", \"אשה\", \"בית דין\", \"חיים\", \"לכתחלה\", \"מנה\", \"עבד\"]\n```"
+  },
+  {
+    "ref_id": "61848",
+    "response": "```json\n[\"שטר\", \"עד\", \"גבה\", \"ראיה\", \"בית דין\", \"הניח\", \"בן\", \"קטן\", \"גדול\", \"ניזון\", \"נשא\"]\n```"
+  },
+  {
+    "ref_id": "61849",
+    "response": "```json\n[\"אב\", \"בת\", \"גדול\", \"הניח\", \"נזון\", \"נשא\", \"עבד\", \"קטן\", \"של עצמן\", \"שפחה\"]\n```"
+  },
+  {
+    "ref_id": "78593",
+    "response": "[\"exheredatio\", \"exheredo\", \"filius\", \"heredis institutio\", \"nominatim\", \"rescribo\", \"testamentum\", \"testor\"]"
+  },
+  {
+    "ref_id": "78594",
+    "response": "```json\n[\"heres\", \"instituo\", \"nuncupo\", \"scribo\"]\n```"
+  },
+  {
+    "ref_id": "78595",
+    "response": "```json\n[\"mutus\", \"surdus\", \"heres\", \"institui\"]\n```"
+  },
+  {
+    "ref_id": "78596",
+    "response": "```json\n[\"exheredo\", \"heres\", \"lego\", \"scriptura\", \"testamentum\", \"testor\", \"verbum\"]\n```"
+  },
+  {
+    "ref_id": "78597",
+    "response": "```json\n[\"detraho\", \"fundus\", \"institutio\", \"instituo\", \"valeo\"]\n```"
+  },
+  {
+    "ref_id": "78598",
+    "response": "```json\n[\"adicio\", \"distribuo\", \"heres\", \"institutio\", \"nuncupo\", \"portio\", \"procedo\", \"rescribo\", \"scribo\", \"valeo\"]\n```"
+  },
+  {
+    "ref_id": "78599",
+    "response": "```json\n[\"rescribo\", \"institutio\", \"valeo\", \"heres\", \"uxor\"]\n```"
+  },
+  {
+    "ref_id": "78600",
+    "response": "```json\n[\"desum\", \"heres\", \"iubeo\", \"subaudio\", \"valeo\"]\n```"
+  },
+  {
+    "ref_id": "78602",
+    "response": "```json\n[\"adscribo\", \"condicio\", \"ex aequis\", \"heres\", \"heres institutus\", \"institutio\", \"pars\", \"scribo\", \"voluntas defuncti\"]\n```"
+  },
+  {
+    "ref_id": "78603",
+    "response": "```json\n[\"adscribo\", \"decedo\", \"heres\", \"institutio\", \"instituo\", \"intestatus\", \"pars\", \"scribo\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "78605",
+    "response": "```json\n[\"alienus\", \"heres\", \"instituo\", \"libertas\", \"pro parte\", \"servus\"]\n```"
+  },
+  {
+    "ref_id": "78606",
+    "response": "```json\n[\"condicio\", \"differo\", \"heres\", \"institutio\", \"liber\", \"libertas\", \"pure\", \"servus\"]\n```"
+  },
+  {
+    "ref_id": "78607",
+    "response": "```json\n[\"aditio\", \"condicio\", \"heres\", \"scribo\"]\n```"
+  },
+  {
+    "ref_id": "78608",
+    "response": "```json\n[\n\"condicio\",\n\"consequor\",\n\"fideicommissa libertas\",\n\"hereditas\",\n\"heres\",\n\"heres instituo\",\n\"heres necessarius\",\n\"heres voluntarius\",\n\"ius successionis\",\n\"libertas\",\n\"pure\"\n]\n```"
+  },
+  {
+    "ref_id": "78609",
+    "response": "[\"adrogo\", \"apertura tabularum\", \"defunctus\", \"dilatio\", \"filius\", \"heres\", \"heres necessarius\", \"impubes\", \"ius\", \"substitutus\"]"
+  },
+  {
+    "ref_id": "78611",
+    "response": "```json\n[\"suus heres\", \"condicio\", \"heres\", \"instituo\", \"filius\", \"in potestate\", \"institutio\", \"summoveo\", \"coheres\", \"intestatus\", \"sententia\", \"arbitrium\"]\n```"
+  },
+  {
+    "ref_id": "78612",
+    "response": "```json\n[\"arbitrium\", \"condicio\", \"definitio\", \"facti potestas\", \"impono\", \"in potestate\"]\n```"
+  },
+  {
+    "ref_id": "78613",
+    "response": "```json\n[\"coheres\", \"condicio\", \"exheredatio\", \"extraneus\", \"filius\", \"heres\", \"in potestate\", \"instituo\", \"nepos\", \"substitutus\"]\n```"
+  },
+  {
+    "ref_id": "78615",
+    "response": "[\"condicio\", \"decedo\", \"filius\", \"heres\", \"heres esse\", \"heres institutus\", \"impleo\", \"intestatus\", \"pendeo\"]"
+  },
+  {
+    "ref_id": "78617",
+    "response": "```json\n[\"admitto\", \"condicio\", \"dies\", \"filius\", \"repello\", \"sententia\", \"substitutus\"]\n```"
+  },
+  {
+    "ref_id": "78618",
+    "response": "```json\n[\"condicio\", \"filius\", \"instituo\", \"lex Vellea\", \"nepos\", \"rumpo\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "78619",
+    "response": "```json\n[\n\"civis Romanus\",\n\"extraneus\",\n\"heres scriptus\",\n\"institutio\",\n\"media tempora non nocere\",\n\"peregrinus\",\n\"servus alienus\",\n\"servus hereditarius\",\n\"sub condicione\",\n\"testator\",\n\"usucapio\"\n]\n```"
+  },
+  {
+    "ref_id": "78620",
+    "response": "```json\n[\"dominus\", \"heres\", \"impubes\", \"libertas\", \"necessarius\", \"pars\", \"redimo\", \"servus communis\", \"substitutus\"]\n```"
+  },
+  {
+    "ref_id": "78621",
+    "response": "```json\n[\n\"ademptio\",\n\"adimo\",\n\"codicillus\",\n\"cum libertate\",\n\"heres\",\n\"instituo\",\n\"lego\",\n\"libertas\",\n\"libertatis datio\",\n\"necessarius\",\n\"servus\",\n\"valeo\"\n]\n```"
+  },
+  {
+    "ref_id": "78623",
+    "response": "```json\n[\n\"adire hereditatem\",\n\"condicio\",\n\"hereditas\",\n\"heres institutus\",\n\"libertas\",\n\"libertas testamentaria\",\n\"servus communis\",\n\"testator\"\n]\n```"
+  },
+  {
+    "ref_id": "78624",
+    "response": "```json\n[\"testator\", \"alieno\", \"heres\", \"post mortem\", \"iussu domini\", \"hereditas\", \"adeo\", \"dominus\"]\n```"
+  },
+  {
+    "ref_id": "78626",
+    "response": "```json\n[\"casus\", \"heres\", \"iubeo\", \"liber\", \"orcinus heres\", \"respondeo\", \"servus communis\", \"socius\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "78627",
+    "response": "```json\n[\"condicio\", \"exsisto\", \"heres\", \"iubeo\", \"ius\", \"liber\", \"servus communis\", \"socius\"]\n```"
+  },
+  {
+    "ref_id": "79551",
+    "response": "```json\n[\n\"alieno nomine\",\n\"describo\",\n\"inspicio\",\n\"polliceor\",\n\"potestas\",\n\"praetor\",\n\"suo nomine\",\n\"tabula\",\n\"testamentum\",\n\"tribuo\"\n]\n```"
+  },
+  {
+    "ref_id": "79552",
+    "response": "```json\n[\"cognosco\", \"controversia\", \"edictum\", \"exquiro\", \"inspicio\", \"iudex\", \"ratio\", \"testamentum\", \"transigo\", \"verbum\", \"veritas\"]\n```"
+  },
+  {
+    "ref_id": "79553",
+    "response": "```json\n[\"agnosco\", \"aperio\", \"nego\", \"sigillum\", \"suspectus\", \"tabula\"]\n```"
+  },
+  {
+    "ref_id": "79555",
+    "response": "```json\n[\"adscribo\", \"heres\", \"instrumentum\", \"publicus\", \"tabula\", \"testamentum\", \"universus\"]\n```"
+  },
+  {
+    "ref_id": "79556",
+    "response": "```json\n[\"testamentum\", \"ius\", \"perfectus\", \"falsus\", \"iniustus\", \"irritus\", \"ruptus\", \"inperfectus\"]\n```"
+  },
+  {
+    "ref_id": "79557",
+    "response": "```json\n[\"causa testamenti\", \"edictum\", \"principales tabulae\", \"secundae tabulae\", \"suprema voluntas\", \"tabula\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "79558",
+    "response": "```json\n[\"exhibeo\", \"facultas\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "79559",
+    "response": "```json\n[\n\"causa cognita\",\n\"decedo\",\n\"describo\",\n\"dubito\",\n\"inspicio\",\n\"permitto\",\n\"postulo\",\n\"praetor\",\n\"scriptura\",\n\"sigillum\",\n\"statuo\",\n\"tabula\",\n\"testamentum\",\n\"vivo\"\n]\n```"
+  },
+  {
+    "ref_id": "79560",
+    "response": "```json\n[\"inspectio\", \"lectio\", \"tabula\"]\n```"
+  },
+  {
+    "ref_id": "79561",
+    "response": "```json\n[\n\"consul\",\n\"describo\",\n\"dies\",\n\"fabrico\",\n\"falsum\",\n\"inspicio\",\n\"inspectio\",\n\"praetor\",\n\"tabula\"\n]\n```"
+  },
+  {
+    "ref_id": "79562",
+    "response": "```json\n[\"describo\", \"desidero\", \"exhibitio\", \"in continenti\", \"inspicio\", \"iubeo\", \"potestas\", \"tempus\"]\n```"
+  },
+  {
+    "ref_id": "79563",
+    "response": "```json\n[\"compello\", \"describo\", \"exhibeo\", \"inspicio\", \"interdictum\", \"nego\", \"patior\", \"penes\", \"tabula\", \"tabulae exhibendae\"]\n```"
+  },
+  {
+    "ref_id": "79565",
+    "response": "```json\n[\"ad exhibendum\", \"ago\", \"competo\", \"hereditarius\", \"heres\", \"res\", \"tabula\", \"vindicatio\"]\n```"
+  },
+  {
+    "ref_id": "79567",
+    "response": "```json\n[\n\"ab initio\",\n\"aperio\",\n\"cogo\",\n\"convenio\",\n\"officium\",\n\"praetor\",\n\"recognosco\",\n\"sigillum\",\n\"signator\",\n\"tabula\"\n]\n```"
+  },
+  {
+    "ref_id": "79569",
+    "response": "```json\n[\"exitum habere\", \"nego\", \"publice expedit\", \"signo\", \"suprema iudicia\"]\n```"
+  },
+  {
+    "ref_id": "79571",
+    "response": "```json\n[\"intervenio\", \"recito\", \"resigno\", \"signator\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "79573",
+    "response": "[\"agnosco\", \"aperio\", \"describo\", \"obsigno\", \"officium\", \"proconsul\", \"recognosco\", \"revoco\", \"sigillum\", \"signator\", \"tabulae testamenti\"]"
+  },
+  {
+    "ref_id": "79575",
+    "response": "```json\n[\"aperio\", \"causa cognita\", \"praetor\", \"pupillaris\", \"relinquo\", \"signo\", \"tabula\", \"testator\"]\n```"
+  },
+  {
+    "ref_id": "79577",
+    "response": "```json\n[\"mulier\", \"ventris nomine\", \"possessio\", \"secundae tabulae\", \"curatio\"]\n```"
+  },
+  {
+    "ref_id": "79579",
+    "response": "```json\n[\"exemplar\", \"patefacio\", \"scribo\", \"tabula\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "79580",
+    "response": "[\"sui natura\", \"tabula\", \"patefacio\", \"aperio\", \"testamentum\"]"
+  },
+  {
+    "ref_id": "79581",
+    "response": "```json\n[\"compareo\", \"exuro\", \"legatarius\", \"occulto\", \"subprimo\", \"subvenio\", \"tabula\"]\n```"
+  },
+  {
+    "ref_id": "79583",
+    "response": "```json\n[\"codicillus\", \"principales tabulae\", \"secundae tabulae\", \"testamentum\"]\n```"
+  },
+  {
+    "ref_id": "79585",
+    "response": "```json\n[\"testamentum\", \"exemplum\", \"aperio\", \"authenticum\", \"patefacio\", \"testamentum facere\"]\n```"
+  },
+  {
+    "ref_id": "85851",
+    "response": "```json\n[\"mortis causa donatio\", \"dono\", \"heres\"]\n```"
+  },
+  {
+    "ref_id": "85852",
+    "response": "```json\n[\"dono\"]\n```"
+  },
+  {
+    "ref_id": "85854",
+    "response": "```json\n[\"accipiens\", \"cogitatio mortalitatis\", \"donatio mortis causa\", \"dono\", \"mors\", \"periculum\", \"species\"]\n```"
+  },
+  {
+    "ref_id": "85856",
+    "response": "[\"crudelitas\", \"dono\", \"homo potens\", \"hostis\", \"infirma valetudo\", \"mors\", \"mortis causa\", \"navigatio\", \"odium\", \"periculum\", \"praedo\"]"
+  },
+  {
+    "ref_id": "85858",
+    "response": "```json\n[\"insidiosa loca\"]\n```"
+  },
+  {
+    "ref_id": "85860",
+    "response": "```json\n[\"aetas\", \"fessus\"]\n```"
+  },
+  {
+    "ref_id": "85862",
+    "response": "```json\n[\"instans periculum\"]\n```"
+  },
+  {
+    "ref_id": "85864",
+    "response": "```json\n[\"mortis causa\", \"dono\", \"poena\", \"caput\", \"removeo\", \"donatio\", \"inperfectus\", \"suspicio\", \"valeo\"]\n```"
+  },
+  {
+    "ref_id": "85866",
+    "response": "```json\n[\n  \"pretium\",\n  \"hereditas\",\n  \"praetermitto\",\n  \"substitutus\",\n  \"ab intestato\",\n  \"successor\",\n  \"mortis causa\",\n  \"capio\",\n  \"ius\",\n  \"statuliber\",\n  \"condicio\",\n  \"legatarius\",\n  \"pater\",\n  \"filius\",\n  \"cognatus\"\n]\n```"
+  },
+  {
+    "ref_id": "85867",
+    "response": "```json\n[\"dono\", \"convalesco\", \"recipio\"]\n```"
+  },
+  {
+    "ref_id": "85869",
+    "response": "```json\n[\"accipio\", \"capio\", \"legatum\", \"mortis causa\"]\n```"
+  },
+  {
+    "ref_id": "85871",
+    "response": "```json\n[\"mortis causa\", \"dono\", \"substituo\", \"promitto\", \"capio\", \"condicio\"]\n```"
+  },
+  {
+    "ref_id": "85873",
+    "response": "```json\n[\"constante matrimonio\", \"dono\", \"filius\", \"mortis causa\", \"pater\"]\n```"
+  },
+  {
+    "ref_id": "85875",
+    "response": "[\"calumnia\", \"institutus\", \"mortis causa capere\", \"possessio\", \"substitutus\", \"ventris nomen\"]"
+  },
+  {
+    "ref_id": "85877",
+    "response": "[\"condico\", \"convalesco\", \"dono\", \"mortis causa\", \"res aliena\", \"usucapio\", \"verus dominus\"]"
+  },
+  {
+    "ref_id": "85878",
+    "response": "```json\n[\n  \"accipio\",\n  \"convalesco\",\n  \"decedo\",\n  \"donator\",\n  \"facti quaestio\",\n  \"mortis causa donatio\",\n  \"mutata voluntate\",\n  \"reddo\",\n  \"repetitio\",\n  \"restituo\",\n  \"valetudo\"\n]\n```"
+  }
+]

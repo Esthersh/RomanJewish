@@ -1,0 +1,459 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the keywords of the sources. For any given source choose the most relevant keywords from the provided List of Keywords below. 
+
+## Detailed Instructions
+1. Analyze the provided Latin legal source and its English translation.
+	a. Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it. Identify the situation, legal issues, legal terms, formulas, legal procedures, parties and significant objects in it.
+	b. Take into consideration the source’s provided textual context, only if the meaning of the source is vague.  
+2. Review the provided List of Keywords.
+3. Identify and return the keywords from the List of Keywords that best match the situation, legal issues, legal terms, formulas, legal procedures, parties and significant objects in the source. 
+*return keywords that may be clearly inferred from the source (by an expert in the field)
+*refrain from returning redundant keywords that have a very similar meaning. Among similar keywords, return the one that is most relevant to the given source. .
+4. If the List of Keywords does not include all relevant keywords, suggest new keywords. 
+* All new keywords MUST be in English, unless it is a widely used latin term.
+*refrain from suggesting redundant keywords that have a very similar meaning.
+* Assign any suggested keyword to the existing category that matches it best. If no existing category fits, use "other" for the category field.
+* For suggested keywords, set the keyword_id to -1. Set the category_id to the ID of the matched category, or -1 if the category is "other".
+
+## Examples
+[1] Mishnah Bava Batra 8:7 
+הכותב נכסיו לבניו, צריך שיכתב מהיום ולאחר מיתה, דברי רבי יהודה. רבי יוסי אומר, אינו צריך. הכותב נכסיו לבנו לאחר מותו, האב אינו יכול למכר, מפני שהן כתובין לבן, והבן אינו יכול למכר, מפני שהן ברשות האב. מכר האב, מכורין עד שימות. מכר הבן, אין ללוקח בהן כלום עד שימות האב. האב תולש ומאכיל לכל מי שירצה. ומה שהניח תלוש, הרי הוא של יורשין. 
+Keywords: 
+bequeathal clause, division of estate before death, father, son, from today and after death, gift after death, heir, inter vivos transfer, power of sale, property, usufructus, attached fruits, gathered fruits, temporary sale.  
+[2] Ps. Ulpian 20.5
+Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter  familiae emptor, alter testis esse non potest, quoniam quod unus ex his mancipio accipit, adquirit patri, cui filius suus testis esse non debet.
+Keywords: 
+brother, buyer, disqualified witnesses, father, mancipatio, mancipatory will, paterfamilias, patria potestas, scale holder, son, testamentum per aes et libram, witnesses
+
+## List of Keywords 
+Category: Explicit legal frameworks (id: 6)
+  - laws of another country (id: 167)
+  - Lex Cornelia (id: 319)
+  - Lex Julia (id: 109)
+  - local religions or customs (id: 82)
+  - practice in province (id: 223)
+  - Senatus Consultum Orfitianum (id: 259)
+
+Category Formula, id: 4
+  - bequeathal clause (id: 83)
+  - cursing (id: 23)
+  - double document (id: 48)
+  - from today and after death (id: 307)
+  - meriteia (id: 243)
+  - oath clauses (id: 18)
+  - penalty clause (id: 63)
+  - testament formula (id: 144)
+  - testamentum per aes et libram (id: 260)
+  - vow (id: 130)
+
+Category: Legal matter (id: 3)
+  - actual possession (id: 238)
+  - adoption (id: 344)
+  - age of legal capacity (id: 170)
+  - agent authority (id: 56)
+  - Agnatic Consanguinity (id: 323)
+  - alimentary rights (id: 96)
+  - archival registration (id: 347)
+  - burial rites (id: 244)
+  - collective acquisition (id: 346)
+  - collective freedom (id: 348)
+  - conditional gift (id: 176)
+  - Creditor Priority (id: 326)
+  - cretio (id: 245)
+  - cumulative legacy (id: 279)
+  - damage of deposit (id: 143)
+  - deathbed statement (id: 229)
+  - degrees of kinship (id: 312)
+  - diminished value (id: 139)
+  - disclaimer of inheritance (id: 235)
+  - disinheritance (id: 281)
+  - disputed inheritance (id: 227)
+  - disputed lineage (id: 262)
+  - division of estate before death (id: 267)
+  - divorce (id: 351)
+  - election of rights (id: 301)
+  - eligibility to Inherit (id: 337)
+  - emancipation (id: 107)
+  - enhancement (id: 234)
+  - estate enhancement (id: 177)
+  - fictive sale (id: 240)
+  - fideicommissum (id: 278)
+  - fifth payment (id: 118)
+  - fraud (id: 52)
+  - general sale (id: 78)
+  - generational rights (id: 239)
+  - Gift vs. Inheritance (id: 328)
+  - grant of citizenship (id: 79)
+  - grave robbery (id: 288)
+  - hereditates fideicommissariae (id: 221)
+  - hypothec (id: 61)
+  - infamy (id: 51)
+  - inheritance conflict (id: 194)
+  - Inheritance priority (id: 173)
+  - inherited claims (id: 86)
+  - inoperative will (id: 342)
+  - intestacy (id: 69)
+  - joint legacy (id: 345)
+  - legal disability (id: 154)
+  - legal eligibility (id: 19)
+  - legitimate children (id: 248)
+  - liened property (id: 103)
+  - lost property (id: 27)
+  - mancipatory will (id: 145)
+  - manumission by testament (id: 277)
+  - marriage conditions (id: 187)
+  - marriage of soldiers (id: 247)
+  - material law (id: 65)
+  - minor’s protection (id: 55)
+  - modes of acquisition (id: 192)
+  - nearest agnate (id: 335)
+  - nullification (id: 71)
+  - nullity (id: 74)
+  - one-fifth payment (id: 134)
+  - order of birth (id: 226)
+  - order of death (id: 196)
+  - order of succession (id: 205)
+  - partial confession (id: 88)
+  - partial manumission (id: 320)
+  - paternal lineage (id: 311)
+  - power of sale (id: 350)
+  - primogeniture (id: 241)
+  - property transfer (id: 340)
+  - prospective estate (id: 237)
+  - proxenia (id: 57)
+  - ransom (id: 285)
+  - recoverable gifts (id: 188)
+  - refusal of gift (id: 338)
+  - refusal of inheritance (id: 343)
+  - relative priority (id: 299)
+  - Relative Priority (id: 313)
+  - renunciation of inheritance (id: 289)
+  - restitution (id: 29)
+  - revocation of citizenship (id: 77)
+  - revocation of will (id: 341)
+  - Right of habitation for the widow (id: 263)
+  - right of representation (id: 95)
+  - sacrilege (id: 355)
+  - Secured Debt (id: 325)
+  - seizure (id: 207)
+  - severability of legacy (id: 303)
+  - shared inheritance (id: 314)
+  - single witness (id: 68)
+  - slaves status (id: 339)
+  - specification of assets (id: 284)
+  - substitutio vulgaris (id: 265)
+  - succession disputes (id: 231)
+  - successive inheritance (id: 317)
+  - successive legacies (id: 349)
+  - supplements to a will (id: 308)
+  - suspected perjurer (id: 92)
+  - Tax collectors (id: 91)
+  - testamentary intent (id: 293)
+  - Testamentary Interpretation (id: 302)
+  - Testamentary Language (id: 327)
+  - testamenti factio activa (id: 217)
+  - testamenti factio passiva (id: 211)
+  - Timing of Intestacy (id: 321)
+  - transfer of inherited property (id: 334)
+  - transformation (id: 135)
+  - tribal division (id: 261)
+  - unwritten marriage (id: 256)
+  - usufructus (id: 266)
+  - verbal instruction (id: 193)
+  - wage dispute (id: 97)
+  - widow's inheritance (id: 179)
+  - Women's Status (id: 324)
+
+Category Legal terms, id: 5
+  - adstipulator (id: 114)
+  - agnatic succession (id: 309)
+  - bona vacantia (id: 220)
+  - bonorum possessio (id: 110)
+  - cession (id: 333)
+  - claim of theft (id: 94)
+  - codicil (id: 276)
+  - cognati (id: 252)
+  - consanguinity (id: 315)
+  - deathbed gift (id: 191)
+  - double portion (id: 233)
+  - emptio bonorum (id: 112)
+  - extortion (id: 120)
+  - extra portionem (id: 294)
+  - female succession (id: 199)
+  - gift after death (id: 305)
+  - heredes legitimi (id: 251)
+  - illegitimate child (id: 250)
+  - immovable property (id: 190)
+  - in iure cessio (id: 113)
+  - incertae personae (id: 218)
+  - intent (id: 356)
+  - intentional transgression (id: 21)
+  - inter vivos transfer (id: 290)
+  - intestate succession (id: 310)
+  - legatum (id: 209)
+  - mancipatio (id: 75)
+  - manus (id: 106)
+  - materfamilias (id: 105)
+  - monetary claim (id: 25)
+  - movable property (id: 189)
+  - next of kin (id: 246)
+  - nuncupation (id: 157)
+  - paterfamilias (id: 104)
+  - patria potestas (id: 9)
+  - perjury (id: 28)
+  - postumus alienus (id: 219)
+  - praescriptio (id: 53)
+  - pre-legacy (id: 295)
+  - Primogeniture (id: 292)
+  - representation in succession (id: 253)
+  - repudiatio hereditatis (id: 236)
+  - secession of property (id: 332)
+  - silence (id: 222)
+  - societas (id: 115)
+  - specificatio (id: 171)
+  - statutory rights (id: 298)
+  - Sworn statement (id: 37)
+  - Testamentary Heir (id: 322)
+  - theft (id: 26)
+  - unintentional transgression (id: 22)
+  - vesting of rights (id: 291)
+
+Category Objects, id: 1
+  - beam (id: 70)
+  - betrothal gifts (id: 186)
+  - boundaries of property (id: 306)
+  - coin (id: 140)
+  - country property (id: 271)
+  - currency (id: 62)
+  - debt (id: 304)
+  - debt document (id: 87)
+  - deposit (id: 122)
+  - donkey (id: 8)
+  - dowry property (id: 198)
+  - gift (id: 73)
+  - gifts of groomsmen (id: 183)
+  - grave (id: 286)
+  - guilt offering (id: 121)
+  - house in the city (id: 268)
+  - livestock (id: 270)
+  - loan (id: 32)
+  - marriage contract (id: 101)
+  - marriage presents (id: 185)
+  - maternal estate (id: 273)
+  - palm grove (id: 72)
+  - paternal estate (id: 330)
+  - peculium (id: 161)
+  - property (id: 60)
+  - public document (id: 213)
+  - slave (id: 59)
+  - statute (id: 80)
+  - tablets (id: 158)
+
+Category Offices and Administration, id: 137
+  - archive for private property (id: 146)
+  - consilium principis (id: 318)
+  - conventus (id: 254)
+  - fiscus (id: 206)
+  - manumission tax (id: 283)
+  - office (id: 81)
+  - opening of testament (id: 282)
+  - public service (id: 182)
+  - taxes (id: 58)
+
+Category Parties, id: 2
+  - adult (id: 181)
+  - bastard (id: 204)
+  - brother (id: 66)
+  - buyer (id: 147)
+  - child (id: 160)
+  - co-heirs (id: 297)
+  - convert (id: 201)
+  - craftsman (id: 142)
+  - creditor (id: 195)
+  - curator (id: 108)
+  - daughter (id: 172)
+  - deaf (id: 152)
+  - dependents (id: 162)
+  - father (id: 150)
+  - firstborn (id: 224)
+  - freedperson (id: 165)
+  - freedperson without citizen rights (id: 168)
+  - grandchild (id: 274)
+  - guardian (id: 242)
+  - heir (id: 178)
+  - illegitimate child (id: 249)
+  - indirect heir (id: 200)
+  - intersex person (id: 175)
+  - Junian Latin (id: 156)
+  - litigant (id: 257)
+  - mentally impaired (id: 153)
+  - minor (id: 180)
+  - mother (id: 272)
+  - mute (id: 164)
+  - partner (id: 184)
+  - peregrine (id: 166)
+  - presumed heir (id: 232)
+  - presumed relatives (id: 331)
+  - presumed slave (id: 230)
+  - presumed son (id: 228)
+  - priest (id: 133)
+  - proper heirs (id: 336)
+  - robber (id: 90)
+  - scale holder (id: 148)
+  - serf (id: 269)
+  - sister (id: 275)
+  - slave (id: 202)
+  - soldier (id: 159)
+  - son (id: 163)
+  - tax collectors (id: 212)
+  - testator (id: 149)
+  - tutor (id: 169)
+  - veteran (id: 280)
+  - ward (id: 155)
+  - wife's heirs (id: 197)
+  - witnesses (id: 99)
+  - woman (id: 151)
+
+Category Places, id: 136
+  - Athens (id: 353)
+  - unknown (id: 354)
+
+Category Procedure, id: 329
+  - claimant's oath (id: 98)
+  - compulsory oath (id: 40)
+  - compulsory testimony (id: 33)
+  - confession (id: 174)
+  - consent-based resolution (id: 47)
+  - court officer (id: 119)
+  - decisory oath (id: 46)
+  - denial of testimony (id: 11)
+  - disqualified witnesses (id: 17)
+  - divorce (id: 352)
+  - false oath (id: 20)
+  - judicial oath (id: 39)
+  - oath (id: 54)
+  - oath of deposit (id: 24)
+  - oath of ignorance (id: 35)
+  - oath of knowledge (id: 34)
+  - oath of orphans (id: 100)
+  - oath of testimony (id: 89)
+  - oath versus judgment (id: 49)
+  - procedural law (id: 64)
+  - procedural oath (id: 45)
+  - proof (id: 255)
+  - refusal of action (id: 50)
+  - refusal to swear (id: 42)
+  - rejection of judges (id: 258)
+  - sworn denial (id: 44)
+  - voluntary oath (id: 38)
+  - witness obligation (id: 13)
+  - witness summons (id: 36)
+  - woman testimony (id: 225)
+
+Category Punishments, id: 138
+  - capital punishment (id: 287)
+  - fine (id: 117)
+  - penalty for breach of will (id: 264)
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the following schema:
+
+[
+  {
+    "category": "Name of the category",
+    "keyword": "Matched or suggested word",
+    "suggested": true/false,
+    "category_id": "ID of the category (or -1)",
+    "keyword_id": "ID of the keyword (or -1)"
+  }
+]
+
+## Input Data
+Broader Context:
+Iust. A. Iohanni pp.
+  Maximum vitium antiquae subtilitatis praesenti lege corrigimus, quae 
+ putavit alia esse iura observanda in successione parentum, si ex 
+ testamento veniant, in masculis et in feminis, cum ab intestato simile 
+ ius utrique sexui servaverunt, et aliis verbis exheredari debere filium 
+ sanxerunt, aliis filiam, et inter nepotes exheredandos alia iura civilia, 
+ alia praetoris introduxerunt. <a. 531 D. k. sept Constantinopoli post 
+ consulatum Lampadii et Orestis vv. CC.>
+Iust.
+  Et si praeteritus fuerat filius, vel ipso iure testamentum evertebat vel 
+ contra tabulas bonorum possessionem in totum accipiebat, filia autem 
+ praeterita ius adcrescendi ex iure vetere accipiebat, ut eodem momento et 
+ testamentum patris quodammodo ex parte iure adcrescendi evertat et ipsa 
+ quasi scripta legatis supponeretur, ex praetore autem habebat contra 
+ tabulas bonorum possessionem in totum, constitutio autem magni Antonini 
+ eam in tantum coartabat, in quantum ius adcrescendi competebat. qui enim 
+ tales differentias inducunt, quasi naturae accusatores existunt, cur non 
+ totos masculos generavit, ut, unde generentur, non fiant.
+Iust.
+  Nam haec corrigentes et maiorum nostrorum sequimur vestigia, qui eandem 
+ observationem colere manifestissimi sunt. scimus etenim antea simili modo 
+ et filium et alios omnes inter ceteros exheredatos scribere esse 
+ concessum, cum etiam centumviri aliam differentiam introduxerunt.
+Iust.
+  Et ex hac iniquitate vitium emersit, quale ex libris Ulpiani, quos ad 
+ edictum fecit praetoris, inventum a Triboniano viro gloriosissimo nostro 
+ quaestore ceterisque viris facundissimis compositoribus iuris enucleati 
+ ad nostras aures relatum est.
+Iust.
+  Nam cum ultimum adiutorium de inofficiosi querella positum est et nemo 
+ ex alio ortus praesidio ad hanc decurrere possit, inventa fuerat filia 
+ praeterita minus habens quam filia exheredata. cum enim per contra 
+ tabulas bonorum possessionem vel ius adcrescendi semissem substantiae 
+ filia praeterita accipiebat et omnibus legata praestare compellebatur, 
+ scilicet usque ad dodrantem suae portionis, remanebat ei sescuncia 
+ tantummodo in sua successione.
+ 
+Iust.
+  Quod si fuisset exheredata, quarta pars omnimodo totius substantiae ei 
+ relinqui debebat, et quam iniuria dignam pater existimabat, amplius 
+ habebat ea, quam taciturnitate in institutione praeteriit: et si secundum 
+ nostrae constitutionis definitionem, quam de supplemento quadrantis 
+ posuimus, repletio fuerat introducta, simili modo exheredatae in quarta 
+ repletio accedebat et ita vitium permansit, ut nec ex nostra 
+ constitutione emendationem aliquam sentiret.
+ 
+Iust.
+  Sancimus itaque, quemadmodum in successionibus parentium, quae ab 
+ intestato deferuntur, aequa lance et mares et feminae vocantur, ita et in 
+ scriptura testamentorum eas honorari et similibus verbis exheredationes 
+ nominatim procedere et contra tabulas possessionem talem habere, qualem 
+ filius suus vel emancipatus, ut et ipsa, si fuerit praeterita, ad instar 
+ filii emancipati vel sui vel testamentum ipso iure evertat vel per contra 
+ tabulas bonorum possessionem stare hoc non patiatur.
+Iust.
+  Et haec non solum in filiabus obtinere, sed etiam in nepotibus et in 
+ neptibus et deinceps observari censemus, si tamen ex masculis progeniti 
+ sunt.
+Sed quia et aliud vitium fuerat sub obtentu differentiae introductum et 
+ alia iura exheredationis in postumis, alia in iam natis observabantur, 
+ cum necesse fuerat postumam inter ceteros exheredatam etiam legato 
+ honorari, filiam autem iam progenitam et sine datione, et hoc brevissimo 
+ incremento verborum ad plenissimam definitionem deduximus sancientes 
+ eadem iura obtinere et in postumis exheredandis, sive masculini sive 
+ feminini sexus sint, quae in filiis et filiabus iam statuimus, ut etiam 
+ ipsi vel ipsae nominatim exheredentur, id est postumi vel postumae facta 
+ mentione.
+
+Source Text, 118725 (Latin):
+Sed quia et aliud vitium fuerat sub obtentu differentiae introductum et 
+ alia iura exheredationis in postumis, alia in iam natis observabantur, 
+ cum necesse fuerat postumam inter ceteros exheredatam etiam legato 
+ honorari, filiam autem iam progenitam et sine datione, et hoc brevissimo 
+ incremento verborum ad plenissimam definitionem deduximus sancientes 
+ eadem iura obtinere et in postumis exheredandis, sive masculini sive 
+ feminini sexus sint, quae in filiis et filiabus iam statuimus, ut etiam 
+ ipsi vel ipsae nominatim exheredentur, id est postumi vel postumae facta 
+ mentione.
+
+English Translation:
+The Same Emperor to John, Praetorian Prefect.
+
+By the present law, We correct the greatest defect to be found in the legal enactments of the ancients, which held that different rules should be observed in the testamentary disposition of the estates of parents, so far as males and females were concerned, while both sexes enjoyed the same rights under an intestate succession. They decided that a son should be disinherited by a certain form of words, and a daughter by another, and in some instances they introduced the Civil, and in others the praetorian law, in the case of grandchildren. Where a son was passed over, he either annulled the will under the law, or he obtained praetorian possession of the entire estate contrary to the testamentary provisions. A daughter, however, who was passed over, was entitled to the right of accrual by the ancient law, so that at the same moment that the will of her father was set aside with reference to a certain portion of the estate, the right of accrual vested, and she herself was considered as included among the legatees; and, moreover, under Praetorian law she was entitled to complete possession of the property of the estate contrary to the terms of the will. A constitution of the Great Antoninus provided that under praetorian law she could only take what she was entitled to by the right of accrual. Jurists who established such distinctions as those above mentioned appear as accusers of Nature for not having solely produced males, so that those from whom they spring should not have been created. In order to remedy this, We follow in the path of our ancestors, who clearly appear to have entertained the same idea, for We know that in former times it was permitted to include both sons and daughters, and all others, among those disinherited in general terms. The centumvirs afterwards made another distinction, and from their injustice a second defect arose which has been brought to Our knowledge through the works of Ulpianus, which he composed on the Edict of the Praetor, and those of Tribonian, Our most illustrious Quaestor, and other eminent jurisconsults. The last resort of children who have been passed over is the complaint of inofficiousness in a will, and as a daughter could not have recourse to it, if she were passed over, her position was worse than if she had been disinherited. For since a daughter who was passed over would receive half of the estate either through Praetorian possession contrary to the provisions of the will, or by the right of accrual, and she was compelled to contribute to the payment of all legacies up to the amount of three-quarters of her share, she would, in fact, only be entitled to a twelfth and a half of the estate. If, however, she were disinherited, a fourth part of the entire estate must, by all means, have been given to her; and hence she whom her father thought worthy of being excluded from participation in his estate would receive more than a daughter whom he silently passed over in the appointment of his heirs. And if, in accordance with the terms of Our Constitution which We have promulgated with reference to the supplementing of the fourth part, the deficiency should have been made up, in like manner, the deficiency of the disinherited daughter, so far as the fourth part of her share of the estate was concerned, still existed, and thus the defect remained in existence and was not corrected by Our Constitution. Therefore, We order, as in the succession of parents which passes by intestacy, both males and females shall stand upon an equal footing; that females shall be benefited by the terms of wills; that specific disinheritances shall be stated in identical language; and that a daughter shall have praetorian possession of an estate contrary to the provisions of the will in the same manner as a son, who is his own master or emancipated, is entitled to; so that, if passed over, she can cause the will to be set aside by law in the same way as an emancipated son, or one who is independent, whether he causes the will to be annulled by process of law, or obtains praetorian possession of the estate in contravention of its terms. This rule shall apply not only to daughters, but also to grandsons and granddaughters, and We decree that it shall be observed with reference to other descendants, provided they are derived from males. But, for the reason that still another defect has arisen under the pretext of a difference, and one set of rules is observed with reference to the disinheritance of posthumous children, and another concerning those already born, as it was necessary for a posthumous female child to be disinherited with the others, and to be benefited by a legacy, but a daughter already born was not entitled to the legacy, We have extended this principle to the utmost by means of a very brief additional clause, directing that the same rule shall apply to the disinheritance of posthumous children, either of the male or female sex, which We have already established with reference to other sons and daughters; that is to say, that they must be disinherited by name, so that, in the case of posthumous children, they shall be specifically designated.
+
+Given at Constantinople, during the Kalends of September, after the fifth Consulate of Lampadius and Orestes, 531.
+
+

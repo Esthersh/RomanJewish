@@ -136,9 +136,9 @@ def merge_all_results(results_dir: str, corpus_csv: str, en_only: bool = False):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Merge 3-vector result files across batch subsets.")
-    parser.add_argument("--results_dir", default="/home/esther/PycharmProjects/RomanJewish/results",
+    parser.add_argument("--results_dir", default="/Users/davidfram/RomanJewish/results",
                         help="Directory containing result JSON files")
-    parser.add_argument("--corpus_csv", default="/home/esther/PycharmProjects/RomanJewish/data/LUR_annotations.csv",
+    parser.add_argument("--corpus_csv", default="'/Users/davidfram/RomanJewish/data/LUR sample corpus.xlsx - Samples.csv'",
                         help="Original Corpus CSV for ordering")
     parser.add_argument("--en_only", action="store_true",
                         help="Skip base files and merge ONLY the English translated files")

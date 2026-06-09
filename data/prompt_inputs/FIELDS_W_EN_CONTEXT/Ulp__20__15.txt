@@ -1,0 +1,215 @@
+## Objective
+Match the provided legal source to the most relevant judicial fields from the hierarchy provided below. 
+
+## Instructions
+1. Analyze the provided Latin legal text and its English translation.
+2.Read the "Broader Context" provided. Use this context strictly to clarify ambiguities, identify underlying themes, or understand references within the Target Text.
+3. Review the provided judicial field hierarchy.
+4. Identify and return the fields from the hierarchy that best match the text.
+5. Select the lowest level possible that is relevant; otherwise, choose a relevant field from the level above.
+6. If none of the fields in the hierarchy adequately cover the source, return an empty list. 
+
+## Judicial Topic Hierarchy 
+Courts and Procedure (ID 4)
+Courts and Procedure > Appeal (ID 20)
+Courts and Procedure > Courts (ID 16)
+Courts and Procedure > Courts > Arbitration (ID 100)
+Courts and Procedure > Courts > Choice of Judges (ID 99)
+Courts and Procedure > Evidence (ID 17)
+Courts and Procedure > Evidence > Archiving (ID 109)
+Courts and Procedure > Evidence > Documentary Evidence (ID 102)
+Courts and Procedure > Evidence > Witnesses (ID 101)
+Courts and Procedure > Execution (ID 19)
+Courts and Procedure > Oaths (ID 18)
+Courts and Procedure > Procedure (ID 121)
+Courts and Procedure > Procedure > Confession (ID 122)
+Obligations (ID 3)
+Obligations > Consensual Contract (ID 14)
+Obligations > Consensual Contract > Deposit (ID 79)
+Obligations > Consensual Contract > Deposit > Responsibility of depositee (ID 90)
+Obligations > Consensual Contract > Letting and Hiring (ID 78)
+Obligations > Consensual Contract > Letting and Hiring > Emphyteusis (ID 88)
+Obligations > Consensual Contract > Letting and Hiring > Labour (ID 85)
+Obligations > Consensual Contract > Letting and Hiring > Land Tenancy (ID 86)
+Obligations > Consensual Contract > Letting and Hiring > Misthosis (ID 89)
+Obligations > Consensual Contract > Loan and Pledge (ID 74)
+Obligations > Consensual Contract > Loan and Pledge > Interest (ID 80)
+Obligations > Consensual Contract > Loan and Pledge > Real security (ID 81)
+Obligations > Consensual Contract > Loan and Pledge > Transfer of Debt (ID 82)
+Obligations > Consensual Contract > Mandate (ID 77)
+Obligations > Consensual Contract > Partnership (ID 76)
+Obligations > Consensual Contract > Sale (ID 75)
+Obligations > Consensual Contract > Sale > Fraud (ID 84)
+Obligations > Consensual Contract > Sale > Warrenty (ID 83)
+Obligations > Delicts (ID 15)
+Obligations > Delicts > Damage (ID 93)
+Obligations > Delicts > Damage > Indirect cause (ID 98)
+Obligations > Delicts > Damage > wild Animals (ID 97)
+Obligations > Delicts > Theft (ID 91)
+Obligations > Delicts > Theft > In deposit (ID 96)
+Obligations > Delicts > Theft > Intention (ID 95)
+Obligations > Delicts > Theft > Return of Object (ID 94)
+Obligations > Delicts > Wild Animals (ID 92)
+Obligations > Verbal Contracts (ID 107)
+Obligations > Verbal Contracts > Stipulation (ID 108)
+Property (ID 2)
+Property > Acquisition (ID 10)
+Property > Acquisition > Conveyance (ID 55)
+Property > Acquisition > Conveyance > Classification of Things (ID 60)
+Property > Acquisition > Conveyance > Delivery (ID 62)
+Property > Acquisition > Conveyance > Formal act (ID 61)
+Property > Acquisition > Conveyance > Payment (ID 63)
+Property > Acquisition > Conveyance > Usucapio (ID 64)
+Property > Acquisition > Occupation (ID 56)
+Property > Acquisition > Occupation > Abandoned Property (ID 68)
+Property > Acquisition > Occupation > Accession (ID 69)
+Property > Acquisition > Occupation > From Natural state (ID 65)
+Property > Acquisition > Occupation > Specification (ID 67)
+Property > Acquisition > Occupation > Superficies (ID 66)
+Property > Acquisition > Usufruct (ID 57)
+Property > Neighbors (ID 13)
+Property > Possession (ID 11)
+Property > Servitudes (ID 12)
+Property > Servitudes > Personal (ID 59)
+Property > Servitudes > Personal > Usufruct (ID 73)
+Property > Servitudes > Praedial (ID 58)
+Property > Servitudes > Praedial > Rights of Light (ID 72)
+Property > Servitudes > Praedial > Rights of Water (ID 71)
+Property > Servitudes > Praedial > Rights of Way (ID 70)
+Public Law (ID 110)
+Public Law > Administrative Law (ID 112)
+Public Law > Administrative Law > Archive (ID 114)
+Public Law > Administrative Law > Judiciary (ID 113)
+Public Law > Administrative Law > Municipal Government  (ID 115)
+Public Law > Administrative Law > Provincial Government  (ID 123)
+Public Law > Taxation (ID 111)
+Status (ID 1)
+Status > Citizenship (ID 7)
+Status > Citizenship > Captivity (ID 41)
+Status > Citizenship > Freed Persons (ID 105)
+Status > Citizenship > Naturalization (ID 40)
+Status > Family (ID 5)
+Status > Family > Divorce (ID 22)
+Status > Family > Marital Arrangements (ID 23)
+Status > Family > Marital Arrangements > Dowry (ID 24)
+Status > Family > Marital Arrangements > Property of Women (ID 27)
+Status > Family > Marital Arrangements > Provision for Wife (ID 25)
+Status > Family > Marital Arrangements > Provisions for Children (ID 26)
+Status > Family > Marriage (ID 21)
+Status > Family > Marriage > Acts of Marriage (ID 117)
+Status > Family > Marriage > Legitimate Children (ID 118)
+Status > Inheritance (ID 6)
+Status > Inheritance > Debts and Obligations (ID 119)
+Status > Inheritance > Intestacy (ID 28)
+Status > Inheritance > Intestacy > Classes of Heirs (ID 30)
+Status > Inheritance > Intestacy > Father Inheritance Rights  (ID 103)
+Status > Inheritance > Intestacy > Firstborn Inheritance Rights (ID 104)
+Status > Inheritance > Intestacy > Women Inheritance Rights (ID 31)
+Status > Inheritance > Testaments (ID 29)
+Status > Inheritance > Testaments > Acceptance of will (ID 35)
+Status > Inheritance > Testaments > Capacity (ID 34)
+Status > Inheritance > Testaments > Causa Mortis (ID 32)
+Status > Inheritance > Testaments > Deeds of Gift as Wills (ID 37)
+Status > Inheritance > Testaments > Disinheritance (ID 33)
+Status > Inheritance > Testaments > Forms of Will (ID 36)
+Status > Inheritance > Testaments > Legacies (ID 38)
+Status > Inheritance > Testaments > Trust (ID 39)
+Status > Legal Capacity (ID 9)
+Status > Legal Capacity > Adoption (ID 47)
+Status > Legal Capacity > Guardianship (ID 48)
+Status > Legal Capacity > Guardianship > Guardianship over Minors (ID 53)
+Status > Legal Capacity > Guardianship > Guardianship over Women (ID 54)
+Status > Legal Capacity > Infamy (ID 51)
+Status > Legal Capacity > Legal Capacity of Women (ID 120)
+Status > Legal Capacity > Mental Disability (ID 50)
+Status > Legal Capacity > Minors (ID 49)
+Status > Legal Capacity > Paternal Power (ID 46)
+Status > Legal Capacity > Paternal Power > Emanciaption (ID 52)
+Status > Slavery (ID 8)
+Status > Slavery > Manumission (ID 43)
+Status > Slavery > Manumission > Paramone (ID 45)
+Status > Slavery > Manumission > Pseudo Manumissions (ID 44)
+Status > Slavery > Obligations of Slaves (ID 42)
+Status > Slavery > Patronage/Clientela (ID 106)
+
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the exact data types and structure shown in this example:
+
+[
+  {
+    "field": level_0 > level_1 > level_2,
+    "field_id": 123
+  },
+  {
+    "field": level_0,
+    "field_id": 38
+  }
+]
+
+## Input Data
+Broader Context (e.g., Full Chapter):
+"Testamentum est mentis nostrae iusta contestatio in id sollemniter 
+facta, ut post mortem nostram valeat.
+"
+"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, 
+quod in procinctu, tertium, quod per aes et libram appellatum est. His 
+duobus testamentis abolitis hodie solum in usu est, quod per aes et 
+libram fit, id est per mancipationem imaginariam. In quo testamento 
+libripens adhibetur et familiae emptor et non minus quam quinque testes, 
+cum quibus testamenti factio est."
+"Qui in potestate testatoris est aut familiae emptoris, testis aut 
+libripens adhiberi non potest, quoniam familiae mancipatio inter 
+testatorem et familiae emptorem fit, et ob id domestici testes adhibendi 
+non sunt."
+Filio familiam emente pater eius testis esse non potest.
+"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter 
+familiae emptor, alter testis esse non potest, quoniam quod unus ex his 
+mancipio accipit, adquirit patri, cui filius suus testis esse non debet.
+"
+"Pater et filius +  qui in potestate eius est, item duo fratres, qui in 
+eiusdem patris potestate sunt, testes utrique, vel alter testis, alter 
+libripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una 
+domo plures testes alieno negotio adhiberi."
+"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, 
+neque testis libripensve fieri potest."
+"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, 
+quoniam cum eo testamenti factio est."
+"In testamento, quod per aes et libram fit, duae res aguntur, familiae 
+mancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc 
+modum: tabulas testamenti testator tenens ita dicit: ""haec ut in his 
+tabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, 
+Quirites, testimonium perhibetote"". Quae nuncupatio et ""testatio"" 
+vocatur."
+"Filius familiae testamentum facere non potest, quoniam nihil suum habet, 
+ut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut 
+filius familiae miles de eo peculio, quod in castris adquisivit, 
+testamentum facere possit."
+"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, 
+se sui iuris esse, testamentum facere non potest.
+"
+"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam 
+nondum plenum iudicium animi habet."
+"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, 
+testamentum facere non possunt: mutus, quoniam verba nuncupationis loqui 
+non potest; surdus, quoniam verba familiae emptoris exaudire non potest; 
+furiosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, 
+quoniam commercium in illi interdictum est, et ob id familiam mancipare 
+non potest."
+"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum 
+facere non potest: Latinus quidem, quoniam nominatim lege Iunia 
+prohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi 
+civis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, 
+quoniam nullius certae civitatis civis est, ut secundum leges civitatis 
+suae testetur."
+"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore 
+auctore, donec in tutela sunt."
+"Servus publicus populi Romani partis dimidiae testamenti faciendi habet 
+ius."
+
+Target Source Text, Ulp. 20, 15 (Latin): 
+Feminae post duodecimum annum aetatis testamenta facere possunt, tutore 
+auctore, donec in tutela sunt.
+
+English Translation: 
+Women who are over twelve years of age can make a will with the authority of their guardians, as long as they remain under guardianship.

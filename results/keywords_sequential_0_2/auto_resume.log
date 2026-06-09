@@ -1,0 +1,10 @@
+===== PASS 1 / 40   2026-06-01 19:59:23 IDT =====
+Dataset: samples2update  |  Prompt version: 0.2  |  Output: /Users/davidfram/RomanJewish/results/keywords_sequential_0_2
+Sources: 401  (JTWC=380, P&I=21)
+Resumed vocabulary from snapshot: 463 keywords, next id 10154
+Model: gemini-2.5-pro  |  Done: 184  |  Remaining: 217
+
+[1/217] 61835 ... OK (11 kw, 0 new; vocab now 463)
+[2/217] 61837 ... OK (9 kw, 0 new; vocab now 463)
+[3/217] 61838 ... OK (9 kw, 1 new; vocab now 464)
+[4/217] 61843 ... scripts/auto_resume_keywords.sh: line 29: 66249 Terminated: 15          python3 scripts/run_keywords_sequential.py

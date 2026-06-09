@@ -1,158 +1,194 @@
 #!/usr/bin/env python3
 """
-Generate model-ready prompt input text files for all 89 samples in gold_annotations.csv.
+Generate model-ready prompt input text files from either the 89-sample gold set or the
+full LUR table (~400 sources).
 
-For samples WITH an English translation:
-    INDEX_W_EN_V1_CONTEXT, KEYWORDS_W_EN_CONTEXT, FIELDS_W_EN_CONTEXT
+Prompt selection is based on the "context level" column in LUR_annotations.csv:
+  - Sources WITH a context level  → JTWC prompts (includes broader_context)
+  - Sources WITHOUT a context level → P&I prompts (no context)
 
-For samples WITHOUT an English translation:
-    INDEX_V1_CONTEXT, KEYWORDS_CONTEXT, FIELDS_CONTEXT
+Within each branch, English translation is included when available.
+
+Usage:
+    python scripts/generate_prompt_inputs.py            # gold set (89 samples, default)
+    python scripts/generate_prompt_inputs.py --dataset all   # full LUR table
 
 Output: data/prompt_inputs/{PROMPT_TYPE}/{sanitized_ref_id}.txt
-Run from project root: python scripts/generate_prompt_inputs.py
 """
 
+import argparse
 import os
 import re
 import sys
-import csv
 
 import pandas as pd
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, PROJECT_ROOT)
 
+# NOTE: KEYWORDS prompts are no longer pre-rendered here. Their keyword list grows
+# as sources are processed, so they are rendered on the fly by
+# scripts/run_keywords_sequential.py. This script handles TOPICS + INDEX only.
 from prompts.all_vectors import (
-    INDEX_V1_CONTEXT,
-    INDEX_W_EN_V1_CONTEXT,
-    KEYWORDS_CONTEXT,
-    KEYWORDS_W_EN_CONTEXT,
-    FIELDS_CONTEXT,
-    FIELDS_W_EN_CONTEXT,
+    INDEX_0_1,
+    TOPICS_0_1_JTWC,
+    TOPICS_0_1_PI,
 )
+from scripts.sheets_loader import ID_COLUMN, load_samples_tab
 
 GOLD_CSV = os.path.join(PROJECT_ROOT, "results", "annotation_report", "gold_annotations.csv")
-LUR_CSV = os.path.join(PROJECT_ROOT, "data", "LUR_annotations.csv")
-KEYWORDS_CSV = os.path.join(PROJECT_ROOT, "data", "Keywords.csv")
+LUR_CSV  = os.path.join(PROJECT_ROOT, "data", "LUR_annotations.csv")
 OUTPUT_DIR = os.path.join(PROJECT_ROOT, "data", "prompt_inputs")
-
-
-def load_keywords_hierarchy() -> str:
-    df = pd.read_csv(KEYWORDS_CSV)
-    categories = []
-    children_map: dict = {}
-
-    for _, row in df.iterrows():
-        kid = int(row["Id"])
-        name = str(row["Keyword"]).strip()
-        level = int(row["Level"])
-        parent_raw = row["Parent KW Id"]
-        parent_id = int(parent_raw) if (pd.notna(parent_raw) and parent_raw != 0) else None
-
-        if level == 0:
-            categories.append((kid, name))
-        elif level == 1 and parent_id is not None:
-            children_map.setdefault(parent_id, []).append((kid, name))
-
-    lines = []
-    for cat_id, cat_name in categories:
-        lines.append(f"Category: {cat_name} (id: {cat_id})")
-        for child_id, child_name in children_map.get(cat_id, []):
-            lines.append(f"  - {child_name} (id: {child_id})")
-        lines.append("")
-
-    return "\n".join(lines).rstrip()
 
 
 def sanitize_filename(ref_id: str) -> str:
     return re.sub(r"[^\w\-]", "_", ref_id).strip("_")
 
 
+def load_rows(dataset: str) -> list[dict]:
+    """Return a list of dicts with keys: ref_id, text, language, translation, has_english, has_context, broader_context."""
+    if dataset == "samples2update":
+        # Pulled from the Samples2Update tab in Drive; no LUR_CSV needed.
+        pass
+    else:
+        lur = pd.read_csv(LUR_CSV)
+
+    if dataset == "gold":
+        gold = pd.read_csv(GOLD_CSV)
+        context_text_map = dict(zip(lur["Reference"], lur["context text"]))
+        context_level_map = {
+            ref: (pd.notna(level) and str(level).strip() not in ("", "nan"))
+            for ref, level in zip(lur["Reference"], lur["context level"])
+        }
+        rows = []
+        for _, row in gold.iterrows():
+            ref_id = str(row["ref_id"])
+            ctx_raw = context_text_map.get(ref_id, "")
+            rows.append({
+                "ref_id": ref_id,
+                "text": str(row["text"]),
+                "language": str(row["language"]),
+                "translation": str(row["english"]) if pd.notna(row["english"]) else "",
+                "has_english": bool(row["has_english_translation"]),
+                "has_context": context_level_map.get(ref_id, False),
+                "broader_context": str(ctx_raw) if pd.notna(ctx_raw) else "",
+            })
+        return rows
+
+    if dataset == "samples2update":
+        df = load_samples_tab()
+        rows = []
+        for _, row in df.iterrows():
+            raw_id = row.get(ID_COLUMN)
+            if pd.isna(raw_id) or str(raw_id).strip() in ("", "nan"):
+                continue
+            ref_id = str(raw_id).strip()
+            translation = str(row["English"]) if pd.notna(row.get("English")) else ""
+            ctx_raw = row.get("context text")
+            broader_context = str(ctx_raw) if pd.notna(ctx_raw) else ""
+            has_context = pd.notna(row.get("context level")) and str(row.get("context level")).strip() not in ("", "nan")
+            rows.append({
+                "ref_id": ref_id,
+                "text": str(row["Text"]) if pd.notna(row.get("Text")) else "",
+                "language": str(row["Language"]) if pd.notna(row.get("Language")) else "",
+                "translation": translation,
+                "has_english": bool(translation),
+                "has_context": has_context,
+                "broader_context": broader_context,
+            })
+        return rows
+
+    # dataset == "all": read directly from LUR
+    rows = []
+    for _, row in lur.iterrows():
+        if pd.isna(row["Reference"]):
+            if pd.isna(row["Calculated refCode"]):
+                continue
+            ref_id = str(row["Calculated refCode"])
+        else:
+            ref_id = str(row["Reference"])
+        translation = str(row["English"]) if pd.notna(row.get("English", None)) else ""
+        ctx_raw = row["context text"]
+        broader_context = str(ctx_raw) if pd.notna(ctx_raw) else ""
+        has_context = pd.notna(row["context level"]) and str(row["context level"]).strip() not in ("", "nan")
+        rows.append({
+            "ref_id": ref_id,
+            "text": str(row["Text"]) if pd.notna(row["Text"]) else "",
+            "language": str(row["Language"]) if pd.notna(row["Language"]) else "",
+            "translation": translation,
+            "has_english": bool(translation),
+            "has_context": has_context,
+            "broader_context": broader_context,
+        })
+    return rows
+
+
 def main():
-    print("Loading keyword hierarchy...")
-    keywords_hierarchy = load_keywords_hierarchy()
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--dataset", choices=["gold", "all", "samples2update"], default="gold",
+        help="'gold' = 89-sample gold set (default); 'all' = full LUR table; "
+             "'samples2update' = pull from the Samples2Update tab in Drive (uses 'Id' as ref_id)",
+    )
+    args = parser.parse_args()
 
-    print("Loading gold annotations...")
-    gold = pd.read_csv(GOLD_CSV)
-
-    print("Loading context text from LUR annotations...")
-    lur = pd.read_csv(LUR_CSV)
-    context_map = dict(zip(lur["Reference"], lur["context text"]))
+    print(f"Dataset:  {args.dataset}")
+    rows = load_rows(args.dataset)
+    print(f"Sources:  {len(rows)}")
 
     prompt_types = [
-        "INDEX_W_EN_V1_CONTEXT",
-        "KEYWORDS_W_EN_CONTEXT",
-        "FIELDS_W_EN_CONTEXT",
-        "INDEX_V1_CONTEXT",
-        "KEYWORDS_CONTEXT",
-        "FIELDS_CONTEXT",
+        "TOPICS_0_1_JTWC",
+        "TOPICS_0_1_PI",
+        "INDEX_0_1",
     ]
     for pt in prompt_types:
-        os.makedirs(os.path.join(OUTPUT_DIR, pt), exist_ok=True)
+        pt_dir = os.path.join(OUTPUT_DIR, pt)
+        os.makedirs(pt_dir, exist_ok=True)
+        for f in os.listdir(pt_dir):
+            os.remove(os.path.join(pt_dir, f))
 
-    en_count = 0
-    no_en_count = 0
+    jtwc_count = 0
+    pi_count = 0
 
-    for _, row in gold.iterrows():
-        ref_id = str(row["ref_id"])
-        text = str(row["text"])
-        language = str(row["language"])
-        english = str(row["english"]) if pd.notna(row["english"]) else ""
-        has_english = bool(row["has_english_translation"])
-
-        ctx_raw = context_map.get(ref_id, "")
-        broader_context = str(ctx_raw) if pd.notna(ctx_raw) else ""
+    for row in rows:
+        ref_id       = row["ref_id"]
+        text         = row["text"]
+        language     = row["language"]
+        translation  = row["translation"]
+        has_english  = row["has_english"]
+        has_context  = row["has_context"]
+        broader_context = row["broader_context"]
 
         safe_name = sanitize_filename(ref_id)
+        index_prompt = INDEX_0_1.format(
+            source_name=ref_id,
+            language=language,
+            text=text,
+            context_section=f"Broader Context:\n{broader_context}\n\n" if has_context else "",
+        )
 
-        if has_english:
-            en_count += 1
+        if has_context:
+            jtwc_count += 1
             prompts = {
-                "INDEX_W_EN_V1_CONTEXT": INDEX_W_EN_V1_CONTEXT.format(
-                    source_name=ref_id,
+                "TOPICS_0_1_JTWC": TOPICS_0_1_JTWC.format(
+                    reference_name=ref_id,
                     language=language,
                     text=text,
-                    translation=english,
                     broader_context=broader_context,
+                    translation=translation,
                 ),
-                "KEYWORDS_W_EN_CONTEXT": KEYWORDS_W_EN_CONTEXT.format(
-                    hierarchy=keywords_hierarchy,
-                    source_name=ref_id,
-                    language=language,
-                    text=text,
-                    translation=english,
-                    broader_context=broader_context,
-                ),
-                "FIELDS_W_EN_CONTEXT": FIELDS_W_EN_CONTEXT.format(
-                    source_name=ref_id,
-                    language=language,
-                    text=text,
-                    translation=english,
-                    broader_context=broader_context,
-                ),
+                "INDEX_0_1": index_prompt,
             }
         else:
-            no_en_count += 1
+            pi_count += 1
             prompts = {
-                "INDEX_V1_CONTEXT": INDEX_V1_CONTEXT.format(
-                    source_name=ref_id,
+                "TOPICS_0_1_PI": TOPICS_0_1_PI.format(
+                    reference_name=ref_id,
                     language=language,
                     text=text,
-                    broader_context=broader_context,
+                    translation=translation,
                 ),
-                "KEYWORDS_CONTEXT": KEYWORDS_CONTEXT.format(
-                    hierarchy=keywords_hierarchy,
-                    source_name=ref_id,
-                    language=language,
-                    text=text,
-                    broader_context=broader_context,
-                ),
-                "FIELDS_CONTEXT": FIELDS_CONTEXT.format(
-                    source_name=ref_id,
-                    language=language,
-                    text=text,
-                    broader_context=broader_context,
-                ),
+                "INDEX_0_1": index_prompt,
             }
 
         for prompt_type, prompt_text in prompts.items():
@@ -160,11 +196,13 @@ def main():
             with open(out_path, "w", encoding="utf-8") as f:
                 f.write(prompt_text)
 
-    total_files = (en_count + no_en_count) * 3
+    total = jtwc_count + pi_count
+    files_per_source = len(prompt_types) - 1  # each source gets its TOPICS variant + INDEX
     print(f"\nDone!")
-    print(f"  Samples with English:    {en_count:3d}  →  {en_count * 3} files (INDEX/KEYWORDS/FIELDS _W_EN_CONTEXT)")
-    print(f"  Samples without English: {no_en_count:3d}  →  {no_en_count * 3} files (INDEX/KEYWORDS/FIELDS _CONTEXT)")
-    print(f"  Total files created:     {total_files}")
+    print(f"  JTWC (with context):  {jtwc_count:3d}  →  {jtwc_count * files_per_source} files")
+    print(f"  P&I  (no context):    {pi_count:3d}  →  {pi_count * files_per_source} files")
+    print(f"  Total files created:  {total * files_per_source}")
+    print(f"  (KEYWORDS handled separately by run_keywords_sequential.py)")
     print(f"  Output: {OUTPUT_DIR}/")
 
 

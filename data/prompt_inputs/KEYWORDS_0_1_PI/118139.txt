@@ -1,0 +1,592 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the keywords of the sources. For any given source choose the most relevant keywords from the provided list of topics below. 
+
+## Instructions
+1. Analyze the provided Aramaic legal source. [translation Y/N]
+Divide source into its main sections. Consider standard documentary structures. 
+Interpret the legal meaning of each section, as closely as possible to the specific matters addressed. Identify the situation, legal issues, legal terms, formulas, legal procedures, parties (not personal names) and significant objects in it.
+Consider the possible judicial reality within which the source functioned.
+2. Review the provided List of Keywords.
+3. Identify and return the keywords from the List of Keywords that best match the situation, legal issues, legal terms, formulas, legal procedures, parties and significant objects in the source. 
+*return keywords that may be clearly inferred from the source (by an expert in the field)
+*refrain from returning redundant keywords that have a very similar meaning. Among similar keywords, return the one that is most relevant to the given source. .
+4. If the List of Keywords does not include all relevant keywords, suggest new keywords. 
+* All new keywords MUST be in English, unless it is a widely used latin term..
+*refrain from suggesting redundant keywords that have a very similar meaning.
+* Assign any suggested keyword to the existing category that matches it best. If no existing category fits, use "other" for the category field.
+* For suggested keywords, set the keyword_id to -1. Set the category_id to the ID of the matched category, or -1 if the category is "other".
+
+## Examples
+[1] Egyptian papyri TM 20764
+[ἔτους ̣ ̣ Αὐτοκράτορος Καίσαρος Τραιανοῦ Ἁδρια]νοῦ Σεβαστοῦ, Τῦβι ιγ, ἐν Ὀξυρύγχων πόλει τῆς Θηβαίδος, ἀγαθῇ τύχηι.
+[τάδε διέθετο νοῶν καὶ φρονῶν Πεκῦσις Ἑρμοῦ τοῦ Π]εκύσιος μητρὸς Διδύμης τῆς Φιλώτου τῶν ἀπʼ Ὀξυρύγχων πόλεως ἐν ἀγυιᾷ· ἐφʼ ὃν μὲν περίειμι χρόνον ἔχειν με τὴν κατὰ τῶν ἐμῶν ἐξουσίαν
+[- ca.37 - κ]α̣ὶ μεταδιατίθεσθαι. ἐὰν δὲ ἐπὶ ταύτῃ τελευτήσω τῇ διαθήκῃ, κληρονόμον ἀπολείπω τὴν θυγατέρα(*) μου Ἀμμωνοῦν μητρὸς Πτολεμᾶς, ἐὰν ζῇ, ε[ἰ δὲ]
+[μή, τὴν ταύτης γενεάν, τῶν ὑπαρχόντων μοι] ἐπʼ ἀμφόδου Κρητικοῦ μερῶν κοινωνικῆς(*) οἰκίας καὶ αὐλῆς καὶ καμαρῶν. τὰ δὲ ὑπʼ ἐμοῦ ἀπολειφθησόμενα σκεύη καὶ ἔπιπλα καὶ ἐνδομενείαν καὶ εἴ τι ἄλλ[ο]
+5[ἐὰν ἔχω, πάντα καταλείπω τῇ τῶν μὲν ἐμῶν τέκνω]ν μητρὶ ἐμοῦ δὲ γυναικὶ Πτολέμᾳ, ἀπελευθέρᾳ Δημητρίου Ἑρμίππου, ἐπὶ τῷ αὐτὴν ἔχειν ἐπὶ τὸν τῆς ζωῆς αὐτῆς χρόνον τὴν χρῆσιν καὶ ἐνοίκησιν καὶ ἐνοι-
+[κίων ἀποφορὰν τῶν μερῶν](*)[ οἰκίας καὶ αὐλῆς καὶ καμ]αρῶν. ἐὰν δὲ συμβῇ τὴν Ἀμμωνοῦν ἄτεκνον καὶ ἀδιάθετον τελευτῆσαι, ἔσται τὰ μέρη τῶν ἐνγαίων τοῦ ὁμομητρίου αὐτῆς ἀδελφοῦ Ἀντᾶτος, ἐὰν ζῇ, εἰ δὲ μή,
+[- ca.20 - καὶ μὴ ἐξεῖναι μηδενὶ ἄλλῳ π]α̣ρ̣ενχιρεῖν(*) τοῖς ὑπʼ ἐμοῦ διατεταγμένοις, ἢ τὸν παραβάντα τι τούτων ἀποτίνειν τῇ θυγατρὶ μου καὶ κληρονόμῳ Ἀμμωνοῦτι ἐπιτίμου δραχμὰς χειλίας(*) καὶ
+[- ca.37 -] (hand 2) Πεκῦσις Ἑρμοῦ τοῦ Πεκύσιος καταλείπω μετὰ τελευτήν μου κληρονόμον τὴν θυγατέρα
+[μου Ἀμμωνοῦν τῶν ἐπʼ ἀμφόδου Κρητι]κοῦ μερῶν οἰκίας καὶ αὐλῆς καὶ καμαρῶν· τῇ δὲ γυναικί μου Πτολέμᾳ καταλείπω πάν-
+10[τα τὰ σκεύη μου καὶ ἔπιπλα καὶ ἐ]νδομενείαν καὶ εἴ τι ἄλλο αἰὰν(*) χω(*), καὶ ἐφʼ ὅσον ζῇ τὴν ἐνοίκησιν τῶν μερῶν τῆς οἰκ-
+[ίας καὶ αὐλῆς καὶ καμαρῶν. ἐὰν δ]ὲ ἡ Ἀμμωνοῦς ἄτεκνος καὶ ἀδιάθετος τελευτήσῃ, ἔστω τὰ μέρη τῶν ἐνγαίων τοῦ
+[ὁμομητρίου αὐτῆς ἀδελφοῦ Ἀ]ν[τ]ᾶτος ὡς πρόκιται. εἰμὶ ἐτῶν τεσσαράκοντα τεσσάρων , οὐλὴ τραχήλῳ ἐξ ἀριστερῶν,
+[καὶ ἔστι μου ἡ σφραγὶς Ἄμ]μωνος.(*). (hand 3) Σαραπίων Σαραπίωνος τοῦ Διονυσίου ἀπὸ τῆς αὐτῆς πόλεως μαρτυρῶ τῇ τοῦ Πεκυσις(*) διαθήκῃ, καὶ
+[εἰμὶ ἐτῶν ̣ ̣, οὐλὴ ̣ ̣ ̣ ̣ ̣ ̣, καὶ ἔστι μου ἡ σφ]ραγὶς Διονύσου. (hand 4) Ἑκάτων Σαραπίωνος τοῦ Ἑκάτωνος ἀπὸ τῆς αὐτῆς πόλεως μαρτυρῶ τῇ τοῦ Πεκύσιος διαθήκῃ, καὶ εἰμὶ
+15[ἐτῶν ̣ ̣, οὐλὴ - ca.13 - , καὶ ἔστι μο]υ ἡ σφραγὶς Σαράπιδος. (hand 5) Παποντὼς Διογένους τοῦ Παποντῶτος ἀπὸ τῆς αὐτῆς πόλεως μαρτυρῶ τῇ τοῦ Πεκύσιος
+[διαθήκῃ, καὶ εἰμὶ ἐτῶν ̣ ̣ ̣ ̣ ̣ ̣ ̣, καὶ] ἔστιν μου ἡ σφραγὶς Διὸς ἐπʼ ἀέτῳ(*). (hand 6) Ζωίλος Ζωίλου τοῦ Πανεχώτου τῶν ἀπὸ τῆς αὐτ-
+[ῆς πόλεως μαρτυρῶ τῇ τοῦ Π]εκύσεος διαθήκῃ, καὶ ἰμὶ(*) ἐτῶν τεσσαράκοντα ὀκτὼ , \οὐλὴ/ πήχι(*) ἀριστερῷ, ἡ
+[δὲ σφραγίς μού ἐστιν ̣ ̣ ̣ ̣ ̣ ̣ Ἁ]ρποκράτου ἐπὶ κιβωρτωι. (hand 7) Ἡρᾶς ὁ καὶ Σάιος Ζηνᾶτος τοῦ Ἡρᾶτος ἀπὸ τῆς αὐτῆς πόλεως μαρτυρῶι(*) τῇ τοῦ Πεκύσιος
+[διαθήκῃ, καὶ εἰμὶ ἐτῶν - ca.10 -, οὐλὴ ἀντικνημ]ίωι δεξιῶι, καὶ ἔστι μου ἡ σφραγὶ[ς π]ρ[ο]τομὴ(*) φιλ[ο]σόφου. (hand 8) Διονύσιος Διον[υσ]ίου τ[ο]ῦ Διογένους ἀπὸ τῆς αὐτῆ[ς] πόλεως μαρτ[υ]ρῶ
+20[τῇ τοῦ Πεκύσιος διαθήκῃ, καὶ εἰμὶ] ἐτῶν τεσσαράκοντα ἕξ , οὐλὴ παρὰ κρόταφον δεξιόν, καὶ ἔστι μου ἡ σφραγὶς Διονυσοπλάτωνος. (hand 9) μν̣η̣μ̣(ονείου)(*) Ὀξυρ(ύγχων) πόλ(εως).
+[ἔτους ̣ ̣ Αὐτοκράτορος Καί]σαρος Τραιανοῦ Ἁδριανοῦ Σεβαστοῦ(*), Τῦβι ιγ.
+[⁦ -ca.?- ⁩ διαθήκη Πεκύσιος Ἑρ]μοῦ τοῦ Πεκύσιος μητρὸ(ς) Διδύμης Φιλώτου ἀπʼ Ὀξ(υρύγχων) π[ό]λ(εως).
+Translation: The ... year of the Emperor Trajanus Hadrianus Augustus, Tybi 13, at Oxyrhynchus in the Thebaid; for good luck. This is the will, made in the street, of Pekusis, son of Hermes and Didyme, daughter of Philotas, an inhabitant of Oxyrhynchus, being sane and in his right mind. So long as I survive, I am to have power over my property, to ... and to alter my will. But if I die with this will unchanged, I leave my daughter Ammonous whose mother is Ptolema, if she survive me, but if not, then her children, heir to my shares in the common house, court and rooms situated in the Cretan quarter. All the furniture, movables and household stock and other property whatsoever that I shall leave, I bequeath to the mother of my children and my wife, Ptolema, the freedwoman of Demetrius, son of Hermippus, with the condition that she shall have for her lifetime the right of using, dwelling in, and building in the said house, court and rooms. If Ammonous should die without children and intestate, the share of the fixtures shall belong to her half-brother on the mother’s side, Antas, if he survive, but if not, to.... No one shall violate the terms of this my will under pain of paying to my daughter and heir Ammonous a fine of 1000 drachmae and (to the treasury an equal sum?) 
+Keywords: 
+Right of habitation for the widow, testamentary heir, bequeathal clause, currency, daughter, fine, freedperson, heir, house in the city, immovable property, movable property, penalty clause, penalty for breach of will, property, specification of assets, substitutio vulgaris, ordinary substitution, testament formula, testator, usufructus, witnesses, woman
+[2] Greek Inscription SEG 9.7 (Will of Ptolemy VIII Euergetes II)
+Ἔτους πεντεκαιδεκάτου, μηνὸς Λώιου.Ἀγαθῆι τύχηι. Τάδε διέθετο βασιλεὺς
+Πτολεμαῖος βασιλέως Πτολεμαίου
+καὶ βασιλίσσης Κλεοπάτρας, θεῶν
+Ἐπιφανῶν, ὁ νεώτερος· ὧν καὶ τὰ ἀντίγραφα
+εἰς Ῥώμην ἐξαπέσταλται. — Εἴη μέν μοι
+μετὰ τῆς τῶν θεῶν εὐμενείας μετελθεῖν
+καταξίως τοὺς συστησαμένους ἐπί με
+τὴν ἀνόσιον ἐπιβουλὴν καὶ προελομένους
+μὴ μόνον ⟦oν⟧ τῆς βασιλείας, ἀλλὰ καὶ
+τοῦ ζῆν στερῆσαί με· ἐὰν δέ τι συμβαίνηι
+τῶν κατ’ ἄνθρωπον πρότερον ἢ διαδόχους
+ἀπολιπεῖν τῆς βασιλείας, καταλείπω
+Ῥωμαίοις τὴν καθήκουσάν μοι βασιλείαν,
+οἷς ἀπ’ ἀρχῆς τήν τε φιλίαν καὶ τὴν
+συμμαχίαν γνησίως συντετήρηκα·
+τοῖς δ’ αὐτοῖς παρακατατίθεμαι τὰ πράγματα
+συντηρεῖν, ἐνευχόμενος κατά τε τῶν θεῶν
+πάντων καὶ τῆς ἑαυτῶν εὐδοξίας, ἐάν τινες
+ἐπίωσιν ἢ ταῖς πόλεσιν ἢ τῆι χώραι, βοηθεῖν
+κατὰ τὴν ψιλίαν καὶ συμμαχίαν τὴν ⟦πρὸς⟧
+πρὸς ἀλλήλους ἡμῖν γενομένην καὶ τὸ
+δίκαιον παντὶ σθένει.
+— Μάρτυρας δὲ τούτων ποιοῦμαι Δία τε τὸν
+Καπετώλιον καὶ τοὺς Μεγάλους θεοὺς
+καὶ τὸν Ἥλιον καὶ τὸν Ἀρχηγέτην Ἀπόλλωνα,
+παρ’ ὧι καὶ τὰ περὶ τούτων ἀνιέρωται γράμματα.
+Τύχηι τῆι ἀγαθῆι
+Keywords: 
+king, testamentary heir, deposit, heir, oath clauses, property, public document, testament formula, conditional bequeathal, testamentary intent, witnesses, bequeathal of kingdom, political alliance, divine witnesses. 
+
+## List of Keywords 
+Category: Explicit legal frameworks (id: 6)
+  - laws of another country (id: 167)
+  - Lex Cornelia (id: 319)
+  - Lex Julia (id: 109)
+  - local religions or customs (id: 82)
+  - practice in province (id: 223)
+  - Senatus Consultum Orfitianum (id: 259)
+
+Category Formula, id: 4
+  - bequeathal clause (id: 83)
+  - cursing (id: 23)
+  - double document (id: 48)
+  - from today and after death (id: 307)
+  - meriteia (id: 243)
+  - oath clauses (id: 18)
+  - penalty clause (id: 63)
+  - testament formula (id: 144)
+  - testamentum per aes et libram (id: 260)
+  - vow (id: 130)
+
+Category: Legal matter (id: 3)
+  - actual possession (id: 238)
+  - adoption (id: 344)
+  - age of legal capacity (id: 170)
+  - agent authority (id: 56)
+  - Agnatic Consanguinity (id: 323)
+  - alimentary rights (id: 96)
+  - archival registration (id: 347)
+  - burial rites (id: 244)
+  - collective acquisition (id: 346)
+  - collective freedom (id: 348)
+  - conditional gift (id: 176)
+  - Creditor Priority (id: 326)
+  - cretio (id: 245)
+  - cumulative legacy (id: 279)
+  - damage of deposit (id: 143)
+  - deathbed statement (id: 229)
+  - degrees of kinship (id: 312)
+  - diminished value (id: 139)
+  - disclaimer of inheritance (id: 235)
+  - disinheritance (id: 281)
+  - disputed inheritance (id: 227)
+  - disputed lineage (id: 262)
+  - division of estate before death (id: 267)
+  - divorce (id: 351)
+  - election of rights (id: 301)
+  - eligibility to Inherit (id: 337)
+  - emancipation (id: 107)
+  - enhancement (id: 234)
+  - estate enhancement (id: 177)
+  - fictive sale (id: 240)
+  - fideicommissum (id: 278)
+  - fifth payment (id: 118)
+  - fraud (id: 52)
+  - general sale (id: 78)
+  - generational rights (id: 239)
+  - Gift vs. Inheritance (id: 328)
+  - grant of citizenship (id: 79)
+  - grave robbery (id: 288)
+  - hereditates fideicommissariae (id: 221)
+  - hypothec (id: 61)
+  - infamy (id: 51)
+  - inheritance conflict (id: 194)
+  - Inheritance priority (id: 173)
+  - inherited claims (id: 86)
+  - inoperative will (id: 342)
+  - intestacy (id: 69)
+  - joint legacy (id: 345)
+  - legal disability (id: 154)
+  - legal eligibility (id: 19)
+  - legitimate children (id: 248)
+  - liened property (id: 103)
+  - lost property (id: 27)
+  - mancipatory will (id: 145)
+  - manumission by testament (id: 277)
+  - marriage conditions (id: 187)
+  - marriage of soldiers (id: 247)
+  - material law (id: 65)
+  - minor’s protection (id: 55)
+  - modes of acquisition (id: 192)
+  - nearest agnate (id: 335)
+  - nullification (id: 71)
+  - nullity (id: 74)
+  - one-fifth payment (id: 134)
+  - order of birth (id: 226)
+  - order of death (id: 196)
+  - order of succession (id: 205)
+  - partial confession (id: 88)
+  - partial manumission (id: 320)
+  - paternal lineage (id: 311)
+  - power of sale (id: 350)
+  - primogeniture (id: 241)
+  - property transfer (id: 340)
+  - prospective estate (id: 237)
+  - proxenia (id: 57)
+  - ransom (id: 285)
+  - recoverable gifts (id: 188)
+  - refusal of gift (id: 338)
+  - refusal of inheritance (id: 343)
+  - relative priority (id: 299)
+  - Relative Priority (id: 313)
+  - renunciation of inheritance (id: 289)
+  - restitution (id: 29)
+  - revocation of citizenship (id: 77)
+  - revocation of will (id: 341)
+  - Right of habitation for the widow (id: 263)
+  - right of representation (id: 95)
+  - sacrilege (id: 355)
+  - Secured Debt (id: 325)
+  - seizure (id: 207)
+  - severability of legacy (id: 303)
+  - shared inheritance (id: 314)
+  - single witness (id: 68)
+  - slaves status (id: 339)
+  - specification of assets (id: 284)
+  - substitutio vulgaris (id: 265)
+  - succession disputes (id: 231)
+  - successive inheritance (id: 317)
+  - successive legacies (id: 349)
+  - supplements to a will (id: 308)
+  - suspected perjurer (id: 92)
+  - Tax collectors (id: 91)
+  - testamentary intent (id: 293)
+  - Testamentary Interpretation (id: 302)
+  - Testamentary Language (id: 327)
+  - testamenti factio activa (id: 217)
+  - testamenti factio passiva (id: 211)
+  - Timing of Intestacy (id: 321)
+  - transfer of inherited property (id: 334)
+  - transformation (id: 135)
+  - tribal division (id: 261)
+  - unwritten marriage (id: 256)
+  - usufructus (id: 266)
+  - verbal instruction (id: 193)
+  - wage dispute (id: 97)
+  - widow's inheritance (id: 179)
+  - Women's Status (id: 324)
+
+Category Legal terms, id: 5
+  - adstipulator (id: 114)
+  - agnatic succession (id: 309)
+  - bona vacantia (id: 220)
+  - bonorum possessio (id: 110)
+  - cession (id: 333)
+  - claim of theft (id: 94)
+  - codicil (id: 276)
+  - cognati (id: 252)
+  - consanguinity (id: 315)
+  - deathbed gift (id: 191)
+  - double portion (id: 233)
+  - emptio bonorum (id: 112)
+  - extortion (id: 120)
+  - extra portionem (id: 294)
+  - female succession (id: 199)
+  - gift after death (id: 305)
+  - heredes legitimi (id: 251)
+  - illegitimate child (id: 250)
+  - immovable property (id: 190)
+  - in iure cessio (id: 113)
+  - incertae personae (id: 218)
+  - intent (id: 356)
+  - intentional transgression (id: 21)
+  - inter vivos transfer (id: 290)
+  - intestate succession (id: 310)
+  - legatum (id: 209)
+  - mancipatio (id: 75)
+  - manus (id: 106)
+  - materfamilias (id: 105)
+  - monetary claim (id: 25)
+  - movable property (id: 189)
+  - next of kin (id: 246)
+  - nuncupation (id: 157)
+  - paterfamilias (id: 104)
+  - patria potestas (id: 9)
+  - perjury (id: 28)
+  - postumus alienus (id: 219)
+  - praescriptio (id: 53)
+  - pre-legacy (id: 295)
+  - Primogeniture (id: 292)
+  - representation in succession (id: 253)
+  - repudiatio hereditatis (id: 236)
+  - secession of property (id: 332)
+  - silence (id: 222)
+  - societas (id: 115)
+  - specificatio (id: 171)
+  - statutory rights (id: 298)
+  - Sworn statement (id: 37)
+  - Testamentary Heir (id: 322)
+  - theft (id: 26)
+  - unintentional transgression (id: 22)
+  - vesting of rights (id: 291)
+
+Category Objects, id: 1
+  - beam (id: 70)
+  - betrothal gifts (id: 186)
+  - boundaries of property (id: 306)
+  - coin (id: 140)
+  - country property (id: 271)
+  - currency (id: 62)
+  - debt (id: 304)
+  - debt document (id: 87)
+  - deposit (id: 122)
+  - donkey (id: 8)
+  - dowry property (id: 198)
+  - gift (id: 73)
+  - gifts of groomsmen (id: 183)
+  - grave (id: 286)
+  - guilt offering (id: 121)
+  - house in the city (id: 268)
+  - livestock (id: 270)
+  - loan (id: 32)
+  - marriage contract (id: 101)
+  - marriage presents (id: 185)
+  - maternal estate (id: 273)
+  - palm grove (id: 72)
+  - paternal estate (id: 330)
+  - peculium (id: 161)
+  - property (id: 60)
+  - public document (id: 213)
+  - slave (id: 59)
+  - statute (id: 80)
+  - tablets (id: 158)
+
+Category Offices and Administration, id: 137
+  - archive for private property (id: 146)
+  - consilium principis (id: 318)
+  - conventus (id: 254)
+  - fiscus (id: 206)
+  - manumission tax (id: 283)
+  - office (id: 81)
+  - opening of testament (id: 282)
+  - public service (id: 182)
+  - taxes (id: 58)
+
+Category Parties, id: 2
+  - adult (id: 181)
+  - bastard (id: 204)
+  - brother (id: 66)
+  - buyer (id: 147)
+  - child (id: 160)
+  - co-heirs (id: 297)
+  - convert (id: 201)
+  - craftsman (id: 142)
+  - creditor (id: 195)
+  - curator (id: 108)
+  - daughter (id: 172)
+  - deaf (id: 152)
+  - dependents (id: 162)
+  - father (id: 150)
+  - firstborn (id: 224)
+  - freedperson (id: 165)
+  - freedperson without citizen rights (id: 168)
+  - grandchild (id: 274)
+  - guardian (id: 242)
+  - heir (id: 178)
+  - illegitimate child (id: 249)
+  - indirect heir (id: 200)
+  - intersex person (id: 175)
+  - Junian Latin (id: 156)
+  - litigant (id: 257)
+  - mentally impaired (id: 153)
+  - minor (id: 180)
+  - mother (id: 272)
+  - mute (id: 164)
+  - partner (id: 184)
+  - peregrine (id: 166)
+  - presumed heir (id: 232)
+  - presumed relatives (id: 331)
+  - presumed slave (id: 230)
+  - presumed son (id: 228)
+  - priest (id: 133)
+  - proper heirs (id: 336)
+  - robber (id: 90)
+  - scale holder (id: 148)
+  - serf (id: 269)
+  - sister (id: 275)
+  - slave (id: 202)
+  - soldier (id: 159)
+  - son (id: 163)
+  - tax collectors (id: 212)
+  - testator (id: 149)
+  - tutor (id: 169)
+  - veteran (id: 280)
+  - ward (id: 155)
+  - wife's heirs (id: 197)
+  - witnesses (id: 99)
+  - woman (id: 151)
+
+Category Places, id: 136
+  - Athens (id: 353)
+  - unknown (id: 354)
+
+Category Procedure, id: 329
+  - claimant's oath (id: 98)
+  - compulsory oath (id: 40)
+  - compulsory testimony (id: 33)
+  - confession (id: 174)
+  - consent-based resolution (id: 47)
+  - court officer (id: 119)
+  - decisory oath (id: 46)
+  - denial of testimony (id: 11)
+  - disqualified witnesses (id: 17)
+  - divorce (id: 352)
+  - false oath (id: 20)
+  - judicial oath (id: 39)
+  - oath (id: 54)
+  - oath of deposit (id: 24)
+  - oath of ignorance (id: 35)
+  - oath of knowledge (id: 34)
+  - oath of orphans (id: 100)
+  - oath of testimony (id: 89)
+  - oath versus judgment (id: 49)
+  - procedural law (id: 64)
+  - procedural oath (id: 45)
+  - proof (id: 255)
+  - refusal of action (id: 50)
+  - refusal to swear (id: 42)
+  - rejection of judges (id: 258)
+  - sworn denial (id: 44)
+  - voluntary oath (id: 38)
+  - witness obligation (id: 13)
+  - witness summons (id: 36)
+  - woman testimony (id: 225)
+
+Category Punishments, id: 138
+  - capital punishment (id: 287)
+  - fine (id: 117)
+  - penalty for breach of will (id: 264)
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the following schema:
+
+[
+  {
+    "category": "Name of the category",
+    "keyword": "Matched or suggested word",
+    "suggested": true/false,
+    "category_id": "ID of the category (or -1)",
+    "keyword_id": "ID of the keyword (or -1)"
+  }
+]
+
+## Input Data
+Source Text, 118139 (Aramaic):
+על הפטית ליקיס קטוליס סורס תנינותא/תניניתא/ ומרקס אורליס אנטונינס שנת תלת לאוטקרטור קסר טרינס הדרינס סבסטס ועל מנין
+הפרכיה דא בעשרין וארבעה בתמוז שנת עשר וחמש במחוז עגלתין יהב ומקים במלה קימה מתנת עלם די לא תעדה מן רעותי
+אנה שמעון בר מנחם די עמר במחוזא לכי אנתי מרים אנתתי ברת יוסף בר מנשה ית כל מה די איתי לי במחוזא מן בתין ודרו֗ן ושפלין ועליין
+ומאני בי וחרוף ועללהי וגני תמרין וארע ואילן כלה כדי <כ>ת<י>בין אתריא בלחוד בש֗טרא דנה ושאר כל מנדעם די איתי לי די לא וציף עם כל די
+אקנא ויהוא לי מן כען יהבת לכי מתנת עלם ואלין שמהת אתרי מתנתא דא ג֗[נ]ת תמריא די לי ש֗פירא וכל די בה תחומיה למדנחא מדברא
+ולמערבא ירת֗י֗ יוסף בר דרמנס ולצפונא ארע וערת [ד]י לירתי מנחם ואחרנין ולדרומא ירתי יוסף בר בבא וענימוהי עם יר֗ת֗י יוסף בר דרמנס לילא
+חמ֗ש֗א֗ בש֗ב֗ה֗ שעה ופ֗לג֗ מן֗ שעין תלת וכות מת֗נא֗ א֗חרי ית אתרא די מ֗תק֗רא כרבא נציב תמרין תחומוהי למד֗נחא גרמאלה בר
+ערהזו ו֗ל֗מ֗ע֗ר֗ב֗א֗ נ֗הר֗א ר֗ב֗א ו֗י֗ר֗ת֗י֗ [יוחנ]ן בר בבא לדרומא ולצפונא מנ֗לס בר עותאלה וענימוהי כדי חזה וגנתא חד֗תא ד֗י֗ בני טבירוס וסחר
+לי מן [ש]מ֗ע֗ו֗ן֗ ה֗ב֗ג֗ד֗ ת֗ח֗ומיה למדנחא ולד֗ר֗ומא גרמאלה בר ערהזו ולמערבא שמוע בר מנחם ו֗א֗ח֗ר֗נ֗י֗ן֗ ולצ֗פ֗ו֗נא נהרא דכ֗ר֗א֗ וארחא <ועני>מיה יום
+[חד בשבה פלגות שעה מן מי ודיא] ע[ם י]ר֗ת֗י֗ ה֗ב֗ג֗[ד ויום תרין פלגות שעה מן תלת קיסמא וכות] א֗ר֗ע֗א חורתא ותמריא
+[תחומ]יה למדנחא י[רתי יוסף בר ]בבא ٠٠٠٠٠ ו[ל]מער[ב]א ש[מוע ]בר מנחם ולצפונא אתריא ד֗[י] ל֗י[רתי יוסף בר ערתי] די פלגין ל٠٠٠ּ[ ולדרומא יו]חנה
+[ברת מכותא ענימיה יום ארבעה בשבה שעה חדה ולי]ל ארבעה בשבה שעה עם ירתי יוסף בר בבא [ועם] זבד֗יו֗ן֗ [ו]ח֗ב֗ר֗ו֗ה֗י֗ [וכות] מתנה אחרי כ֗ל תמרין
+[ואילן מבדרין דילי במ]ח֗ו֗ז֗א֗ [על שקיא וכות] מ֗ת֗נ֗ה֗ אחר֗י ד֗ר֗ת֗א֗ ובתיא דילי במחוזא ועליהום [ושפלהום] וכל די בהום עם כל די עלא כדי חזא לי בהון
+٠٠٠ּ ٠٠ ٠٠٠٠٠٠٠٠٠ ٠٠ וכ֗ו֗ת֗ [מנעל ומ]נ֗פק [וע]נימ[י]ן֗ כלא י֗הבת לכי אנתי מרים אנתתי מתנת עלם על אסרה די אהוא אכל ומחסן ופרע
+פ֗ר֗ע֗ו֗ן֗ מל֗כ֗ה֗ו֗ן֗ ו֗ע֗מ֗ר֗ ו֗מ֗ע֗מ֗ר֗ ב֗ד֗ר֗תא וב֗ת֗י֗א כל י֗ו֗מ֗י֗ ח֗י֗י֗ וכדי אהך לבית עלמי תהוין ר֗שיה ושליטה באתרי מתנתא דא או במ֗ה די
+[א]ש֗ב֗וק֗ מנהו֗ן֗ וד[י לא אשתרהן] ול֗א֗ אתז֗בן לפרנוס נפשי֗ מן באתר דנה ובכל נכ֗ס֗ין ודמי נכסין ומ֗א֗ני בי וכל מנדעם זעיר וסגיא די יהוא
+לי מן כע֗ן [ועד עלם] די וציף בשטר מתנתא דנה למקנא ולמזבנו ולמנחל ולמורתו ולמרהן ולמנתן ולמזרע ולמנצב ולמבנא ולמפרוע
+פרענהון ולמעבד ב֗ה֗ו֗ן כל די תצבין אנתי ובניכי וירתיכי ומן די יחסן מן ידכי מן יום די אהך לבית עלמי ועד עלם ונדר ומומא ואסר
+ושבועה לא איתי לבני ולירתי ולאנוש כלה בשמי לא עליכי ולא על ירתיכי ולא על מן די יחסן מן ידכי מתנתא דא או מן קצתה מנדעם
+על כל די איתי לי וציף ודי לא וציף ואיתוהי ויהוא לי מן כען כלא יהוא לכי בנזק/בנוף/ מתנתא דא ורשיה ושליטה למעבד כל די תצבין
+מן יום די אהך לבית עלמי ועד עלם ודין ודבב ומומא כלה לא איתי לירתי ואצדקי ואנוש כלה בשמי עליכי ולא על ירתיכי על כל די עלא
+ועל כל די אשבוק קדמיכי כדי אהך לבית עלמי מן כלא כתבת מבר֗[א] יתכי וית כל ולד די תלדין מני מן כען וית כל אצדק וירת
+ואנוש די יחסן מן ידכי מתנתא דא או מן קצתה מנדעם מן נדר ומומא כלה מן כל אנוש בשמי אצדק וירת ורחיק וקריב
+בחיי ומן די אהך לבית עלמי ועד עלם כחליקת מתנתא ובראוניא די מתכתבין לעלם בלחוד די קים יהוה לבבתא ברתנה
+די הן תתארמל ולא יהוא לה בעל די תהוא עמרה בבית אוריא די מן קצת אתרי מתנתא דא ועללה ונפקה עמכי בדרתא ה^י^
+לבית**אוריא כל יומין די תהוא ארמלה די לא בעל ולא רשיה ולא שליטה תהוא למנעלו לביתא הו בעל כדנה מן רעותי כתבת ואברית
+יתכי מן ירתי ומן אנוש בשמי על כל די עלא כתיב מן נדר ומומא ודין ודבב ומן עלת כל מנד[ע]ם ז֗ע֗יר וסגיא [ב]ח֗יי ומן י֗ו֗ם֗ [די אהך
+לבית עלמי ועד עלם על די כדן לקבל דך מתנתא דא יהבת לכי֗ ע֗ל֗ א֗ס֗ר֗ ד֗י֗ ת֗ה֗[וי]ן֗ [א]נ֗ת֗[תי כדי] מן קדם דנה ומשמשה [יתי
+מן ק֗צ֗ת֗ מ֗ת֗נ֗תא֗ דא֗ [כדי מן קדם דנה וקים כל די עלא כתיב ל[קבל ד]ך֗
+[ע]ל[ הפטית ]ל[יקיס קט]ל[יס סורס תנינותא/תניניתא/ ומרקס אורליס אנטונינס שנת ת]ל[ת לאוטקרטור
+[קסר טרינס הדרינס סבס]ט֗ס֗ ו֗ע֗[ל מנין הפרכיה דא בעשרין וארבעה בתמוז שנת
+[עשר וחמש במחוז ע]ג֗לתין יהב֗ ו֗מ֗ק֗י֗ם֗ [במלה קימה מתנת על]ם די לא תע֗[דה מן רעותי
+[אנה שמעון בר מנ]ח֗ם֗ ד֗י֗ עמר במח[וזא לכי ]א֗נתי מ֗רים אנתתי ברת יו֗ס֗[ף
+בר מנשה י֗ת֗ כ֗ל֗[ אר]ע ואילן[ כלה כדי כתיבין אתריא בלחוד בשטרא דנה
+[ושאר כל מנד]ע֗ם֗ ד֗[י לא וציף די] איתי לי [או די אקנא ויהוא לי מן כע]ן כלא יהב[ת לכי מתנת
+[עלם אלין שמהת אתרי מתנתא דא גנת תמריא די לי שפיר]א֗ וכל די בה תח[ומיה למדנחא מדברא
+[ולמערבא] ירת֗[י י]וסף ב֗ר דורמנס ו֗לצפונא א[רע ו]ע֗רת די לירתי מנחם ואחרנין ולדרומא
+ירתי יוסף֗ בר בבא וע֗נ֗ימיה עם ירתי יוסף בר [דו]רמ֗נס מין שעה ופלג מן שעין תלת
+וכות אתרא די מתקרא כרבא נציב תמרין תחומוהי למד[נ]חא [ג]רמאלה בר ערהזו ולמ[ערבא
+[נ]ה֗רה דכ[ר]א֗ [וירתי יו]חנן בר בבא ולד֗ר֗ומ֗א ולצ[פו]נ֗א֗[ מ]נ֗ל֗ס בר עותלה וענימיה כדי חזא
+וכות גנתא חד[תא די בני טבירו]ס֗ וסחר לי מן שמעון הבגר תחומיה למדנחא
+[ו]ל֗[ד]רומא גרמלה בר ערהזו ולמערבא שמוע בר מנחם ואחרנין ולצפונא נהרא דכ֗ר֗א֗
+וארחא ענימיה חד בשבה פלגות שעה מן מי ודיא עם ירתי הבגר ויום תרין
+[פ]לגות שעה מ[ן ]ת֗לת קיסמא וכות ארעא חורתא ותמריא די בה תחומיה למדנחא
+[יר]ת֗י יוסף[ בר בבא ٠٠٠ּ] ע[٠٠٠ ו]למ֗[ערבא שמוע ]בר מנחם ולצפונא אתריא די ליר֗ת֗[י י]ו֗סף
+בר עתרי די פלגין לי֗[٠٠٠ּ ולדרומא יו]חנה ברת מכותא ענימיה יום ארבעה בשבה
+ש֗עה חדה ולילא ארבעה בשבה שעה חדה עם ירתי יוסף בר בבא ועם זבדיון
+[ו]חברוהי וכות כל תמרין ואילן מבדרין די לי במחוזא על שקיא וכות מתנה אח֗ר֗י֗
+דרתא ובת[יא די] לי במחוזא ועליהון ושפלהון וכל די בהון עם כל ד[י ע]ל[א] כ֗ת֗י֗ב֗ [כ]די חזא
+[לי ב]הון ש[٠٠٠] ٠٠٠ּ[٠٠] ٠٠לל٠٠٠٠٠٠٠٠[ מנע]ל ו[מנ]פק ועני כלא יהבת לכי֗ א֗נתי מרים
+אנתתי ברת יוסף[ מתנ]ת֗ ע֗ל֗ם[ על ]א֗סר֗ה די אהוא אכל ומחסן ופרע פרעון מלכהון
+[וע]מר ומעמר בדרתא ובתיא אנון כל יומי חיי וכדי אהך לבית עלמי תהוין
+רשיה ושליטה באתרי מתנתא דא או במה די אשבוק מנהון כדי א֗ה֗ך֗
+[ל]בית עלמי די לא אתזבן ולא אשתרהן לחשחות נפשי מן באתר֗[ דנה ובכ]ל֗ נ֗כ֗[סין
+ודמי נכ[סין ומאני ]בי וכל מנדעם זעיר[ ו]סגיא די יהוא לי מן כע[ן ועד ע]ל֗[ם
+[ד]י וצ֗[יף בשטר מתנת]א֗ ד[נה] ל֗[מ]קנא ולמזבנו ולמנחל ולמורתו ולמרהן ולמנתן ולמזרע֗
+[ו]ל֗מ֗נצב ולמבנא ולמפרוע פרענהון ולמעבד בהון כל די תצבין אנתי ובניכי די יהו[ון
+לכי מני מן כען וירתיכי מן די יחסן מן ידכי מתנתא דא או מן קצתה מנדעם[ מ]ן
+יום די אהך לבית עלמ֗י֗ ועד עלם ונדר ומומא ואסר ושבועה֗ ל֗[א א]י֗ת֗[י] ל֗ב֗[ני
+ויר֗ת֗י֗ ו֗א֗נוש ב֗שמי רחיק וקריב לא על[י]כי ולא על ירתיכי ולא על [מ]ן֗[ די יחס[ן֗ מ֗ן֗[ ידכי
+[בחיי ומן די] אהך לבית עלמי על די כדן לעלם כדנה מן רעותי כתבת לכי
+מתנתא דא כדי עלא די תהוין אנתתי כקדמיתא ומשמשה יתי מן קצתה מתנתא֗
+דא עד יום די אהך לבית עלמי ותהוין רשיה ושליטה בכל די אש[בוק
+כדי עלא מן יום די אהך֗ לבית עלמי ועד עלם די לא דין ולא ד֗[בב ו]ל[א] מ֗ו֗מ֗[א ולא נדר
+כחל֗י֗ק֗ת֗ מת֗נתא ובראוניא די מתכתב֗ין לעלם בלחוד די קים י֗[ה]וא [ל]בב[תא
+ב֗ר֗[תנה ד]י ה֗ן֗ ת֗ת֗[א]ר֗מל ולא יהוא לה בעל די תהוא עמרה בבית אוריא די מן
+קצת מתנתא דא ועללה ונפק֗[ה ע]מ֗כ֗י֗ בדרתא הי לבית אוריא כ֗ל יומ֗[ין
+די תה֗ו֗א֗ א֗[רמ]ל֗[ה די לא ]ב֗ע֗ל֗ ולא רשיה ולא שליטה תהוא למנ֗[ע]לו֗[ לביתא
+[ה]ו֗ בעל כ֗[דנה מן רעו]ת֗י כתבת ואברית יתכ֗י מ֗[ן ירתי ומן כל אנוש
+[בשמי על כל די עלא כתיב מן נדר ומומא ודין ודבב ומן
+[כל על]ת֗ מ֗[נדעם ז]ע֗יר וסגיא [בחיי ומן יום די ]א֗ה֗ך֗ ל֗ב֗י֗ת֗ ע֗ל֗מ֗י֗
+ועד עלם על די כד֗ן֗[ ל]קבל דך
+[שמעון] ב֗ר֗ מ[נ]ח֗ם על נפשה כתבה
+[٠٠٠] ٠٠ [٠٠٠ שה]ד
+[٠٠٠ ב]ר֗ מ[נ]חם֗ שהד
+[٠٠٠] ٠٠٠٠٠ [שה]ד֗
+[٠٠٠]ּיה[٠٠٠]שיפונא מן בית עש֗הו֗
+[٠٠٠]٠٠٠שה[٠٠
+[٠٠٠]שמעון[٠٠٠
+
+
+English Translation:
+During the second consulship of Lucius Catilius Severus and (of Marcus!) Aurelius Antoninus, year three of Imperator Caesar Trainus Hadrianus Augustus, and (according) to the counting of : this province, on the twenty-fourth of Tammuz, year ten and five (=15), in Mahoz 'Eglatain: (I hereby) bestow with validity, by a valid statement, a perpetual gift that shall not pass away, of my own free will -
+• 1, Shim'on, son of Menahem, who resides in Mahoza', to you; you, Miryam, my wife, daughter of Yoseph, son of Menasheh, all that 1 possess in Mahoza; (consisting) of houses and courtyards, (both) lower (stories) and upper (stories),
+* and household utensils, and date palms and their yield, and palmeries, both ground and trees, in entirety, as they are inscribed among the sites specifically in this document, and whatever else I (may) possess that is not described, together with all that
+* I may acquire and (that) will become my possession from this time (forth) —I have given to you as a gift forever. And these are the designations of the sites of this gift: The pa[lIm-grove that I possess, of good quality, and all that is in it. Its boundaries: to the east: the desert;
+• and to the west: the (property of the heirs of Yoseph, son of Dormenes; and to the north: the craggy land belonging to the heirs of Menahem, and others; and to the south: (the property of the heirs of Yoseph, son of Baba. And its irrigation periods: together with the heirs of Yoseph, son of Dormenes, at night,
+" (on) the fifth (day) of the week, (for) one and one-half (hours) of (the) three hours (allotted). And, as well, another gift, the site that is called KRB', (consisting of a planting of dates. Its boundaries: to the east: (the property of Garm-'Illah, son of
+& 'Arahzu; and to the west: the large river (or: the river ...), and (the property of) the heirs of [Yohana]n, son of Baba; to the south and to the north: (the property of Menelaus, son of 'Awat-Illah. And its irrigation periods: as is fitting. And (in addition) the new orchard (or: garden) that had belonged to the sons of Tiberius, and was acquired (9)by me (lin trade (or: and was turned over (to me)
+• from [Shi]m'on, the Clothier. Its boundaries: to the east and to the south: (the property of Garm-'Illah, son of 'Arahzu; and to the west: (the land of Shammua', son of Menahem, and others; and to the north: the aforementioned river (or: the ... river) and the road. And the irrigation <periods>: [the °first (day]
+1° [of the week, for one-half hour, from the waters of the wadi], toge[ther with the heirs of the Clothlier, and the second day for one-half hour (out) of three (allotted) shares of water. And as well], the "white" land and the date palms RECTO
+" Its [boundaries:] to the east: (the land of) the heirs of Yoseph, son of ]Baba'...; and [to] the west:] (the property of) Shammual, son of Menahem; and to the north: the sites of the heirs of Yoseph, son of
+"Arati]. that branch off into ...; [and to the south: (the property of Yohanah,
+1' [daughter?) of Makkuta. The irrigation periods: (the) fourth day of the week, for one hour, and the ni]ght of the fourth day of the week, one hour (together) with the heirs of Yoseph, son of Baba, [and together with] Zabdion and his associates. [And, as well], (still) another gift, (consisting of) all the date palms
+" [and the trees belonging to me, scattered in Maho]za, [including the irrigation ditches. And; as well,) (still another gift, (consisting of the courtyards and houses that belong to me in Mahoza, including their upper (stories) [and their lower (stories)], and all that is (contained) within them, together with all that is <written> above, as is fitting for me with respect to them.
+' ... And, as well, [rights of) entry and eg)ress, [and the] irrigati]on [per]iods, in entirety, I have given to you; you, Miryam, my wife, as a gift forever, on the binding agreement that I may enjoy the usufruct, and retain possession, and remit
+1 payment of their property taxes; and reside and install (others) as residents, in the courtyards and houses, all the days of my life. And when I go to my eternal home, you shall become the rightful possessor of the sites of this gift, or of what
+16 [I shall] leave of them behind, (and) which will not have been pledged (as security)], and (which) will not have been sold for my own subsistence subsequent to this (time). And (similarly), over all properties, and income of property, and household utensils, and anything (whatsoever), small or large, that? will possess
+" from this time forth [and forever], that is described in this document of gift, to buy and to sell, and to inherit (or: and to bestow) and to bequeath, and to pledge (as security) and to grant as gift, and to sow and to plant, and to build, and to remit
+18 their payments, and to do with them all that you wish; you and your sons and your heirs, and whoever may gain possession from your hand from the day on which I will go to my eternal home and forever. And Tolthere shall be no vow or oath, or binding agreement,
+19 or sworn statement on the part of my sons and my heirs, or on the part of any person (whosoever, acting) in my name; not against you, nor against your heirs, nor against anyone who may gain possession of this gift from your hand, or any part of it,
+20 regarding all that is mine, (whether) described or not described; what is (now) mine or may become mine from this time forth. In entirety, it shall belong to you in the fullest extent of this gift (or: for damage against this gift). (And you) are the rightful possessor, to do whatever you wish,
+" from the day on which I go to my eternal home, and forever. And there shall be no suit or contest or oath whatsoever on the part of my heirs, or my legal inheritors, or on the part of any (other) person (whosoever, acting) in my name against you, or against your heirs, regarding all that (is written) above;
+"nor concerning all that I shall leave in your presence when 1 go to my eternal home. From (claims regarding) all I have written over, I hereby grant you clearance, and (as well, any child that you may bear from me, from this time forth; or any legal inheritor or heir," the horreum (= storage place for grain) (or: pen), for as long as she is a widow without a husband; but she shall not have the rightful authority to bring a husband into that house. Thus, of my own free will, I have granted written clearance
+"to you from (the claims of my heirs, and from any person (acting) in my name, regarding all that is written above, from any vow or oath or suit or contest, and from any cause whatsoever, small or large, [during] my lifetime and from the day [that I will go]
+* to my eternal home, and forever. With respect to this, (and) in consideration thereof, I have given you this gift, on the binding agreement that you (continue to) be [my wilfe [as] (was so) previously, and be attending to [my needs]
+" from a part of this gift, [as (was so) pre]viously. And all that is written above is binding in consideration
+there]of.
+LOWER VERSION
+30
+[Dur]ing[ the second consulship of] Luc[ius Cati]lius Severus and (of) Marcus!) Aurelius Antoninus, year th]r(ee of Imperator
+" [Caesar Traianus Hadrianus Augustus, and according[ to the counting of this province, on the twenty-
+fourth of Tammuz, year]
+* (fifteen, in Mahoz E]glatain: (I hereby) bestow with validity, (by a valid statement, a perpetual gift that shall not pass away, of my own free will] -
+" [I, Shim'on, son of Mena]hem, who resides in Mahloza, to you;] you, Miryam, my wifc, daughter of
+Yose[ph],
+34
+son of Menasheh, all of the[ lan]d and trees, [in entirety, as the sites are described specifically in this deed, 3 and what]ever else] that is not described that] I (may) possess, [or that I may acquire and (that may
+become my possession from this tim]e forth. In entirety, I have given to you (as) a gift]
+36 [in perpetuity. And these are the designations of the sites of this gift: The palm-grove that I possess, of good quality, and all that is in it. [Its] boundaries: to the east: the desert;
+" and to the west:] (the property of the heirs of YJoseph, son of Dormenes; and to the north: the [c]raggy
+[and] belonging to the heirs of Menahem, and others; and to the south:
+38 (the property of the heirs of Yoseph, son of Baba. And the irrigation periods: together with the heirs of Yoseph, son of [Do]rmenes, (consisting of watering) for one and one-half hours of the three hours (allotted).
+39 And as well: The site that is called KRB', (consisting of) a planting of date palms. Its boundaries: to the ea[s]t: (the property of) [Ga]rm-'Illah, son of 'Arahzu; and to the w[est:]
+40 the aforementioned [r]iver (or: the ... [r]iver), [and (the property of) the heirs of YoJhanan, son of Baba; and to the south and to the n[or]th: [(the property of) Me]nelaus, son of 'Awat-Illah. And the irrigation periods: as is fitting.
+" And, as well: The ne(w] orchard (or: garden) [that (had) belong(ed) to the sons of Tiberiu]s and which was acquired by me in trade (or: and was turned over to me) from Shim'on, the Clothier. Its boundaries: to the east
+* [and] to the (slouth: (the property of) Garm-Illah, son of 'Arahzu; and to the west: (the property of)
+Shammua, son of Menahem and others; and to the north: the aforementioned river (or: the ... river)
+* and the road. The irrigation periods: (the) first day in the week for one-half hour from the waters of the wadi, (together) with the heirs of the Clothier, and the second day
+" [one half-hour off the three (allotted) shares of water. And, as well: the "white" land and the date palms
+that are in it. Its boundaries: to the east:
+" (the property of the [helirs of Yoseph, son of Baba...]...[...; and] tol the west: (the property of)
+46
+Shammua', son of Menahem; and to the north: the sites that belong to the heirs of Joseph, son of Arati, that branch off into...[...; and to the south: (the property of YoJhanah, daughter!) of Makkuta. The irrigation periods: (the) fourth day of the week" or (any) person who may gain possession of this gift, or of any part of it from your hand; from any vow or oath whatsoever, by any person (acting) in my name, whether legal inheritor or an heir, (whether) distant or near,
+" during my lifetime and after I go to my eternal home, and forever; as is customary for (such) gifts and clearances, that are (granted) in written form in perpetuity. The sole (exception is that) it shall be the established right of Babatha, our daughter,
+25 that if she is widowed and will have no husband, that she may reside in the horreum (= storage place for grain) (or: pen), which is a part of the sites of this gift, and may have (frec) access and egress together with you in that courtyard of "(for) one hour; and the night of the fourth day of the week-for one hour (together) with the heirs of
+Yoseph, son of Baba' and (together) with Zabdion
+" [and] his associates. And, as well: All the date palms and trees belonging to me, scattered in Mahoza,
+including the irrigation ditches. And, as well: still another gift
+* (consisting of the courtyards and the houses that belong to] me in Mahoza, (including) their upper (stories) and their lower (stories), and all that is (contained) within them, (together) with all that is] written [a]bo(ve, as] is fitting
+"(for me with respect to] them...[...)..(...]. ...[And, (as well): (rights of) entr]y and [egres]s, and
+irrigation periods. In entirety, I have given (it) to you; you, Miryam,
+" my wife, the daughter of Yoseph,[ (as) a gift in perpetuity, on Jihe binding agreement that I will enjoy
+the usufruct, and retain possession, and remit the payment of their property taxes;
+* Land relside and install (others) as residents, in those courtyards and houses, all the days of my life. And when 1 go to my eternal home you shall become
+" the rightful possessor of the sites of this gift, or of what I shall leave of them behind when I go [to] my eternal home, and which will not have been sold or pledged (as security) for my own needs
+subsequent to [this (time). (And similarly), over al]! pro[perties]
+"and the income from pro(perties], and houshold (utensils), and anything (whatsoever), small or ]large,
+that I will possess from this [time (forth) and fore]v[er];
+36 [whilch is described in Ithlis deed of gift], tol bluy and to sell, and to inherit (or: to bestow) and to bequeath, and to pledge as (security) and to grant as gift, and to sow
+5[and ]to plant, and to build and to remit their payments, and to do with them anything that you wish. You and your sons that will [be (born)]
+' to you from me, from this time forth; and your heirs (and) whoever may gain possession of this gift from
+your hand, or any part of it (whatsoever) [fro]m
+59 (the) day that I go to my eternal home and forever. There shall b[e] n[o] oath, or vow, or binding agreement or sworn statement on the part of [my] s[ons]
+6 and my heirs, or any person (acting) in my name, whether distant or near; not against you nor against your heirs, nor against (any person) [w]ho [may gain possessio]n (of this gift) from your hand]
+have of my own free will written (over) to you
+62 this gift as (specified) above. That you (continue) to be my wife as (was so) previously, and be attending to my needs from a part of this gift
+63 until the day when I go to my eternal home. And you shall become the rightful owner of all that I lea[ve behind]
+6 as (specified above), from the day I go to my eternal home and forever. There may be no suit, or co[ntest,] n[or) oath nor vow),
+6 as is the custom of gifts and clearances that are (executed) in written form, forever. The sole (exception is that it shall be the established right [of] Baba[tha],
+6 our daughter, that if she is widowed and will have no husband, that she may reside in the horreum (= storage place for grain) (or: pen) which is
+6 a part of this gift, with (rights of) entry and egress (together) wjith you in that courtyard (leading) to the horreum (= storage place for grain) (or: pen) all the days]
+6 that she shall remain a wi[dow without] a husband; but she shall not have the legal right to bri[ng in]to
+10th]at [house]
+" a husband. T[hus, of] my [own free will!, I granted written clearance to you from (the claims of) my heirs,
+and from any person]
+7° [(acting) in my name regarding all that is written above, from (any) vow, or oath, or suit or contest, and from]
+[any caus]e wh[atsoever, s]mall or large, [during my lifetime and from the day ]! go to my eternal home
+72
+and forever, with respect to this (and) in clonsideration thereof.
+

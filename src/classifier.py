@@ -385,10 +385,16 @@ class Classifier:
         keywords = DataLoader.load_keywords(self.keywords_csv)
         hierarchy = format_keywords_by_category(keywords)
 
+        translation = metadata.get('translation', '')
+        translation_note = " and its English translation" if translation else ""
+        translation_section = f"\nEnglish Translation:\n{translation}" if translation else ""
+
         prompt = self.prompts.get("classification_prompt", "").format(
             hierarchy=hierarchy,
             text=text,
-            translation=metadata.get('translation', ''),
+            translation=translation,
+            translation_note=translation_note,
+            translation_section=translation_section,
             language=metadata.get('language', 'Hebrew'),
             Language=metadata.get('language', 'Hebrew'),
             source_name=metadata.get('source_name', ''),

@@ -1,0 +1,45 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Hebrew source.
+ Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it.
+
+2. Select from the provided source legal terminology, or specific words or short phrases that are essential to the specific legal matters, legal principles or legal situations discussed in the text. 
+
+3. Exclude very common, high-frequency words and general vocabulary that are not pertinent to the legal matter at hand (such as particles, adjectives, adverbs, names, objects that are not relevant to the legal matter) 
+
+4. For single words, return the dictionary form (lemma) of the selected term. For fixed phrases return its accepted form (e.g. “in potestate”) 
+
+5. Guardrails:
+Do not return words that don’t appear in the text of the provided source.
+Return only words in the original language of the source.
+
+## Examples
+[1] Hebrew: Mishnah Bava Batra 8:5
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+Index:
+בכור, הכותב נכסיו, מחלק נכסיו, מתנה על מה שכתוב בתורה, ירושה, מתנה, נחלה, נכס, פי שנים, ראוי ליורשו, רוח חכמים נוחה הימנו
+[2] Latin:  Ps. Ulpian 20.10
+Filius familiae testamentum facere non potest, quoniam nihil suum habet, ut testari de eo possit. Sed divus Augustus Marcus constituit, ut filius familiae miles de eo peculio, quod in castris adquisivit, testamentum facere possit.
+
+Index: 
+castra, filius familiae, miles, peculium, testamentum, testari, testor
+
+[3] Greek: Gnomon of Idios Logos 9
+θ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.
+
+Index:
+κληρονομέω, πάτρων, φίσκος, ἀδιάθετος, ἀπελεύθερος, ἀστός, ἄτεκνος, ἐπιδικάζομαι, ἐπιδικάζω 
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Source Text, 118711 (Hebrew):
+ותקרבנה בנות צלפחד – כיון ששמעו בנות צלפחד שהארץ מתחלקת לשבטים ולא לנקבות, נתקבצו כולן זו על זו ליטול עצה. אמרו: לא כרחמי ב"ו רחמי המקום! ב"ו רחמיו על הזכרים יותר מן הנקבות, אבל מי שאמר והיה העולם אינו כן, אלא על הזכרים ועל הנקבות, רחמיו על הכל, שנאמר (תהלים קמה) טוב ה' לכל ורחמיו על כל מעשיו: בן חפר בן גלעד בן מכיר בן מנשה – מגיד הכתוב שכשם שהיה צלפחד בכור – כך היו כולן בכורות; וללמדך שהיו זכאות בנות זכאי. וכל מי שמעשיו סתומים מעשה אבותיו סתומים, והכתוב מייחסו לשבח – הרי זה צדיק בן צדיק; וכל מי שמעשיו סתומים ומעשה אבותיו סתומים, והכתוב מייחסו לגנאי – הרי זה רשע בן רשע. ר' נתן אומר: בא הכתוב ללמדך שכל צדיק וצדיק שגדל בחיק רשע ולא עשה כמעשיו – להודיע כמה צדיק גדול, שגדל בחיק רשע ולא עשה כמעשיו. וכל רשע שגדל בחיק צדיק ולא עשה כמעשיו – להודיע כמה רשע גדול, שגדל בחיק צדיק ולא עשה כמעשיו. עשו גדל בין ב' צדיקים, בין יצחק ובין רבקה – ולא עשה כמעשיהם: עובדיה גדל בין ב' רשעים, בין אחאב ואיזבל – ולא עשה כמעשיהם, ונתנבא על עשו שגדל בין ב' צדיקים – בין יצחק לרבקה ולא עשה כמעשיהם; שנאמר (עובדיה א) חזון עובדיה כה אמר ה' אלהים לאדום: ולמשפחות מנשה בן יוסף – כשם שחיבב יוסף את ארץ ישראל כך חיבבו בנות צלפחד. ואלה בנות צלפחד מחלה נועה חגלה ומלכה ותרצה – או כל הקודם במקרא קודם במעשה? תלמוד לומר (במדבר לו) ותהיינה מחלה תרצה חגלה ומלכה ונועה בנות צלפחד מלמד שכולם שקולות, זו כזו: ותעמודנה לפני משה – מגיד הכתוב שלא עמדו אלא בשנת הארבעים, בשנה שמת בה אהרן שנאמר (במדבר ל״ג:ל״ח) ויעל אהרן הכהן אל הר ההר על פי ה' וימת שם בשנת הארבעים: לפני משה ולפני אלעזר הכהן – אם משה לא היה יודע, אלעזר היה יודע? אלא סרס המקרא ודרשהו, דברי ר' יאשיה. אבא חנין אומר משום ר' אליעזר: בבית המדרש היו ובאו ועמדו לפניהם: אבינו מת במדבר – ר' עקיבא אומר: נאמר כאן מדבר ונאמר להלן (במדבר טו) מדבר. מה מדבר האמור להלן צלפחד, אף מדבר האמור כאן צלפחד: והוא לא היה בתוך העדה – זו עדת מלינים: הנועדים על ה' – זו עדת מרגלים: בעדת קרח – זו עדה של קרח: כי בחטאו מת – שלא החטיא את אחרים עמו: ובנים לא היו לו – שאם היתה לו בן לא היינו תובעות: למה יגרע שם אבינו מתוך משפחתו – ר' יהודה אומר: נאמר כאן שם ונאמר להלן (דברים כה) שם. מה שם האמור להלן נחלה, אף שם האמור כאן נחלה. ומה שם האמור להלן זרע, אף שם האמור כאן זרע: כי אין לו בן – למה נאמר? והלא כבר נאמר ובנים לא היו לו! מה ת"ל כי אין לו בן? שהיו חכמות ודורשות: הא אם היה לו בן לא היינו תובעות: תנה לנו אחוזה בתוך אחי אבינו – ר' נתן אומר יפה כח נשים מכח אנשים: אנשים אומרים (במדבר י״ד:ד׳) נתנה ראש ונשובה מצרימה, ונשים אומרות תנה לנו אחוזה בתוך אחי אבינו: ויקרב משה את משפטן לפני ה' – א"ר חידקא: שמעון השקמוני היה לי חבר, מתלמידי ר' עקיבא ואמר: יודע היה משה שהבנות נוחלות. על מה נחלקו? אם ירשו בראוי כבמוחזק ואם לאו. ראויה היתה פרשת נחלות שתאמר על ידי משה, אלא שזכו בנות צלפחד שנאמרה על ידן. לכך מגלגלים זכות על ידי זכאי וחובה על ידי חייב
+

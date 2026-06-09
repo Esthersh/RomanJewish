@@ -1,0 +1,572 @@
+Id,Keyword,Parent KW Id,Indented Keywords,Full Path,Level,Suggested
+6,Explicit legal frameworks,0,Explicit legal frameworks,Explicit legal frameworks,0,
+4,Formula,0,Formula,Formula,0,
+3,Legal matter,0,Legal matter,Legal matter,0,
+5,Legal terms,0,Legal terms,Legal terms,0,
+1,Objects,0,Objects,Objects,0,
+137,Offices and Administration,0,Offices and Administration,Offices and Administration,0,
+2,Parties,0,Parties,Parties,0,
+136,Places,0,Places,Places,0,
+329,Procedure,0,Procedure,Procedure,0,
+138,Punishments,0,Punishments,Punishments,0,
+10148,a fortiori argument,-1,    a fortiori argument,other > a fortiori argument,1,yes
+10118,Bilingual document,-1,    Bilingual document,other > Bilingual document,1,yes
+10236,literary example,-1,    literary example,other > literary example,1,yes
+10036,aes et libra,1,    aes et libra,Objects > aes et libra,1,yes
+10141,attached fruits,1,    attached fruits,Objects > attached fruits,1,yes
+70,beam,1,    beam,Objects > beam,1,
+186,betrothal gifts,1,    betrothal gifts,Objects > betrothal gifts,1,
+306,boundaries of property,1,    boundaries of property,Objects > boundaries of property,1,
+10111,catoecic land,1,    catoecic land,Objects > catoecic land,1,yes
+140,coin,1,    coin,Objects > coin,1,
+271,country property,1,    country property,Objects > country property,1,
+62,currency,1,    currency,Objects > currency,1,
+304,debt,1,    debt,Objects > debt,1,
+87,debt document,1,    debt document,Objects > debt document,1,
+10122,deed of gift,1,    deed of gift,Objects > deed of gift,1,yes
+122,deposit,1,    deposit,Objects > deposit,1,
+8,donkey,1,    donkey,Objects > donkey,1,
+198,dowry property,1,    dowry property,Objects > dowry property,1,
+10178,fungible goods,1,    fungible goods,Objects > fungible goods,1,yes
+10142,gathered fruits,1,    gathered fruits,Objects > gathered fruits,1,yes
+73,gift,1,    gift,Objects > gift,1,
+183,gifts of groomsmen,1,    gifts of groomsmen,Objects > gifts of groomsmen,1,
+286,grave,1,    grave,Objects > grave,1,
+121,guilt offering,1,    guilt offering,Objects > guilt offering,1,
+268,house in the city,1,    house in the city,Objects > house in the city,1,
+270,livestock,1,    livestock,Objects > livestock,1,
+32,loan,1,    loan,Objects > loan,1,
+101,marriage contract,1,    marriage contract,Objects > marriage contract,1,
+185,marriage presents,1,    marriage presents,Objects > marriage presents,1,
+273,maternal estate,1,    maternal estate,Objects > maternal estate,1,
+72,palm grove,1,    palm grove,Objects > palm grove,1,
+10144,Partnership property,1,    Partnership property,Objects > Partnership property,1,yes
+330,paternal estate,1,    paternal estate,Objects > paternal estate,1,
+161,peculium,1,    peculium,Objects > peculium,1,
+60,property,1,    property,Objects > property,1,
+213,public document,1,    public document,Objects > public document,1,
+10180,Public property,1,    Public property,Objects > Public property,1,yes
+10181,Sacred property,1,    Sacred property,Objects > Sacred property,1,yes
+10114,Seal,1,    Seal,Objects > Seal,1,yes
+59,slave,1,    slave,Objects > slave,1,
+80,statute,1,    statute,Objects > statute,1,
+158,tablets,1,    tablets,Objects > tablets,1,
+10001,Testament,1,    Testament,Objects > Testament,1,yes
+181,adult,2,    adult,Parties > adult,1,
+10026,agnate,2,    agnate,Parties > agnate,1,yes
+10164,Arbiter,2,    Arbiter,Parties > Arbiter,1,yes
+10216,ascendants,2,    ascendants,Parties > ascendants,1,yes
+204,bastard,2,    bastard,Parties > bastard,1,
+10078,blind person,2,    blind person,Parties > blind person,1,yes
+10008,Bride,2,    Bride,Parties > Bride,1,yes
+66,brother,2,    brother,Parties > brother,1,
+147,buyer,2,    buyer,Parties > buyer,1,
+160,child,2,    child,Parties > child,1,
+10244,children already born,2,    children already born,Parties > children already born,1,yes
+10106,citizen,2,    citizen,Parties > citizen,1,yes
+297,co-heirs,2,    co-heirs,Parties > co-heirs,1,
+10201,consul,2,    consul,Parties > consul,1,yes
+201,convert,2,    convert,Parties > convert,1,
+10156,Court-appointed guardian,2,    Court-appointed guardian,Parties > Court-appointed guardian,1,yes
+142,craftsman,2,    craftsman,Parties > craftsman,1,
+195,creditor,2,    creditor,Parties > creditor,1,
+108,curator,2,    curator,Parties > curator,1,
+172,daughter,2,    daughter,Parties > daughter,1,
+10169,daughter-in-law,2,    daughter-in-law,Parties > daughter-in-law,1,yes
+152,deaf,2,    deaf,Parties > deaf,1,
+10053,dediticii,2,    dediticii,Parties > dediticii,1,yes
+10056,deity,2,    deity,Parties > deity,1,yes
+162,dependents,2,    dependents,Parties > dependents,1,
+10235,donee,2,    donee,Parties > donee,1,yes
+10234,donor,2,    donor,Parties > donor,1,yes
+10012,dying person,2,    dying person,Parties > dying person,1,yes
+10077,eunuch,2,    eunuch,Parties > eunuch,1,yes
+10062,extraneus heres,2,    extraneus heres,Parties > extraneus heres,1,yes
+10034,familiae emptor,2,    familiae emptor,Parties > familiae emptor,1,yes
+150,father,2,    father,Parties > father,1,
+10199,fideicommissary,2,    fideicommissary,Parties > fideicommissary,1,yes
+224,firstborn,2,    firstborn,Parties > firstborn,1,
+165,freedperson,2,    freedperson,Parties > freedperson,1,
+168,freedperson without citizen rights,2,    freedperson without citizen rights,Parties > freedperson without citizen rights,1,
+10027,gentiles,2,    gentiles,Parties > gentiles,1,yes
+274,grandchild,2,    grandchild,Parties > grandchild,1,
+10007,Groom,2,    Groom,Parties > Groom,1,yes
+242,guardian,2,    guardian,Parties > guardian,1,
+10013,healthy person,2,    healthy person,Parties > healthy person,1,yes
+178,heir,2,    heir,Parties > heir,1,
+10123,husband,2,    husband,Parties > husband,1,yes
+249,illegitimate child,2,    illegitimate child,Parties > illegitimate child,1,
+10112,illiterate party,2,    illiterate party,Parties > illiterate party,1,yes
+10209,incapax,2,    incapax,Parties > incapax,1,yes
+200,indirect heir,2,    indirect heir,Parties > indirect heir,1,
+175,intersex person,2,    intersex person,Parties > intersex person,1,
+10131,Judge,2,    Judge,Parties > Judge,1,yes
+156,Junian Latin,2,    Junian Latin,Parties > Junian Latin,1,
+10103,Jurist,2,    Jurist,Parties > Jurist,1,yes
+10127,king,2,    king,Parties > king,1,yes
+10070,legatee,2,    legatee,Parties > legatee,1,yes
+10006,lineal descendants,2,    lineal descendants,Parties > lineal descendants,1,yes
+257,litigant,2,    litigant,Parties > litigant,1,
+10247,magistrate,2,    magistrate,Parties > magistrate,1,yes
+10075,man,2,    man,Parties > man,1,yes
+10168,master,2,    master,Parties > master,1,yes
+153,mentally impaired,2,    mentally impaired,Parties > mentally impaired,1,
+10011,midwife,2,    midwife,Parties > midwife,1,yes
+180,minor,2,    minor,Parties > minor,1,
+272,mother,2,    mother,Parties > mother,1,
+10165,municipality,2,    municipality,Parties > municipality,1,yes
+164,mute,2,    mute,Parties > mute,1,
+184,partner,2,    partner,Parties > partner,1,
+10030,patron,2,    patron,Parties > patron,1,yes
+10219,patroness,2,    patroness,Parties > patroness,1,yes
+166,peregrine,2,    peregrine,Parties > peregrine,1,
+10058,posthumous heir,2,    posthumous heir,Parties > posthumous heir,1,yes
+10046,praetor,2,    praetor,Parties > praetor,1,yes
+232,presumed heir,2,    presumed heir,Parties > presumed heir,1,
+331,presumed relatives,2,    presumed relatives,Parties > presumed relatives,1,
+230,presumed slave,2,    presumed slave,Parties > presumed slave,1,
+228,presumed son,2,    presumed son,Parties > presumed son,1,
+133,priest,2,    priest,Parties > priest,1,
+10083,prisoner of war,2,    prisoner of war,Parties > prisoner of war,1,yes
+336,proper heirs,2,    proper heirs,Parties > proper heirs,1,
+10202,provincial governor,2,    provincial governor,Parties > provincial governor,1,yes
+10037,Quirites,2,    Quirites,Parties > Quirites,1,yes
+90,robber,2,    robber,Parties > robber,1,
+10035,Roman citizen,2,    Roman citizen,Parties > Roman citizen,1,yes
+148,scale holder,2,    scale holder,Parties > scale holder,1,
+10113,scribe,2,    scribe,Parties > scribe,1,yes
+269,serf,2,    serf,Parties > serf,1,
+10087,sick person,2,    sick person,Parties > sick person,1,yes
+275,sister,2,    sister,Parties > sister,1,
+202,slave,2,    slave,Parties > slave,1,
+159,soldier,2,    soldier,Parties > soldier,1,
+163,son,2,    son,Parties > son,1,
+10028,spendthrift,2,    spendthrift,Parties > spendthrift,1,yes
+10171,substitute heir,2,    substitute heir,Parties > substitute heir,1,yes
+10043,sui iuris,2,    sui iuris,Parties > sui iuris,1,yes
+10225,suus heres,2,    suus heres,Parties > suus heres,1,yes
+212,tax collectors,2,    tax collectors,Parties > tax collectors,1,
+10155,Testamentary guardian,2,    Testamentary guardian,Parties > Testamentary guardian,1,yes
+149,testator,2,    testator,Parties > testator,1,
+169,tutor,2,    tutor,Parties > tutor,1,
+10054,unmarried person,2,    unmarried person,Parties > unmarried person,1,yes
+280,veteran,2,    veteran,Parties > veteran,1,
+155,ward,2,    ward,Parties > ward,1,
+10099,wife,2,    wife,Parties > wife,1,yes
+197,wife's heirs,2,    wife's heirs,Parties > wife's heirs,1,
+99,witnesses,2,    witnesses,Parties > witnesses,1,
+151,woman,2,    woman,Parties > woman,1,
+238,actual possession,3,    actual possession,Legal matter > actual possession,1,
+10229,Ademption,3,    Ademption,Legal matter > Ademption,1,yes
+10137,Administrative jurisdiction,3,    Administrative jurisdiction,Legal matter > Administrative jurisdiction,1,yes
+344,adoption,3,    adoption,Legal matter > adoption,1,
+170,age of legal capacity,3,    age of legal capacity,Legal matter > age of legal capacity,1,
+56,agent authority,3,    agent authority,Legal matter > agent authority,1,
+323,Agnatic Consanguinity,3,    Agnatic Consanguinity,Legal matter > Agnatic Consanguinity,1,
+96,alimentary rights,3,    alimentary rights,Legal matter > alimentary rights,1,
+10251,Annexation,3,    Annexation,Legal matter > Annexation,1,yes
+347,archival registration,3,    archival registration,Legal matter > archival registration,1,
+10004,Asset-based distribution,3,    Asset-based distribution,Legal matter > Asset-based distribution,1,yes
+10132,Auction,3,    Auction,Legal matter > Auction,1,yes
+10233,authenticity,3,    authenticity,Legal matter > authenticity,1,yes
+10128,bequeathal of kingdom,3,    bequeathal of kingdom,Legal matter > bequeathal of kingdom,1,yes
+10009,Betrothal,3,    Betrothal,Legal matter > Betrothal,1,yes
+10092,bonos mores,3,    bonos mores,Legal matter > bonos mores,1,yes
+10117,Boundary description waiver,3,    Boundary description waiver,Legal matter > Boundary description waiver,1,yes
+10187,Burden of legacy,3,    Burden of legacy,Legal matter > Burden of legacy,1,yes
+244,burial rites,3,    burial rites,Legal matter > burial rites,1,
+10170,capacity to act,3,    capacity to act,Legal matter > capacity to act,1,yes
+10224,Change of heir status,3,    Change of heir status,Legal matter > Change of heir status,1,yes
+10116,Collation,3,    Collation,Legal matter > Collation,1,yes
+346,collective acquisition,3,    collective acquisition,Legal matter > collective acquisition,1,
+348,collective freedom,3,    collective freedom,Legal matter > collective freedom,1,
+10005,commorientes,3,    commorientes,Legal matter > commorientes,1,yes
+176,conditional gift,3,    conditional gift,Legal matter > conditional gift,1,
+10222,Conditional institution,3,    Conditional institution,Legal matter > Conditional institution,1,yes
+10192,Conditional legacy,3,    Conditional legacy,Legal matter > Conditional legacy,1,yes
+326,Creditor Priority,3,    Creditor Priority,Legal matter > Creditor Priority,1,
+245,cretio,3,    cretio,Legal matter > cretio,1,
+279,cumulative legacy,3,    cumulative legacy,Legal matter > cumulative legacy,1,
+143,damage of deposit,3,    damage of deposit,Legal matter > damage of deposit,1,
+229,deathbed statement,3,    deathbed statement,Legal matter > deathbed statement,1,
+312,degrees of kinship,3,    degrees of kinship,Legal matter > degrees of kinship,1,
+139,diminished value,3,    diminished value,Legal matter > diminished value,1,
+235,disclaimer of inheritance,3,    disclaimer of inheritance,Legal matter > disclaimer of inheritance,1,
+281,disinheritance,3,    disinheritance,Legal matter > disinheritance,1,
+10059,disinheritance by name,3,    disinheritance by name,Legal matter > disinheritance by name,1,yes
+227,disputed inheritance,3,    disputed inheritance,Legal matter > disputed inheritance,1,
+262,disputed lineage,3,    disputed lineage,Legal matter > disputed lineage,1,
+10101,division by unciae,3,    division by unciae,Legal matter > division by unciae,1,yes
+267,division of estate before death,3,    division of estate before death,Legal matter > division of estate before death,1,
+10250,division with fiscus,3,    division with fiscus,Legal matter > division with fiscus,1,yes
+351,divorce,3,    divorce,Legal matter > divorce,1,
+10154,Duress,3,    Duress,Legal matter > Duress,1,yes
+301,election of rights,3,    election of rights,Legal matter > election of rights,1,
+337,eligibility to Inherit,3,    eligibility to Inherit,Legal matter > eligibility to Inherit,1,
+107,emancipation,3,    emancipation,Legal matter > emancipation,1,
+234,enhancement,3,    enhancement,Legal matter > enhancement,1,
+10002,equal division,3,    equal division,Legal matter > equal division,1,yes
+177,estate enhancement,3,    estate enhancement,Legal matter > estate enhancement,1,
+240,fictive sale,3,    fictive sale,Legal matter > fictive sale,1,
+278,fideicommissum,3,    fideicommissum,Legal matter > fideicommissum,1,
+118,fifth payment,3,    fifth payment,Legal matter > fifth payment,1,
+10158,Forfeiture of inheritance,3,    Forfeiture of inheritance,Legal matter > Forfeiture of inheritance,1,yes
+52,fraud,3,    fraud,Legal matter > fraud,1,
+78,general sale,3,    general sale,Legal matter > general sale,1,
+239,generational rights,3,    generational rights,Legal matter > generational rights,1,
+328,Gift vs. Inheritance,3,    Gift vs. Inheritance,Legal matter > Gift vs. Inheritance,1,
+79,grant of citizenship,3,    grant of citizenship,Legal matter > grant of citizenship,1,
+288,grave robbery,3,    grave robbery,Legal matter > grave robbery,1,
+221,hereditates fideicommissariae,3,    hereditates fideicommissariae,Legal matter > hereditates fideicommissariae,1,
+10019,Hierarchy of assets,3,    Hierarchy of assets,Legal matter > Hierarchy of assets,1,yes
+10248,honorarium,3,    honorarium,Legal matter > honorarium,1,yes
+61,hypothec,3,    hypothec,Legal matter > hypothec,1,
+10237,imminent danger,3,    imminent danger,Legal matter > imminent danger,1,yes
+10172,imperfect cretio,3,    imperfect cretio,Legal matter > imperfect cretio,1,yes
+10090,Impossible condition,3,    Impossible condition,Legal matter > Impossible condition,1,yes
+51,infamy,3,    infamy,Legal matter > infamy,1,
+194,inheritance conflict,3,    inheritance conflict,Legal matter > inheritance conflict,1,
+10135,Inheritance of office,3,    Inheritance of office,Legal matter > Inheritance of office,1,yes
+173,Inheritance priority,3,    Inheritance priority,Legal matter > Inheritance priority,1,
+86,inherited claims,3,    inherited claims,Legal matter > inherited claims,1,
+10218,inoperative possession,3,    inoperative possession,Legal matter > inoperative possession,1,yes
+342,inoperative will,3,    inoperative will,Legal matter > inoperative will,1,
+10220,institutio ex re certa,3,    institutio ex re certa,Legal matter > institutio ex re certa,1,yes
+10045,institutio heredis,3,    institutio heredis,Legal matter > institutio heredis,1,yes
+69,intestacy,3,    intestacy,Legal matter > intestacy,1,
+345,joint legacy,3,    joint legacy,Legal matter > joint legacy,1,
+10067,knowledge,3,    knowledge,Legal matter > knowledge,1,yes
+10152,Land allotment,3,    Land allotment,Legal matter > Land allotment,1,yes
+10161,Legal definition of birth,3,    Legal definition of birth,Legal matter > Legal definition of birth,1,yes
+154,legal disability,3,    legal disability,Legal matter > legal disability,1,
+19,legal eligibility,3,    legal eligibility,Legal matter > legal eligibility,1,
+10022,Legal fiction,3,    Legal fiction,Legal matter > Legal fiction,1,yes
+10159,Legal interpretation,3,    Legal interpretation,Legal matter > Legal interpretation,1,yes
+248,legitimate children,3,    legitimate children,Legal matter > legitimate children,1,
+103,liened property,3,    liened property,Legal matter > liened property,1,
+27,lost property,3,    lost property,Legal matter > lost property,1,
+10079,lucid interval,3,    lucid interval,Legal matter > lucid interval,1,yes
+145,mancipatory will,3,    mancipatory will,Legal matter > mancipatory will,1,
+10015,manumission,3,    manumission,Legal matter > manumission,1,yes
+277,manumission by testament,3,    manumission by testament,Legal matter > manumission by testament,1,
+187,marriage conditions,3,    marriage conditions,Legal matter > marriage conditions,1,
+10003,marriage expenses,3,    marriage expenses,Legal matter > marriage expenses,1,yes
+247,marriage of soldiers,3,    marriage of soldiers,Legal matter > marriage of soldiers,1,
+65,material law,3,    material law,Legal matter > material law,1,
+10228,media tempora non nocere,3,    media tempora non nocere,Legal matter > media tempora non nocere,1,yes
+55,minor’s protection,3,    minor’s protection,Legal matter > minor’s protection,1,
+192,modes of acquisition,3,    modes of acquisition,Legal matter > modes of acquisition,1,
+10100,mortis causa acquisition,3,    mortis causa acquisition,Legal matter > mortis causa acquisition,1,yes
+335,nearest agnate,3,    nearest agnate,Legal matter > nearest agnate,1,
+10214,No succession of degrees,3,    No succession of degrees,Legal matter > No succession of degrees,1,yes
+10098,non-verbal command,3,    non-verbal command,Legal matter > non-verbal command,1,yes
+71,nullification,3,    nullification,Legal matter > nullification,1,
+74,nullity,3,    nullity,Legal matter > nullity,1,
+134,one-fifth payment,3,    one-fifth payment,Legal matter > one-fifth payment,1,
+226,order of birth,3,    order of birth,Legal matter > order of birth,1,
+196,order of death,3,    order of death,Legal matter > order of death,1,
+205,order of succession,3,    order of succession,Legal matter > order of succession,1,
+88,partial confession,3,    partial confession,Legal matter > partial confession,1,
+320,partial manumission,3,    partial manumission,Legal matter > partial manumission,1,
+10189,partition of inheritance,3,    partition of inheritance,Legal matter > partition of inheritance,1,yes
+10146,Partnership liability,3,    Partnership liability,Legal matter > Partnership liability,1,yes
+10163,Paternal declaration of status,3,    Paternal declaration of status,Legal matter > Paternal declaration of status,1,yes
+311,paternal lineage,3,    paternal lineage,Legal matter > paternal lineage,1,
+10213,per capita,3,    per capita,Legal matter > per capita,1,yes
+10212,per stirpes,3,    per stirpes,Legal matter > per stirpes,1,yes
+10145,Personal liability,3,    Personal liability,Legal matter > Personal liability,1,yes
+10016,pious causes,3,    pious causes,Legal matter > pious causes,1,yes
+10129,political alliance,3,    political alliance,Legal matter > political alliance,1,yes
+10091,Possible condition,3,    Possible condition,Legal matter > Possible condition,1,yes
+10130,posthumous honor,3,    posthumous honor,Legal matter > posthumous honor,1,yes
+10226,potestative condition,3,    potestative condition,Legal matter > potestative condition,1,yes
+350,power of sale,3,    power of sale,Legal matter > power of sale,1,
+10151,Presumption of status,3,    Presumption of status,Legal matter > Presumption of status,1,yes
+10093,Pretermission,3,    Pretermission,Legal matter > Pretermission,1,yes
+10088,prevailing sex,3,    prevailing sex,Legal matter > prevailing sex,1,yes
+241,primogeniture,3,    primogeniture,Legal matter > primogeniture,1,
+10160,Prohibited marriage,3,    Prohibited marriage,Legal matter > Prohibited marriage,1,yes
+10104,Prohibition of alienation,3,    Prohibition of alienation,Legal matter > Prohibition of alienation,1,yes
+10238,property of another,3,    property of another,Legal matter > property of another,1,yes
+340,property transfer,3,    property transfer,Legal matter > property transfer,1,
+237,prospective estate,3,    prospective estate,Legal matter > prospective estate,1,
+57,proxenia,3,    proxenia,Legal matter > proxenia,1,
+10076,puberty,3,    puberty,Legal matter > puberty,1,yes
+285,ransom,3,    ransom,Legal matter > ransom,1,
+188,recoverable gifts,3,    recoverable gifts,Legal matter > recoverable gifts,1,
+10014,refusal of appointment,3,    refusal of appointment,Legal matter > refusal of appointment,1,yes
+338,refusal of gift,3,    refusal of gift,Legal matter > refusal of gift,1,
+343,refusal of inheritence,3,    refusal of inheritence,Legal matter > refusal of inheritence,1,
+299,relative priority,3,    relative priority,Legal matter > relative priority,1,
+313,Relative Priority,3,    Relative Priority,Legal matter > Relative Priority,1,
+289,renunciation of inheritance,3,    renunciation of inheritance,Legal matter > renunciation of inheritance,1,
+10109,Reservation of lifetime rights,3,    Reservation of lifetime rights,Legal matter > Reservation of lifetime rights,1,yes
+29,restitution,3,    restitution,Legal matter > restitution,1,
+10153,Reversion of property,3,    Reversion of property,Legal matter > Reversion of property,1,yes
+77,revocation of citizenship,3,    revocation of citizenship,Legal matter > revocation of citizenship,1,
+10239,revocation of gift,3,    revocation of gift,Legal matter > revocation of gift,1,yes
+10063,Revocation of refusal,3,    Revocation of refusal,Legal matter > Revocation of refusal,1,yes
+341,revocation of will,3,    revocation of will,Legal matter > revocation of will,1,
+10115,Right of habitation,3,    Right of habitation,Legal matter > Right of habitation,1,yes
+263,Right of habitation for the widow,3,    Right of habitation for the widow,Legal matter > Right of habitation for the widow,1,
+95,right of representation,3,    right of representation,Legal matter > right of representation,1,
+10094,ruptio testamenti,3,    ruptio testamenti,Legal matter > ruptio testamenti,1,yes
+355,sacrilege,3,    sacrilege,Legal matter > sacrilege,1,
+10208,secret trust,3,    secret trust,Legal matter > secret trust,1,yes
+325,Secured Debt,3,    Secured Debt,Legal matter > Secured Debt,1,
+10191,security,3,    security,Legal matter > security,1,yes
+207,seizure,3,    seizure,Legal matter > seizure,1,
+10120,settlement,3,    settlement,Legal matter > settlement,1,yes
+303,severability of legacy,3,    severability of legacy,Legal matter > severability of legacy,1,
+314,shared inheritance,3,    shared inheritance,Legal matter > shared inheritance,1,
+68,single witness,3,    single witness,Legal matter > single witness,1,
+339,slaves status,3,    slaves status,Legal matter > slaves status,1,
+10040,soldier's will,3,    soldier's will,Legal matter > soldier's will,1,yes
+284,specification of assets,3,    specification of assets,Legal matter > specification of assets,1,
+10138,Stipulation against statutory law,3,    Stipulation against statutory law,Legal matter > Stipulation against statutory law,1,yes
+10221,Subauditur,3,    Subauditur,Legal matter > Subauditur,1,yes
+10068,substitutio pupillaris,3,    substitutio pupillaris,Legal matter > substitutio pupillaris,1,yes
+265,substitutio vulgaris,3,    substitutio vulgaris,Legal matter > substitutio vulgaris,1,
+231,succession disputes,3,    succession disputes,Legal matter > succession disputes,1,
+317,successive inheritance,3,    successive inheritance,Legal matter > successive inheritance,1,
+349,successive legacies,3,    successive legacies,Legal matter > successive legacies,1,
+10143,sufficiency of assets,3,    sufficiency of assets,Legal matter > sufficiency of assets,1,yes
+10243,supplement of legitimate portion,3,    supplement of legitimate portion,Legal matter > supplement of legitimate portion,1,yes
+308,supplements to a will,3,    supplements to a will,Legal matter > supplements to a will,1,
+10086,Surplusage,3,    Surplusage,Legal matter > Surplusage,1,yes
+92,suspected perjurer,3,    suspected perjurer,Legal matter > suspected perjurer,1,
+91,Tax collectors,3,    Tax collectors,Legal matter > Tax collectors,1,
+10140,temporary sale,3,    temporary sale,Legal matter > temporary sale,1,yes
+10025,Testamentary freedom,3,    Testamentary freedom,Legal matter > Testamentary freedom,1,yes
+293,testamentary intent,3,    testamentary intent,Legal matter > testamentary intent,1,
+302,Testamentary Interpretation,3,    Testamentary Interpretation,Legal matter > Testamentary Interpretation,1,
+327,Testamentary Language,3,    Testamentary Language,Legal matter > Testamentary Language,1,
+217,testamenti factio activa,3,    testamenti factio activa,Legal matter > testamenti factio activa,1,
+211,testamenti factio passiva,3,    testamenti factio passiva,Legal matter > testamenti factio passiva,1,
+10066,time limit,3,    time limit,Legal matter > time limit,1,yes
+321,Timing of Intestacy,3,    Timing of Intestacy,Legal matter > Timing of Intestacy,1,
+10206,Transfer of actions,3,    Transfer of actions,Legal matter > Transfer of actions,1,yes
+334,transfer of inherited property,3,    transfer of inherited property,Legal matter > transfer of inherited property,1,
+135,transformation,3,    transformation,Legal matter > transformation,1,
+10000,Transmission of inheritance,3,    Transmission of inheritance,Legal matter > Transmission of inheritance,1,yes
+261,tribal division,3,    tribal division,Legal matter > tribal division,1,
+10052,Uncertainty of status,3,    Uncertainty of status,Legal matter > Uncertainty of status,1,yes
+10193,Unconditional legacy,3,    Unconditional legacy,Legal matter > Unconditional legacy,1,yes
+10200,unconfirmed codicil,3,    unconfirmed codicil,Legal matter > unconfirmed codicil,1,yes
+10147,Unenforceable gift,3,    Unenforceable gift,Legal matter > Unenforceable gift,1,yes
+10139,Unworthy heir,3,    Unworthy heir,Legal matter > Unworthy heir,1,yes
+256,unwritten marriage,3,    unwritten marriage,Legal matter > unwritten marriage,1,
+266,usufructus,3,    usufructus,Legal matter > usufructus,1,
+193,verbal instruction,3,    verbal instruction,Legal matter > verbal instruction,1,
+97,wage dispute,3,    wage dispute,Legal matter > wage dispute,1,
+10125,waiver of claim,3,    waiver of claim,Legal matter > waiver of claim,1,yes
+10121,water rights,3,    water rights,Legal matter > water rights,1,yes
+179,widow's inheritance,3,    widow's inheritance,Legal matter > widow's inheritance,1,
+324,Women's Status,3,    Women's Status,Legal matter > Women's Status,1,
+83,bequeathal clause,4,    bequeathal clause,Formula > bequeathal clause,1,
+23,cursing,4,    cursing,Formula > cursing,1,
+48,double document,4,    double document,Formula > double document,1,
+307,from today and after death,4,    from today and after death,Formula > from today and after death,1,
+10245,funerary formula,4,    funerary formula,Formula > funerary formula,1,yes
+243,meriteia,4,    meriteia,Formula > meriteia,1,
+18,oath clauses,4,    oath clauses,Formula > oath clauses,1,
+63,penalty clause,4,    penalty clause,Formula > penalty clause,1,
+10081,Praetorian formula,4,    Praetorian formula,Formula > Praetorian formula,1,yes
+10198,precatory words,4,    precatory words,Formula > precatory words,1,yes
+10119,stipulatio,4,    stipulatio,Formula > stipulatio,1,yes
+10207,stipulatio partis et pro parte,4,    stipulatio partis et pro parte,Formula > stipulatio partis et pro parte,1,yes
+144,testament formula,4,    testament formula,Formula > testament formula,1,
+260,testamentum per aes et libram,4,    testamentum per aes et libram,Formula > testamentum per aes et libram,1,
+130,vow,4,    vow,Formula > vow,1,
+10031,actio familiae erciscundae,5,    actio familiae erciscundae,Legal terms > actio familiae erciscundae,1,yes
+10096,aditio hereditatis,5,    aditio hereditatis,Legal terms > aditio hereditatis,1,yes
+114,adstipulator,5,    adstipulator,Legal terms > adstipulator,1,
+309,agnatic succession,5,    agnatic succession,Legal terms > agnatic succession,1,
+10024,auctoritas,5,    auctoritas,Legal terms > auctoritas,1,yes
+220,bona vacantia,5,    bona vacantia,Legal terms > bona vacantia,1,
+10080,bonis interdictio,5,    bonis interdictio,Legal terms > bonis interdictio,1,yes
+10057,bonitarian ownership,5,    bonitarian ownership,Legal terms > bonitarian ownership,1,yes
+110,bonorum possessio,5,    bonorum possessio,Legal terms > bonorum possessio,1,
+10060,bonorum possessio contra tabulas,5,    bonorum possessio contra tabulas,Legal terms > bonorum possessio contra tabulas,1,yes
+10173,capitis deminutio,5,    capitis deminutio,Legal terms > capitis deminutio,1,yes
+333,cession,5,    cession,Legal terms > cession,1,
+94,claim of theft,5,    claim of theft,Legal terms > claim of theft,1,
+276,codicil,5,    codicil,Legal terms > codicil,1,
+10044,coemptio,5,    coemptio,Legal terms > coemptio,1,yes
+252,cognati,5,    cognati,Legal terms > cognati,1,
+10196,condictio indebiti,5,    condictio indebiti,Legal terms > condictio indebiti,1,yes
+315,consanguinity,5,    consanguinity,Legal terms > consanguinity,1,
+10065,cretio continua,5,    cretio continua,Legal terms > cretio continua,1,yes
+10064,cretio vulgaris,5,    cretio vulgaris,Legal terms > cretio vulgaris,1,yes
+10029,cura,5,    cura,Legal terms > cura,1,yes
+191,deathbed gift,5,    deathbed gift,Legal terms > deathbed gift,1,
+10184,demonstratio,5,    demonstratio,Legal terms > demonstratio,1,yes
+10108,dolus malus,5,    dolus malus,Legal terms > dolus malus,1,yes
+10124,donatio mortis causa,5,    donatio mortis causa,Legal terms > donatio mortis causa,1,yes
+233,double portion,5,    double portion,Legal terms > double portion,1,
+112,emptio bonorum,5,    emptio bonorum,Legal terms > emptio bonorum,1,
+120,extortion,5,    extortion,Legal terms > extortion,1,
+10179,extra commercium,5,    extra commercium,Legal terms > extra commercium,1,yes
+294,extra portionem,5,    extra portionem,Legal terms > extra portionem,1,
+10186,falsa causa,5,    falsa causa,Legal terms > falsa causa,1,yes
+10185,falsa demonstratio,5,    falsa demonstratio,Legal terms > falsa demonstratio,1,yes
+199,female succession,5,    female succession,Legal terms > female succession,1,
+10126,future property,5,    future property,Legal terms > future property,1,yes
+305,gift after death,5,    gift after death,Legal terms > gift after death,1,
+251,heredes legitimi,5,    heredes legitimi,Legal terms > heredes legitimi,1,
+10217,heredis loco,5,    heredis loco,Legal terms > heredis loco,1,yes
+10095,Hereditas damnosa,5,    Hereditas damnosa,Legal terms > Hereditas damnosa,1,yes
+10167,heres necessarius,5,    heres necessarius,Legal terms > heres necessarius,1,yes
+250,illegitimate child,5,    illegitimate child,Legal terms > illegitimate child,1,
+190,immovable property,5,    immovable property,Legal terms > immovable property,1,
+113,in iure cessio,5,    in iure cessio,Legal terms > in iure cessio,1,
+218,incertae personae,5,    incertae personae,Legal terms > incertae personae,1,
+356,intent,5,    intent,Legal terms > intent,1,
+21,intentional transgression,5,    intentional transgression,Legal terms > intentional transgression,1,
+290,inter vivos transfer,5,    inter vivos transfer,Legal terms > inter vivos transfer,1,
+10231,interdictum de tabulis exhibendis,5,    interdictum de tabulis exhibendis,Legal terms > interdictum de tabulis exhibendis,1,yes
+310,intestate succession,5,    intestate succession,Legal terms > intestate succession,1,
+10071,ius accrescendi,5,    ius accrescendi,Legal terms > ius accrescendi,1,yes
+10074,ius liberorum,5,    ius liberorum,Legal terms > ius liberorum,1,yes
+10177,ius Quiritium,5,    ius Quiritium,Legal terms > ius Quiritium,1,yes
+10097,iussum,5,    iussum,Legal terms > iussum,1,yes
+10072,lapsed legacy,5,    lapsed legacy,Legal terms > lapsed legacy,1,yes
+209,legatum,5,    legatum,Legal terms > legatum,1,
+10174,legatum per damnationem,5,    legatum per damnationem,Legal terms > legatum per damnationem,1,yes
+10176,legatum per praeceptionem,5,    legatum per praeceptionem,Legal terms > legatum per praeceptionem,1,yes
+10069,legatum per vindicationem,5,    legatum per vindicationem,Legal terms > legatum per vindicationem,1,yes
+10175,legatum sinendi modo,5,    legatum sinendi modo,Legal terms > legatum sinendi modo,1,yes
+75,mancipatio,5,    mancipatio,Legal terms > mancipatio,1,
+10188,mancipium,5,    mancipium,Legal terms > mancipium,1,yes
+10210,manumissio fideicommissaria,5,    manumissio fideicommissaria,Legal terms > manumissio fideicommissaria,1,yes
+106,manus,5,    manus,Legal terms > manus,1,
+105,materfamilias,5,    materfamilias,Legal terms > materfamilias,1,
+10110,modus,5,    modus,Legal terms > modus,1,yes
+25,monetary claim,5,    monetary claim,Legal terms > monetary claim,1,
+189,movable property,5,    movable property,Legal terms > movable property,1,
+10197,natural obligation,5,    natural obligation,Legal terms > natural obligation,1,yes
+246,next of kin,5,    next of kin,Legal terms > next of kin,1,
+157,nuncupation,5,    nuncupation,Legal terms > nuncupation,1,
+10230,orcinus heres,5,    orcinus heres,Legal terms > orcinus heres,1,yes
+104,paterfamilias,5,    paterfamilias,Legal terms > paterfamilias,1,
+9,patria potestas,5,    patria potestas,Legal terms > patria potestas,1,
+10038,peculium castrense,5,    peculium castrense,Legal terms > peculium castrense,1,yes
+28,perjury,5,    perjury,Legal terms > perjury,1,
+10183,poenae causa,5,    poenae causa,Legal terms > poenae causa,1,yes
+10241,portio legitima,5,    portio legitima,Legal terms > portio legitima,1,yes
+10082,postliminium,5,    postliminium,Legal terms > postliminium,1,yes
+219,postumus alienus,5,    postumus alienus,Legal terms > postumus alienus,1,
+53,praescriptio,5,    praescriptio,Legal terms > praescriptio,1,
+10048,Praetorian will,5,    Praetorian will,Legal terms > Praetorian will,1,yes
+295,pre-legacy,5,    pre-legacy,Legal terms > pre-legacy,1,
+292,Primogeniture,5,    Primogeniture,Legal terms > Primogeniture,1,
+10061,pro herede gestio,5,    pro herede gestio,Legal terms > pro herede gestio,1,yes
+10195,quarta Falcidia,5,    quarta Falcidia,Legal terms > quarta Falcidia,1,yes
+10190,quasi-usufructus,5,    quasi-usufructus,Legal terms > quasi-usufructus,1,yes
+10240,querela inofficiosi testamenti,5,    querela inofficiosi testamenti,Legal terms > querela inofficiosi testamenti,1,yes
+253,representation in succession,5,    representation in succession,Legal terms > representation in succession,1,
+236,repudiatio hereditatis,5,    repudiatio hereditatis,Legal terms > repudiatio hereditatis,1,
+332,secession of property,5,    secession of property,Legal terms > secession of property,1,
+10223,servus alienus,5,    servus alienus,Legal terms > servus alienus,1,yes
+10166,servus communis,5,    servus communis,Legal terms > servus communis,1,yes
+222,silence,5,    silence,Legal terms > silence,1,
+115,societas,5,    societas,Legal terms > societas,1,
+171,specificatio,5,    specificatio,Legal terms > specificatio,1,
+298,statutory rights,5,    statutory rights,Legal terms > statutory rights,1,
+37,Sworn statement,5,    Sworn statement,Legal terms > Sworn statement,1,
+322,Testamentary Heir,5,    Testamentary Heir,Legal terms > Testamentary Heir,1,
+10051,testamenti factio,5,    testamenti factio,Legal terms > testamenti factio,1,yes
+10032,testamentum calatis comitiis,5,    testamentum calatis comitiis,Legal terms > testamentum calatis comitiis,1,yes
+10033,testamentum in procinctu,5,    testamentum in procinctu,Legal terms > testamentum in procinctu,1,yes
+26,theft,5,    theft,Legal terms > theft,1,
+10149,traditio,5,    traditio,Legal terms > traditio,1,yes
+10023,tutela,5,    tutela,Legal terms > tutela,1,yes
+10050,tutela legitima,5,    tutela legitima,Legal terms > tutela legitima,1,yes
+22,unintentional transgression,5,    unintentional transgression,Legal terms > unintentional transgression,1,
+10150,usucapio,5,    usucapio,Legal terms > usucapio,1,yes
+291,vesting of rights,5,    vesting of rights,Legal terms > vesting of rights,1,
+10232,vindicatio,5,    vindicatio,Legal terms > vindicatio,1,yes
+10021,Divine sanction,6,    Divine sanction,Explicit legal frameworks > Divine sanction,1,yes
+10055,Imperial Constitutions,6,    Imperial Constitutions,Explicit legal frameworks > Imperial Constitutions,1,yes
+10041,ius civile,6,    ius civile,Explicit legal frameworks > ius civile,1,yes
+10047,ius honorarium,6,    ius honorarium,Explicit legal frameworks > ius honorarium,1,yes
+10211,Law of the Twelve Tables,6,    Law of the Twelve Tables,Explicit legal frameworks > Law of the Twelve Tables,1,yes
+167,laws of another country,6,    laws of another country,Explicit legal frameworks > laws of another country,1,
+10107,Lex Aelia Sentia,6,    Lex Aelia Sentia,Explicit legal frameworks > Lex Aelia Sentia,1,yes
+319,Lex Cornelia,6,    Lex Cornelia,Explicit legal frameworks > Lex Cornelia,1,
+10194,Lex Falcidia,6,    Lex Falcidia,Explicit legal frameworks > Lex Falcidia,1,yes
+109,Lex Julia,6,    Lex Julia,Explicit legal frameworks > Lex Julia,1,
+10039,Lex Junia,6,    Lex Junia,Explicit legal frameworks > Lex Junia,1,yes
+10073,Lex Papia Poppaea,6,    Lex Papia Poppaea,Explicit legal frameworks > Lex Papia Poppaea,1,yes
+10227,Lex Velleia,6,    Lex Velleia,Explicit legal frameworks > Lex Velleia,1,yes
+82,local religions or customs,6,    local religions or customs,Explicit legal frameworks > local religions or customs,1,
+223,practice in province,6,    practice in province,Explicit legal frameworks > practice in province,1,
+10042,Senatus Consultum,6,    Senatus Consultum,Explicit legal frameworks > Senatus Consultum,1,yes
+10182,Senatus Consultum Neronianum,6,    Senatus Consultum Neronianum,Explicit legal frameworks > Senatus Consultum Neronianum,1,yes
+259,Senatus Consultum Orfitianum,6,    Senatus Consultum Orfitianum,Explicit legal frameworks > Senatus Consultum Orfitianum,1,
+10205,Senatus Consultum Pegasianum,6,    Senatus Consultum Pegasianum,Explicit legal frameworks > Senatus Consultum Pegasianum,1,yes
+10215,Senatus Consultum Tertullianum,6,    Senatus Consultum Tertullianum,Explicit legal frameworks > Senatus Consultum Tertullianum,1,yes
+10204,Senatus Consultum Trebellianum,6,    Senatus Consultum Trebellianum,Explicit legal frameworks > Senatus Consultum Trebellianum,1,yes
+353,Athens,136,    Athens,Places > Athens,1,
+354,unknown,136,    unknown,Places > unknown,1,
+146,archive for private property,137,    archive for private property,Offices and Administration > archive for private property,1,
+10242,centumviri,137,    centumviri,Offices and Administration > centumviri,1,yes
+318,consilium principis,137,    consilium principis,Offices and Administration > consilium principis,1,
+254,conventus,137,    conventus,Offices and Administration > conventus,1,
+10157,Court,137,    Court,Offices and Administration > Court,1,yes
+206,fiscus,137,    fiscus,Offices and Administration > fiscus,1,
+10102,Inheritance tax,137,    Inheritance tax,Offices and Administration > Inheritance tax,1,yes
+283,manumission tax,137,    manumission tax,Offices and Administration > manumission tax,1,
+81,office,137,    office,Offices and Administration > office,1,
+282,opening of testament,137,    opening of testament,Offices and Administration > opening of testament,1,
+182,public service,137,    public service,Offices and Administration > public service,1,
+10136,revenue,137,    revenue,Offices and Administration > revenue,1,yes
+58,taxes,137,    taxes,Offices and Administration > taxes,1,
+287,capital punishment,138,    capital punishment,Punishments > capital punishment,1,
+10085,Damnatio in opus publicum,138,    Damnatio in opus publicum,Punishments > Damnatio in opus publicum,1,yes
+10133,Double penalty,138,    Double penalty,Punishments > Double penalty,1,yes
+117,fine,138,    fine,Punishments > fine,1,
+264,penalty for breach of will,138,    penalty for breach of will,Punishments > penalty for breach of will,1,
+10084,Relegatio,138,    Relegatio,Punishments > Relegatio,1,yes
+10018,Accountability,329,    Accountability,Procedure > Accountability,1,yes
+10010,burden of proof,329,    burden of proof,Procedure > burden of proof,1,yes
+10249,claim of inheritance,329,    claim of inheritance,Procedure > claim of inheritance,1,yes
+98,claimant's oath,329,    claimant's oath,Procedure > claimant's oath,1,
+10203,cognitio,329,    cognitio,Procedure > cognitio,1,yes
+40,compulsory oath,329,    compulsory oath,Procedure > compulsory oath,1,
+33,compulsory testimony,329,    compulsory testimony,Procedure > compulsory testimony,1,
+174,confession,329,    confession,Procedure > confession,1,
+47,consent-based resolution,329,    consent-based resolution,Procedure > consent-based resolution,1,
+119,court officer,329,    court officer,Procedure > court officer,1,
+46,decisory oath,329,    decisory oath,Procedure > decisory oath,1,
+11,denial of testimony,329,    denial of testimony,Procedure > denial of testimony,1,
+17,disqualified witnesses,329,    disqualified witnesses,Procedure > disqualified witnesses,1,
+10020,Division by lot,329,    Division by lot,Procedure > Division by lot,1,yes
+352,divorce,329,    divorce,Procedure > divorce,1,
+10134,Enforcement of judgment,329,    Enforcement of judgment,Procedure > Enforcement of judgment,1,yes
+10049,exceptio doli mali,329,    exceptio doli mali,Procedure > exceptio doli mali,1,yes
+20,false oath,329,    false oath,Procedure > false oath,1,
+10246,inventory of property,329,    inventory of property,Procedure > inventory of property,1,yes
+10017,Judicial authorization,329,    Judicial authorization,Procedure > Judicial authorization,1,yes
+39,judicial oath,329,    judicial oath,Procedure > judicial oath,1,
+10105,Legal translation,329,    Legal translation,Procedure > Legal translation,1,yes
+54,oath,329,    oath,Procedure > oath,1,
+24,oath of deposit,329,    oath of deposit,Procedure > oath of deposit,1,
+35,oath of ignorance,329,    oath of ignorance,Procedure > oath of ignorance,1,
+34,oath of knowledge,329,    oath of knowledge,Procedure > oath of knowledge,1,
+100,oath of orphans,329,    oath of orphans,Procedure > oath of orphans,1,
+89,oath of testimony,329,    oath of testimony,Procedure > oath of testimony,1,
+49,oath versus judgment,329,    oath versus judgment,Procedure > oath versus judgment,1,
+64,procedural law,329,    procedural law,Procedure > procedural law,1,
+45,procedural oath,329,    procedural oath,Procedure > procedural oath,1,
+255,proof,329,    proof,Procedure > proof,1,
+50,refusal of action,329,    refusal of action,Procedure > refusal of action,1,
+42,refusal to swear,329,    refusal to swear,Procedure > refusal to swear,1,
+258,rejection of judges,329,    rejection of judges,Procedure > rejection of judges,1,
+44,sworn denial,329,    sworn denial,Procedure > sworn denial,1,
+10162,Temporal restrictions on legal acts,329,    Temporal restrictions on legal acts,Procedure > Temporal restrictions on legal acts,1,yes
+38,voluntary oath,329,    voluntary oath,Procedure > voluntary oath,1,
+10089,witness attestation,329,    witness attestation,Procedure > witness attestation,1,yes
+13,witness obligation,329,    witness obligation,Procedure > witness obligation,1,
+36,witness summons,329,    witness summons,Procedure > witness summons,1,
+225,woman testimony,329,    woman testimony,Procedure > woman testimony,1,

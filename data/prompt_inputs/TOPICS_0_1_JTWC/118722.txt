@@ -1,0 +1,253 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Latin legal source. [translation Y/N]
+	a. Interpret the legal meaning of the source, as closely as possible to the specific matters it addresses.
+	b. Take into consideration its provided textual context, as long as it is directly relevant.
+2. Review the provided Judicial Topic Hierarchy.
+3. Identify and return the fields from the Judicial Topic Hierarchy that best match the specific content of the provided text.
+Select the lowest level possible that is relevant; otherwise, choose a relevant field from the level above.
+If none of the fields in the hierarchy adequately cover the source, return an empty list.  
+## Examples
+[1] Mishnah Bava Batra 8:1
+יש נוחלין ומנחילין, ויש נוחלין ולא מנחילין, מנחילין ולא נוחלין, לא נוחלין ולא מנחילין. ואלו נוחלין ומנחילין, האב את הבנים והבנים את האב והאחין מן האב, נוחלין ומנחילין. האיש את אמו והאיש את אשתו, ובני אחיות, נוחלין ולא מנחילין. האשה את בניה והאשה את בעלה ואחי האם, מנחילין ולא נוחלין. והאחים מן האם, לא נוחלין ולא מנחילין:
+Topics: 
+Classes of Heirs, Women Inheritance Rights
+
+[2] Tosefta Bava Batra 7:17
+כתב ירושה מלמטה ומתנה מלמעלה, ירושה מלמעלה ומתנה מלמטה, ירושה מכן ומכן ומתנה באמצע, הואיל והזכיר שום מתנה, דבריו קיימין.
+Topics:
+Deeds of Gift as Wills, Forms of Will
+[3] Ps. Ulpian 20.7
+Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, neque testis libripensve fieri potest. 
+Topics:
+Legal Capacity, Legal Capacity of Women, Mental Disability, Minors, Testaments
+
+## Judicial Topic Hierarchy 
+Courts and Procedure (ID 4)
+Courts and Procedure > Appeal (ID 20)
+Courts and Procedure > Courts (ID 16)
+Courts and Procedure > Courts > Arbitration (ID 100)
+Courts and Procedure > Courts > Choice of Judges (ID 99)
+Courts and Procedure > Evidence (ID 17)
+Courts and Procedure > Evidence > Archiving (ID 109)
+Courts and Procedure > Evidence > Documentary Evidence (ID 102)
+Courts and Procedure > Evidence > Witnesses (ID 101)
+Courts and Procedure > Execution (ID 19)
+Courts and Procedure > Oaths (ID 18)
+Courts and Procedure > Procedure (ID 121)
+Courts and Procedure > Procedure > Confession (ID 122)
+Obligations (ID 3)
+Obligations > Consensual Contract (ID 14)
+Obligations > Consensual Contract > Deposit (ID 79)
+Obligations > Consensual Contract > Deposit > Responsibility of depositee (ID 90)
+Obligations > Consensual Contract > Letting and Hiring (ID 78)
+Obligations > Consensual Contract > Letting and Hiring > Emphyteusis (ID 88)
+Obligations > Consensual Contract > Letting and Hiring > Labour (ID 85)
+Obligations > Consensual Contract > Letting and Hiring > Land Tenancy (ID 86)
+Obligations > Consensual Contract > Letting and Hiring > Misthosis (ID 89)
+Obligations > Consensual Contract > Loan and Pledge (ID 74)
+Obligations > Consensual Contract > Loan and Pledge > Interest (ID 80)
+Obligations > Consensual Contract > Loan and Pledge > Real security (ID 81)
+Obligations > Consensual Contract > Loan and Pledge > Transfer of Debt (ID 82)
+Obligations > Consensual Contract > Mandate (ID 77)
+Obligations > Consensual Contract > Partnership (ID 76)
+Obligations > Consensual Contract > Sale (ID 75)
+Obligations > Consensual Contract > Sale > Fraud (ID 84)
+Obligations > Consensual Contract > Sale > Warrenty (ID 83)
+Obligations > Delicts (ID 15)
+Obligations > Delicts > Damage (ID 93)
+Obligations > Delicts > Damage > Indirect cause (ID 98)
+Obligations > Delicts > Damage > wild Animals (ID 97)
+Obligations > Delicts > Theft (ID 91)
+Obligations > Delicts > Theft > In deposit (ID 96)
+Obligations > Delicts > Theft > Intention (ID 95)
+Obligations > Delicts > Theft > Return of Object (ID 94)
+Obligations > Delicts > Wild Animals (ID 92)
+Obligations > Verbal Contracts (ID 107)
+Obligations > Verbal Contracts > Stipulation (ID 108)
+Property (ID 2)
+Property > Acquisition (ID 10)
+Property > Acquisition > Conveyence (ID 55)
+Property > Acquisition > Conveyence > Classification of Things (ID 60)
+Property > Acquisition > Conveyence > Delivery (ID 62)
+Property > Acquisition > Conveyence > Formal act (ID 61)
+Property > Acquisition > Conveyence > Payment (ID 63)
+Property > Acquisition > Conveyence > Usucapio (ID 64)
+Property > Acquisition > Occupation (ID 56)
+Property > Acquisition > Occupation > Abandoned Property (ID 68)
+Property > Acquisition > Occupation > Accession (ID 69)
+Property > Acquisition > Occupation > From Natural state (ID 65)
+Property > Acquisition > Occupation > Specification (ID 67)
+Property > Acquisition > Occupation > Superficies (ID 66)
+Property > Acquisition > Usufruct (ID 57)
+Property > Neighbors (ID 13)
+Property > Possession (ID 11)
+Property > Servitudes (ID 12)
+Property > Servitudes > Personal (ID 59)
+Property > Servitudes > Personal > Usufruct (ID 73)
+Property > Servitudes > Praedial (ID 58)
+Property > Servitudes > Praedial > Rights of Light (ID 72)
+Property > Servitudes > Praedial > Rights of Water (ID 71)
+Property > Servitudes > Praedial > Rights of Way (ID 70)
+Public Law (ID 110)
+Public Law > Administrative Law (ID 112)
+Public Law > Administrative Law > Archive (ID 114)
+Public Law > Administrative Law > Judiciary (ID 113)
+Public Law > Administrative Law > Municipal Government  (ID 115)
+Public Law > Administrative Law > Provincial Government  (ID 123)
+Public Law > Taxation (ID 111)
+Status (ID 1)
+Status > Citizenship (ID 7)
+Status > Citizenship > Captivity (ID 41)
+Status > Citizenship > Freed Persons (ID 105)
+Status > Citizenship > Naturalization (ID 40)
+Status > Family (ID 5)
+Status > Family > Divorce (ID 22)
+Status > Family > Marital Arrangments (ID 23)
+Status > Family > Marital Arrangments > Dowry (ID 24)
+Status > Family > Marital Arrangments > Property of Women (ID 27)
+Status > Family > Marital Arrangments > Provision for Wife (ID 25)
+Status > Family > Marital Arrangments > Provisions for Children (ID 26)
+Status > Family > Marriage (ID 21)
+Status > Family > Marriage > Acts of Marriage (ID 117)
+Status > Family > Marriage > Legitimate Children (ID 118)
+Status > Inheritance (ID 6)
+Status > Inheritance > Debts and Obligations (ID 119)
+Status > Inheritance > Intestacy (ID 28)
+Status > Inheritance > Intestacy > Classes of Heirs (ID 30)
+Status > Inheritance > Intestacy > Father Inheritance Rights  (ID 103)
+Status > Inheritance > Intestacy > Firstborn Inheritance Rights (ID 104)
+Status > Inheritance > Intestacy > Women Inheritance rights (ID 31)
+Status > Inheritance > Testaments (ID 29)
+Status > Inheritance > Testaments > Accaptance of will (ID 35)
+Status > Inheritance > Testaments > Capacity (ID 34)
+Status > Inheritance > Testaments > Causa Mortis (ID 32)
+Status > Inheritance > Testaments > Deeds of Gift as Wills (ID 37)
+Status > Inheritance > Testaments > Disinheritance (ID 33)
+Status > Inheritance > Testaments > Forms of Will (ID 36)
+Status > Inheritance > Testaments > Legacies (ID 38)
+Status > Inheritance > Testaments > Trust (ID 39)
+Status > Legal Capacity (ID 9)
+Status > Legal Capacity > Adoption (ID 47)
+Status > Legal Capacity > Guardianship (ID 48)
+Status > Legal Capacity > Guardianship > Guardianship over Minors (ID 53)
+Status > Legal Capacity > Guardianship > Guardianship over Women (ID 54)
+Status > Legal Capacity > Infamy (ID 51)
+Status > Legal Capacity > Legal Capcity of Women (ID 120)
+Status > Legal Capacity > Mental Disability (ID 50)
+Status > Legal Capacity > Minors (ID 49)
+Status > Legal Capacity > Paternal Power (ID 46)
+Status > Legal Capacity > Paternal Power > Emanciaption (ID 52)
+Status > Slavery (ID 8)
+Status > Slavery > Manumission (ID 43)
+Status > Slavery > Manumission > Paramone (ID 45)
+Status > Slavery > Manumission > Pseudo Manumissons (ID 44)
+Status > Slavery > Obligations of Slaves (ID 42)
+Status > Slavery > Patronage/Clientela (ID 106)
+
+## Output Format
+Return ONLY a valid JSON array of objects. Do not include markdown formatting like ```json, preamble, or conversational text. Use the exact data types and structure shown in this example:
+
+[
+  {
+    "field": level_0 > level_1 > level_2,
+    "field_id": 123,
+  },
+  {
+    "field": level_0,
+    "field_id": 38,
+  }
+]
+
+## Input Data
+Broader Context:
+Iust. A. Iohanni pp.
+  Maximum vitium antiquae subtilitatis praesenti lege corrigimus, quae 
+ putavit alia esse iura observanda in successione parentum, si ex 
+ testamento veniant, in masculis et in feminis, cum ab intestato simile 
+ ius utrique sexui servaverunt, et aliis verbis exheredari debere filium 
+ sanxerunt, aliis filiam, et inter nepotes exheredandos alia iura civilia, 
+ alia praetoris introduxerunt. <a. 531 D. k. sept Constantinopoli post 
+ consulatum Lampadii et Orestis vv. CC.>
+Iust.
+  Et si praeteritus fuerat filius, vel ipso iure testamentum evertebat vel 
+ contra tabulas bonorum possessionem in totum accipiebat, filia autem 
+ praeterita ius adcrescendi ex iure vetere accipiebat, ut eodem momento et 
+ testamentum patris quodammodo ex parte iure adcrescendi evertat et ipsa 
+ quasi scripta legatis supponeretur, ex praetore autem habebat contra 
+ tabulas bonorum possessionem in totum, constitutio autem magni Antonini 
+ eam in tantum coartabat, in quantum ius adcrescendi competebat. qui enim 
+ tales differentias inducunt, quasi naturae accusatores existunt, cur non 
+ totos masculos generavit, ut, unde generentur, non fiant.
+Iust.
+  Nam haec corrigentes et maiorum nostrorum sequimur vestigia, qui eandem 
+ observationem colere manifestissimi sunt. scimus etenim antea simili modo 
+ et filium et alios omnes inter ceteros exheredatos scribere esse 
+ concessum, cum etiam centumviri aliam differentiam introduxerunt.
+Iust.
+  Et ex hac iniquitate vitium emersit, quale ex libris Ulpiani, quos ad 
+ edictum fecit praetoris, inventum a Triboniano viro gloriosissimo nostro 
+ quaestore ceterisque viris facundissimis compositoribus iuris enucleati 
+ ad nostras aures relatum est.
+Iust.
+  Nam cum ultimum adiutorium de inofficiosi querella positum est et nemo 
+ ex alio ortus praesidio ad hanc decurrere possit, inventa fuerat filia 
+ praeterita minus habens quam filia exheredata. cum enim per contra 
+ tabulas bonorum possessionem vel ius adcrescendi semissem substantiae 
+ filia praeterita accipiebat et omnibus legata praestare compellebatur, 
+ scilicet usque ad dodrantem suae portionis, remanebat ei sescuncia 
+ tantummodo in sua successione.
+ 
+Iust.
+  Quod si fuisset exheredata, quarta pars omnimodo totius substantiae ei 
+ relinqui debebat, et quam iniuria dignam pater existimabat, amplius 
+ habebat ea, quam taciturnitate in institutione praeteriit: et si secundum 
+ nostrae constitutionis definitionem, quam de supplemento quadrantis 
+ posuimus, repletio fuerat introducta, simili modo exheredatae in quarta 
+ repletio accedebat et ita vitium permansit, ut nec ex nostra 
+ constitutione emendationem aliquam sentiret.
+ 
+Iust.
+  Sancimus itaque, quemadmodum in successionibus parentium, quae ab 
+ intestato deferuntur, aequa lance et mares et feminae vocantur, ita et in 
+ scriptura testamentorum eas honorari et similibus verbis exheredationes 
+ nominatim procedere et contra tabulas possessionem talem habere, qualem 
+ filius suus vel emancipatus, ut et ipsa, si fuerit praeterita, ad instar 
+ filii emancipati vel sui vel testamentum ipso iure evertat vel per contra 
+ tabulas bonorum possessionem stare hoc non patiatur.
+Iust.
+  Et haec non solum in filiabus obtinere, sed etiam in nepotibus et in 
+ neptibus et deinceps observari censemus, si tamen ex masculis progeniti 
+ sunt.
+Sed quia et aliud vitium fuerat sub obtentu differentiae introductum et 
+ alia iura exheredationis in postumis, alia in iam natis observabantur, 
+ cum necesse fuerat postumam inter ceteros exheredatam etiam legato 
+ honorari, filiam autem iam progenitam et sine datione, et hoc brevissimo 
+ incremento verborum ad plenissimam definitionem deduximus sancientes 
+ eadem iura obtinere et in postumis exheredandis, sive masculini sive 
+ feminini sexus sint, quae in filiis et filiabus iam statuimus, ut etiam 
+ ipsi vel ipsae nominatim exheredentur, id est postumi vel postumae facta 
+ mentione.
+
+Source Text, 118722 (Latin):
+Iust.
+  Quod si fuisset exheredata, quarta pars omnimodo totius substantiae ei 
+ relinqui debebat, et quam iniuria dignam pater existimabat, amplius 
+ habebat ea, quam taciturnitate in institutione praeteriit: et si secundum 
+ nostrae constitutionis definitionem, quam de supplemento quadrantis 
+ posuimus, repletio fuerat introducta, simili modo exheredatae in quarta 
+ repletio accedebat et ita vitium permansit, ut nec ex nostra 
+ constitutione emendationem aliquam sentiret.
+ 
+
+English Translation:
+The Same Emperor to John, Praetorian Prefect.
+
+By the present law, We correct the greatest defect to be found in the legal enactments of the ancients, which held that different rules should be observed in the testamentary disposition of the estates of parents, so far as males and females were concerned, while both sexes enjoyed the same rights under an intestate succession. They decided that a son should be disinherited by a certain form of words, and a daughter by another, and in some instances they introduced the Civil, and in others the praetorian law, in the case of grandchildren. Where a son was passed over, he either annulled the will under the law, or he obtained praetorian possession of the entire estate contrary to the testamentary provisions. A daughter, however, who was passed over, was entitled to the right of accrual by the ancient law, so that at the same moment that the will of her father was set aside with reference to a certain portion of the estate, the right of accrual vested, and she herself was considered as included among the legatees; and, moreover, under Praetorian law she was entitled to complete possession of the property of the estate contrary to the terms of the will. A constitution of the Great Antoninus provided that under praetorian law she could only take what she was entitled to by the right of accrual. Jurists who established such distinctions as those above mentioned appear as accusers of Nature for not having solely produced males, so that those from whom they spring should not have been created. In order to remedy this, We follow in the path of our ancestors, who clearly appear to have entertained the same idea, for We know that in former times it was permitted to include both sons and daughters, and all others, among those disinherited in general terms. The centumvirs afterwards made another distinction, and from their injustice a second defect arose which has been brought to Our knowledge through the works of Ulpianus, which he composed on the Edict of the Praetor, and those of Tribonian, Our most illustrious Quaestor, and other eminent jurisconsults. The last resort of children who have been passed over is the complaint of inofficiousness in a will, and as a daughter could not have recourse to it, if she were passed over, her position was worse than if she had been disinherited. For since a daughter who was passed over would receive half of the estate either through Praetorian possession contrary to the provisions of the will, or by the right of accrual, and she was compelled to contribute to the payment of all legacies up to the amount of three-quarters of her share, she would, in fact, only be entitled to a twelfth and a half of the estate. If, however, she were disinherited, a fourth part of the entire estate must, by all means, have been given to her; and hence she whom her father thought worthy of being excluded from participation in his estate would receive more than a daughter whom he silently passed over in the appointment of his heirs. And if, in accordance with the terms of Our Constitution which We have promulgated with reference to the supplementing of the fourth part, the deficiency should have been made up, in like manner, the deficiency of the disinherited daughter, so far as the fourth part of her share of the estate was concerned, still existed, and thus the defect remained in existence and was not corrected by Our Constitution. Therefore, We order, as in the succession of parents which passes by intestacy, both males and females shall stand upon an equal footing; that females shall be benefited by the terms of wills; that specific disinheritances shall be stated in identical language; and that a daughter shall have praetorian possession of an estate contrary to the provisions of the will in the same manner as a son, who is his own master or emancipated, is entitled to; so that, if passed over, she can cause the will to be set aside by law in the same way as an emancipated son, or one who is independent, whether he causes the will to be annulled by process of law, or obtains praetorian possession of the estate in contravention of its terms. This rule shall apply not only to daughters, but also to grandsons and granddaughters, and We decree that it shall be observed with reference to other descendants, provided they are derived from males. But, for the reason that still another defect has arisen under the pretext of a difference, and one set of rules is observed with reference to the disinheritance of posthumous children, and another concerning those already born, as it was necessary for a posthumous female child to be disinherited with the others, and to be benefited by a legacy, but a daughter already born was not entitled to the legacy, We have extended this principle to the utmost by means of a very brief additional clause, directing that the same rule shall apply to the disinheritance of posthumous children, either of the male or female sex, which We have already established with reference to other sons and daughters; that is to say, that they must be disinherited by name, so that, in the case of posthumous children, they shall be specifically designated.
+
+Given at Constantinople, during the Kalends of September, after the fifth Consulate of Lampadius and Orestes, 531.
+
+
+

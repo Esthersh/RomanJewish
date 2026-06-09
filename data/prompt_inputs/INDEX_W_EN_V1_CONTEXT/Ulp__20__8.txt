@@ -1,0 +1,83 @@
+## Objective
+We are building an index for our corpus of legal sources.
+
+## Instructions
+1. Analyze the provided source and its English translation.
+2. Read the "Broader Context" provided. Use this context strictly to clarify ambiguities, identify underlying themes, or understand references within the Target Text.
+3. Select terms or short phrases that are distinctive to the specific legal issues discussed in the text. 
+4. Exclude very common, high-frequency words and general vocabulary (for instance: "son", "daughter", "man", "day", "house") 
+5. Return the dictionary form (lemma) of the selected terms or phrases.
+
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context (e.g., Full Chapter):
+"Testamentum est mentis nostrae iusta contestatio in id sollemniter 
+facta, ut post mortem nostram valeat.
+"
+"Testamentorum genera fuerunt tria, unum, quod calatis comitiis, alterum, 
+quod in procinctu, tertium, quod per aes et libram appellatum est. His 
+duobus testamentis abolitis hodie solum in usu est, quod per aes et 
+libram fit, id est per mancipationem imaginariam. In quo testamento 
+libripens adhibetur et familiae emptor et non minus quam quinque testes, 
+cum quibus testamenti factio est."
+"Qui in potestate testatoris est aut familiae emptoris, testis aut 
+libripens adhiberi non potest, quoniam familiae mancipatio inter 
+testatorem et familiae emptorem fit, et ob id domestici testes adhibendi 
+non sunt."
+Filio familiam emente pater eius testis esse non potest.
+"Ex duobus fratribus, qui in eiusdem patris potestate sunt, alter 
+familiae emptor, alter testis esse non potest, quoniam quod unus ex his 
+mancipio accipit, adquirit patri, cui filius suus testis esse non debet.
+"
+"Pater et filius +  qui in potestate eius est, item duo fratres, qui in 
+eiusdem patris potestate sunt, testes utrique, vel alter testis, alter 
+libripens fieri possunt, alio familiam emente; quoniam nihil nocet ex una 
+domo plures testes alieno negotio adhiberi."
+"Mutus, surdus, furiosus, pupillus, femina neque familiae emptor esse, 
+neque testis libripensve fieri potest."
+"Latinus Iunianus et familiae emptor et testis et libripens fieri potest, 
+quoniam cum eo testamenti factio est."
+"In testamento, quod per aes et libram fit, duae res aguntur, familiae 
+mancipatio et nuncupatio testamenti. nuncupatur testamentum in hunc 
+modum: tabulas testamenti testator tenens ita dicit: ""haec ut in his 
+tabulis cerisve scripta sunt, ita do lego, ita testor; itaque vos, 
+Quirites, testimonium perhibetote"". Quae nuncupatio et ""testatio"" 
+vocatur."
+"Filius familiae testamentum facere non potest, quoniam nihil suum habet, 
+ut testari de eo possit. Sed divus Augustus  + Marcus constituit, ut 
+filius familiae miles de eo peculio, quod in castris adquisivit, 
+testamentum facere possit."
+"Qui de statu suo incertus est factus, quod patre peregre mortuo ignorat, 
+se sui iuris esse, testamentum facere non potest.
+"
+"Inpubes, licet sui iuris sit, facere testamentum non potest, quoniam 
+nondum plenum iudicium animi habet."
+"Mutus, surdus, furiosus, item prodigus, cui lege bonis interdictum est, 
+testamentum facere non possunt: mutus, quoniam verba nuncupationis loqui 
+non potest; surdus, quoniam verba familiae emptoris exaudire non potest; 
+furiosus, quoniam mentem non habet, ut testari de ea re possit; prodigus, 
+quoniam commercium in illi interdictum est, et ob id familiam mancipare 
+non potest."
+"Latinus Iunianus, item is, qui dediticiorum numero est, testamentum 
+facere non potest: Latinus quidem, quoniam nominatim lege Iunia 
+prohibitum est; is autem, qui dediticiorum numero est, quoniam nec quasi 
+civis Romanus testari potest, cum sit peregrinus, nec quasi peregrinus, 
+quoniam nullius certae civitatis civis est, ut secundum leges civitatis 
+suae testetur."
+"Feminae post duodecimum annum aetatis testamenta facere possunt, tutore 
+auctore, donec in tutela sunt."
+"Servus publicus populi Romani partis dimidiae testamenti faciendi habet 
+ius."
+
+Target Source Text, Ulp. 20, 8 (Latin): 
+Latinus Iunianus et familiae emptor et testis et libripens fieri potest, 
+quoniam cum eo testamenti factio est.
+
+English Translation: 
+A Junian Latin may act either as purchaser, witness, or balance-holder, as he has no right to make a will

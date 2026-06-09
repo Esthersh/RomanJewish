@@ -1,0 +1,117 @@
+## Context
+For a project comparing different legal cultures in the Roman world, you are tagging specific sources from each culture, in order to identify similarities and differences between them. The project includes three types of tags: judicial topics, keywords and index. You will be identifying the judicial topics of the sources. For any given source choose the most relevant judicial topics from the provided list of topics below.  
+
+## Instructions
+1. Analyze the provided Latin source.
+ Interpret the legal meaning of the source, as closely as possible to the specific matters addressed in it.
+
+2. Select from the provided source legal terminology, or specific words or short phrases that are essential to the specific legal matters, legal principles or legal situations discussed in the text. 
+
+3. Exclude very common, high-frequency words and general vocabulary that are not pertinent to the legal matter at hand (such as particles, adjectives, adverbs, names, objects that are not relevant to the legal matter) 
+
+4. For single words, return the dictionary form (lemma) of the selected term. For fixed phrases return its accepted form (e.g. “in potestate”) 
+
+5. Guardrails:
+Do not return words that don’t appear in the text of the provided source.
+Return only words in the original language of the source.
+
+## Examples
+[1] Hebrew: Mishnah Bava Batra 8:5
+האומר איש פלוני בני בכור לא יטל פי שנים, איש פלוני בני לא יירש עם אחיו, לא אמר כלום, שהתנה על מה שכתוב בתורה. המחלק נכסיו לבניו על פיו, רבה לאחד ומעט לאחד והשוה להן את הבכור, דבריו קימין. ואם אמר משום ירשה, לא אמר כלום. כתב בין בתחלה בין באמצע בין בסוף משום מתנה, דבריו קימין. האומר איש פלוני יירשני במקום שיש בת, בתי תירשני במקום שיש בן, לא אמר כלום, שהתנה על מה שכתוב בתורה. רבי יוחנן בן ברוקה אומר, אם אמר על מי שהוא ראוי לירשו, דבריו קימין. ועל מי שאין ראוי לירשו, אין דבריו קימין. הכותב את נכסיו לאחרים והניח את בניו, מה שעשה עשוי, אבל אין רוח חכמים נוחה הימנו. רבן שמעון בן גמליאל אומר, אם לא היו בניו נוהגין כשורה, זכור לטוב:
+
+Index:
+בכור, הכותב נכסיו, מחלק נכסיו, מתנה על מה שכתוב בתורה, ירושה, מתנה, נחלה, נכס, פי שנים, ראוי ליורשו, רוח חכמים נוחה הימנו
+[2] Latin:  Ps. Ulpian 20.10
+Filius familiae testamentum facere non potest, quoniam nihil suum habet, ut testari de eo possit. Sed divus Augustus Marcus constituit, ut filius familiae miles de eo peculio, quod in castris adquisivit, testamentum facere possit.
+
+Index: 
+castra, filius familiae, miles, peculium, testamentum, testari, testor
+
+[3] Greek: Gnomon of Idios Logos 9
+θ τ[ο]ὺς ἀπελευ[θ]έ̣ρους τῶν ἀστῶν \ἀτέκνους/ καὶ ἀδιαθέτους τελευτῶν τας κληρονο[μ]ο̣ῦσιν οἱ πάτρωνες ἢ οἱ τούτων υἱοί, ἐὰν ὦσικαὶ ἐπιδικά[ζ]ο̣νται, θυγατέρες δὲ ἢ ἄλλος τι\ς/ οὐ κληρονομήσουσι ἀλλὰ̣ ὁ φίσκος.
+
+Index:
+κληρονομέω, πάτρων, φίσκος, ἀδιάθετος, ἀπελεύθερος, ἀστός, ἄτεκνος, ἐπιδικάζομαι, ἐπιδικάζω 
+
+## Output Format
+Return ONLY a valid JSON array of strings. Do not include markdown formatting, headers, or conversational text.
+
+Example format:
+["term1", "term2", "term3"]
+
+## Input Data
+Broader Context:
+Iust. A. Iohanni pp.
+  Maximum vitium antiquae subtilitatis praesenti lege corrigimus, quae 
+ putavit alia esse iura observanda in successione parentum, si ex 
+ testamento veniant, in masculis et in feminis, cum ab intestato simile 
+ ius utrique sexui servaverunt, et aliis verbis exheredari debere filium 
+ sanxerunt, aliis filiam, et inter nepotes exheredandos alia iura civilia, 
+ alia praetoris introduxerunt. <a. 531 D. k. sept Constantinopoli post 
+ consulatum Lampadii et Orestis vv. CC.>
+Iust.
+  Et si praeteritus fuerat filius, vel ipso iure testamentum evertebat vel 
+ contra tabulas bonorum possessionem in totum accipiebat, filia autem 
+ praeterita ius adcrescendi ex iure vetere accipiebat, ut eodem momento et 
+ testamentum patris quodammodo ex parte iure adcrescendi evertat et ipsa 
+ quasi scripta legatis supponeretur, ex praetore autem habebat contra 
+ tabulas bonorum possessionem in totum, constitutio autem magni Antonini 
+ eam in tantum coartabat, in quantum ius adcrescendi competebat. qui enim 
+ tales differentias inducunt, quasi naturae accusatores existunt, cur non 
+ totos masculos generavit, ut, unde generentur, non fiant.
+Iust.
+  Nam haec corrigentes et maiorum nostrorum sequimur vestigia, qui eandem 
+ observationem colere manifestissimi sunt. scimus etenim antea simili modo 
+ et filium et alios omnes inter ceteros exheredatos scribere esse 
+ concessum, cum etiam centumviri aliam differentiam introduxerunt.
+Iust.
+  Et ex hac iniquitate vitium emersit, quale ex libris Ulpiani, quos ad 
+ edictum fecit praetoris, inventum a Triboniano viro gloriosissimo nostro 
+ quaestore ceterisque viris facundissimis compositoribus iuris enucleati 
+ ad nostras aures relatum est.
+Iust.
+  Nam cum ultimum adiutorium de inofficiosi querella positum est et nemo 
+ ex alio ortus praesidio ad hanc decurrere possit, inventa fuerat filia 
+ praeterita minus habens quam filia exheredata. cum enim per contra 
+ tabulas bonorum possessionem vel ius adcrescendi semissem substantiae 
+ filia praeterita accipiebat et omnibus legata praestare compellebatur, 
+ scilicet usque ad dodrantem suae portionis, remanebat ei sescuncia 
+ tantummodo in sua successione.
+ 
+Iust.
+  Quod si fuisset exheredata, quarta pars omnimodo totius substantiae ei 
+ relinqui debebat, et quam iniuria dignam pater existimabat, amplius 
+ habebat ea, quam taciturnitate in institutione praeteriit: et si secundum 
+ nostrae constitutionis definitionem, quam de supplemento quadrantis 
+ posuimus, repletio fuerat introducta, simili modo exheredatae in quarta 
+ repletio accedebat et ita vitium permansit, ut nec ex nostra 
+ constitutione emendationem aliquam sentiret.
+ 
+Iust.
+  Sancimus itaque, quemadmodum in successionibus parentium, quae ab 
+ intestato deferuntur, aequa lance et mares et feminae vocantur, ita et in 
+ scriptura testamentorum eas honorari et similibus verbis exheredationes 
+ nominatim procedere et contra tabulas possessionem talem habere, qualem 
+ filius suus vel emancipatus, ut et ipsa, si fuerit praeterita, ad instar 
+ filii emancipati vel sui vel testamentum ipso iure evertat vel per contra 
+ tabulas bonorum possessionem stare hoc non patiatur.
+Iust.
+  Et haec non solum in filiabus obtinere, sed etiam in nepotibus et in 
+ neptibus et deinceps observari censemus, si tamen ex masculis progeniti 
+ sunt.
+Sed quia et aliud vitium fuerat sub obtentu differentiae introductum et 
+ alia iura exheredationis in postumis, alia in iam natis observabantur, 
+ cum necesse fuerat postumam inter ceteros exheredatam etiam legato 
+ honorari, filiam autem iam progenitam et sine datione, et hoc brevissimo 
+ incremento verborum ad plenissimam definitionem deduximus sancientes 
+ eadem iura obtinere et in postumis exheredandis, sive masculini sive 
+ feminini sexus sint, quae in filiis et filiabus iam statuimus, ut etiam 
+ ipsi vel ipsae nominatim exheredentur, id est postumi vel postumae facta 
+ mentione.
+
+Source Text, 118724 (Latin):
+Iust.
+  Et haec non solum in filiabus obtinere, sed etiam in nepotibus et in 
+ neptibus et deinceps observari censemus, si tamen ex masculis progeniti 
+ sunt.
+
