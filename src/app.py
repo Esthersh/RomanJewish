@@ -79,6 +79,56 @@ def get_config(results_dir, project_root=None):
     return default_input, keywords_file, fields_file, json_files
 
 
+def _keyword_csv_id_name_map(csv_path):
+    """Return {id: name} for a Keywords CSV (used to match a file to its version)."""
+    import csv as _csv
+    out = {}
+    try:
+        with open(csv_path, encoding='utf-8') as f:
+            for row in _csv.DictReader(f):
+                try:
+                    out[int(row['Id'])] = str(row['Keyword']).strip()
+                except (KeyError, ValueError, TypeError):
+                    continue
+    except OSError:
+        pass
+    return out
+
+
+def resolve_keywords_csv(active_basename, base_keywords_file, all_models_data):
+    """Pick the keyword CSV matching the keywords in the active merged file.
+
+    Model-suggested keyword ids (>= 10000) are assigned per prompt-version and COLLIDE
+    across versions (e.g. id 10000 is 'husband' in one run, 'Transmission of inheritance'
+    in another). So we must load the augmented list whose id->name mapping matches the
+    file being reviewed; otherwise keywords would be mislabeled. Files that use only base
+    ids (< 10000) keep using the base Keywords.csv unchanged.
+    """
+    if not base_keywords_file:
+        return base_keywords_file
+    needed = {}
+    for rec in (all_models_data.get(active_basename) or []):
+        for k in (rec.get('keywords') or []):
+            kid, name = k.get('keyword_id'), k.get('keyword')
+            if isinstance(kid, int) and name:
+                needed[kid] = str(name).strip()
+    if not any(kid >= 10000 for kid in needed):
+        return base_keywords_file  # no suggested keywords -> base list is correct
+    # Find an augmented CSV whose id->name matches every keyword in this file
+    data_dir = os.path.dirname(base_keywords_file)
+    try:
+        candidates = sorted(f for f in os.listdir(data_dir)
+                            if f.startswith('Keywords_augmented') and f.endswith('.csv'))
+    except OSError:
+        candidates = []
+    for fn in candidates:
+        path = os.path.join(data_dir, fn)
+        id_name = _keyword_csv_id_name_map(path)
+        if all(id_name.get(kid) == nm for kid, nm in needed.items()):
+            return path
+    return base_keywords_file  # no matching augmented list found -> fall back to base
+
+
 def create_annotation(result, filename,
                       kw_kept_ids, kw_new_accepted,
                       field_kept_ids, field_miss_ids,
@@ -1639,6 +1689,19 @@ def main():
     # Get the current results directly from our cached data
     current_basename = st.session_state.get('input_file_basename')
     current_results = all_models_data.get(current_basename, [])
+
+    # Load the keyword list that matches THIS file's prompt version. Suggested ids
+    # (>= 10000) differ per version, so reload when the active file changes. An explicit
+    # --keywords_file CLI override always wins.
+    if '--keywords_file' not in sys.argv and current_basename:
+        desired_kw_csv = resolve_keywords_csv(current_basename, cli_keywords_file, all_models_data)
+        if desired_kw_csv and st.session_state.get('_kw_loaded_from') != desired_kw_csv:
+            try:
+                st.session_state.keywords = DataLoader().load_keywords(desired_kw_csv)
+                st.session_state.keywords_file = desired_kw_csv
+                st.session_state._kw_loaded_from = desired_kw_csv
+            except Exception as e:
+                st.error(f"Error loading keyword list {os.path.basename(desired_kw_csv)}: {e}")
 
     # Determine which models have results for the current ref_id
     current_ref_id = None
