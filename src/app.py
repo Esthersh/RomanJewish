@@ -19,7 +19,26 @@ from classifier import format_keywords
 from streamlit_gsheets import GSheetsConnection
 
 from data_loader import DataLoader
-from keyword_manager import KeywordManager
+try:
+    from keyword_manager import KeywordManager
+except Exception:
+    # Fallback so the app always boots even if keyword_manager can't be imported on
+    # the deployment (e.g. a stale/odd Streamlit Cloud environment). Mirrors the
+    # lightweight collector defined in src/keyword_manager.py.
+    class KeywordManager:
+        def __init__(self):
+            self.new_keywords = []
+
+        def update_keywords(self, new_keywords_list):
+            added = []
+            for kw in new_keywords_list:
+                if kw and kw not in self.new_keywords:
+                    self.new_keywords.append(kw)
+                    added.append(kw)
+            return added
+
+        def get_all_new_keywords(self):
+            return self.new_keywords
 
 DEFAULT_SHEET_URL = "https://docs.google.com/spreadsheets/d/1cb4Pmc7SFCZ3C5kJD8kkDFQsuJXdk16a1afoRElJ3L0/edit?gid=0#gid=0"
 RESULTS_DIR = "prioritized/to_annotate"
