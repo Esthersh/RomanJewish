@@ -23,3 +23,7 @@ scripts/MATCH_INDEX_W_EN/
 # Exclude raw results if needed, but for now we need merged ones
 # results/kw_*.json etc are also needed for the review
 
+
+# Editor / agent local config
+.claude/
+.vscode/
